@@ -1,17 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PHONE, SITE_URL } from "@/lib/site-config";
+import { SITE_URL } from "@/lib/site-config";
 import { CTASection } from "@/components/cta-section";
-import {
-  Droplets,
-  Paintbrush,
-  Clock,
-  Shield,
-  Lightbulb,
-  Sparkles,
-  Volume2,
-  Printer,
-} from "lucide-react";
+import { Droplets, Paintbrush, Clock, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "תקרות מתוחות לבית ולעסק | SkyView",
