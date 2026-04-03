@@ -2,6 +2,32 @@
    SkyView — Main JavaScript
    ============================================ */
 
+// --- Analytics: Site-wide GA4 + FB Pixel ---
+// Replace placeholder IDs with real ones when ready
+(function() {
+  var GA4_ID = '';  // Set your GA4 ID here, e.g. 'G-XXXXXXXXXX'
+  var FB_PIXEL_ID = '';  // Set your FB Pixel ID here, e.g. '1234567890'
+
+  // GA4
+  if (GA4_ID && GA4_ID !== 'G-XXXXXXXXXX') {
+    var gs = document.createElement('script');
+    gs.async = true;
+    gs.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+    document.head.appendChild(gs);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function() { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', GA4_ID);
+  }
+
+  // FB Pixel
+  if (FB_PIXEL_ID && FB_PIXEL_ID !== 'XXXXXXXXXX') {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbq.js');
+    fbq('init', FB_PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- Header Scroll Effect ---
@@ -63,122 +89,116 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Calculator: ceiling + add-ons ---
+  // --- Calculator: simplified slider-based ---
   const calcForm = document.querySelector('.calculator');
   if (calcForm) {
-    const areaInput = calcForm.querySelector('[name="area"]');
-    const typeSelect = calcForm.querySelector('[name="type"]');
-    const addonChecks = calcForm.querySelectorAll('[name="addon"]');
+    const slider = document.getElementById('calc-area-slider');
+    const areaDisplay = document.getElementById('calc-area-display');
     const resultEl = calcForm.querySelector('.calculator__result');
     const resultRange = calcForm.querySelector('.calculator__result-range');
-    const ceilingPriceEl = document.getElementById('calc-ceiling-price');
-    const addonsRowEl = document.getElementById('calc-addons-row');
-    const addonsPriceEl = document.getElementById('calc-addons-price');
-    const addonsNoteEl = document.getElementById('calc-addons-note');
+    const minNote = calcForm.querySelector('.calculator__min-note');
+    const largeMsg = document.getElementById('calc-large-msg');
+    const typeBtns = calcForm.querySelectorAll('.calc-type-btn');
 
-    // Ceiling base prices per m²
-    const ceilingPrices = {
-      'standard': { min: 229, max: 260 },
-      'premium':  { min: 279, max: 320 },
-      'top':      { min: 339, max: 400 }
+    // Solution type prices per sqm
+    const solutionPrices = {
+      'standard':    { min: 229, max: 280 },
+      'illuminated': { min: 339, max: 450 },
+      'printed':     { min: 309, max: 420 }
     };
 
-    // Add-on estimates (rough ranges for calculator only)
-    const addonEstimates = {
-      'led':          { min: 180, max: 280, unit: 'מ׳', label: 'פסי LED', needsQuote: false },
-      'spots':        { min: 120, max: 200, unit: 'יחידה', label: 'ספוטים', needsQuote: false },
-      'track':        { min: 350, max: 550, unit: 'מ׳', label: 'מסילה מגנטית', needsQuote: false },
-      'illuminated':  { min: 0, max: 0, unit: '', label: 'תקרה מוארת', needsQuote: true },
-      'print':        { min: 0, max: 0, unit: '', label: 'הדפס', needsQuote: true },
-      'niche':        { min: 0, max: 0, unit: '', label: 'נישת וילון', needsQuote: true }
-    };
+    var selectedType = 'standard';
+    var MIN_ORDER_PRICE = 1500;
+
+    // Type button clicks
+    typeBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        typeBtns.forEach(function(b) {
+          b.classList.remove('calc-type-btn--active');
+          b.style.borderColor = 'var(--color-rule)';
+          b.style.background = 'transparent';
+        });
+        btn.classList.add('calc-type-btn--active');
+        btn.style.borderColor = 'var(--color-accent)';
+        btn.style.background = 'rgba(140,106,74,0.06)';
+        selectedType = btn.getAttribute('data-type');
+        calculate();
+      });
+    });
 
     function calculate() {
-      const area = parseFloat(areaInput?.value) || 0;
-      if (area <= 0) {
-        if (resultEl) resultEl.style.display = 'none';
-        return;
-      }
+      var area = parseInt(slider?.value) || 0;
+      if (areaDisplay) areaDisplay.textContent = area >= 120 ? '100+' : area;
+      if (area < 4) { if (resultEl) resultEl.style.display = 'none'; return; }
 
-      const type = typeSelect?.value || 'standard';
-      const range = ceilingPrices[type] || ceilingPrices.standard;
+      var isLarge = area >= 100;
+      var range = solutionPrices[selectedType] || solutionPrices.standard;
+      var totalMin = Math.round(area * range.min);
+      var totalMax = Math.round(area * range.max);
+      var belowMinimum = totalMax < MIN_ORDER_PRICE;
+      var effectiveMin = Math.max(totalMin, MIN_ORDER_PRICE);
+      var effectiveMax = Math.max(totalMax, MIN_ORDER_PRICE);
 
-      // Ceiling cost
-      const ceilMin = Math.round(area * range.min);
-      const ceilMax = Math.round(area * range.max);
-
-      if (ceilingPriceEl) {
-        ceilingPriceEl.textContent = '₪' + ceilMin.toLocaleString() + ' – ₪' + ceilMax.toLocaleString();
-      }
-
-      // Add-ons
-      const selectedAddons = [];
-      let addonsMin = 0;
-      let addonsMax = 0;
-      let hasCustomQuote = false;
-      const quoteItems = [];
-
-      addonChecks.forEach(function(cb) {
-        if (cb.checked) {
-          const info = addonEstimates[cb.value];
-          if (info) {
-            selectedAddons.push(info.label);
-            if (info.needsQuote) {
-              hasCustomQuote = true;
-              quoteItems.push(info.label);
-            } else {
-              // Rough estimate: assume ~3-5 units/meters for a typical room
-              var factor = area < 15 ? 3 : area < 25 ? 4 : 5;
-              addonsMin += info.min * factor;
-              addonsMax += info.max * factor;
-            }
-          }
-        }
-      });
-
-      if (addonsRowEl) {
-        if (selectedAddons.length > 0) {
-          addonsRowEl.style.display = 'block';
-          var priceText = '';
-          if (addonsMin > 0) {
-            priceText = '₪' + addonsMin.toLocaleString() + ' – ₪' + addonsMax.toLocaleString();
-          }
-          if (hasCustomQuote) {
-            if (priceText) priceText += ' +';
-            else priceText = 'דורש הצעת מחיר';
-          }
-          if (addonsPriceEl) addonsPriceEl.textContent = priceText;
-          if (addonsNoteEl) {
-            if (hasCustomQuote) {
-              addonsNoteEl.textContent = quoteItems.join(', ') + ' — מתומחרים לפי הפרויקט';
-            } else {
-              addonsNoteEl.textContent = 'הערכה בלבד — תלוי באורך, כמות ומורכבות';
-            }
-          }
-        } else {
-          addonsRowEl.style.display = 'none';
-        }
-      }
-
-      // Total
-      var totalMin = ceilMin + addonsMin;
-      var totalMax = ceilMax + addonsMax;
-      var totalText = '₪' + totalMin.toLocaleString() + ' – ₪' + totalMax.toLocaleString();
-      if (hasCustomQuote) totalText += '+';
-
-      if (resultRange) resultRange.textContent = totalText;
       if (resultEl) resultEl.style.display = 'block';
+
+      if (isLarge) {
+        // Large area: show phone message instead of price
+        if (resultRange) resultRange.textContent = '';
+        if (largeMsg) largeMsg.style.display = 'block';
+        if (minNote) minNote.style.display = 'none';
+      } else {
+        if (largeMsg) largeMsg.style.display = 'none';
+        var text;
+        if (belowMinimum) {
+          text = '₪' + MIN_ORDER_PRICE.toLocaleString();
+        } else {
+          text = '₪' + effectiveMin.toLocaleString() + ' – ₪' + effectiveMax.toLocaleString();
+        }
+        if (resultRange) resultRange.textContent = text;
+        if (minNote) {
+          if (belowMinimum) {
+            minNote.textContent = 'מחיר מינימום להזמנה: ₪' + MIN_ORDER_PRICE.toLocaleString();
+            minNote.style.display = 'block';
+          } else {
+            minNote.style.display = 'none';
+          }
+        }
+      }
+
+      // Store for lead data
+      calcForm.setAttribute('data-effective-min', effectiveMin);
+      calcForm.setAttribute('data-effective-max', effectiveMax);
+      calcForm.setAttribute('data-below-minimum', belowMinimum ? '1' : '0');
+      calcForm.setAttribute('data-type', selectedType);
     }
 
-    // Bind events
-    [areaInput, typeSelect].forEach(function(el) {
-      if (el) el.addEventListener('input', calculate);
-      if (el) el.addEventListener('change', calculate);
-    });
-    addonChecks.forEach(function(cb) {
-      cb.addEventListener('change', calculate);
-    });
+    // Bind slider
+    var calcTracked = false;
+    if (slider) {
+      slider.addEventListener('input', function() {
+        calculate();
+        if (!calcTracked) {
+          calcTracked = true;
+          if (typeof gtag === 'function') gtag('event', 'calculator_start', {event_category: 'engagement', page: location.pathname});
+        }
+      });
+    }
+
+    // Initialize
+    calculate();
   }
+
+  // --- WhatsApp & Phone click tracking ---
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof gtag === 'function') gtag('event', 'whatsapp_click', {event_category: 'contact', page: location.pathname});
+    });
+  });
+  document.querySelectorAll('a[href*="tel:"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof gtag === 'function') gtag('event', 'phone_click', {event_category: 'contact', page: location.pathname});
+    });
+  });
 
   // --- Smooth scroll for anchor links ---
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -250,10 +270,18 @@ document.addEventListener('DOMContentLoaded', function() {
     if (calcResult && calcResult.textContent) {
       var typeSelect = document.getElementById('type');
       var areaInput = document.getElementById('area');
+      var calcFormEl = document.querySelector('.calculator');
+      var effectiveMin = calcFormEl ? calcFormEl.getAttribute('data-effective-min') : '';
+      var effectiveMax = calcFormEl ? calcFormEl.getAttribute('data-effective-max') : '';
+      var belowMin = calcFormEl ? calcFormEl.getAttribute('data-below-minimum') === '1' : false;
+
       data.calculator = {
         area: areaInput ? areaInput.value : '',
         package: typeSelect ? typeSelect.options[typeSelect.selectedIndex].text : '',
-        estimate: calcResult.textContent
+        estimate: calcResult.textContent,
+        effective_price_min: effectiveMin,
+        effective_price_max: effectiveMax,
+        minimum_applied: belowMin
       };
       // Collect selected add-ons
       var addons = [];
@@ -332,7 +360,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (data.city) msg += '\nעיר: ' + data.city;
     if (data.room) msg += '\nחדר: ' + data.room;
     if (data.notes) msg += '\nהערות: ' + data.notes;
-    if (data.calculator) msg += '\nהערכה: ' + data.calculator.estimate + ' (' + data.calculator.package + ')';
+    if (data.calculator) {
+      msg += '\nהערכה: ' + data.calculator.estimate + ' (' + data.calculator.package + ')';
+      if (data.calculator.minimum_applied) msg += '\n(מחיר מינימום הוזמנה)';
+    }
     return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
   }
 
@@ -419,6 +450,57 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       submitLead(form);
     });
+  });
+
+  // --- Before/After Slider ---
+  document.querySelectorAll('.ba-slider').forEach(function(slider) {
+    var beforeDiv = slider.querySelector('.ba-slider__before');
+    var handle = slider.querySelector('.ba-slider__handle');
+    var beforeImg = beforeDiv ? beforeDiv.querySelector('img') : null;
+    if (!beforeDiv || !handle) return;
+
+    function setPosition(x) {
+      var rect = slider.getBoundingClientRect();
+      // RTL: calculate from right edge
+      var pct = ((rect.right - x) / rect.width) * 100;
+      pct = Math.max(5, Math.min(95, pct));
+      beforeDiv.style.width = pct + '%';
+      handle.style.right = pct + '%';
+      // Keep before image full width so it aligns with after
+      if (beforeImg) {
+        beforeImg.style.width = (rect.width) + 'px';
+      }
+    }
+
+    // Initialize before image width
+    function initWidth() {
+      if (beforeImg) {
+        beforeImg.style.width = slider.offsetWidth + 'px';
+      }
+    }
+    initWidth();
+    window.addEventListener('resize', initWidth);
+
+    var dragging = false;
+
+    slider.addEventListener('mousedown', function(e) {
+      dragging = true;
+      setPosition(e.clientX);
+      e.preventDefault();
+    });
+    document.addEventListener('mousemove', function(e) {
+      if (dragging) setPosition(e.clientX);
+    });
+    document.addEventListener('mouseup', function() { dragging = false; });
+
+    slider.addEventListener('touchstart', function(e) {
+      dragging = true;
+      setPosition(e.touches[0].clientX);
+    }, {passive: true});
+    document.addEventListener('touchmove', function(e) {
+      if (dragging) setPosition(e.touches[0].clientX);
+    }, {passive: true});
+    document.addEventListener('touchend', function() { dragging = false; });
   });
 
 });

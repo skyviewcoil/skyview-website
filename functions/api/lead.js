@@ -66,6 +66,10 @@ export async function onRequestPost(context) {
       lead.calculator_area = String(body.calculator.area || '');
       lead.calculator_package = String(body.calculator.package || '');
       lead.calculator_estimate = String(body.calculator.estimate || '');
+      lead.calculator_effective_min = String(body.calculator.effective_price_min || '');
+      lead.calculator_effective_max = String(body.calculator.effective_price_max || '');
+      lead.calculator_minimum_applied = body.calculator.minimum_applied ? 'כן' : 'לא';
+      if (body.calculator.addons) lead.calculator_addons = String(body.calculator.addons || '');
     }
 
     // Deliver via all configured channels in parallel
@@ -135,6 +139,9 @@ async function deliverEmail(lead, env) {
     `מקור: ${lead.page}`,
     `זמן: ${lead.timestamp}`,
     lead.calculator_estimate ? `\nהערכת מחשבון: ${lead.calculator_estimate} (${lead.calculator_package})` : null,
+    lead.calculator_effective_min ? `מחיר אפקטיבי: ₪${lead.calculator_effective_min} – ₪${lead.calculator_effective_max}` : null,
+    lead.calculator_minimum_applied === 'כן' ? '⚠️ מחיר מינימום הוזמנה (₪1,500)' : null,
+    lead.calculator_addons ? `תוספות: ${lead.calculator_addons}` : null,
   ].filter(Boolean).join('\n');
 
   try {

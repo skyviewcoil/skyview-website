@@ -28,16 +28,13 @@
   <!-- Header identical to homepage - in production would be a shared component -->
   <header class="header" role="banner">
     <div class="header__inner">
-      <a href="/" class="header__logo"><img src="../assets/images/logo/skyview-logo.png" alt="SkyView" style="height:36px;width:auto;"> <span>תקרות מעוצבות</span></a>
+      <a href="/" class="header__logo" aria-label="סקיי ויו — דף הבית"><span class="header__logo-mark">SKYVIEW</span></a>
       <nav class="header__nav" role="navigation" aria-label="ניווט ראשי">
-        <a href="/tikrot-metuhot">תקרות מתוחות</a>
-        <a href="/hadarim">לפי חדר</a>
-        <div class="nav-dropdown"><a href="/teura" class="nav-dropdown__trigger">תאורה</a><div class="nav-dropdown__menu"><a href="/teura/tikra-mueret">תקרה מוארת</a><a href="/teura/pasei-led-shkuim">פסי LED שקועים</a><a href="/teura/masila-magnetit-shkuaa">מסילה מגנטית</a><a href="/teura/spotim-shkuim">ספוטים שקועים</a><a href="/teura/teura-tluya">תאורה תלויה</a></div></div>
-        <a href="/mehiron" class="active">מחירון</a>
-        <a href="/proyektim">פרויקטים</a>
-        <a href="/madrich">מדריך</a>
-        <a href="/asakim">לעסקים</a>
-      </nav>
+      <div class="nav-dropdown"><a href="/tikrot-metuhot" class="nav-dropdown__trigger">תקרות מתוחות</a><div class="nav-dropdown__menu"><a href="/sugim">סוגי תקרות</a><a href="/brisol">בריסול</a><a href="/hashvaa/tikra-metuha-o-geves">מתוחה או גבס</a></div></div>
+      <div class="nav-dropdown"><a href="/hadarim" class="nav-dropdown__trigger">לפי חדר</a><div class="nav-dropdown__menu"><a href="/hadarim/salon">סלון</a><a href="/hadarim/ambatia">אמבטיה</a><a href="/hadarim/mitbah">מטבח</a><a href="/hadarim/heder-sheina">חדר שינה</a><a href="/hadarim/misrad">משרד</a><a href="/hadarim/mikve">מקווה</a></div></div>
+      <div class="nav-dropdown"><a href="/teura" class="nav-dropdown__trigger">תאורה</a><div class="nav-dropdown__menu"><a href="/teura/tikra-mueret">תקרה מוארת</a><a href="/teura/pasei-led-shkuim">פסי LED שקועים</a><a href="/teura/masila-magnetit-shkuaa">מסילה מגנטית</a><a href="/teura/spotim-shkuim">ספוטים שקועים</a><a href="/teura/teura-tluya">תאורה תלויה</a></div></div>
+      <a href="/mehiron">מחירון</a><a href="/proyektim">פרויקטים</a><a href="/madrich">מדריך</a><a href="/asakim">לעסקים</a>
+    </nav>
       <a href="/contact" class="btn btn--primary btn--sm header__cta-btn">הצעת מחיר</a>
       <button class="header__mobile-toggle" aria-label="תפריט"><span></span><span></span><span></span></button>
     </div>
@@ -54,6 +51,10 @@
         
         <h1>מחירון תקרות מתוחות — מחיר התקרה ותוספות תאורה</h1>
         <p>המחירים מתייחסים לתקרה עצמה — ייצור, אספקה והתקנה. תוספות תאורה, הדפסים ואלמנטים מיוחדים מתומחרים בנפרד.</p>
+      
+        <div class="page-hero__image" style="margin-top:var(--sp-8);border-radius:var(--r);overflow:hidden;max-height:360px;">
+          <img src="../assets/images/projects/project-5.jpg" alt="תקרה מתוחה מוארת — מחירון" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+        </div>
       </div>
     </section>
 
@@ -167,46 +168,54 @@
     <section class="section">
       <div class="container">
         <div class="section__header" style="text-align:center;">
-          <h2>מחשבון הערכת עלות</h2>
-          <p>הערכה ראשונית — תקרה + תוספות נבחרות</p>
+          <h2>מחשבון הערכת עלות מהירה</h2>
+          <p>בחרו סוג תקרה וגודל — קבלו הערכה ראשונית מיידית</p>
         </div>
-        <div class="calculator" style="max-width:640px;margin:0 auto;background:var(--color-surface);padding:var(--sp-8);border-radius:var(--r-lg);border:1px solid var(--color-rule);">
-          <div style="margin-bottom:var(--sp-6);padding-bottom:var(--sp-6);border-bottom:1px solid var(--color-rule-light);">
-            <h3 style="font-size:var(--text-md);margin-bottom:var(--sp-4);">① חבילת תקרה</h3>
-            <div class="form-group">
-              <label class="form-label" for="area">שטח התקרה (מ"ר)</label>
-              <input type="number" class="form-input" name="area" id="area" placeholder="לדוגמה: 20" min="1" max="500" dir="ltr" style="text-align:right;">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="type">רמת חומר</label>
-              <select class="form-select" name="type" id="type">
-                <option value="standard">בסיסי (MSD) — החל מ-₪229/מ"ר</option>
-                <option value="premium" selected>מומלץ (RENOLIT) — החל מ-₪279/מ"ר</option>
-                <option value="top">פרימיום (TEQTUM) — החל מ-₪339/מ"ר</option>
-              </select>
-            </div>
-          </div>
+        <div class="calculator" style="max-width:560px;margin:0 auto;background:var(--color-surface);padding:var(--sp-8);border-radius:var(--r-lg);border:1px solid var(--color-rule);">
+
+          <!-- Step 1: Ceiling type -->
           <div style="margin-bottom:var(--sp-6);">
-            <h3 style="font-size:var(--text-md);margin-bottom:var(--sp-4);">② תוספות (לא חובה)</h3>
-            <p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-bottom:var(--sp-4);max-width:none;">סמנו תוספות שמעניינות אתכם. מתומחרות בנפרד מהתקרה.</p>
-            <div style="display:flex;flex-direction:column;gap:var(--sp-3);">
-              <label style="display:flex;align-items:center;gap:var(--sp-3);font-size:var(--text-sm);cursor:pointer;"><input type="checkbox" name="addon" value="led" style="width:18px;height:18px;accent-color:var(--color-accent);"><span>פסי LED / פסים מרחפים</span></label>
-              <label style="display:flex;align-items:center;gap:var(--sp-3);font-size:var(--text-sm);cursor:pointer;"><input type="checkbox" name="addon" value="spots" style="width:18px;height:18px;accent-color:var(--color-accent);"><span>ספוטים שקועים</span></label>
-              <label style="display:flex;align-items:center;gap:var(--sp-3);font-size:var(--text-sm);cursor:pointer;"><input type="checkbox" name="addon" value="track" style="width:18px;height:18px;accent-color:var(--color-accent);"><span>מסילה מגנטית</span></label>
-              <label style="display:flex;align-items:center;gap:var(--sp-3);font-size:var(--text-sm);cursor:pointer;"><input type="checkbox" name="addon" value="illuminated" style="width:18px;height:18px;accent-color:var(--color-accent);"><span>תקרה מוארת</span></label>
-              <label style="display:flex;align-items:center;gap:var(--sp-3);font-size:var(--text-sm);cursor:pointer;"><input type="checkbox" name="addon" value="print" style="width:18px;height:18px;accent-color:var(--color-accent);"><span>הדפס על תקרה</span></label>
-              <label style="display:flex;align-items:center;gap:var(--sp-3);font-size:var(--text-sm);cursor:pointer;"><input type="checkbox" name="addon" value="niche" style="width:18px;height:18px;accent-color:var(--color-accent);"><span>נישת וילון</span></label>
+            <label class="form-label" style="font-weight:600;margin-bottom:var(--sp-4);display:block;">סוג תקרה</label>
+            <div id="calc-type-btns" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--sp-3);">
+              <button type="button" class="calc-type-btn calc-type-btn--active" data-type="standard" style="padding:var(--sp-4) var(--sp-3);border:2px solid var(--color-accent);border-radius:var(--r);background:rgba(140,106,74,0.06);cursor:pointer;text-align:center;">
+                <div style="font-weight:600;font-size:var(--text-sm);color:var(--text);">רגילה</div>
+                <div style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:2px;">מבריק / מט / סאטן</div>
+              </button>
+              <button type="button" class="calc-type-btn" data-type="illuminated" style="padding:var(--sp-4) var(--sp-3);border:2px solid var(--color-rule);border-radius:var(--r);background:transparent;cursor:pointer;text-align:center;">
+                <div style="font-weight:600;font-size:var(--text-sm);color:var(--text);">מוארת</div>
+                <div style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:2px;">תקרה שמאירה</div>
+              </button>
+              <button type="button" class="calc-type-btn" data-type="printed" style="padding:var(--sp-4) var(--sp-3);border:2px solid var(--color-rule);border-radius:var(--r);background:transparent;cursor:pointer;text-align:center;">
+                <div style="font-weight:600;font-size:var(--text-sm);color:var(--text);">עם הדפס</div>
+                <div style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:2px;">שמיים / טבע / לוגו</div>
+              </button>
             </div>
           </div>
-          <div class="calculator__result" style="display:none;padding:var(--sp-6);background:var(--color-ink);border-radius:var(--r-lg);color:#fff;">
-            <div id="calc-ceiling-row" style="display:flex;justify-content:space-between;padding:var(--sp-3) 0;border-bottom:1px solid rgba(255,255,255,0.1);"><span style="color:rgba(255,255,255,0.6);font-size:var(--text-sm);">תקרה בלבד</span><span id="calc-ceiling-price" style="font-weight:600;color:var(--color-accent);"></span></div>
-            <div id="calc-addons-row" style="display:none;padding:var(--sp-3) 0;border-bottom:1px solid rgba(255,255,255,0.1);"><div style="display:flex;justify-content:space-between;"><span style="color:rgba(255,255,255,0.6);font-size:var(--text-sm);">תוספות נבחרות</span><span id="calc-addons-price" style="font-weight:600;color:var(--color-accent);"></span></div><div id="calc-addons-note" style="font-size:var(--text-xs);color:rgba(255,255,255,0.4);margin-top:var(--sp-1);"></div></div>
-            <div style="display:flex;justify-content:space-between;padding:var(--sp-4) 0;"><span style="color:#fff;font-weight:600;">סה"כ הערכה</span><span class="calculator__result-range" style="color:var(--color-accent);font-family:var(--font-display);font-size:var(--text-2xl);"></span></div>
-            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.35);line-height:1.5;">* הערכה ראשונית. המחיר הסופי נקבע אחרי מדידה. תוספות מתומחרות לפי מורכבות בפועל.</div>
+
+          <!-- Step 2: Area slider -->
+          <div style="margin-bottom:var(--sp-6);">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--sp-4);">
+              <label class="form-label" style="font-weight:600;margin:0;">שטח (מ"ר)</label>
+              <span id="calc-area-display" style="font-family:var(--heading);font-size:var(--text-xl);font-weight:700;color:var(--color-accent);">12</span>
+            </div>
+            <input type="range" id="calc-area-slider" name="area" min="4" max="120" value="12" step="1" style="width:100%;height:6px;accent-color:var(--color-accent);cursor:pointer;">
+            <div style="display:flex;justify-content:space-between;margin-top:var(--sp-2);font-size:var(--text-xs);color:var(--color-text-muted);">
+              <span>4</span><span>10</span><span>30</span><span>100+</span>
+            </div>
           </div>
+
+          <!-- Result -->
+          <div class="calculator__result" style="display:none;padding:var(--sp-6);background:var(--color-ink);border-radius:var(--r-lg);color:#fff;text-align:center;">
+            <div style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);margin-bottom:var(--sp-2);">הערכה ראשונית</div>
+            <div class="calculator__result-range" style="color:var(--color-accent);font-family:var(--heading);font-size:var(--text-3xl);font-weight:700;"></div>
+            <div class="calculator__min-note" style="display:none;font-size:var(--text-xs);color:rgba(255,255,255,0.4);margin-top:var(--sp-2);"></div>
+            <div id="calc-large-msg" style="display:none;font-size:var(--text-sm);color:rgba(255,255,255,0.7);margin-top:var(--sp-3);line-height:1.6;">לשטחים מעל 100 מ"ר מומלץ לברר מחיר בטלפון<br><a href="tel:+972528082988" style="color:var(--color-accent);font-weight:600;">052-808-2988</a></div>
+            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.3);margin-top:var(--sp-3);line-height:1.5;">* כולל ייצור, אספקה והתקנה. המחיר הסופי נקבע אחרי מדידה.</div>
+          </div>
+
           <div style="margin-top:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-3);">
             <a href="/contact" class="btn btn--primary btn--lg btn--block">קבלו הצעת מחיר מדויקת</a>
-            <a href="https://wa.me/972528082988?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8" onclick="if(typeof gtag==='function')gtag('event','whatsapp_click',{event_category:'contact'})" data-track="wa" target="_blank" rel="noopener" class="btn btn--outline btn--block">💬 וואטסאפ</a>
+            <a href="https://wa.me/972528082988?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8" onclick="if(typeof gtag==='function')gtag('event','whatsapp_click',{event_category:'contact'})" data-track="wa" target="_blank" rel="noopener" class="btn btn--outline btn--block">וואטסאפ</a>
           </div>
         </div>
       </div>
@@ -241,7 +250,17 @@
     </section>
 
     <!-- CTA -->
-    <section class="cta-section">
+    
+    <section class="section">
+      <div class="container container--narrow">
+
+      <div class="internal-links-block">
+        <h3>דפים רלוונטיים</h3>
+        <ul><li><a href="/tikrot-metuhot">תקרות מתוחות</a></li><li><a href="/sugim">סוגי גימורים</a></li><li><a href="/teura">פתרונות תאורה</a></li><li><a href="/hashvaa/tikra-metuha-o-geves">השוואה לגבס</a></li><li><a href="/madrich/ma-mashpia-al-mehir">מה משפיע על המחיר</a></li><li><a href="/madrich/homrim">חומרים — PVC מול בד</a></li></ul>
+      </div>
+      </div>
+    </section>
+<section class="cta-section">
       <div class="container">
         <h2>רוצים הצעת מחיר מדויקת?</h2>
         <p>כולל תקרה + תוספות — אחרי שיחה קצרה</p>
@@ -256,8 +275,76 @@
 
   </main>
 
-  <footer class="footer"><div class="container"><div class="footer__bottom"><span>© 2026 SkyView — תקרות מעוצבות. כל הזכויות שמורות.</span></div></div></footer>
-  <div class="sticky-cta"><a href="tel:+972528082988" onclick="if(typeof gtag==='function')gtag('event','phone_click',{event_category:'contact'})" class="btn btn--dark">📞 052-808-2988</a><a href="/contact" class="btn btn--primary">הצעת מחיר</a></div>
+        <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__brand-name">סקיי ויו - תקרות מעוצבות</div>
+          <p>תקרות מתוחות מעוצבות לבית ולעסק. התקנה מהירה ונקייה בכל רחבי הארץ.</p>
+          <div style="margin-top:var(--space-lg);">
+            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:4px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <a href="tel:+972528082988" onclick="if(typeof gtag==='function')gtag('event','phone_click',{event_category:'contact'})" style="color:var(--color-accent);">052-808-2988</a></div>
+            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-left:4px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> skyview.co.il@gmail.com</div>
+          </div>
+          <div class="footer__social" style="display:flex;gap:var(--sp-5);margin-top:var(--sp-8);align-items:center;">
+            <a href="https://wa.me/972528082988?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%AA%D7%A7%D7%A8%D7%94%20%D7%9E%D7%AA%D7%95%D7%97%D7%94" target="_blank" rel="noopener" aria-label="WhatsApp" class="footer__social-link" onclick="if(typeof gtag==='function')gtag('event','whatsapp_click',{event_category:'contact'})"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.52-1.476A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.352 0-4.55-.767-6.32-2.066l-.44-.33-2.684.877.893-2.636-.363-.476A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+            <a href="https://www.instagram.com/skyview.co.il/" target="_blank" rel="noopener" aria-label="Instagram" class="footer__social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.facebook.com/skyview.co.il" target="_blank" rel="noopener" aria-label="Facebook" class="footer__social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.youtube.com/@skyview7076/featured" target="_blank" rel="noopener" aria-label="YouTube" class="footer__social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer__col-title">שירותים</div>
+          <ul class="footer__links">
+            <li><a href="/tikrot-metuhot">תקרות מתוחות</a></li>
+            <li><a href="/sugim">סוגי תקרות</a></li>
+            <li><a href="/teura">תאורה</a></li>
+            <li><a href="/mehiron">מחירון</a></li>
+            <li><a href="/brisol">בריסול</a></li>
+            <li><a href="/hashvaa/tikra-metuha-o-geves">מתוחה או גבס</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">חדרים</div>
+          <ul class="footer__links">
+            <li><a href="/hadarim/salon">סלון</a></li>
+            <li><a href="/hadarim/ambatia">אמבטיה</a></li>
+            <li><a href="/hadarim/mitbah">מטבח</a></li>
+            <li><a href="/hadarim/heder-sheina">חדר שינה</a></li>
+            <li><a href="/hadarim/misrad">משרד</a></li>
+            <li><a href="/hadarim/mikve">מקווה</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">מידע</div>
+          <ul class="footer__links">
+            <li><a href="/madrich">מדריך</a></li>
+            <li><a href="/proyektim">פרויקטים</a></li>
+            <li><a href="/asakim">לעסקים</a></li>
+            <li><a href="/architects-designers">לאדריכלים</a></li>
+            <li><a href="/azorim">אזורי שירות</a></li>
+            <li><a href="/odot">אודות</a></li>
+            <li><a href="/contact">צור קשר</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 סקיי ויו — תקרות מעוצבות. כל הזכויות שמורות.</span>
+        <span>
+          <a href="/azorim/ashdod" style="color:rgba(255,255,255,0.4);">אשדוד</a> ·
+          <a href="/azorim/tel-aviv" style="color:rgba(255,255,255,0.4);">תל אביב</a> ·
+          <a href="/azorim/yerushalayim" style="color:rgba(255,255,255,0.4);">ירושלים</a> ·
+          <a href="/azorim/haifa" style="color:rgba(255,255,255,0.4);">חיפה</a> ·
+          <a href="/azorim/merkaz" style="color:rgba(255,255,255,0.4);">מרכז</a> ·
+          <a href="/azorim/darom" style="color:rgba(255,255,255,0.4);">דרום</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+  <div class="sticky-cta"><a href="tel:+972528082988" onclick="if(typeof gtag==='function')gtag('event','phone_click',{event_category:'contact'})" class="btn btn--dark">052-808-2988</a><a href="/contact" class="btn btn--primary">הצעת מחיר</a></div>
   <script src="../js/main.js"></script>
   <script id="skyview-tracking">
   document.addEventListener('DOMContentLoaded',function(){
