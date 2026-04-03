@@ -1,73 +1,43 @@
-# SkyView — תקרות מתוחות
+# SkyView — תקרות מעוצבות
 
-Production-grade Next.js website for SkyView stretch ceiling company in Israel.
+Production website for SkyView stretch ceilings — skyview.co.il.
+67 pages, Hebrew RTL, static HTML + CSS + JS, deployed on Cloudflare Pages.
 
-## Architecture
+## Stack
+- Static HTML + single CSS (`css/style.css`) + single JS (`js/main.js`)
+- Cloudflare Pages (Git deploy)
+- Cloudflare Pages Function (`functions/api/lead.js`) for lead submission
+- Fonts: Heebo (headings) + Assistant (body) via Google Fonts
 
-- **Framework**: Next.js 14 + App Router (React Server Components)
-- **Language**: TypeScript (strict)
-- **Styling**: Tailwind CSS
-- **Font**: Heebo via `next/font/google`
-- **Direction**: RTL Hebrew
-- **SEO**: Per-route metadata, dynamic sitemap.xml, robots.txt, BreadcrumbList + Organization + LocalBusiness structured data
-
-## Routes (23 public pages)
-
-| Route | Purpose |
-|-------|---------|
-| `/` | Homepage — hero, benefits, solutions, rooms, process, FAQ |
-| `/stretch-ceilings` | Service hub — all ceiling types with room links |
-| `/pricing` | Pricing tiers, room price table, what's included/excluded |
-| `/projects` | Project gallery (placeholder) |
-| `/contact` | Contact info — phone, WhatsApp, email, Instagram |
-| `/about` | Company info |
-| `/stretch-ceiling-living-room` | Living room page |
-| `/stretch-ceiling-bathroom` | Bathroom page — water resistance focus |
-| `/stretch-ceiling-kitchen` | Kitchen page — grease/moisture, cleaning |
-| `/stretch-ceiling-mikveh` | Mikveh page — extreme humidity, sky print |
-| `/stretch-ceiling-matte` | Matte finish |
-| `/stretch-ceiling-glossy` | Glossy finish — mirror effect |
-| `/lighted-stretch-ceiling` | Backlit translucent ceiling |
-| `/acoustic-stretch-ceiling` | Acoustic membrane |
-| `/printed-stretch-ceiling` | UV-printed ceiling |
-| `/stretch-ceiling-led-strip` | LED strip integration (פסים מרחפים) |
-| `/stretch-ceiling-magnetic-track` | Magnetic track lighting |
-| `/stretch-ceiling-vs-drywall` | Comparison table — stretch vs drywall |
-| `/stretch-ceiling-guide` | Buyer's guide — materials, process, limitations |
-| `/stretch-ceiling-repair` | Repair service |
-| `/barrisol` | Barrisol brand page |
-| `/stretch-ceilings-for-business` | B2B — offices, restaurants, hotels |
-| `/stretch-ceilings-for-architects` | Architects — specs, DWG, constraints |
-
-Every route has unique: title, meta description, H1, canonical URL, and content.
-
-## SEO Features
-
-- **Structured data**: Organization, LocalBusiness, BreadcrumbList (per page)
-- **Sitemap**: Dynamic `sitemap.ts` with all 23 routes
-- **Robots**: Dynamic `robots.ts` pointing to sitemap
-- **Canonicals**: Environment-configurable via `NEXT_PUBLIC_SITE_URL`
-- **Breadcrumbs**: Visual UI + JSON-LD on 19 core pages
-- **Internal linking**: Every SEO page links to 3-6 related pages
-
-## Setup
-
-```bash
-npm install
-cp .env.example .env.local  # fill in your values
-npm run dev
-```
+## Deploy
+1. Push to GitHub
+2. Connect repo to Cloudflare Pages
+3. Build settings: **no build command**, output directory: `/` (root)
+4. Set environment variables (see below)
 
 ## Environment Variables
+Set in Cloudflare Dashboard → Pages → Settings → Environment Variables:
 
-See `.env.example`. Required:
-- `NEXT_PUBLIC_SUPABASE_URL` — Supabase project URL
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY` — Supabase publishable key
-- `NEXT_PUBLIC_SITE_URL` — Production domain (defaults to https://skyview.co.il)
+| Variable | Required | Purpose |
+|----------|----------|---------|
+| `WEBHOOK_URL` | At least one of these | Zapier/Make/n8n webhook URL |
+| `SENDGRID_API_KEY` | At least one of these | SendGrid API key for email |
+| `NOTIFY_EMAIL` | Optional | Lead notification email (default: skyview.co.il@gmail.com) |
 
-## Design System
+## Lead Flow
+1. User fills form on any page
+2. `js/main.js` → `POST /api/lead`
+3. `functions/api/lead.js` → webhook + SendGrid in parallel
+4. Fallback: WhatsApp deep link on API failure only
 
-- **Colors**: Cream `#FAFAF8`, Graphite `#1A1A2E`, Navy `#1E3A5F`
-- **Font**: Heebo 300-900 via next/font
-- **Layout**: max-width 1280px, section spacing 88px/52px
-- **Buttons**: 54px height, no border-radius, full-width on mobile
+## Pages (67)
+- Homepage + 5 core service pages
+- 7 room pages + hub
+- 12 lighting pages + hub
+- 6 finish pages + hub
+- 7 guide pages + hub
+- 5 technical/trust pages + hub
+- 8 project case studies + hub
+- 6 location pages + hub
+- 3 B2B/professional pages
+- Contact page
