@@ -2788,3 +2788,85 @@ html, body { overflow-x: hidden; }
   .calc-dual-grid { grid-template-columns: 1fr !important; }
   .calc-bridge-grid { grid-template-columns: 1fr !important; gap: var(--sp-6) !important; }
 }
+
+/* ── Room-type pricing cards ── */
+.pricing-room-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+  max-width: 1060px;
+  margin: 0 auto;
+}
+.pricing-room-card {
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: var(--r);
+  padding: var(--sp-8) var(--sp-6);
+  display: flex;
+  flex-direction: column;
+}
+.pricing-room-card--featured {
+  background: rgba(255,255,255,0.09);
+  border-color: var(--accent);
+  position: relative;
+}
+.pricing-room-card__badge {
+  position: absolute;
+  top: -12px;
+  right: 50%;
+  transform: translateX(50%);
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+.pricing-room-card__name {
+  font-family: var(--heading);
+  font-size: var(--h4);
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: var(--sp-3);
+}
+.pricing-room-card__price {
+  font-family: var(--heading);
+  font-size: 1.625rem;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+  margin-bottom: var(--sp-5);
+  line-height: 1.2;
+}
+.pricing-room-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--sp-6);
+  flex: 1;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.pricing-room-card__features li {
+  padding: var(--sp-3) 0;
+  font-size: var(--ui);
+  color: rgba(255,255,255,0.72);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  justify-content: flex-end;
+}
+.pricing-room-card__features li::before {
+  content: '\2713';
+  color: #6dba7b;
+  font-weight: 700;
+  order: 1;
+  flex-shrink: 0;
+}
+.pricing-room-card .btn { margin-top: auto; }
+@media (max-width: 767px) {
+  .pricing-room-cards { grid-template-columns: 1fr; }
+  .pricing-room-card__price { font-size: 1.375rem; }
+  .pricing-room-card { padding: var(--sp-6); }
+}

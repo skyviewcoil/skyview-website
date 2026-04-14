@@ -1624,6 +1624,11 @@ export default {
     const url = new URL(request.url);
     let path = decodeURIComponent(url.pathname);
 
+    // Hard 301 — consolidated warranty page redirect
+    if (path === '/madrich-techni/ahrayut-betihut' || path === '/madrich-techni/ahrayut-betihut/') {
+      return Response.redirect('https://www.skyview.co.il/aharayut-yatzranim/', 301);
+    }
+
     // Normalize: strip trailing slash except root
     if (path.length > 1 && path.endsWith('/')) {
       path = path.slice(0, -1);
@@ -1658,7 +1663,7 @@ export default {
 
     // Worker version probe — unique to each deploy
     if (path === '/wv') {
-      return new Response(JSON.stringify({worker:'v76',ru:true,ts:Date.now()}), {
+      return new Response(JSON.stringify({worker:'v86',ru:true,ts:Date.now()}), {
         status: 200, headers: {'Content-Type':'application/json'}
       });
     }
