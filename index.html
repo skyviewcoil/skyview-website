@@ -352,15 +352,15 @@
     </div>
   </nav>
 
-  <main>
+    <main>
 
-    <!-- ===== HERO — video background ===== -->
+    <!-- ===== HERO ===== -->
     <section class="hero">
       <div class="hero__bg">
-        <video autoplay muted loop playsinline poster="assets/images/hero/hero-poster.jpg" style="width:100%;height:100%;object-fit:cover;" aria-hidden="true">
+        <video autoplay muted loop playsinline poster="assets/images/hero/hero-poster.jpg" class="hero__video" aria-hidden="true">
           <source src="assets/videos/Stretch_Ceiling_Hero_Video_Generation.mp4" type="video/mp4">
         </video>
-        <img src="assets/images/hero/hero-poster.jpg" alt="תקרה מתוחה מבריקה בסלון יוקרתי עם ספוטים ותאורה חמה — SkyView" class="hero__poster" style="width:100%;height:100%;object-fit:cover;">
+        <img src="assets/images/hero/hero-poster.jpg" alt="תקרה מתוחה מבריקה בסלון יוקרתי עם ספוטים ותאורה חמה — SkyView" class="hero__poster">
       </div>
       <div class="container">
         <div class="hero__content">
@@ -370,141 +370,166 @@
             <a href="/contact" class="btn btn--primary btn--lg">קבלו הצעת מחיר</a>
             <a href="/mehiron" class="btn btn--secondary">מחירון ומחשבון</a>
           </div>
-          <a href="/hadmaya-rishonit-hinam?utm_source=site&amp;utm_medium=homepage&amp;utm_campaign=hadmaya_rishonit&amp;utm_content=hero_badge" style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:1rem;background:rgba(140,106,74,0.18);border:1px solid rgba(140,106,74,0.4);color:rgba(255,255,255,0.85);font-size:0.875rem;padding:0.45rem 1rem;border-radius:20px;text-decoration:none;white-space:nowrap;transition:background 0.2s;" onmouseover="this.style.background='rgba(140,106,74,0.3)'" onmouseout="this.style.background='rgba(140,106,74,0.18)'" aria-label="הדמיית AI חינם — חדש">
-            🎁 חדש: הדמיית AI חינם לחדר אחד — תוך 24 שעות
+          <a href="/hadmaya-rishonit-hinam?utm_source=site&amp;utm_medium=homepage&amp;utm_campaign=hadmaya_rishonit&amp;utm_content=hero_badge" class="hero__ai-badge" aria-label="הדמיית AI חינם — חדש">
+            חדש: הדמיית AI חינם לחדר אחד — תוך 24 שעות
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ===== WHY STRETCH CEILING ===== -->
-    <section class="section">
+    <!-- ===== WHY STRETCH CEILING — benefits + trust ===== -->
+    <section class="section section--alt">
       <div class="container">
-        <div class="section__header section__header--start">
+        <div class="section__header section__header--start reveal">
           <h2>למה תקרה מתוחה</h2>
           <p>פתרון מודרני שמחליף גבס — מהיר יותר, נקי יותר, ועמיד יותר</p>
         </div>
-        <div class="grid grid--4">
-          <div class="feature-card">
-            <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <div class="feature-card__title">התקנה תוך יום</div>
-            <div class="feature-card__text">חדר ממוצע מותקן ב-4-8 שעות. דירה שלמה — יום עבודה. בלי לפנות רהיטים.</div>
+        <div class="benefits-grid reveal-group">
+          <div class="benefit-card reveal">
+            <div class="benefit-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3 class="benefit-card__title">התקנה תוך יום</h3>
+            <p class="benefit-card__text">חדר ממוצע מותקן ב-4-8 שעות. דירה שלמה — יום עבודה. בלי לפנות רהיטים.</p>
           </div>
-          <div class="feature-card">
-            <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-            <div class="feature-card__title">ללא לכלוך</div>
-            <div class="feature-card__text">בלי אבק, בלי שפכטל, בלי צבע. ההתקנה נקייה — מתאימה גם לדירה מאוכלסת.</div>
+          <div class="benefit-card reveal">
+            <div class="benefit-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3 class="benefit-card__title">ללא לכלוך</h3>
+            <p class="benefit-card__text">בלי אבק, בלי שפכטל, בלי צבע. ההתקנה נקייה — מתאימה גם לדירה מאוכלסת.</p>
           </div>
-          <div class="feature-card">
-            <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
-            <div class="feature-card__title">עמידה ברטיבות</div>
-            <div class="feature-card__text">עמידה במים ובלחות. לא מפתחת עובש. מתאימה לאמבטיות, מטבחים ומקוואות.</div>
+          <div class="benefit-card reveal">
+            <div class="benefit-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <h3 class="benefit-card__title">עמידה ברטיבות</h3>
+            <p class="benefit-card__text">עמידה במים ובלחות. לא מפתחת עובש. מתאימה לאמבטיות, מטבחים ומקוואות.</p>
           </div>
-          <div class="feature-card">
-            <div class="feature-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
-            <div class="feature-card__title">תאורה משולבת</div>
-            <div class="feature-card__text">שילוב פסי LED, ספוטים, תאורה היקפית ותקרות מוארות — כחלק מהתקרה.</div>
-          </div>
-        </div>
-
-        <!-- Layer 2: Why Us -->
-        <div style="margin-top:var(--sp-12);padding-top:var(--sp-10);border-top:1px solid var(--border);">
-          <h3 style="font-size:clamp(1.1rem,2vw,1.375rem);font-weight:500;margin-bottom:var(--sp-8);color:var(--text);">למה איתנו</h3>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5) var(--sp-10);">
-            <div style="display:flex;align-items:flex-start;gap:var(--sp-3);">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span style="font-size:0.9375rem;color:var(--text-soft);line-height:1.5;">פעילים משנת 2017</span>
+          <div class="benefit-card reveal">
+            <div class="benefit-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             </div>
-            <div style="display:flex;align-items:flex-start;gap:var(--sp-3);">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span style="font-size:0.9375rem;color:var(--text-soft);line-height:1.5;">מעל 1,000 פרויקטים הושלמו</span>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:var(--sp-3);">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span style="font-size:0.9375rem;color:var(--text-soft);line-height:1.5;">אחריות עד 15 שנה על מערכות נבחרות</span>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:var(--sp-3);">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span style="font-size:0.9375rem;color:var(--text-soft);line-height:1.5;">חוזרים תוך 15 דקות בשעות הפעילות</span>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:var(--sp-3);">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span style="font-size:0.9375rem;color:var(--text-soft);line-height:1.5;">יצרנים מובילים: MSD · Teqtum · Renolit</span>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:var(--sp-3);">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span style="font-size:0.9375rem;color:var(--text-soft);line-height:1.5;">צוות שירות ותיקונים בכל הארץ</span>
-            </div>
+            <h3 class="benefit-card__title">תאורה משולבת</h3>
+            <p class="benefit-card__text">שילוב פסי LED, ספוטים, תאורה היקפית ותקרות מוארות — כחלק מהתקרה.</p>
           </div>
         </div>
 
-        <style>
-          @media (max-width:767px) {
-            .why-us-grid { grid-template-columns:1fr !important; }
-          }
-        </style>
+        <div class="trust-strip reveal">
+          <div class="trust-strip__item">
+            <span class="trust-strip__number">2017</span>
+            <span class="trust-strip__label">פעילים משנת</span>
+          </div>
+          <div class="trust-strip__divider"></div>
+          <div class="trust-strip__item">
+            <span class="trust-strip__number">1,000+</span>
+            <span class="trust-strip__label">פרויקטים הושלמו</span>
+          </div>
+          <div class="trust-strip__divider"></div>
+          <div class="trust-strip__item">
+            <span class="trust-strip__number">15</span>
+            <span class="trust-strip__label">שנות אחריות</span>
+          </div>
+          <div class="trust-strip__divider"></div>
+          <div class="trust-strip__item">
+            <span class="trust-strip__number">3</span>
+            <span class="trust-strip__label">יצרנים מובילים</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ===== FINISHES SELECTOR ===== -->
+    <div class="mfr-strip reveal">
+      <div class="mfr-strip__item">
+        <span class="mfr-strip__name">MSD</span>
+        <span class="mfr-strip__meta">רוסיה · אחריות 10 שנים</span>
+      </div>
+      <div class="mfr-strip__item">
+        <span class="mfr-strip__name">TEQTUM</span>
+        <span class="mfr-strip__meta">בלגיה · אחריות 12 שנים</span>
+      </div>
+      <div class="mfr-strip__item">
+        <span class="mfr-strip__name">RENOLIT</span>
+        <span class="mfr-strip__meta">גרמניה · אחריות 15 שנים</span>
+      </div>
+    </div>
+
+    <!-- ===== FINISHES — hero + sidebar tabs ===== -->
     <section class="section" aria-label="גימורים — השוואה ויזואלית">
       <div class="container">
-        <div class="section__header section__header--start">
-          <h2>3 גימורים — 3 תחושות שונות לאותו חדר</h2>
-          <p>מבריק, מט או סאטן — כל גימור יוצר תחושה אחרת בחלל. לחצו כדי להשוות.</p>
+        <div class="section__header section__header--start reveal">
+          <h2>3 גימורים — 3 תחושות שונות</h2>
+          <p>לחצו על גימור כדי לראות איך הוא נראה בחלל אמיתי</p>
         </div>
 
-        <div role="tablist" aria-label="בחרו גימור" style="display:flex;gap:var(--sp-3);margin-bottom:var(--sp-8);">
-          <button id="fin-tab-glossy" role="tab" aria-pressed="true" aria-controls="fin-panel-glossy" onclick="skyviewFinish('glossy')" style="padding:0.6rem 1.5rem;border-radius:var(--r);font-size:0.9375rem;font-weight:600;cursor:pointer;border:2px solid var(--accent);background:var(--accent);color:#fff;transition:all 0.15s;">מבריק</button>
-          <button id="fin-tab-matte" role="tab" aria-pressed="false" aria-controls="fin-panel-matte" onclick="skyviewFinish('matte')" style="padding:0.6rem 1.5rem;border-radius:var(--r);font-size:0.9375rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:transparent;color:var(--text-soft);transition:all 0.15s;">מט</button>
-          <button id="fin-tab-satin" role="tab" aria-pressed="false" aria-controls="fin-panel-satin" onclick="skyviewFinish('satin')" style="padding:0.6rem 1.5rem;border-radius:var(--r);font-size:0.9375rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:transparent;color:var(--text-soft);transition:all 0.15s;">סאטן</button>
-        </div>
-
-        <div style="position:relative;max-width:900px;">
-          <!-- Image stack — all in DOM for SEO -->
-          <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:var(--r-lg);overflow:hidden;background:#e8e0d6;">
-            <img id="fin-img-glossy" src="assets/images/finishes/glossy.webp" alt="תקרה מתוחה בגימור מבריק" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 0.25s;opacity:1;" loading="eager">
-            <img id="fin-img-matte"  src="assets/images/finishes/matte.webp"  alt="תקרה מתוחה בגימור מט"    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 0.25s;opacity:0;" loading="eager">
-            <img id="fin-img-satin" src="assets/images/finishes/satin.webp" alt="תקרה מתוחה בגימור סאטן"  style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 0.25s;opacity:0;" loading="eager">
+        <div class="fin-hero reveal">
+          <!-- Large hero image -->
+          <div class="fin-hero__image">
+            <img id="fin-img-glossy" src="assets/images/finishes/glossy.webp" alt="תקרה מתוחה בגימור מבריק" class="fin-hero__img fin-hero__img--active" loading="eager">
+            <img id="fin-img-matte" src="assets/images/finishes/matte.webp" alt="תקרה מתוחה בגימור מט" class="fin-hero__img" loading="eager">
+            <img id="fin-img-satin" src="assets/images/finishes/satin.webp" alt="תקרה מתוחה בגימור סאטן" class="fin-hero__img" loading="eager">
           </div>
 
-          <!-- Text panels — all in DOM for SEO, visibility toggled -->
-          <div style="display:grid;grid-template-columns:1fr;margin-top:var(--sp-8);">
+          <!-- Sidebar: vertical accordion tabs -->
+          <div class="fin-hero__sidebar" role="tablist" aria-label="בחרו גימור">
 
-            <div id="fin-panel-glossy" role="tabpanel" aria-labelledby="fin-tab-glossy" style="transition:opacity 0.25s;opacity:1;">
-              <h3 style="font-size:1.2rem;font-weight:600;margin-bottom:var(--sp-3);">מבריק</h3>
-              <p style="color:var(--text-soft);margin-bottom:var(--sp-5);">מראה יוקרתי ומחזיר אור, מגדיל את החלל ויזואלית.</p>
-              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--sp-3);">
-                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:0.9rem;color:var(--text-soft);">מחזיר אור ומגדיל את החלל ויזואלית</span></li>
-                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:0.9rem;color:var(--text-soft);">נותן תחושת גובה ופתיחות</span></li>
-                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:0.9rem;color:var(--text-soft);">מראה יוקרתי ומודרני</span></li>
-                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:0.9rem;color:var(--text-soft);">מתאים במיוחד לסלון, מטבח וחללים קטנים</span></li>
-              </ul>
+            <div class="fin-hero__group">
+              <button id="fin-tab-glossy" role="tab" aria-pressed="true" aria-controls="fin-panel-glossy" class="fin-hero__tab fin-hero__tab--active" onclick="skyviewFinish('glossy')">
+                <div class="fin-hero__tab-preview">
+                  <img src="assets/images/finishes/glossy.webp" alt="" loading="eager">
+                </div>
+                <span class="fin-hero__tab-name">מבריק</span>
+                <span class="fin-hero__tab-hint">השתקפות, מרחב, יוקרה</span>
+              </button>
+              <div id="fin-panel-glossy" role="tabpanel" aria-labelledby="fin-tab-glossy" class="fin-panel fin-panel--active">
+                <p class="fin-panel__desc">מראה יוקרתי ומחזיר אור, מגדיל את החלל ויזואלית. הגימור הפופולרי ביותר לסלונים ולחללים מודרניים.</p>
+                <div class="fin-panel__tags">
+                  <span class="fin-panel__tag">מחזיר אור ומגדיל מרחב</span>
+                  <span class="fin-panel__tag">תחושת גובה ופתיחות</span>
+                  <span class="fin-panel__tag">מתאים לסלון ומטבח</span>
+                  <span class="fin-panel__tag">מראה יוקרתי ומודרני</span>
+                </div>
+              </div>
             </div>
 
-            <div id="fin-panel-matte" role="tabpanel" aria-labelledby="fin-tab-matte" style="position:absolute;top:0;left:0;right:0;transition:opacity 0.25s;opacity:0;visibility:hidden;pointer-events:none;">
-              <h3 style="font-size:1.2rem;font-weight:600;margin-bottom:var(--sp-3);">מט</h3>
-              <p style="color:var(--text-soft);margin-bottom:var(--sp-5);">מראה גבס נקי ואלגנטי, ללא ברק והשתקפויות.</p>
-              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--sp-3);">
-                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:0.9rem;color:var(--text-soft);">מראה זהה לגבס איכותי — בלי העבודה, הלכלוך וזמן ההתקנה</span></li>
-                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:0.9rem;color:var(--text-soft);">משטח חלק ואחיד לגמרי, ללא השתקפויות</span></li>
-                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:0.9rem;color:var(--text-soft);">מסתיר אי-אחידות בתקרה המקורית</span></li>
-                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:0.9rem;color:var(--text-soft);">מתאים לחדרי שינה, מסדרונות ומשרדים</span></li>
-                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:0.9rem;color:var(--text-soft);">משתלב בעיצוב מודרני ומינימליסטי</span></li>
-              </ul>
+            <div class="fin-hero__group">
+              <button id="fin-tab-matte" role="tab" aria-pressed="false" aria-controls="fin-panel-matte" class="fin-hero__tab" onclick="skyviewFinish('matte')">
+                <div class="fin-hero__tab-preview">
+                  <img src="assets/images/finishes/matte.webp" alt="" loading="eager">
+                </div>
+                <span class="fin-hero__tab-name">מט</span>
+                <span class="fin-hero__tab-hint">גבס נקי, ללא ברק</span>
+              </button>
+              <div id="fin-panel-matte" role="tabpanel" aria-labelledby="fin-tab-matte" class="fin-panel">
+                <p class="fin-panel__desc">מראה זהה לגבס איכותי — בלי העבודה, הלכלוך וזמן ההתקנה. משטח חלק ואחיד ללא השתקפויות.</p>
+                <div class="fin-panel__tags">
+                  <span class="fin-panel__tag">מראה גבס נקי ואלגנטי</span>
+                  <span class="fin-panel__tag">ללא השתקפויות</span>
+                  <span class="fin-panel__tag">מתאים לחדרי שינה ומשרדים</span>
+                  <span class="fin-panel__tag">מסתיר אי-אחידות בתקרה</span>
+                </div>
+              </div>
             </div>
 
-            <div id="fin-panel-satin" role="tabpanel" aria-labelledby="fin-tab-satin" style="position:absolute;top:0;left:0;right:0;transition:opacity 0.25s;opacity:0;visibility:hidden;pointer-events:none;">
-              <h3 style="font-size:1.2rem;font-weight:600;margin-bottom:var(--sp-3);">סאטן</h3>
-              <p style="color:var(--text-soft);margin-bottom:var(--sp-5);">ברק רך ועדין, איזון בין מט למבריק.</p>
-              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--sp-3);">
-                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:0.9rem;color:var(--text-soft);">ברק רך ועדין, לא חד ולא נוצץ</span></li>
-                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:0.9rem;color:var(--text-soft);">מעניק עומק ונעימות לחלל</span></li>
-                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:0.9rem;color:var(--text-soft);">פחות רגיש לטביעות אצבע ולכלוך ממבריק</span></li>
-                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:0.9rem;color:var(--text-soft);">מתאים למי שרוצה מראה אלגנטי בלי בולטות</span></li>
-                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:0.9rem;color:var(--text-soft);">עובד טוב במגוון סגנונות עיצוב</span></li>
-              </ul>
+            <div class="fin-hero__group">
+              <button id="fin-tab-satin" role="tab" aria-pressed="false" aria-controls="fin-panel-satin" class="fin-hero__tab" onclick="skyviewFinish('satin')">
+                <div class="fin-hero__tab-preview">
+                  <img src="assets/images/finishes/satin.webp" alt="" loading="eager">
+                </div>
+                <span class="fin-hero__tab-name">סאטן</span>
+                <span class="fin-hero__tab-hint">ברק עדין, איזון מושלם</span>
+              </button>
+              <div id="fin-panel-satin" role="tabpanel" aria-labelledby="fin-tab-satin" class="fin-panel">
+                <p class="fin-panel__desc">ברק רך ועדין — איזון מושלם בין מט למבריק. מעניק עומק ונעימות לחלל בלי בולטות.</p>
+                <div class="fin-panel__tags">
+                  <span class="fin-panel__tag">ברק רך, לא חד</span>
+                  <span class="fin-panel__tag">פחות רגיש ללכלוך ממבריק</span>
+                  <span class="fin-panel__tag">עובד בכל סגנון עיצוב</span>
+                  <span class="fin-panel__tag">מעניק עומק ונעימות</span>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -518,34 +543,24 @@
         var panel = document.getElementById('fin-panel-' + f);
         var tab = document.getElementById('fin-tab-' + f);
         var active = (f === id);
-        if (img) img.style.opacity = active ? '1' : '0';
-        if (panel) {
-          panel.style.opacity = active ? '1' : '0';
-          panel.style.visibility = active ? 'visible' : 'hidden';
-          panel.style.pointerEvents = active ? 'auto' : 'none';
-        }
+        if (img) { img.classList.toggle('fin-hero__img--active', active); }
+        if (panel) { panel.classList.toggle('fin-panel--active', active); }
         if (tab) {
           tab.setAttribute('aria-pressed', active ? 'true' : 'false');
-          tab.style.background = active ? 'var(--accent)' : 'transparent';
-          tab.style.color = active ? '#fff' : 'var(--text-soft)';
-          tab.style.borderColor = active ? 'var(--accent)' : 'var(--border)';
+          tab.classList.toggle('fin-hero__tab--active', active);
         }
       });
     }
     </script>
 
-    <!-- ===== TYPES — editorial asymmetric layout ===== -->
+    <!-- ===== TYPES — editorial layout ===== -->
     <section class="section section--alt">
       <div class="container">
-        <div class="section__header section__header--start">
+        <div class="section__header section__header--start reveal">
           <h2>סוגי תקרות מתוחות</h2>
           <p>גימורים שונים, מראה אחר — אותה התקנה מהירה ונקייה</p>
         </div>
-
-        <!-- Asymmetric grid: large left + two stacked right (RTL: large right) -->
-        <div class="types-editorial">
-
-          <!-- Large primary image with floating card -->
+        <div class="types-editorial reveal">
           <a href="/sugim/mavrika" class="types-editorial__primary">
             <img src="assets/images/skyview-home-types-glossy-stretch-ceiling-living-room-ai.webp" alt="תקרה מתוחה מבריקה בסלון מודרני עם ספוטים ותאורה חמה" loading="lazy">
             <div class="types-editorial__card">
@@ -553,8 +568,6 @@
               <div class="types-editorial__card-text">מראה משתקף שיוצר תחושת מרחב ועומק. הגימור הפופולרי ביותר לסלונים ולחללים מודרניים.</div>
             </div>
           </a>
-
-          <!-- Two smaller stacked images with text on image -->
           <div class="types-editorial__secondary">
             <a href="/teura/tikra-mueret" class="types-editorial__item">
               <img src="assets/images/skyview-home-types-luminous-stretch-ceiling-modern-room-ai.webp" alt="הנמכת תקרה עם תקרה מוארת שקועה בחלל מעוצב" loading="lazy">
@@ -571,10 +584,8 @@
               </div>
             </a>
           </div>
-
         </div>
-
-        <div style="text-align:center;margin-top:var(--space-2xl);">
+        <div class="section__cta reveal">
           <a href="/sugim" class="btn btn--outline">כל סוגי התקרות</a>
         </div>
       </div>
@@ -583,81 +594,141 @@
     <!-- ===== BY ROOM ===== -->
     <section class="section">
       <div class="container">
-        <div class="section__header section__header--start">
+        <div class="section__header section__header--start reveal">
           <h2>תקרה מתוחה לפי חדר</h2>
           <p>כל חדר — דרישות אחרות, פתרון מותאם</p>
         </div>
-        <div class="grid grid--3">
-          <a href="/hadarim/salon" class="card">
-            <div class="card__image">
-              <img src="assets/images/skyview-home-rooms-living-room-glossy-stretch-ceiling-ai.webp" alt="תקרה מתוחה מבריקה בסלון עם נוף לים ותאורה היקפית" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+        <div class="rooms-grid reveal-group">
+          <a href="/hadarim/salon" class="room-card reveal">
+            <div class="room-card__image">
+              <img src="assets/images/skyview-home-rooms-living-room-glossy-stretch-ceiling-ai.webp" alt="תקרה מתוחה מבריקה בסלון עם נוף לים ותאורה היקפית" loading="lazy">
             </div>
-            <div class="card__body">
-              <div class="card__title">סלון</div>
-              <div class="card__text">עיצוב מרשים, שילוב תאורה, תחושת מרחב</div>
-            </div>
-          </a>
-          <a href="/hadarim/ambatia" class="card">
-            <div class="card__image">
-              <img src="assets/images/skyview-home-rooms-bathroom-stretch-ceiling-moisture-resistant-ai.webp" alt="תקרה מתוחה באמבטיה מעוצבת עם ספוטים שקועים" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-            </div>
-            <div class="card__body">
-              <div class="card__title">אמבטיה</div>
-              <div class="card__text">עמידה ברטיבות, ללא עובש, מראה נקי</div>
+            <div class="room-card__body">
+              <h3 class="room-card__title">סלון</h3>
+              <p class="room-card__text">עיצוב מרשים, שילוב תאורה, תחושת מרחב</p>
             </div>
           </a>
-          <a href="/hadarim/mitbah" class="card">
-            <div class="card__image">
-              <img src="assets/images/skyview-home-rooms-kitchen-stretch-ceiling-modern-ai.webp" alt="תקרה מתוחה מבריקה במטבח מודרני עם פסי LED ותאורה שקועה" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+          <a href="/hadarim/ambatia" class="room-card reveal">
+            <div class="room-card__image">
+              <img src="assets/images/skyview-home-rooms-bathroom-stretch-ceiling-moisture-resistant-ai.webp" alt="תקרה מתוחה באמבטיה מעוצבת עם ספוטים שקועים" loading="lazy">
             </div>
-            <div class="card__body">
-              <div class="card__title">מטבח</div>
-              <div class="card__text">ניקוי קל, עמידות בחום ובלחות, מראה מודרני</div>
-            </div>
-          </a>
-          <a href="/hadarim/heder-sheina" class="card">
-            <div class="card__image">
-              <img src="assets/images/skyview-home-rooms-bedroom-soft-light-stretch-ceiling-ai.webp" alt="תקרה מתוחה עם תאורה היקפית רכה בחדר שינה" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-            </div>
-            <div class="card__body">
-              <div class="card__title">חדר שינה</div>
-              <div class="card__text">אווירה רכה, תאורה עקיפה, שקט ונוחות</div>
+            <div class="room-card__body">
+              <h3 class="room-card__title">אמבטיה</h3>
+              <p class="room-card__text">עמידה ברטיבות, ללא עובש, מראה נקי</p>
             </div>
           </a>
-          <a href="/hadarim/misrad" class="card">
-            <div class="card__image">
-              <img src="assets/images/_skyview-room-office-luminous-stretch-ceiling.webp" alt="תקרה מתוחה מבריקה במשרד פרימיום עם תאורה היקפית" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+          <a href="/hadarim/mitbah" class="room-card reveal">
+            <div class="room-card__image">
+              <img src="assets/images/skyview-home-rooms-kitchen-stretch-ceiling-modern-ai.webp" alt="תקרה מתוחה מבריקה במטבח מודרני עם פסי LED ותאורה שקועה" loading="lazy">
             </div>
-            <div class="card__body">
-              <div class="card__title">משרד</div>
-              <div class="card__text">תאורה מקצועית, מראה פרימיום, אפס רעש</div>
+            <div class="room-card__body">
+              <h3 class="room-card__title">מטבח</h3>
+              <p class="room-card__text">ניקוי קל, עמידות בחום ובלחות, מראה מודרני</p>
             </div>
           </a>
-          <a href="/hadarim/mikve" class="card">
-            <div class="card__image">
-              <img src="assets/images/skyview-room-mikveh-stretch-ceiling-moisture-resistant.webp" alt="תקרה מתוחה עמידה ברטיבות במקווה מודרני עם תקרת הדפס שמיים" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+          <a href="/hadarim/heder-sheina" class="room-card reveal">
+            <div class="room-card__image">
+              <img src="assets/images/skyview-home-rooms-bedroom-soft-light-stretch-ceiling-ai.webp" alt="תקרה מתוחה עם תאורה היקפית רכה בחדר שינה" loading="lazy">
             </div>
-            <div class="card__body">
-              <div class="card__title">מקווה</div>
-              <div class="card__text">עמידה מלאה במים, ללא עובש, מראה מפנק</div>
+            <div class="room-card__body">
+              <h3 class="room-card__title">חדר שינה</h3>
+              <p class="room-card__text">אווירה רכה, תאורה עקיפה, שקט ונוחות</p>
             </div>
           </a>
         </div>
-        <div style="text-align:center;margin-top:var(--space-2xl);">
+        <div class="section__cta reveal">
           <a href="/hadarim" class="btn btn--outline">כל החדרים</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== PRICING PREVIEW ===== -->
+    <!-- ===== BEFORE / AFTER ===== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__header reveal">
+          <h2>לפני ואחרי — התקנות אמיתיות</h2>
+          <p>גררו את הפס כדי לראות את ההבדל</p>
+        </div>
+        <div class="ba-grid reveal">
+          <div class="ba-slider">
+            <img src="assets/images/hadarim/hadarim-sherutim-card.jpg" alt="אחרי — תקרה מבריקה עם נברשת" loading="lazy">
+            <div class="ba-slider__before">
+              <img src="assets/images/beforeafter/pair5-before.jpg" alt="לפני — תקרה פתוחה עם קורות חשופות" loading="lazy">
+            </div>
+            <div class="ba-slider__handle"><div class="ba-slider__handle-circle"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+            <span class="ba-slider__label ba-slider__label--before">לפני</span>
+            <span class="ba-slider__label ba-slider__label--after">אחרי</span>
+          </div>
+          <div class="ba-slider">
+            <img src="assets/images/projects/matte-bedroom.jpg" alt="אחרי — תקרה מתוחה באמבטיה" loading="lazy">
+            <div class="ba-slider__before">
+              <img src="assets/images/beforeafter/pair6-before.jpg" alt="לפני — אמבטיה עם צנרת חשופה" loading="lazy">
+            </div>
+            <div class="ba-slider__handle"><div class="ba-slider__handle-circle"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+            <span class="ba-slider__label ba-slider__label--before">לפני</span>
+            <span class="ba-slider__label ba-slider__label--after">אחרי</span>
+          </div>
+          <div class="ba-slider">
+            <img src="assets/images/projects/led-strips-glossy.jpg" alt="אחרי — תקרה מבריקה עם פסי LED" loading="lazy">
+            <div class="ba-slider__before">
+              <img src="assets/images/beforeafter/pair11-before.jpg" alt="לפני — אולם עם תקרה ישנה" loading="lazy">
+            </div>
+            <div class="ba-slider__handle"><div class="ba-slider__handle-circle"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+            <span class="ba-slider__label ba-slider__label--before">לפני</span>
+            <span class="ba-slider__label ba-slider__label--after">אחרי</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS GALLERY ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header reveal">
+          <h2>פרויקטים אחרונים</h2>
+          <p>תקרות שהתקנו ללקוחות פרטיים ועסקיים</p>
+        </div>
+        <div class="gallery-grid reveal">
+          <div class="gallery-item">
+            <img src="assets/images/projects/skyview-proj-salon-led-lines.webp" alt="תקרה מבריקה עם פסי LED שקועים — סלון מודרני" loading="lazy">
+            <div class="gallery-item__overlay">פסי LED שקועים — סלון</div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/projects/skyview-proj-kitchen-led.webp" alt="תקרה מבריקה בגוון שמנת עם פסי LED — מטבח מעוצב" loading="lazy">
+            <div class="gallery-item__overlay">פסי LED — מטבח מעוצב</div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/projects/skyview-asakim-lobby-luminous-ring.webp" alt="אלמנט תקרה עגול מואר בלובי מסחרי" loading="lazy">
+            <div class="gallery-item__overlay">תאורה מעגלית — לובי</div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/projects/skyview-proj-corridor-led.webp" alt="תקרה מתוחה כהה מבריקה עם פס LED — מסדרון" loading="lazy">
+            <div class="gallery-item__overlay">פס LED — מסדרון</div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/projects/skyview-proj-luminous-panel.webp" alt="תקרה מוארת אלכסונית בחלל פתוח" loading="lazy">
+            <div class="gallery-item__overlay">תקרה מוארת — חלל פתוח</div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/images/projects/skyview-proj-bathroom-glossy.webp" alt="תקרה מתוחה מבריקה לבנה באמבטיה" loading="lazy">
+            <div class="gallery-item__overlay">תקרה מבריקה — אמבטיה</div>
+          </div>
+        </div>
+        <div class="section__cta reveal">
+          <a href="/proyektim" class="btn btn--outline">כל הפרויקטים</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
     <section class="section section--dark">
       <div class="container">
-        <div class="section__header">
+        <div class="section__header reveal">
           <h2>מחיר התחלתי לפי סוג חלל</h2>
-          <p style="color:rgba(255,255,255,0.65);margin:var(--space-sm) auto 0;">המחיר הסופי נקבע לפי גודל החלל, סוג הגימור, מספר פתחים ותאורה נלווית.</p>
+          <p class="section__subtitle--light">המחיר הסופי נקבע לפי גודל החלל, סוג הגימור, מספר פתחים ותאורה נלווית.</p>
         </div>
-        <div class="pricing-room-cards">
-          <div class="pricing-room-card">
+        <div class="pricing-room-cards reveal-group">
+          <div class="pricing-room-card reveal">
             <div class="pricing-room-card__name">שירותים / מקלחת</div>
             <div class="pricing-room-card__price">החל מ־2,000 ₪</div>
             <ul class="pricing-room-card__features">
@@ -667,7 +738,7 @@
             </ul>
             <a href="/contact" class="btn btn--primary btn--block">לקבלת מחיר מדויק</a>
           </div>
-          <div class="pricing-room-card pricing-room-card--featured">
+          <div class="pricing-room-card pricing-room-card--featured reveal">
             <span class="pricing-room-card__badge">מומלץ</span>
             <div class="pricing-room-card__name">חדר עד 10 מ&quot;ר</div>
             <div class="pricing-room-card__price">החל מ־2,290 ₪</div>
@@ -678,7 +749,7 @@
             </ul>
             <a href="/contact" class="btn btn--primary btn--block">לקבלת מחיר מדויק</a>
           </div>
-          <div class="pricing-room-card">
+          <div class="pricing-room-card reveal">
             <div class="pricing-room-card__name">סלון ו/או מטבח עד 30 מ&quot;ר</div>
             <div class="pricing-room-card__price">החל מ־9,000 ₪</div>
             <ul class="pricing-room-card__features">
@@ -689,117 +760,52 @@
             <a href="/contact" class="btn btn--primary btn--block">לקבלת מחיר מדויק</a>
           </div>
         </div>
-        <div style="text-align:center;margin-top:var(--space-2xl);">
-          <p style="color:rgba(255,255,255,0.45);font-size:0.8125rem;margin-bottom:var(--sp-4);">המחירים באתר הם מחירי התחלה בלבד ואינם מהווים הצעת מחיר סופית.</p>
+        <div class="section__cta reveal">
+          <p class="pricing-disclaimer">המחירים באתר הם מחירי התחלה בלבד ואינם מהווים הצעת מחיר סופית.</p>
           <a href="/mehiron" class="btn btn--secondary">מחירון מלא ומחשבון</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== THREE PATHS ===== -->
-    <section class="section" style="background:#1a1714;color:#fff;border-top:1px solid rgba(140,106,74,0.15);">
+    <!-- ===== THREE PATHS TO PRICE ===== -->
+    <section class="section three-paths">
       <div class="container">
-        <div class="section__header">
-          <h2 style="color:#fff;">שלושה מסלולים לקבלת מחיר</h2>
-          <p style="color:rgba(255,255,255,0.5);max-width:520px;margin:0 auto;">בחרו את נקודת הכניסה שמתאימה לכם — מה שמרגיש הכי טבעי.</p>
+        <div class="section__header reveal">
+          <h2 class="three-paths__title">שלושה מסלולים לקבלת מחיר</h2>
+          <p class="three-paths__subtitle">בחרו את נקודת הכניסה שמתאימה לכם</p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-6);max-width:1060px;margin:var(--sp-10) auto 0;">
-
-          <!-- CARD 1 — AI Visualization (NEW, most prominent) -->
-          <div style="background:rgba(140,106,74,0.1);border:1.5px solid var(--accent);border-radius:var(--r-lg);padding:var(--sp-8);position:relative;display:flex;flex-direction:column;">
-            <div style="position:absolute;top:-12px;right:var(--sp-6);background:var(--accent);color:#fff;font-size:0.72rem;font-weight:700;padding:3px 14px;border-radius:20px;letter-spacing:0.04em;">מומלץ · חדש</div>
-            <div style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-soft);margin-bottom:var(--sp-4);">מסלול א׳</div>
-            <h3 style="color:#fff;font-size:1.15rem;margin:0 0 var(--sp-2);">הדמיית AI חינם</h3>
-            <p style="color:rgba(255,255,255,0.5);font-size:0.8rem;margin:0 0 var(--sp-4);">לראות לפני שמחליטים</p>
-            <p style="color:rgba(255,255,255,0.55);font-size:0.875rem;line-height:1.65;margin:0 0 var(--sp-6);flex:1;">שלחו תמונה של החדר וקבלו הדמיה לתקרה מתוחה תוך 24 שעות. חינם, לחדר אחד.</p>
-            <a href="/hadmaya-rishonit-hinam?utm_source=site&amp;utm_medium=homepage&amp;utm_campaign=hadmaya_rishonit&amp;utm_content=paths_card" class="btn btn--primary btn--lg" style="display:block;text-align:center;">קבלו הדמיה חינם ←</a>
+        <div class="three-paths-grid reveal-group">
+          <div class="path-card path-card--featured reveal">
+            <div class="path-card__badge">מומלץ</div>
+            <div class="path-card__step">מסלול א׳</div>
+            <h3 class="path-card__title">הדמיית AI חינם</h3>
+            <p class="path-card__text">שלחו תמונה של החדר וקבלו הדמיה לתקרה מתוחה תוך 24 שעות. חינם, לחדר אחד.</p>
+            <a href="/hadmaya-rishonit-hinam?utm_source=site&amp;utm_medium=homepage&amp;utm_campaign=hadmaya_rishonit&amp;utm_content=paths_card" class="btn btn--primary btn--lg path-card__btn">קבלו הדמיה חינם</a>
           </div>
-
-          <!-- CARD 2 — Quick calculator -->
-          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-lg);padding:var(--sp-8);display:flex;flex-direction:column;">
-            <div style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.35);margin-bottom:var(--sp-4);">מסלול ב׳</div>
-            <h3 style="color:#fff;font-size:1.15rem;margin:0 0 var(--sp-3);">מחשבון מהיר</h3>
-            <p style="color:rgba(255,255,255,0.5);font-size:0.875rem;line-height:1.65;margin:0 0 var(--sp-6);flex:1;">הערכת מחיר ראשונית לפי סוג תקרה וגודל — תוך שניות. בלי להיכנס לכל הבחירות.</p>
-            <a href="/mehiron" class="btn btn--secondary btn--lg" style="display:block;text-align:center;">למחשבון המהיר ←</a>
+          <div class="path-card reveal">
+            <div class="path-card__step">מסלול ב׳</div>
+            <h3 class="path-card__title">מחשבון מהיר</h3>
+            <p class="path-card__text">הערכת מחיר ראשונית לפי סוג תקרה וגודל — תוך שניות.</p>
+            <a href="/mehiron" class="btn btn--secondary btn--lg path-card__btn">למחשבון המהיר</a>
           </div>
-
-          <!-- CARD 3 — Full visual calculator -->
-          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-lg);padding:var(--sp-8);display:flex;flex-direction:column;">
-            <div style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.35);margin-bottom:var(--sp-4);">מסלול ג׳</div>
-            <h3 style="color:#fff;font-size:1.15rem;margin:0 0 var(--sp-3);">מחשבון מעמיק עם הדמיה</h3>
-            <p style="color:rgba(255,255,255,0.5);font-size:0.875rem;line-height:1.65;margin:0 0 var(--sp-6);flex:1;">בחרו חדר, גימור ותאורה — וראו הדמיה ויזואלית של התוצאה בחלל שלכם, עם הערכת מחיר מפורטת.</p>
-            <a href="https://calculator.skyview.co.il" target="_blank" rel="noopener" class="btn btn--secondary btn--lg" style="display:block;text-align:center;">למחשבון עם הדמיה ←</a>
+          <div class="path-card reveal">
+            <div class="path-card__step">מסלול ג׳</div>
+            <h3 class="path-card__title">מחשבון מעמיק עם הדמיה</h3>
+            <p class="path-card__text">בחרו חדר, גימור ותאורה — וראו הדמיה ויזואלית של התוצאה עם הערכת מחיר מפורטת.</p>
+            <a href="https://calculator.skyview.co.il" target="_blank" rel="noopener" class="btn btn--secondary btn--lg path-card__btn">למחשבון עם הדמיה</a>
           </div>
-
-        </div>
-        <style>@media(max-width:767px){.three-paths-grid{grid-template-columns:1fr!important;}}</style>
-      </div>
-    </section>
-
-        <!-- ===== COMPARISON PREVIEW ===== -->
-    <section class="section">
-      <div class="container">
-        <div class="section__header">
-          <h2>תקרה מתוחה או גבס</h2>
-          <p>השוואה מהירה — מה מתאים למקרה שלכם</p>
-        </div>
-        <div style="max-width:700px;margin:0 auto;overflow-x:auto;">
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th>פרמטר</th>
-                <th>תקרה מתוחה</th>
-                <th>תקרת גבס</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>זמן התקנה</td>
-                <td class="check">יום אחד</td>
-                <td>3-5 ימים</td>
-              </tr>
-              <tr>
-                <td>לכלוך</td>
-                <td class="check">ללא לכלוך</td>
-                <td>אבק, שפכטל, צבע</td>
-              </tr>
-              <tr>
-                <td>עמידות ברטיבות</td>
-                <td class="check">עמידה לחלוטין</td>
-                <td class="cross">רגישה ללחות</td>
-              </tr>
-              <tr>
-                <td>אחריות</td>
-                <td class="check">עד 15 שנה</td>
-                <td>1-2 שנים</td>
-              </tr>
-              <tr>
-                <td>תחזוקה</td>
-                <td class="check">מינימלית</td>
-                <td>סדקים, צביעה מחדש</td>
-              </tr>
-              <tr>
-                <td>מחיר</td>
-                <td>מ-₪229/מ"ר</td>
-                <td>₪300-600/מ"ר</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div style="text-align:center;margin-top:var(--space-xl);">
-          <a href="/hashvaa/tikra-metuha-o-geves" class="btn btn--outline">השוואה מלאה</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== PROCESS ===== -->
+    <!-- ===== PROCESS + VIDEO ===== -->
     <section class="section section--alt">
       <div class="container">
-        <div class="section__header">
+        <div class="section__header reveal">
           <h2>איך זה עובד</h2>
           <p>מפנייה ראשונה ועד תקרה מותקנת — תהליך פשוט ומהיר</p>
         </div>
-        <div class="process-steps">
+        <div class="process-steps reveal">
           <div class="process-step">
             <div class="process-step__number">1</div>
             <div class="process-step__title">פנייה וייעוץ</div>
@@ -813,316 +819,162 @@
           <div class="process-step">
             <div class="process-step__number">3</div>
             <div class="process-step__title">התקנה ואחריות</div>
-            <div class="process-step__text">ביום שנקבע — צוות מקצועי מתקין את התקרה. בדרך כלל תוך יום, ללא לכלוך. <a href="/aharayut-yatzranim" style="color:inherit;">אחריות מלאה</a>.</div>
+            <div class="process-step__text">ביום שנקבע — צוות מקצועי מתקין את התקרה. בדרך כלל תוך יום, ללא לכלוך. <a href="/aharayut-yatzranim">אחריות מלאה</a>.</div>
+          </div>
+        </div>
+
+        <div class="video-section reveal">
+          <h3 class="video-section__title">צפו בתהליך ההתקנה</h3>
+          <div class="video-embed">
+            <div class="video-embed__wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/XlpSQk6OzaM?rel=0&modestbranding=1"
+                title="איך מתקינים תקרה מתוחה מבריקה"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section__header">
-          <h2>צפו בתהליך ההתקנה</h2>
-          <p>תקרה מתוחה מבריקה — מהתחלה ועד הסוף</p>
-        </div>
-        <div class="video-embed" style="max-width:800px;margin:0 auto;border-radius:var(--r);overflow:hidden;box-shadow:0 8px 32px rgba(31,26,23,0.08);">
-          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-            <iframe
-              src="https://www.youtube.com/embed/XlpSQk6OzaM?rel=0&modestbranding=1"
-              title="איך מתקינים תקרה מתוחה מבריקה"
-              style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== PROJECTS PREVIEW ===== -->
+    <!-- ===== COMPARISON ===== -->
     <section class="section">
       <div class="container">
-        <div class="section__header">
-          <h2>פרויקטים אחרונים</h2>
-          <p>תקרות שהתקנו ללקוחות פרטיים ועסקיים</p>
+        <div class="section__header reveal">
+          <h2>תקרה מתוחה או גבס</h2>
+          <p>השוואה מהירה — מה מתאים למקרה שלכם</p>
         </div>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="assets/images/projects/skyview-proj-salon-led-lines.webp" alt="תקרה מבריקה עם פסי LED שקועים — סלון מודרני עם תאורה היקפית ונברשות" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-            <div class="gallery-item__overlay">פסי LED שקועים — סלון</div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/images/projects/skyview-proj-kitchen-led.webp" alt="תקרה מבריקה בגוון שמנת עם פסי LED שקועים ותאורה תלויה — מטבח מעוצב" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-            <div class="gallery-item__overlay">פסי LED — מטבח מעוצב</div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/images/projects/skyview-asakim-lobby-luminous-ring.webp" alt="אלמנט תקרה עגול מואר בלובי מסחרי — תקרה מתוחה עם תאורה מעגלית" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;">
-            <div class="gallery-item__overlay">תאורה מעגלית — לובי</div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/images/projects/skyview-proj-corridor-led.webp" alt="תקרה מתוחה כהה מבריקה עם פס LED שקוע — מסדרון מעוצב" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;">
-            <div class="gallery-item__overlay">פס LED — מסדרון</div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/images/projects/skyview-proj-luminous-panel.webp" alt="תקרה מוארת אלכסונית בחלל פתוח — פאנל LED משולב בתקרה מתוחה" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-            <div class="gallery-item__overlay">תקרה מוארת — חלל פתוח</div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/images/projects/skyview-proj-bathroom-glossy.webp" alt="תקרה מתוחה מבריקה לבנה עם ספוטים ופאנל מואר — אמבטיה מעוצבת" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-            <div class="gallery-item__overlay">תקרה מבריקה — אמבטיה</div>
-          </div>
+        <div class="comparison-wrapper reveal">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>פרמטר</th>
+                <th>תקרה מתוחה</th>
+                <th>תקרת גבס</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>זמן התקנה</td><td class="check">יום אחד</td><td>3-5 ימים</td></tr>
+              <tr><td>לכלוך</td><td class="check">ללא לכלוך</td><td>אבק, שפכטל, צבע</td></tr>
+              <tr><td>עמידות ברטיבות</td><td class="check">עמידה לחלוטין</td><td class="cross">רגישה ללחות</td></tr>
+              <tr><td>אחריות</td><td class="check">עד 15 שנה</td><td>1-2 שנים</td></tr>
+              <tr><td>תחזוקה</td><td class="check">מינימלית</td><td>סדקים, צביעה מחדש</td></tr>
+              <tr><td>מחיר</td><td>מ-₪229/מ"ר</td><td>₪300-600/מ"ר</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div style="text-align:center;margin-top:var(--space-2xl);">
-          <a href="/proyektim" class="btn btn--outline">כל הפרויקטים</a>
+        <div class="section__cta reveal">
+          <a href="/hashvaa/tikra-metuha-o-geves" class="btn btn--outline">השוואה מלאה</a>
         </div>
       </div>
     </section>
 
-    
-    
-    <!-- ===== BEFORE / AFTER — SLIDER COMPARISON ===== -->
-    <section class="section section--alt">
+    <!-- ===== REVIEWS ===== -->
+    <section class="section section--alt" aria-label="חוות דעת לקוחות">
       <div class="container">
-        <div class="section__header">
-          <h2>לפני ואחרי — התקנות אמיתיות</h2>
-          <p>גררו את הפס כדי לראות את ההבדל</p>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);max-width:1100px;margin:0 auto;" class="ba-grid">
-
-          <!-- Demo 1: pair5 — salon -->
-          <div class="ba-slider" style="position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;cursor:col-resize;user-select:none;-webkit-user-select:none;">
-            <img src="assets/images/hadarim/hadarim-sherutim-card.jpg" alt="אחרי — תקרה מבריקה עם נברשת" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <div class="ba-slider__before" style="position:absolute;top:0;right:0;bottom:0;width:50%;overflow:hidden;">
-              <img src="assets/images/beforeafter/pair5-before.jpg" alt="לפני — תקרה פתוחה עם קורות חשופות" style="position:absolute;top:0;right:0;width:100%;height:100%;object-fit:cover;min-width:0;">
-            </div>
-            <div class="ba-slider__handle" style="position:absolute;top:0;bottom:0;right:50%;width:3px;background:#fff;transform:translateX(50%);z-index:2;box-shadow:0 0 8px rgba(0,0,0,0.3);">
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </div>
-            </div>
-            <div style="position:absolute;top:var(--sp-3);right:var(--sp-3);background:rgba(0,0,0,0.55);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">לפני</div>
-            <div style="position:absolute;top:var(--sp-3);left:var(--sp-3);background:var(--color-accent);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">אחרי</div>
-          </div>
-
-          <!-- Demo 2: pair6 — bathroom -->
-          <div class="ba-slider" style="position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;cursor:col-resize;user-select:none;-webkit-user-select:none;">
-            <img src="assets/images/projects/matte-bedroom.jpg" alt="אחרי — תקרה מתוחה באמבטיה" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <div class="ba-slider__before" style="position:absolute;top:0;right:0;bottom:0;width:50%;overflow:hidden;">
-              <img src="assets/images/beforeafter/pair6-before.jpg" alt="לפני — אמבטיה עם צנרת חשופה" style="position:absolute;top:0;right:0;width:100%;height:100%;object-fit:cover;min-width:0;">
-            </div>
-            <div class="ba-slider__handle" style="position:absolute;top:0;bottom:0;right:50%;width:3px;background:#fff;transform:translateX(50%);z-index:2;box-shadow:0 0 8px rgba(0,0,0,0.3);">
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </div>
-            </div>
-            <div style="position:absolute;top:var(--sp-3);right:var(--sp-3);background:rgba(0,0,0,0.55);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">לפני</div>
-            <div style="position:absolute;top:var(--sp-3);left:var(--sp-3);background:var(--color-accent);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">אחרי</div>
-          </div>
-
-          <!-- Demo 3: pair11 — hall/commercial -->
-          <div class="ba-slider" style="position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;cursor:col-resize;user-select:none;-webkit-user-select:none;">
-            <img src="assets/images/projects/led-strips-glossy.jpg" alt="אחרי — תקרה מבריקה עם פסי LED" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <div class="ba-slider__before" style="position:absolute;top:0;right:0;bottom:0;width:50%;overflow:hidden;">
-              <img src="assets/images/beforeafter/pair11-before.jpg" alt="לפני — אולם עם תקרה ישנה" style="position:absolute;top:0;right:0;width:100%;height:100%;object-fit:cover;min-width:0;">
-            </div>
-            <div class="ba-slider__handle" style="position:absolute;top:0;bottom:0;right:50%;width:3px;background:#fff;transform:translateX(50%);z-index:2;box-shadow:0 0 8px rgba(0,0,0,0.3);">
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </div>
-            </div>
-            <div style="position:absolute;top:var(--sp-3);right:var(--sp-3);background:rgba(0,0,0,0.55);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">לפני</div>
-            <div style="position:absolute;top:var(--sp-3);left:var(--sp-3);background:var(--color-accent);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">אחרי</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== REVIEWS CAROUSEL ===== -->
-    <section class="section" aria-label="חוות דעת לקוחות">
-      <div class="container">
-        <div class="section__header">
+        <div class="section__header reveal">
           <h2>מה הלקוחות שלנו אומרים</h2>
-          <p>15 חוות דעת אחרונות מלקוחות SkyView</p>
+          <p>חוות דעת אחרונות מלקוחות SkyView</p>
+          <a href="https://g.page/skyview-israel/review" target="_blank" rel="noopener" class="review-source">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            צפו בביקורות שלנו בגוגל
+          </a>
         </div>
-
-        <div class="reviews-carousel" style="position:relative;overflow:hidden;">
-          <!-- Track -->
-          <div id="reviews-track" style="display:flex;gap:var(--sp-6);transition:transform 0.35s ease;will-change:transform;">
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">במקלחת חיפשנו פתרון שגם ייראה טוב וגם יתאים לחלל רטוב. קיבלנו הסבר ברור, בחרנו גימור סאטן, וההתקנה באמת לקחה פחות זמן ממה שחשבנו. יש משהו מאוד נעים בזה שהחדר נראה יוקרתי בלי להיות צעקני.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">לירון זוהר</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">רמת גן · מרץ 2026</div></div></div>
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">אצלנו מדובר היה בעבודה לא גדולה, חדר שינה אחד עם פס לד, אבל דווקא בדברים כאלה רואים אם יש הקפדה. קיבלנו תוצאה יפה מאוד, המעברים נראים טוב, התאורה יושבת נכון, והחדר קיבל אופי חדש בלי להרגיש עמוס.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">הדס צרפתי</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">ירושלים · אפריל 2026</div></div></div>
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">אצלנו האתגר היה קירות לא ישרים ותאורה קיימת שרצינו להשאיר. הכול הותאם במקום בלי לסבך אותנו, ובסוף קיבלנו תקרה שנראית חלקה ומדויקת כאילו החדר נבנה ככה מלכתחילה.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">דפנה מזרחי</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">פתח תקווה · ינואר 2026</div></div></div>
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">הסלון שלנו בערך 28 מ״ר, ושילוב פס הלד השקוע נתן לחלל מראה אחר לגמרי.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">ענת רפאלי</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">רחובות · נובמבר 2025</div></div></div>
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">לא חשבתי שתקרה יכולה לשנות ככה חדר שינה, אבל בפועל כל התחושה בחדר נהייתה יותר נעימה ומסודרת.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">גיא אוחנה</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">אשדוד · דצמבר 2025</div></div></div>
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">הזמנו תקרה לסלון ולפינת אוכל, והברק העדין של הגימור המבריק נראה מצוין בערב עם התאורה.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">אילן ברעם</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">נתניה · ינואר 2026</div></div></div>
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">עשינו תקרה עם תאורה היקפית במסדרון, וזה אחד הדברים הכי יפים בבית עכשיו.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">מור שחר</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">הרצליה · פברואר 2026</div></div></div>
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">בסלון היה לנו פתח תאורה קיים ועוד שתי נקודות שרצינו לשלב, והכול השתלב יפה בלי אילתורים.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">קרן אדרי</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">חיפה · מרץ 2026</div></div></div>
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">לא הייתי בטוחה אם לבחור מט או מבריק, ובסוף הלכנו על מט בחדר ילדים. זו הייתה החלטה נכונה, כי זה נראה רגוע, נקי ולא מוגזם.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">יפתח שלו</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">באר יעקב · אפריל 2026</div></div></div>
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">התקרה החדשה במטבח פשוט עשתה סדר בעיניים. החדר מרגיש יותר גבוה ויותר מואר.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">מאיה סבג</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">כפר סבא · מרץ 2026</div></div></div>
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">עשינו רק חדר אחד לניסיון, ואחרי שראינו את התוצאה החלטנו להמשיך גם לשאר הבית.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">אסף נחמיאס</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">בת ים · מרץ 2026</div></div></div>
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">התקינו אצלנו תקרה בחדר אמבטיה קטן, ויצא הרבה יותר יפה ממה שציפינו.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">ניר בן־דוד</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">חולון · אוקטובר 2025</div></div></div>
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">בחרנו גימור מט למטבח, והכול הושלם ביום אחד בלי למרוח את העבודה.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">רוני שקד</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">ראשון לציון · נובמבר 2025</div></div></div>
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">חדר השירותים שלנו קטן מאוד, ובכל זאת הצליחו להוציא ממנו מראה נקי ומסודר.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">סיון אמסלם</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">יבנה · פברואר 2026</div></div></div>
-            <div class="review-card" style="flex:0 0 calc((100% - 2*var(--sp-6))/3);min-width:calc((100% - 2*var(--sp-6))/3);background:#fff;border-radius:var(--r-lg);padding:var(--sp-8);box-shadow:0 1px 4px rgba(31,26,23,0.08),0 4px 16px rgba(31,26,23,0.05);display:flex;flex-direction:column;min-height:220px;"><div style="color:#C89B3C;font-size:1rem;margin-bottom:var(--sp-4);letter-spacing:0.05em;" aria-label="5 כוכבים">★★★★★</div><p style="font-size:0.875rem;color:var(--text-soft);line-height:1.7;flex:1;margin:0 0 var(--sp-5);">מהרגע שסגרנו עד ההתקנה עצמה עבר מעט זמן, וזה היה חשוב לנו כי היינו באמצע שיפוץ.</p><div><div style="font-weight:600;font-size:0.875rem;color:var(--text);">טל פדידה</div><div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">מודיעין · מרץ 2026</div></div></div>
+        <div class="reviews-masonry reveal">
+          <div class="review-card">
+            <div class="review-card__stars" aria-label="5 כוכבים">★★★★★</div>
+            <p class="review-card__text">במקלחת חיפשנו פתרון שגם ייראה טוב וגם יתאים לחלל רטוב. קיבלנו הסבר ברור, בחרנו גימור סאטן, וההתקנה באמת לקחה פחות זמן ממה שחשבנו. יש משהו מאוד נעים בזה שהחדר נראה יוקרתי בלי להיות צעקני.</p>
+            <div><div class="review-card__author">לירון זוהר</div><div class="review-card__location">רמת גן · מרץ 2026</div></div>
           </div>
-          <!-- Arrows -->
-          <button onclick="skyviewReviewNav(-1)" aria-label="הקודם" style="position:absolute;top:50%;right:-1rem;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.08);z-index:2;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-soft)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-          <button onclick="skyviewReviewNav(1)" aria-label="הבא" style="position:absolute;top:50%;left:-1rem;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.08);z-index:2;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-soft)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
+          <div class="review-card">
+            <div class="review-card__stars" aria-label="5 כוכבים">★★★★★</div>
+            <p class="review-card__text">אצלנו מדובר היה בעבודה לא גדולה, חדר שינה אחד עם פס לד, אבל דווקא בדברים כאלה רואים אם יש הקפדה. קיבלנו תוצאה יפה מאוד, והחדר קיבל אופי חדש בלי להרגיש עמוס.</p>
+            <div><div class="review-card__author">הדס צרפתי</div><div class="review-card__location">ירושלים · אפריל 2026</div></div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__stars" aria-label="5 כוכבים">★★★★★</div>
+            <p class="review-card__text">אצלנו האתגר היה קירות לא ישרים ותאורה קיימת שרצינו להשאיר. הכול הותאם במקום, ובסוף קיבלנו תקרה שנראית חלקה ומדויקת.</p>
+            <div><div class="review-card__author">דפנה מזרחי</div><div class="review-card__location">פתח תקווה · ינואר 2026</div></div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__stars" aria-label="5 כוכבים">★★★★★</div>
+            <p class="review-card__text">הסלון שלנו בערך 28 מ״ר, ושילוב פס הלד השקוע נתן לחלל מראה אחר לגמרי.</p>
+            <div><div class="review-card__author">ענת רפאלי</div><div class="review-card__location">רחובות · נובמבר 2025</div></div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__stars" aria-label="5 כוכבים">★★★★★</div>
+            <p class="review-card__text">לא חשבתי שתקרה יכולה לשנות ככה חדר שינה, אבל בפועל כל התחושה בחדר נהייתה יותר נעימה ומסודרת.</p>
+            <div><div class="review-card__author">גיא אוחנה</div><div class="review-card__location">אשדוד · דצמבר 2025</div></div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__stars" aria-label="5 כוכבים">★★★★★</div>
+            <p class="review-card__text">עשינו תקרה עם תאורה היקפית במסדרון, וזה אחד הדברים הכי יפים בבית עכשיו.</p>
+            <div><div class="review-card__author">מור שחר</div><div class="review-card__location">הרצליה · פברואר 2026</div></div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__stars" aria-label="5 כוכבים">★★★★★</div>
+            <p class="review-card__text">התקרה החדשה במטבח פשוט עשתה סדר בעיניים. החדר מרגיש יותר גבוה ויותר מואר.</p>
+            <div><div class="review-card__author">מאיה סבג</div><div class="review-card__location">כפר סבא · מרץ 2026</div></div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__stars" aria-label="5 כוכבים">★★★★★</div>
+            <p class="review-card__text">עשינו רק חדר אחד לניסיון, ואחרי שראינו את התוצאה החלטנו להמשיך גם לשאר הבית.</p>
+            <div><div class="review-card__author">אסף נחמיאס</div><div class="review-card__location">בת ים · מרץ 2026</div></div>
+          </div>
         </div>
-
-        <!-- Dots -->
-        <div id="reviews-dots" style="display:flex;justify-content:center;gap:var(--sp-2);margin-top:var(--sp-8);" aria-label="ניווט חוות דעת" role="tablist"></div>
       </div>
     </section>
 
-    <style>
-      .reviews-carousel { padding:0 1.5rem; }
-      @media (max-width:767px) {
-        .review-card { flex:0 0 100% !important;min-width:100% !important; }
-      }
-      @media (min-width:768px) and (max-width:1023px) {
-        .review-card { flex:0 0 calc((100% - var(--sp-6))/2) !important;min-width:calc((100% - var(--sp-6))/2) !important; }
-      }
-    </style>
-
-    <script>
-    (function(){
-      var total = 15, perView = 3, current = 0;
-      function getPerView() {
-        return window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-      }
-      function maxPos() { return Math.max(0, total - getPerView()); }
-      function render() {
-        var pv = getPerView();
-        var cards = document.querySelectorAll('.review-card');
-        var gap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sp-6')) || 24;
-        if (!cards.length) return;
-        var w = cards[0].parentElement.offsetWidth;
-        var cardW = (w - (pv - 1) * gap) / pv;
-        var offset = current * (cardW + gap);
-        document.getElementById('reviews-track').style.transform = 'translateX(' + offset + 'px)';
-        renderDots(pv);
-      }
-      function renderDots(pv) {
-        var container = document.getElementById('reviews-dots');
-        if (!container) return;
-        var pages = Math.ceil(total / pv);
-        var activePage = Math.floor(current / pv);
-        container.innerHTML = '';
-        for (var i = 0; i < pages; i++) {
-          var d = document.createElement('button');
-          d.setAttribute('role','tab');
-          d.setAttribute('aria-selected', i === activePage ? 'true' : 'false');
-          d.setAttribute('aria-label','עמוד ' + (i+1));
-          d.style.cssText = 'width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:' + (i === activePage ? 'var(--accent)' : 'var(--border)') + ';transition:background 0.2s;';
-          (function(page, pv2){ d.onclick = function(){ current = page * pv2; if(current > maxPos()) current = maxPos(); render(); }; })(i, pv);
-          container.appendChild(d);
-        }
-      }
-      window.skyviewReviewNav = function(dir) {
-        current = Math.max(0, Math.min(maxPos(), current - dir));
-        render();
-      };
-      // Touch/swipe
-      var startX = 0;
-      var track = document.getElementById('reviews-track');
-      if (track) {
-        track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
-        track.addEventListener('touchend', function(e){
-          var dx = e.changedTouches[0].clientX - startX;
-          if (Math.abs(dx) > 40) { window.skyviewReviewNav(dx > 0 ? -1 : 1); }
-        }, {passive:true});
-      }
-      window.addEventListener('resize', render);
-      document.addEventListener('DOMContentLoaded', render);
-      render();
-    })();
-    </script>
-
-        <!-- ===== FAQ ===== -->
-    <section class="section section--alt">
+    <!-- ===== FAQ ===== -->
+    <section class="section">
       <div class="container">
-        <div class="section__header">
+        <div class="section__header reveal">
           <h2>שאלות נפוצות</h2>
         </div>
-        <div class="faq-list" style="margin:0 auto;">
+        <div class="faq-list reveal">
           <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              כמה עולה תקרה מתוחה?
-              <span class="faq-question__icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer__inner">
-                מחיר לפי יצרן: MSD — ₪229 למ"ר, TEQTUM — ₪279 למ"ר, RENOLIT — ₪339 למ"ר. כולל ייצור, אספקה והתקנה. תאורה — בנפרד. המחיר הסופי תלוי בשטח, סוג הגימור, שילוב תאורה ומורכבות ההתקנה. <a href="/mehiron">למחירון מלא ומחשבון הערכה</a>.
-              </div>
-            </div>
+            <button class="faq-question" aria-expanded="false">כמה עולה תקרה מתוחה?<span class="faq-question__icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer__inner">מחיר לפי יצרן: MSD — ₪229 למ"ר, TEQTUM — ₪279 למ"ר, RENOLIT — ₪339 למ"ר. כולל ייצור, אספקה והתקנה. תאורה — בנפרד. המחיר הסופי תלוי בשטח, סוג הגימור, שילוב תאורה ומורכבות ההתקנה. <a href="/mehiron">למחירון מלא ומחשבון הערכה</a>.</div></div>
           </div>
           <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              כמה זמן לוקח להתקין תקרה מתוחה?
-              <span class="faq-question__icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer__inner">
-                חדר ממוצע מותקן ב-4-8 שעות. דירה שלמה — בדרך כלל יום עבודה אחד. ההתקנה מתבצעת ללא לכלוך, ללא שבירת קירות, ובלי צורך לפנות רהיטים. <a href="/madrich/hatkana">קראו על תהליך ההתקנה</a>.
-              </div>
-            </div>
+            <button class="faq-question" aria-expanded="false">כמה זמן לוקח להתקין תקרה מתוחה?<span class="faq-question__icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer__inner">חדר ממוצע מותקן ב-4-8 שעות. דירה שלמה — בדרך כלל יום עבודה אחד. ההתקנה מתבצעת ללא לכלוך, בלי צורך לפנות רהיטים. <a href="/madrich/hatkana">קראו על תהליך ההתקנה</a>.</div></div>
           </div>
           <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              האם תקרה מתוחה מתאימה לאמבטיה?
-              <span class="faq-question__icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer__inner">
-                בהחלט. תקרה מתוחה עמידה לחלוטין ברטיבות ובמים, לא מפתחת עובש, ולא סופגת לחות. זה מה שהופך אותה לפתרון מועדף על פני גבס באמבטיות ובמקוואות. <a href="/hadarim/ambatia">למידע נוסף על תקרות לאמבטיה</a>.
-              </div>
-            </div>
+            <button class="faq-question" aria-expanded="false">האם תקרה מתוחה מתאימה לאמבטיה?<span class="faq-question__icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer__inner">בהחלט. תקרה מתוחה עמידה לחלוטין ברטיבות ובמים, לא מפתחת עובש, ולא סופגת לחות. <a href="/hadarim/ambatia">למידע נוסף</a>.</div></div>
           </div>
           <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              מה ההבדל בין תקרה מתוחה לתקרת גבס?
-              <span class="faq-question__icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer__inner">
-                ההבדלים העיקריים: תקרה מתוחה מותקנת תוך יום ללא לכלוך, עמידה ברטיבות, ומגיעה עם אחריות ארוכה. תקרת גבס דורשת עבודה של כמה ימים, כוללת אבק ושפכטל, ופחות עמידה בלחות. מבחינת מחיר — תקרה מתוחה לרוב משתלמת יותר. <a href="/hashvaa/tikra-metuha-o-geves">להשוואה מלאה</a>.
-              </div>
-            </div>
+            <button class="faq-question" aria-expanded="false">מה ההבדל בין תקרה מתוחה לתקרת גבס?<span class="faq-question__icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer__inner">תקרה מתוחה מותקנת תוך יום ללא לכלוך, עמידה ברטיבות, ומגיעה עם אחריות ארוכה. תקרת גבס דורשת עבודה של כמה ימים, כוללת אבק ושפכטל, ופחות עמידה בלחות. <a href="/hashvaa/tikra-metuha-o-geves">להשוואה מלאה</a>.</div></div>
           </div>
           <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              באילו אזורים אתם מתקינים?
-              <span class="faq-question__icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <div class="faq-answer__inner">
-                אנחנו מתקינים בכל רחבי הארץ — מרכז, תל אביב, ירושלים, חיפה והצפון, אשדוד, אשקלון, באר שבע והדרום. <a href="/azorim">לאזורי שירות</a>.
-              </div>
-            </div>
+            <button class="faq-question" aria-expanded="false">באילו אזורים אתם מתקינים?<span class="faq-question__icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer__inner">אנחנו מתקינים בכל רחבי הארץ — מרכז, תל אביב, ירושלים, חיפה, אשדוד, באר שבע והדרום. <a href="/azorim">לאזורי שירות</a>.</div></div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ===== CTA ===== -->
-    <section class="cta-section">
+    <section class="cta-section reveal">
       <div class="container">
         <h2>רוצים לדעת כמה תעלה תקרה אצלכם?</h2>
         <p>השאירו טלפון — נחזור אליכם תוך שעה עם טווח מחיר ראשוני</p>
-        <form class="form-inline" style="max-width:500px;margin:0 auto;" action="#" method="POST">
-          <input type="tel" class="form-input" name="phone" placeholder="מספר טלפון" required dir="ltr" style="text-align:right;">
+        <form class="form-inline" style="max-width:480px;margin:var(--sp-8) auto 0;" action="#" method="POST" data-form="quick-lead" onsubmit="return skyviewSubmit(this)">
+          <input type="tel" class="form-input" name="phone" placeholder="טלפון" required dir="ltr" style="text-align:right;">
           <button type="submit" class="btn btn--primary">חזרו אליי</button>
         </form>
+        <p class="trust-micro" style="text-align:center;font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--sp-3);">ייעוץ חינם · ללא התחייבות · חוזרים תוך שעה</p>
       </div>
     </section>
 
   </main>
+
+
 
   <!-- ===== FOOTER ===== -->
           <div class="prefooter-trust" aria-label="מידע על החברה">
@@ -1205,7 +1057,7 @@
           <a href="/azorim/merkaz" style="color:rgba(255,255,255,0.4);">מרכז</a> ·
           <a href="/azorim/darom" style="color:rgba(255,255,255,0.4);">דרום</a>
         </span>
-        <span style="color:rgba(255,255,255,0.12);font-size:0.65rem;">v86</span>
+        <span class="version-badge">v93</span>
       </div>
     </div>
   </footer>

@@ -1523,7 +1523,6 @@ const REDIRECTS = {
   // Wix junk
   '/blank': '/',
   '/blank-1': '/',
-  '/blank-2': '/',
   '/copy-of-2': '/',
   '/copy-of-3-rxmap': '/',
   '/blog': '/',
@@ -1612,12 +1611,34 @@ const REDIRECTS = {
 const PREFIX_REDIRECTS = [
   { prefix: '/fullscreen-page/', target: '/proyektim' },
   { prefix: '/blog/categories/', target: '/madrich' },
-  { prefix: '/post/', target: '/madrich' },
-  { prefix: '/ar/fullscreen-page/', target: '/proyektim' },
-  { prefix: '/ar/', target: '/' },
-  { prefix: '/ru/post/', target: '/madrich' },
   // /ru/ static pages now served as assets (ru/index.html, ru/cena/index.html)
 ];
+
+// Permanently removed legacy URLs — return 410 Gone (no weak 301 fallbacks).
+// Google will drop these from the index and they cannot be re-indexed.
+const GONE_EXACT = new Set([
+  '/blank-2',
+  '/ru/hipui-kirot',
+  '/ru/מחירקרניזגבס',
+]);
+
+// Any path starting with these prefixes returns 410 Gone.
+// /post/  — Hebrew legacy Wix blog (no 1:1 equivalents on current site)
+// /ru/post/ — Russian legacy Wix blog (no Russian blog replacement)
+// /ar/    — legacy Arabic section (removed permanently)
+const GONE_PREFIXES = ['/post/', '/ru/post/', '/ar/'];
+
+function goneResponse() {
+  const body = '<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="UTF-8"><title>410 — הדף הוסר</title><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="font-family:system-ui;max-width:640px;margin:4rem auto;padding:0 1rem;text-align:center"><h1>410 — הדף הוסר לצמיתות</h1><p>הדף שחיפשת לא קיים יותר ולא יוחזר.</p><p><a href="/">חזרה לדף הבית</a></p></body></html>';
+  return new Response(body, {
+    status: 410,
+    headers: {
+      'Content-Type': 'text/html; charset=UTF-8',
+      'X-Robots-Tag': 'noindex',
+      'Cache-Control': 'public, max-age=86400'
+    }
+  });
+}
 
 export default {
   async fetch(request, env) {
@@ -1632,6 +1653,18 @@ export default {
     // Normalize: strip trailing slash except root
     if (path.length > 1 && path.endsWith('/')) {
       path = path.slice(0, -1);
+    }
+
+    // 0. 410 Gone — permanently removed legacy URLs (runs BEFORE redirects and assets).
+    //    Protects against any catch-all/asset fallback serving these as 200.
+    if (GONE_EXACT.has(path)) {
+      return goneResponse();
+    }
+    for (const pfx of GONE_PREFIXES) {
+      // match both "/ar" and "/ar/..." — trailing slash already stripped
+      if (path === pfx.slice(0, -1) || path.startsWith(pfx)) {
+        return goneResponse();
+      }
     }
 
     // 1. Exact-match redirects
@@ -1663,7 +1696,7 @@ export default {
 
     // Worker version probe — unique to each deploy
     if (path === '/wv') {
-      return new Response(JSON.stringify({worker:'v86',ru:true,ts:Date.now()}), {
+      return new Response(JSON.stringify({worker:'v93',ru:true,gone410:true,ts:Date.now()}), {
         status: 200, headers: {'Content-Type':'application/json'}
       });
     }

@@ -217,7 +217,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function calculate() {
       var area = parseInt(slider?.value) || 0;
       if (areaDisplay) areaDisplay.textContent = area >= 120 ? '100+' : area;
-      if (area < 4) { if (resultEl) resultEl.style.display = 'none'; return; }
+      if (area < 4) {
+        if (resultEl) resultEl.style.display = 'none';
+        if (minNote) minNote.textContent = 'גודל מינימלי להזמנה: 4 מ"ר';
+        if (minNote) minNote.style.display = 'block';
+        return;
+      }
 
       var isLarge = area >= 100;
       var range = solutionPrices[selectedType] || solutionPrices.standard;
@@ -610,5 +615,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }, {passive: true});
     document.addEventListener('touchend', function() { dragging = false; });
   });
+
+  // ── Scroll reveal observer ─────────────────────────────────────────────
+  var revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length && 'IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  } else {
+    // Fallback: show everything immediately
+    revealEls.forEach(function(el) { el.classList.add('visible'); });
+  }
 
 });

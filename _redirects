@@ -1,18 +1,20 @@
 # ============================================================
-# SkyView — Cloudflare Pages Redirects (v29 — 69 rules)
+# SkyView — Cloudflare Pages Redirects (v30)
+# NOTE: Primary routing is in worker.js (Cloudflare Workers).
+# This file is a fallback for Pages-only deploys.
+# Legacy URLs handled by 410 Gone in worker.js:
+#   /blank-2, /post/*, /ru/post/*, /ar/*, /ru/hipui-kirot, /ru/מחירקרניזגבס
 # ============================================================
 
 # ── Wix junk: galleries, blanks, blog ──
 /fullscreen-page/* /proyektim 301
 /blank / 301
 /blank-1 / 301
-/blank-2 / 301
 /copy-of-2 / 301
 /copy-of-3-rxmap / 301
 /copy-of-תקרה-מתוחה-שמיים /proyektim/klinika-shamayim 301
 /blog/categories/* /madrich 301
 /blog / 301
-/post/* /madrich 301
 
 # ── Hebrew slug pages (high GSC traffic — critical) ──
 /מחיר-תקרה-מתוחה /mehiron 301
@@ -80,12 +82,8 @@
 /ru/הנמכת-תקרה-מיוחדת /hanmahat-tikra 301
 /ru/תקרה-מתוחה-אשקלון /azorim/darom 301
 /ru/תקרה-מתוחה-אשדוד /azorim/ashdod 301
-/ru/post/* /madrich 301
 
-# ── AR: catch-all ──
-/ar/fullscreen-page/* /proyektim 301
-/ar/натяжные-потолки-визראиле-цена /mehiron 301
-/ar/* / 301
+# ── Legacy /post/*, /ru/post/*, /ar/*, /blank-2 — handled as 410 Gone by worker.js ──
 
 # ── Thin/duplicate teura pages → canonical equivalent ──
 /teura/pasei-led /teura/pasei-led-shkuim 301
