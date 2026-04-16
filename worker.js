@@ -1696,7 +1696,7 @@ export default {
 
     // Worker version probe — unique to each deploy
     if (path === '/wv') {
-      return new Response(JSON.stringify({worker:'v93',ru:true,gone410:true,ts:Date.now()}), {
+      return new Response(JSON.stringify({worker:'v95',ru:true,gone410:true,ts:Date.now()}), {
         status: 200, headers: {'Content-Type':'application/json'}
       });
     }
