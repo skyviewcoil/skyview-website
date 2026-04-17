@@ -60,41 +60,57 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateScroll, { passive: true });
   }
 
-  // --- Desktop Dropdown (hover + click) ---
+  // --- Desktop Dropdown (hover + click + keyboard a11y) ---
   const dropdowns = document.querySelectorAll('.nav-dropdown');
   const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
+
+  function setDropdownState(dd, open) {
+    dd.classList.toggle('open', open);
+    const trig = dd.querySelector('.nav-dropdown__trigger');
+    if (trig) trig.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function closeAllDropdowns(except) {
+    dropdowns.forEach(d => { if (d !== except) setDropdownState(d, false); });
+  }
 
   dropdowns.forEach(dd => {
     const trigger = dd.querySelector('.nav-dropdown__trigger');
     if (!trigger) return;
+    trigger.setAttribute('aria-expanded', 'false');
     let hoverTimer = null;
 
     // Click — works on all devices
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isOpen = dd.classList.contains('open');
-      dropdowns.forEach(d => d.classList.remove('open'));
-      if (!isOpen) dd.classList.add('open');
+      const wasOpen = dd.classList.contains('open');
+      closeAllDropdowns(dd);
+      setDropdownState(dd, !wasOpen);
     });
     trigger.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger.click(); }
-      if (e.key === 'Escape') dd.classList.remove('open');
+      if (e.key === 'Escape') { setDropdownState(dd, false); trigger.focus(); }
+    });
+
+    // Close on focusout when focus leaves the entire dropdown
+    dd.addEventListener('focusout', (e) => {
+      if (!dd.contains(e.relatedTarget)) setDropdownState(dd, false);
     });
 
     // Hover — desktop only
     dd.addEventListener('mouseenter', () => {
       if (!isDesktop()) return;
       clearTimeout(hoverTimer);
-      dropdowns.forEach(d => { if (d !== dd) d.classList.remove('open'); });
-      dd.classList.add('open');
+      closeAllDropdowns(dd);
+      setDropdownState(dd, true);
     });
     dd.addEventListener('mouseleave', () => {
       if (!isDesktop()) return;
-      hoverTimer = setTimeout(() => dd.classList.remove('open'), 120);
+      hoverTimer = setTimeout(() => setDropdownState(dd, false), 120);
     });
   });
-  document.addEventListener('click', () => {
-    dropdowns.forEach(d => d.classList.remove('open'));
+  document.addEventListener('click', () => closeAllDropdowns());
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAllDropdowns();
   });
 
   // --- Mobile Menu ---
@@ -619,6 +635,25 @@ document.addEventListener('DOMContentLoaded', function() {
   // ── Scroll reveal observer ─────────────────────────────────────────────
   var revealEls = document.querySelectorAll('.reveal');
   if (revealEls.length && 'IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  } else {
+    // Fallback: show everything immediately
+    revealEls.forEach(function(el) { el.classList.add('visible'); });
+  }
+
+});
+revealEls.length && 'IntersectionObserver' in window) {
     var revealObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {

@@ -27,3 +27,9 @@ package-lock.json
 
 # Cloudflare
 .wrangler/
+
+# Local agent memory (may contain secrets - never commit)
+.claude-memory/
+
+# Windows accidental nested path
+C:\\Users\\smart\\AppData\\Local\\Temp/

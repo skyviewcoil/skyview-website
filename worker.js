@@ -1570,6 +1570,48 @@ const REDIRECTS = {
   '/tikra-heder-eshivot': '/hadarim',
   '/tikra-beit-kneset': '/hadarim/beit-knesset',
 
+  // Short-form room slugs (typed or linked directly) — funnel to /hadarim/*
+  '/salon': '/hadarim/salon',
+  '/mitbah': '/hadarim/mitbah',
+  '/ambatia': '/hadarim/ambatia',
+  '/heder-sheina': '/hadarim/heder-sheina',
+  '/heder-yeladim': '/hadarim/heder-yeladim',
+  '/misada': '/hadarim/misada',
+  '/hanut': '/hadarim/hanut',
+  '/lobi': '/hadarim/lobi',
+  '/beit-knesset': '/hadarim/beit-knesset',
+  '/mikve': '/hadarim/mikve',
+  '/breicha': '/hadarim/breicha',
+  '/sherutim': '/hadarim/sherutim',
+  '/misderon': '/hadarim/misderon',
+  '/ulam-eruim': '/hadarim/ulam-eruim',
+  '/misrad': '/hadarim/misrad',
+
+  // Short-form finish slugs — funnel to /sugim/*
+  '/saten': '/sugim/saten',
+  '/mat': '/sugim/mat',
+  '/mavrika': '/sugim/mavrika',
+  '/hadpas': '/sugim/hadpas',
+  '/akustit': '/sugim/akustit',
+  '/gimur-geves': '/sugim/gimur-geves',
+  '/pasei-merahvim': '/sugim/pasei-merahvim',
+  '/tikra-tzafa': '/sugim/tikra-tzafa',
+
+  // Short-form lighting slugs — funnel to /teura/*
+  '/shamayim': '/teura/shamayim',
+  '/pasei-led': '/teura/pasei-led',
+  '/pasei-led-shkuim': '/teura/pasei-led-shkuim',
+  '/spotim-shkuim': '/teura/spotim-shkuim',
+  '/spotim-masila-magnetit': '/teura/spotim-masila-magnetit',
+  '/masila-magnetit-shkuaa': '/teura/masila-magnetit-shkuaa',
+  '/teura-hekifit': '/teura/teura-hekifit',
+  '/teura-tluya': '/teura/teura-tluya',
+  '/teura-tzmuda': '/teura/teura-tzmuda',
+  '/tikra-mueret': '/teura/tikra-mueret',
+  '/tikra-mueret-im-hadpas': '/teura/tikra-mueret-im-hadpas',
+  '/hanmahat-tikra-im-teura': '/teura/hanmahat-tikra-im-teura',
+
+
   // Location pages
   '/tikra-tel-aviv': '/azorim/tel-aviv',
   '/tikra-salon-haifa': '/azorim/haifa',
@@ -1586,7 +1628,6 @@ const REDIRECTS = {
   // Missing location pages
   '/tikra-afula': '/azorim',
   '/tikra-metuha-meuhad': '/tikrot-metuhot',
-  '/tikra-metuha-meuhad': '/tikrot-metuhot',
 
   // Additional RU paths (low traffic but indexed)
   '/ru/תקרה-נמתחת-תלת-מימד': '/sugim',
@@ -1601,7 +1642,6 @@ const REDIRECTS = {
   '/ru/סוגי-תקרות-קיימים': '/sugim',
   '/ru/תקרה-מתוחה-מוארת': '/teura/tikra-mueret',
   '/ru/תקרה-מתוחה-פסים-מרחפים': '/sugim/pasei-merahvim',
-  '/ru/הנמכתתקרהמתוחהאוגבס': '/hashvaa/tikra-metuha-o-geves',
   '/ru/הנמכת-תקרה-מיוחדת': '/hanmahat-tikra',
   '/ru/תקרה-מתוחה-אשקלון': '/azorim/darom',
   '/ru/תקרה-מתוחה-אשדוד': '/azorim/ashdod',
@@ -1647,7 +1687,7 @@ export default {
 
     // Hard 301 — consolidated warranty page redirect
     if (path === '/madrich-techni/ahrayut-betihut' || path === '/madrich-techni/ahrayut-betihut/') {
-      return Response.redirect('https://www.skyview.co.il/aharayut-yatzranim/', 301);
+      return Response.redirect('https://www.skyview.co.il/aharayut-yatzranim', 301);
     }
 
     // Normalize: strip trailing slash except root
@@ -1696,9 +1736,35 @@ export default {
 
     // Worker version probe — unique to each deploy
     if (path === '/wv') {
-      return new Response(JSON.stringify({worker:'v95',ru:true,gone410:true,ts:Date.now()}), {
+      return new Response(JSON.stringify({worker:'v95',ru:true,gone410:true,leadFallback:true,ts:Date.now()}), {
         status: 200, headers: {'Content-Type':'application/json'}
       });
+    }
+
+    // Lead-form fallback — receives POSTs from <form action="/api/lead-fallback">
+    // Used when JS fetch() to primary endpoint fails or JS is disabled.
+    if (path === '/api/lead-fallback' && request.method === 'POST') {
+      try {
+        const formData = await request.formData();
+        const lead = {
+          phone: formData.get('phone') || '',
+          name: formData.get('name') || '',
+          email: formData.get('email') || '',
+          message: formData.get('message') || '',
+          form_type: formData.get('form_type') || 'fallback',
+          page: request.headers.get('referer') || 'unknown',
+          ua: request.headers.get('user-agent') || '',
+          ts: Date.now()
+        };
+        if (env.LEAD_WEBHOOK_URL) {
+          await fetch(env.LEAD_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(lead)
+          }).catch(() => {});
+        }
+      } catch (_) { /* swallow — always redirect to /toda */ }
+      return Response.redirect(new URL('/toda', url.origin).href, 302);
     }
 
     // 4. Static assets
