@@ -1,0 +1,40 @@
+# Wrangler asset bundler ignore — same syntax as .gitignore
+# These paths are excluded from the static assets uploaded to Cloudflare.
+
+# Archives / backups (oversized, never serve)
+*.zip
+*.tar.gz
+*.tar
+zi5CW2Wf
+
+# Source-control / tooling
+.git/
+.gitignore
+.wrangler/
+node_modules/
+
+# Local agent state — MAY CONTAIN SECRETS, never serve publicly
+.claude-memory/
+
+# Windows accidental nested path
+C:\\Users\\smart\\AppData\\Local\\Temp/
+
+# Worker source (not a static asset)
+worker.js
+wrangler.jsonc
+
+# Documentation drafts (not for production)
+DESIGN-CRITIQUE-v95.md
+EXECUTION-PROMPT-v95.md
+
+# Functions dir is a Pages convention; we use Workers
+functions/
+
+# Editor / OS junk
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+testroot
+testwrite
