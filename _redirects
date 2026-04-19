@@ -1,0 +1,90 @@
+# ============================================================
+# SkyView — Cloudflare Pages Redirects (v30)
+# NOTE: Primary routing is in worker.js (Cloudflare Workers).
+# This file is a fallback for Pages-only deploys.
+# Legacy URLs handled by 410 Gone in worker.js:
+#   /blank-2, /post/*, /ru/post/*, /ar/*, /ru/hipui-kirot, /ru/מחירקרניזגבס
+# ============================================================
+
+# ── Wix junk: galleries, blanks, blog ──
+/fullscreen-page/* /proyektim 301
+/blank / 301
+/blank-1 / 301
+/copy-of-2 / 301
+/copy-of-3-rxmap / 301
+/copy-of-תקרה-מתוחה-שמיים /proyektim/klinika-shamayim 301
+/blog/categories/* /madrich 301
+/blog / 301
+
+# ── Hebrew slug pages (high GSC traffic — critical) ──
+/מחיר-תקרה-מתוחה /mehiron 301
+/הנמכת-תקרה-מיוחדת /hanmahat-tikra 301
+/הנמכתתקרהמתוחהאוגבס /hashvaa/tikra-metuha-o-geves 301
+/סוגי-תקרות-קיימים /sugim 301
+/תמונות-השראה-2021 /proyektim 301
+/תקרה-צפה-מרחפת /sugim/pasei-merahvim 301
+/תיקון-שירות-תקרה-מתוחה /tikun 301
+/תקרה-מתוחה-מוארת /teura/tikra-mueret 301
+/תקרה-מתוחה-פסים-מרחפים /sugim/pasei-merahvim 301
+/תקרה-נמתחת-שמיים /proyektim/klinika-shamayim 301
+/תקרה-מתוחה-עם-הדפס /sugim/hadpas 301
+/תקרה-מתוחה-אשדוד /azorim/ashdod 301
+/תקרה-מתוחה-אשקלון /azorim/darom 301
+/עיצוב-תקרה-לפי-חדר /hadarim 301
+/תיקרה-דמוי-עץ /sugim/hadpas 301
+/מחירקרניזגבס /hanmahat-tikra/gevs 301
+/תקרה-נמתחת-תלת-מימד /sugim 301
+/натяжные-потолки-визраиле-цена /mehiron 301
+
+# ── Legacy Latin slugs ──
+/sugei-hanmahot-tikra /sugim 301
+/pitronot-teura /teura 301
+/hipui-kirot /sugim 301
+/ahraiut /odot 301
+/sherutim-shelanu /tikrot-metuhot 301
+/tikritot-itzuv-hadmaia /architects-designers 301
+
+# ── Old product/finish pages ──
+/tikra-metuha-saten /sugim/saten 301
+/tikra-metuha-mat /sugim/mat 301
+/tikra-metuha-hatkana /madrich/hatkana 301
+/tikra-metuha-merkamim /sugim 301
+/tikra-metuha-shelot /tikrot-metuhot 301
+/tikra-metuha-medidot /madrich/hatkana 301
+/tikra-tlatmeimad-3d /sugim 301
+
+# ── Old room pages ──
+/tikra-hedershina /hadarim/heder-sheina 301
+/tikra-heder-eshivot /hadarim 301
+/tikra-beit-kneset /hadarim/beit-knesset 301
+
+# ── Location pages ──
+/tikra-tel-aviv /azorim/tel-aviv 301
+/tikra-salon-haifa /azorim/haifa 301
+/tikra-ramatgan /azorim/merkaz 301
+/tikra-natania /azorim/merkaz 301
+/tikra-herzelia /azorim/merkaz 301
+/tikra-salon-herzelia /azorim/merkaz 301
+/tikra-salonpintohel /azorim/tel-aviv 301
+/tikra-metbah-telaviv /azorim/tel-aviv 301
+/tikra-misrad-kfarsaba /hadarim/misrad 301
+/tikra-hanut-hadera /hadarim/hanut 301
+
+# ── RU: key pages then catch-all ──
+/ru/натяжные-потолки-визраиле-цена /mehiron 301
+/ru/מחיר-תקרה-מתוחה /mehiron 301
+/ru/תמונות-השראה-2021 /proyektim 301
+/ru/תקרה-צפה-מרחפת /sugim/pasei-merahvim 301
+/ru/סוגי-תקרות-קיימים /sugim 301
+/ru/תקרה-מתוחה-מוארת /teura/tikra-mueret 301
+/ru/תקרה-מתוחה-פסים-מרחפים /sugim/pasei-merahvim 301
+/ru/הנמכתתקרהמתוחהאוגבס /hashvaa/tikra-metuha-o-geves 301
+/ru/הנמכת-תקרה-מיוחדת /hanmahat-tikra 301
+/ru/תקרה-מתוחה-אשקלון /azorim/darom 301
+/ru/תקרה-מתוחה-אשדוד /azorim/ashdod 301
+
+# ── Legacy /post/*, /ru/post/*, /ar/*, /blank-2 — handled as 410 Gone by worker.js ──
+
+# ── Thin/duplicate teura pages → canonical equivalent ──
+/teura/pasei-led /teura/pasei-led-shkuim 301
+/teura/spotim-masila-magnetit /teura/spotim-shkuim 301
