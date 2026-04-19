@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/images/beforeafter/
+
+Sitemap: https://www.skyview.co.il/sitemap.xml
