@@ -2,17 +2,15 @@
    SkyView — Main JavaScript
    ============================================ */
 
-// --- Analytics: GA4 + Meta Pixel (production only) ---
-// CAPI is handled by the existing GTM server-side / Meta partner integration.
-// This file sends browser-side events only. GTM reads dataLayer and forwards
-// to Meta CAPI automatically. event_id is included for browser↔server dedup.
+// --- Analytics event layer (production only) ---
+// GTM is the single source for GA4, Meta Pixel and CAPI. This file only pushes
+// selected business events into dataLayer; tags in GTM decide each destination.
 (function() {
   // Production guard — no tracking on staging or local
   var host = location.hostname;
   if (host !== 'skyview.co.il' && host !== 'www.skyview.co.il') return;
 
-  var GA4_ID      = 'G-D4CNRL48EP';
-  var META_PIX_ID = '919952583222085';
+  window.dataLayer = window.dataLayer || [];
 
   // ── event_id generator — used for GTM/CAPI deduplication ─────────────────
   // GTM server-side container reads this from dataLayer and passes it to Meta
@@ -21,24 +19,11 @@
     return 'sv-' + Date.now() + '-' + Math.random().toString(36).slice(2, 9);
   };
 
-  // ── GA4 ───────────────────────────────────────────────────────────────────
-  // Guard against duplicate injection (e.g. if GTM also loads GA4)
-  if (!window.__ga4Loaded) {
-    window.__ga4Loaded = true;
-    var gs = document.createElement('script');
-    gs.async = true;
-    gs.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
-    document.head.appendChild(gs);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function() { dataLayer.push(arguments); };
-    gtag('js', new Date());
-    gtag('config', GA4_ID, { send_page_view: true });
-  }
-
-  // ── Meta Pixel ────────────────────────────────────────────────────────────
-  // GTM Pixel_Setup tag handles fbq('init') and PageView on DOM Ready.
-  // main.js does NOT init fbq to prevent double-init — GTM is the single source.
-  // fbq('track', ...) calls in event handlers below rely on GTM having run first.
+  window.skyviewTrack = function(eventName, params) {
+    var payload = params || {};
+    payload.event = eventName;
+    window.dataLayer.push(payload);
+  };
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -290,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
         calculate();
         if (!calcTracked) {
           calcTracked = true;
-          if (typeof gtag === 'function') gtag('event', 'calculator_start', {event_category: 'engagement', page: location.pathname});
+          if (typeof skyviewTrack === 'function') skyviewTrack('calculator_start', { event_category: 'engagement', page: location.pathname });
         }
       });
     }
@@ -302,24 +287,31 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- WhatsApp & Phone click tracking ---
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
     el.addEventListener('click', function() {
-      if (typeof dataLayer !== 'undefined') dataLayer.push({ event: 'whatsapp_click', page: location.pathname });
-      if (typeof gtag === 'function') gtag('event', 'whatsapp_click', { event_category: 'contact', page: location.pathname });
-      if (typeof fbq === 'function') fbq('track', 'Contact');
+      if (typeof skyviewTrack === 'function') skyviewTrack('whatsapp_click', {
+        event_category: 'contact',
+        event_id: window._svEventId(),
+        page: location.pathname
+      });
     });
   });
   document.querySelectorAll('a[href*="tel:"]').forEach(function(el) {
     el.addEventListener('click', function() {
-      if (typeof dataLayer !== 'undefined') dataLayer.push({ event: 'phone_click', page: location.pathname });
-      if (typeof gtag === 'function') gtag('event', 'phone_click', { event_category: 'contact', page: location.pathname });
-      if (typeof fbq === 'function') fbq('track', 'Contact');
+      if (typeof skyviewTrack === 'function') skyviewTrack('phone_click', {
+        event_category: 'contact',
+        event_id: window._svEventId(),
+        page: location.pathname
+      });
     });
   });
 
   // --- Quote request CTA click tracking ---
   document.querySelectorAll('a.btn--primary[href="/contact"], a.btn--primary[href*="mehiron"]').forEach(function(el) {
     el.addEventListener('click', function() {
-      if (typeof dataLayer !== 'undefined') dataLayer.push({ event: 'quote_request_click', cta_text: el.textContent.trim(), page: location.pathname });
-      if (typeof gtag === 'function') gtag('event', 'quote_request_click', { event_category: 'engagement', cta_text: el.textContent.trim(), page: location.pathname });
+      if (typeof skyviewTrack === 'function') skyviewTrack('quote_request_click', {
+        event_category: 'engagement',
+        cta_text: el.textContent.trim(),
+        page: location.pathname
+      });
     });
   });
 
@@ -517,16 +509,20 @@ document.addEventListener('DOMContentLoaded', function() {
     data.event_id = eventId;
 
     // Track submission attempt
-    if (typeof dataLayer !== 'undefined') dataLayer.push({ event: 'form_submit_start', form_type: data.form_type, page: location.pathname });
-    if (typeof gtag === 'function') gtag('event', 'form_submit_start', { form_type: data.form_type, page: location.pathname });
+    if (typeof skyviewTrack === 'function') skyviewTrack('form_submit_start', {
+      form_type: data.form_type,
+      page: location.pathname
+    });
 
     // --- Deliver via WhatsApp (fallback) ---
     function deliverWhatsApp() {
       var waUrl = buildWaUrl(data);
       window.open(waUrl, '_blank');
-      if (typeof dataLayer !== 'undefined') dataLayer.push({ event: 'lead', lead_type: 'whatsapp_fallback', event_id: eventId, page: location.pathname });
-      if (typeof gtag === 'function') gtag('event', 'generate_lead', { lead_type: 'whatsapp_fallback', event_id: eventId, page: location.pathname });
-      if (typeof fbq === 'function') fbq('track', 'Lead', {}, { eventID: eventId });
+      if (typeof skyviewTrack === 'function') skyviewTrack('generate_lead', {
+        lead_type: 'whatsapp_fallback',
+        event_id: eventId,
+        page: location.pathname
+      });
       setFormState(form, 'success');
       resetForm(form, 6000);
     }
@@ -545,9 +541,12 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(function(res) {
         if (res.ok) {
           // Push to dataLayer — GTM server-side picks this up for CAPI
-          if (typeof dataLayer !== 'undefined') dataLayer.push({ event: 'lead', lead_type: 'email_sent', event_id: eventId, form_type: data.form_type, page: location.pathname });
-          if (typeof gtag === 'function') gtag('event', 'generate_lead', { lead_type: 'email_sent', event_id: eventId, form_type: data.form_type, page: location.pathname });
-          if (typeof fbq === 'function') fbq('track', 'Lead', {}, { eventID: eventId });
+          if (typeof skyviewTrack === 'function') skyviewTrack('generate_lead', {
+            lead_type: 'email_sent',
+            event_id: eventId,
+            form_type: data.form_type,
+            page: location.pathname
+          });
           setFormState(form, 'success');
           resetForm(form, 6000);
         } else {

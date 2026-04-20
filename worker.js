@@ -1,3 +1,55 @@
+const GTM_CONTAINER_ID = 'GTM-5F9MRJZR';
+const GTM_HEAD_SNIPPET = `<script>(function(w,i,g){w[g]=w[g]||[];if(typeof w[g].push=='function')w[g].push(i)})
+(window,'GTM-5F9MRJZR','google_tags_first_party');</script><script>(function(w,d,s,l){w[l]=w[l]||[];(function(){w[l].push(arguments);})('set','developer_id.dYzg1YT',true);
+w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s);j.async=true;j.src='/bddp/';
+f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer');</script>`;
+const GTM_BODY_SNIPPET = `<noscript><iframe src="/bddp/ns.html?id=GTM-5F9MRJZR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
+
+function injectAnalytics(html) {
+  if (!html || html.includes(GTM_CONTAINER_ID)) return html;
+
+  let output = html.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${GTM_HEAD_SNIPPET}`);
+  output = output.replace(/<body(\s[^>]*)?>/i, (match) => `${match}${GTM_BODY_SNIPPET}`);
+  return output;
+}
+
+function htmlResponse(html, init = {}) {
+  const headers = new Headers(init.headers || {});
+  if (!headers.has('Content-Type')) headers.set('Content-Type', 'text/html; charset=UTF-8');
+  return new Response(injectAnalytics(html), { ...init, headers });
+}
+
+async function withAnalyticsInjection(response) {
+  const contentType = response.headers.get('Content-Type') || '';
+  if (!contentType.toLowerCase().includes('text/html')) return response;
+
+  const headers = new Headers(response.headers);
+  headers.delete('Content-Length');
+  return new Response(injectAnalytics(await response.text()), {
+    status: response.status,
+    statusText: response.statusText,
+    headers
+  });
+}
+
+function pathHasFileExtension(path) {
+  return /\/[^/]+\.[^/]+$/.test(path);
+}
+
+async function fetchStaticAsset(request, env, path) {
+  let response = await env.ASSETS.fetch(request);
+  if (response.status !== 404 || path === '/' || pathHasFileExtension(path)) {
+    return response;
+  }
+
+  const fallbackUrl = new URL(request.url);
+  fallbackUrl.pathname = `${path}/index.html`;
+  response = await env.ASSETS.fetch(new Request(fallbackUrl, request));
+  return response;
+}
+
 // Russian landing pages — embedded HTML content
 // Served directly by worker to bypass Cloudflare Workers Assets lookup issues
 const RU_INDEX_HTML = `<!DOCTYPE html>
@@ -1723,13 +1775,13 @@ export default {
 
     // 3. Russian landing pages — served directly from worker
     if (path === '/ru') {
-      return new Response(RU_INDEX_HTML, {
+      return htmlResponse(RU_INDEX_HTML, {
         status: 200,
         headers: { 'Content-Type': 'text/html; charset=UTF-8', 'Cache-Control': 'public, max-age=3600' }
       });
     }
     if (path === '/ru/cena') {
-      return new Response(RU_CENA_HTML, {
+      return htmlResponse(RU_CENA_HTML, {
         status: 200,
         headers: { 'Content-Type': 'text/html; charset=UTF-8', 'Cache-Control': 'public, max-age=3600' }
       });
@@ -1779,6 +1831,6 @@ export default {
     }
 
     // 5. Static assets
-    return env.ASSETS.fetch(request);
+    return withAnalyticsInjection(await fetchStaticAsset(request, env, path));
   }
 };
