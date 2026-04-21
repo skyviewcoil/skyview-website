@@ -1153,6 +1153,78 @@
       "priority": "secondary",
       "monthly_volume_estimate": null,
       "ranking_notes": "Moved from gaps into new price-comparison page."
+    },
+    {
+      "keyword": "מאמרים תקרות מתוחות",
+      "language": "he",
+      "canonical_url": "/maamarim",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Article hub for problem-driven content."
+    },
+    {
+      "keyword": "תקרה אחרי רטיבות",
+      "language": "he",
+      "canonical_url": "/maamarim/kisui-tikra-rativut",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Problem-driven article for post-leak/post-damp ceiling demand."
+    },
+    {
+      "keyword": "תקרה אחרי נזילה",
+      "language": "he",
+      "canonical_url": "/maamarim/kisui-tikra-rativut",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Leak synonym."
+    },
+    {
+      "keyword": "כיסוי תקרה רטובה",
+      "language": "he",
+      "canonical_url": "/maamarim/kisui-tikra-rativut",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Cover/repair intent."
+    },
+    {
+      "keyword": "תיקון תקרה אחרי רטיבות",
+      "language": "he",
+      "canonical_url": "/maamarim/kisui-tikra-rativut",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Repair intent."
+    },
+    {
+      "keyword": "תקרה מתקלפת מרטיבות",
+      "language": "he",
+      "canonical_url": "/maamarim/kisui-tikra-rativut",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Peeling-paint long tail."
+    },
+    {
+      "keyword": "הסתרת כתמי רטיבות בתקרה",
+      "language": "he",
+      "canonical_url": "/maamarim/kisui-tikra-rativut",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Stain-hiding long tail."
+    },
+    {
+      "keyword": "נזילה מהתקרה מהשכן",
+      "language": "he",
+      "canonical_url": "/maamarim/kisui-tikra-rativut",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Neighbor-leak urgency query."
     }
   ],
   "pages": [
@@ -1612,6 +1684,35 @@
       "hreflang_pair": null,
       "implementation_status": "live_static",
       "note": "Second gypsum-cluster attack page; owns gypsum price comparison intent."
+    },
+    {
+      "url": "/maamarim",
+      "primary_keyword": "מאמרים תקרות מתוחות",
+      "secondary_keywords": [
+        "תקרה אחרי רטיבות"
+      ],
+      "language": "he",
+      "page_type": "article-hub",
+      "hreflang_pair": null,
+      "implementation_status": "live_static",
+      "note": "Problem-driven article hub."
+    },
+    {
+      "url": "/maamarim/kisui-tikra-rativut",
+      "primary_keyword": "תקרה אחרי רטיבות",
+      "secondary_keywords": [
+        "תקרה אחרי נזילה",
+        "כיסוי תקרה רטובה",
+        "תיקון תקרה אחרי רטיבות",
+        "תקרה מתקלפת מרטיבות",
+        "הסתרת כתמי רטיבות בתקרה",
+        "נזילה מהתקרה מהשכן"
+      ],
+      "language": "he",
+      "page_type": "problem-article",
+      "hreflang_pair": null,
+      "implementation_status": "live_static",
+      "note": "First problem-driven article from the strategy. Routes to /hadarim/ambatia, /madrich/amidut-mayim, /mehiron and comparison pages."
     }
   ],
   "cannibalization_flags": [

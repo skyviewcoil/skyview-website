@@ -78,6 +78,20 @@ It intentionally reflects the current workspace, not only the strategic target s
   - `sitemap.xml` includes both new gypsum-cluster pages
   - `/tikra-metuha-180` returns 301 to `/mehiron`
   - `/תקרה-צפה-מרחפת` returns 301 to `/sugim/tikra-tzafa`
+- Published the first problem-driven article page locally: `/maamarim/kisui-tikra-rativut`
+- Added `/maamarim` as an article hub and assigned `תקרה אחרי רטיבות` ownership to the new article
+- Verified local article build:
+  - 92 static HTML files
+  - 224 JSON-LD blocks
+  - 93 sitemap URLs with no missing static pages
+  - 134 keywords across 38 mapped pages
+- Deployed article update to Cloudflare Workers
+  - Worker version: `3d0abbae-ce3c-4810-b510-dad9c8816a4e`
+  - Uploaded 6 new/modified static assets
+- Verified live production URLs after article deploy:
+  - `/maamarim` returns 200 with expected title and H1
+  - `/maamarim/kisui-tikra-rativut` returns 200 with expected title and Article schema
+  - `sitemap.xml` includes both article URLs
 
 ## Current Blockers Found In Repo
 
@@ -93,7 +107,7 @@ Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 1. Expand the restored `/sugim/*` rescue pages into full commercial pages with examples and stronger proof.
 2. Add individual Review schema only after confirming the visible reviews are real/verifiable source reviews.
 3. Run post-deploy GSC checks for homepage head-term split: `תקרה מתוחה` vs `תקרה נמתחת`.
-4. Build `/maamarim/kisui-tikra-rativut/` for problem-driven leak/dampness demand.
+4. Build the next problem-driven page: `/maamarim/hester-tzinorot/`.
 
 ## First Growth Build
 
