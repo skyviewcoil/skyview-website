@@ -1,0 +1,1693 @@
+{
+  "_meta": {
+    "version": "2026-04-21",
+    "source": "Rebuilt from live site crawl + strategy report, then normalized in repo after head-term decision.",
+    "head_term_decision": "Resolved: use 'תקרה מתוחה' as the canonical Hebrew head term. Use 'תקרה נמתחת' and plural forms as secondary variants unless GSC data proves otherwise.",
+    "rules": [
+      "Every keyword has exactly one canonical_url.",
+      "Every URL has exactly one primary_keyword.",
+      "HE and RU tracked separately; translation is never treated as the same entry.",
+      "monthly_volume_estimate is null until GSC/Ahrefs/Semrush data is joined; do not guess.",
+      "Before adding a keyword, grep this file for partial matches to avoid cannibalization.",
+      "implementation_status marks whether the target exists as a static asset, is embedded in worker.js, is external, or still needs a page."
+    ],
+    "repo_validation_notes": [
+      "/ru/ and /ru/cena/ are embedded in worker.js rather than static files.",
+      "/tikrot-metuhot is differentiated as a types/overview hub so it no longer competes with / for the head term."
+    ],
+    "known_repo_gaps": [
+      "/tikra-metuha-180 is treated as a legacy price URL and 301s to /mehiron."
+    ]
+  },
+  "keywords": [
+    {
+      "keyword": "תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Head term. Homepage owns it. Do not re-target as primary on interior pages."
+    },
+    {
+      "keyword": "תקרות מתוחות",
+      "language": "he",
+      "canonical_url": "/",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Plural head-term variant."
+    },
+    {
+      "keyword": "תקרה נמתחת",
+      "language": "he",
+      "canonical_url": "/",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Synonym/alternate usage. Keep in body copy and FAQ, not as homepage title primary."
+    },
+    {
+      "keyword": "תקרות נמתחות",
+      "language": "he",
+      "canonical_url": "/",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Plural synonym."
+    },
+    {
+      "keyword": "חברת תקרות מתוחות",
+      "language": "he",
+      "canonical_url": "/",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Brand-trust query."
+    },
+    {
+      "keyword": "חברת תקרות נמתחות",
+      "language": "he",
+      "canonical_url": "/",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Synonym brand-trust query."
+    },
+    {
+      "keyword": "תקרות מתוחות בישראל",
+      "language": "he",
+      "canonical_url": "/",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Geo-wide. Regional pages handle city-level intent."
+    },
+    {
+      "keyword": "SkyView תקרות",
+      "language": "he",
+      "canonical_url": "/",
+      "intent": "navigational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Brand navigational."
+    },
+    {
+      "keyword": "מחיר תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/mehiron/",
+      "intent": "transactional",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Highest commercial-intent HE pricing query."
+    },
+    {
+      "keyword": "מחיר תקרה נמתחת",
+      "language": "he",
+      "canonical_url": "/mehiron/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Synonym pricing variant."
+    },
+    {
+      "keyword": "מחירון תקרות מתוחות",
+      "language": "he",
+      "canonical_url": "/mehiron/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "מחירון תקרות נמתחות",
+      "language": "he",
+      "canonical_url": "/mehiron/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "כמה עולה תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/mehiron/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Question-form query; keep in FAQ block."
+    },
+    {
+      "keyword": "כמה עולה תקרה נמתחת",
+      "language": "he",
+      "canonical_url": "/mehiron/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "עלות תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/mehiron/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה מחיר למטר",
+      "language": "he",
+      "canonical_url": "/mehiron/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "סוגי תקרות מתוחות",
+      "language": "he",
+      "canonical_url": "/tikrot-metuhot",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Differentiated type/overview hub. No longer targets the homepage head term as primary."
+    },
+    {
+      "keyword": "סוגי תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/tikrot-metuhot",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "סוגי תקרות נמתחות",
+      "language": "he",
+      "canonical_url": "/tikrot-metuhot",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "גימורים לתקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/sugim",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Finish/type hub restored as a live static page."
+    },
+    {
+      "keyword": "תקרה מבריקה",
+      "language": "he",
+      "canonical_url": "/sugim/mavrika",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Gloss finish. Static page restored in this pass."
+    },
+    {
+      "keyword": "תקרה מטאלית",
+      "language": "he",
+      "canonical_url": "/sugim/mavrika",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה סאטן",
+      "language": "he",
+      "canonical_url": "/sugim/saten",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Satin finish. Static page restored in this pass."
+    },
+    {
+      "keyword": "תקרה מתוחה סאטן",
+      "language": "he",
+      "canonical_url": "/sugim/saten",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה בהדפסה",
+      "language": "he",
+      "canonical_url": "/sugim/hadpas",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Printed ceiling. Static page restored in this pass."
+    },
+    {
+      "keyword": "תקרה מודפסת",
+      "language": "he",
+      "canonical_url": "/sugim/hadpas",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה עם תמונה",
+      "language": "he",
+      "canonical_url": "/sugim/hadpas",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה אקוסטית",
+      "language": "he",
+      "canonical_url": "/sugim/akustit",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Acoustic finish. Static page restored in this pass."
+    },
+    {
+      "keyword": "תקרה מתוחה אקוסטית",
+      "language": "he",
+      "canonical_url": "/sugim/akustit",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה צפה",
+      "language": "he",
+      "canonical_url": "/sugim/tikra-tzafa",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Floating ceiling. Static page restored in this pass."
+    },
+    {
+      "keyword": "תקרה מרחפת",
+      "language": "he",
+      "canonical_url": "/sugim/tikra-tzafa",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה מרחפת",
+      "language": "he",
+      "canonical_url": "/sugim/tikra-tzafa",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "בריסול תקרה",
+      "language": "he",
+      "canonical_url": "/brisol",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Corrected from misspelled 'ברישול'. Verify TM/legal wording before heavy promotion."
+    },
+    {
+      "keyword": "בריסול",
+      "language": "he",
+      "canonical_url": "/brisol",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "Barrisol ישראל",
+      "language": "he",
+      "canonical_url": "/brisol",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "הנמכת תקרה",
+      "language": "he",
+      "canonical_url": "/hanmahat-tikra",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "High-priority gypsum cluster. Expand per strategy section 7."
+    },
+    {
+      "keyword": "הנמכת תקרה מחיר",
+      "language": "he",
+      "canonical_url": "/hanmahat-tikra-mehir",
+      "intent": "transactional",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Dedicated lowering-price page. Keep /hanmahat-tikra informational."
+    },
+    {
+      "keyword": "הנמכת תקרה בגבס",
+      "language": "he",
+      "canonical_url": "/hanmahat-tikra",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מונמכת",
+      "language": "he",
+      "canonical_url": "/hanmahat-tikra",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרת גבס מונמכת",
+      "language": "he",
+      "canonical_url": "/hanmahat-tikra",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה או גבס",
+      "language": "he",
+      "canonical_url": "/hashvaa/tikra-metuha-o-geves",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Comparison head term. Foothold for gypsum cluster attack."
+    },
+    {
+      "keyword": "תקרה מתוחה מול גבס",
+      "language": "he",
+      "canonical_url": "/hashvaa/tikra-metuha-o-geves",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה נמתחת או תקרת גבס",
+      "language": "he",
+      "canonical_url": "/hashvaa/tikra-metuha-o-geves",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "הבדל בין תקרה מתוחה לגבס",
+      "language": "he",
+      "canonical_url": "/hashvaa/tikra-metuha-o-geves",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "הבדל בין תקרה נמתחת לגבס",
+      "language": "he",
+      "canonical_url": "/hashvaa/tikra-metuha-o-geves",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה בסלון",
+      "language": "he",
+      "canonical_url": "/hadarim/salon",
+      "intent": "commercial",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Room-specific commercial query."
+    },
+    {
+      "keyword": "תקרה נמתחת בסלון",
+      "language": "he",
+      "canonical_url": "/hadarim/salon",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה סלון",
+      "language": "he",
+      "canonical_url": "/hadarim/salon",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "עיצוב תקרת סלון",
+      "language": "he",
+      "canonical_url": "/hadarim/salon",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה לחדר שינה",
+      "language": "he",
+      "canonical_url": "/hadarim/heder-sheina",
+      "intent": "commercial",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה נמתחת לחדר שינה",
+      "language": "he",
+      "canonical_url": "/hadarim/heder-sheina",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה חדר שינה",
+      "language": "he",
+      "canonical_url": "/hadarim/heder-sheina",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה למטבח",
+      "language": "he",
+      "canonical_url": "/hadarim/mitbah",
+      "intent": "commercial",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה נמתחת למטבח",
+      "language": "he",
+      "canonical_url": "/hadarim/mitbah",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה מטבח",
+      "language": "he",
+      "canonical_url": "/hadarim/mitbah",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה לאמבטיה",
+      "language": "he",
+      "canonical_url": "/hadarim/ambatia",
+      "intent": "commercial",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Moisture-resistance angle is a differentiator."
+    },
+    {
+      "keyword": "תקרה נמתחת לאמבטיה",
+      "language": "he",
+      "canonical_url": "/hadarim/ambatia",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה חדר רחצה",
+      "language": "he",
+      "canonical_url": "/hadarim/ambatia",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה עמידה בלחות",
+      "language": "he",
+      "canonical_url": "/hadarim/ambatia",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה למשרד",
+      "language": "he",
+      "canonical_url": "/hadarim/misrad",
+      "intent": "commercial",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "B2B-lean. Cross-link with /asakim."
+    },
+    {
+      "keyword": "תקרה נמתחת למשרד",
+      "language": "he",
+      "canonical_url": "/hadarim/misrad",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה אקוסטית למשרד",
+      "language": "he",
+      "canonical_url": "/hadarim/misrad",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Keep office room-intent here; finish intent remains /sugim/akustit."
+    },
+    {
+      "keyword": "תקרה מתוחה למקווה",
+      "language": "he",
+      "canonical_url": "/hadarim/mikve",
+      "intent": "commercial",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Niche B2B: moisture/hygiene angle."
+    },
+    {
+      "keyword": "תקרה נמתחת למקווה",
+      "language": "he",
+      "canonical_url": "/hadarim/mikve",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה לחדר טהרה",
+      "language": "he",
+      "canonical_url": "/hadarim/mikve",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תאורה לתקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/teura/",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Lighting hub."
+    },
+    {
+      "keyword": "תאורה לתקרה נמתחת",
+      "language": "he",
+      "canonical_url": "/teura/",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "גופי תאורה לתקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/teura/",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "לדים לתקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/teura/",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תאורה שקועה בתקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/teura/",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "פרויקטים תקרות מתוחות",
+      "language": "he",
+      "canonical_url": "/proyektim",
+      "intent": "commercial",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Portfolio/proof content."
+    },
+    {
+      "keyword": "גלריית תקרות מתוחות",
+      "language": "he",
+      "canonical_url": "/proyektim",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "דוגמאות תקרות מתוחות",
+      "language": "he",
+      "canonical_url": "/proyektim",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "מדריך תקרות מתוחות",
+      "language": "he",
+      "canonical_url": "/madrich",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Top-of-funnel educational hub."
+    },
+    {
+      "keyword": "איך בוחרים תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/madrich",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "יתרונות תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/madrich",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "חסרונות תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/madrich",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Honesty/comparison searchers."
+    },
+    {
+      "keyword": "אודות SkyView",
+      "language": "he",
+      "canonical_url": "/odot",
+      "intent": "navigational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Brand trust page."
+    },
+    {
+      "keyword": "חברת SkyView תקרות",
+      "language": "he",
+      "canonical_url": "/odot",
+      "intent": "navigational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "אחריות תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/aharayut-yatzranim",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Trust + manufacturer tier content."
+    },
+    {
+      "keyword": "אחריות תקרה נמתחת",
+      "language": "he",
+      "canonical_url": "/aharayut-yatzranim",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "יצרני תקרות מתוחות",
+      "language": "he",
+      "canonical_url": "/aharayut-yatzranim",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "MSD תקרות",
+      "language": "he",
+      "canonical_url": "/aharayut-yatzranim",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "RENOLIT תקרות",
+      "language": "he",
+      "canonical_url": "/aharayut-yatzranim",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "TEQTUM תקרות",
+      "language": "he",
+      "canonical_url": "/aharayut-yatzranim",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרות מתוחות לאדריכלים",
+      "language": "he",
+      "canonical_url": "/architects-designers",
+      "intent": "commercial",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "B2B specifier audience. Static page missing in current workspace; sitemap lists it."
+    },
+    {
+      "keyword": "תקרות מתוחות למעצבי פנים",
+      "language": "he",
+      "canonical_url": "/architects-designers",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "שיתוף פעולה אדריכלים תקרות",
+      "language": "he",
+      "canonical_url": "/architects-designers",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרות מתוחות לעסקים",
+      "language": "he",
+      "canonical_url": "/asakim",
+      "intent": "commercial",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "B2B hub."
+    },
+    {
+      "keyword": "תקרות מתוחות מסחריות",
+      "language": "he",
+      "canonical_url": "/asakim",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרות מתוחות לפי אזור",
+      "language": "he",
+      "canonical_url": "/azorim",
+      "intent": "commercial",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Regional hub. City pages already exist for key regions."
+    },
+    {
+      "keyword": "תקרות מתוחות באזור",
+      "language": "he",
+      "canonical_url": "/azorim",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרות מתוחות באזור המרכז",
+      "language": "he",
+      "canonical_url": "/azorim",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Can split to /azorim/merkaz with GSC support."
+    },
+    {
+      "keyword": "הדמיה לתקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/hadmaya-rishonit-hinam/",
+      "intent": "transactional",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Free lead magnet."
+    },
+    {
+      "keyword": "הדמיה לתקרה נמתחת",
+      "language": "he",
+      "canonical_url": "/hadmaya-rishonit-hinam/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "הדמיה חינם תקרה",
+      "language": "he",
+      "canonical_url": "/hadmaya-rishonit-hinam/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "הצעת מחיר חינם תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/hadmaya-rishonit-hinam/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "натяжные потолки",
+      "language": "ru",
+      "canonical_url": "/ru/",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "RU head term. Embedded in worker.js."
+    },
+    {
+      "keyword": "натяжные потолки в Израиле",
+      "language": "ru",
+      "canonical_url": "/ru/",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "натяжной потолок",
+      "language": "ru",
+      "canonical_url": "/ru/",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Singular."
+    },
+    {
+      "keyword": "SkyView натяжные потолки",
+      "language": "ru",
+      "canonical_url": "/ru/",
+      "intent": "navigational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "цена натяжного потолка",
+      "language": "ru",
+      "canonical_url": "/ru/cena/",
+      "intent": "transactional",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "RU pricing head. Embedded in worker.js."
+    },
+    {
+      "keyword": "натяжные потолки цена",
+      "language": "ru",
+      "canonical_url": "/ru/cena/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "сколько стоит натяжной потолок",
+      "language": "ru",
+      "canonical_url": "/ru/cena/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "прайс натяжные потолки Израиль",
+      "language": "ru",
+      "canonical_url": "/ru/cena/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "מחשבון תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "https://calculator.skyview.co.il/",
+      "intent": "transactional",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Subdomain. Confirm indexability and canonical handling; consider moving to root path to consolidate authority."
+    },
+    {
+      "keyword": "מחשבון תקרה נמתחת",
+      "language": "he",
+      "canonical_url": "https://calculator.skyview.co.il/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "חישוב מחיר תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "https://calculator.skyview.co.il/",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה מט",
+      "language": "he",
+      "canonical_url": "/sugim/mat",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Matte finish page restored."
+    },
+    {
+      "keyword": "תקרה מט",
+      "language": "he",
+      "canonical_url": "/sugim/mat",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "גימור גבס בתקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/sugim/gimur-geves",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Gypum-look finish without making the page compete with gypsum comparison pages."
+    },
+    {
+      "keyword": "תקרה מתוחה במראה גבס",
+      "language": "he",
+      "canonical_url": "/sugim/gimur-geves",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "פסים מרחפים בתקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/sugim/pasei-merahvim",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Lighting/type hybrid page restored."
+    },
+    {
+      "keyword": "תקרה מתוחה עם פסים מרחפים",
+      "language": "he",
+      "canonical_url": "/sugim/pasei-merahvim",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "תיקון תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/tikun",
+      "intent": "transactional",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Service page restored to satisfy legacy redirect and sitemap route."
+    },
+    {
+      "keyword": "שירות תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/tikun",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": ""
+    },
+    {
+      "keyword": "כמה עולה הנמכת תקרה",
+      "language": "he",
+      "canonical_url": "/hanmahat-tikra-mehir",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Question-form query for the price page FAQ."
+    },
+    {
+      "keyword": "עלות הנמכת תקרה",
+      "language": "he",
+      "canonical_url": "/hanmahat-tikra-mehir",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Cost synonym."
+    },
+    {
+      "keyword": "מחיר הנמכת תקרה למטר",
+      "language": "he",
+      "canonical_url": "/hanmahat-tikra-mehir",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Per-square-meter modifier."
+    },
+    {
+      "keyword": "תקרת גבס מחיר",
+      "language": "he",
+      "canonical_url": "/hashvaa/tikrat-geves-mehir",
+      "intent": "transactional",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Dedicated gypsum-price comparison page."
+    },
+    {
+      "keyword": "כמה עולה תקרת גבס",
+      "language": "he",
+      "canonical_url": "/hashvaa/tikrat-geves-mehir",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Question-form gypsum price query."
+    },
+    {
+      "keyword": "מחיר הנמכת תקרה בגבס",
+      "language": "he",
+      "canonical_url": "/hashvaa/tikrat-geves-mehir",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Gypsum lowering price modifier."
+    },
+    {
+      "keyword": "הנמכת גבס מחיר",
+      "language": "he",
+      "canonical_url": "/hashvaa/tikrat-geves-mehir",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Alternate word order."
+    },
+    {
+      "keyword": "גבס מול תקרה מתוחה מחיר",
+      "language": "he",
+      "canonical_url": "/hashvaa/tikrat-geves-mehir",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Price-comparison modifier."
+    },
+    {
+      "keyword": "תקרת גבס מול תקרה מתוחה מחיר",
+      "language": "he",
+      "canonical_url": "/hashvaa/tikrat-geves-mehir",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Price-comparison modifier."
+    },
+    {
+      "keyword": "תקרה מתוחה לעומת גבס עלות",
+      "language": "he",
+      "canonical_url": "/hashvaa/tikrat-geves-mehir",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Moved from gaps into new price-comparison page."
+    }
+  ],
+  "pages": [
+    {
+      "url": "/",
+      "primary_keyword": "תקרה מתוחה",
+      "secondary_keywords": [
+        "תקרות מתוחות",
+        "תקרה נמתחת",
+        "תקרות נמתחות",
+        "חברת תקרות מתוחות",
+        "חברת תקרות נמתחות",
+        "תקרות מתוחות בישראל",
+        "SkyView תקרות"
+      ],
+      "language": "he",
+      "page_type": "home",
+      "hreflang_pair": "/ru/",
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/mehiron/",
+      "primary_keyword": "מחיר תקרה מתוחה",
+      "secondary_keywords": [
+        "מחיר תקרה נמתחת",
+        "מחירון תקרות מתוחות",
+        "מחירון תקרות נמתחות",
+        "כמה עולה תקרה מתוחה",
+        "כמה עולה תקרה נמתחת",
+        "עלות תקרה מתוחה",
+        "תקרה מתוחה מחיר למטר"
+      ],
+      "language": "he",
+      "page_type": "pricing",
+      "hreflang_pair": "/ru/cena/",
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/tikrot-metuhot",
+      "primary_keyword": "סוגי תקרות מתוחות",
+      "secondary_keywords": [
+        "סוגי תקרה מתוחה",
+        "סוגי תקרות נמתחות"
+      ],
+      "language": "he",
+      "page_type": "types-hub",
+      "hreflang_pair": null,
+      "implementation_status": "live_static",
+      "note": "Differentiated from homepage head-term intent."
+    },
+    {
+      "url": "/sugim/mavrika",
+      "primary_keyword": "תקרה מבריקה",
+      "secondary_keywords": [
+        "תקרה מטאלית"
+      ],
+      "language": "he",
+      "page_type": "product-variant",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/sugim/saten",
+      "primary_keyword": "תקרה סאטן",
+      "secondary_keywords": [
+        "תקרה מתוחה סאטן"
+      ],
+      "language": "he",
+      "page_type": "product-variant",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/sugim/hadpas",
+      "primary_keyword": "תקרה מתוחה בהדפסה",
+      "secondary_keywords": [
+        "תקרה מודפסת",
+        "תקרה עם תמונה"
+      ],
+      "language": "he",
+      "page_type": "product-variant",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/sugim/akustit",
+      "primary_keyword": "תקרה אקוסטית",
+      "secondary_keywords": [
+        "תקרה מתוחה אקוסטית"
+      ],
+      "language": "he",
+      "page_type": "product-variant",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/sugim/tikra-tzafa",
+      "primary_keyword": "תקרה צפה",
+      "secondary_keywords": [
+        "תקרה מרחפת",
+        "תקרה מתוחה מרחפת"
+      ],
+      "language": "he",
+      "page_type": "product-variant",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/brisol",
+      "primary_keyword": "בריסול תקרה",
+      "secondary_keywords": [
+        "בריסול",
+        "Barrisol ישראל"
+      ],
+      "language": "he",
+      "page_type": "product-brand",
+      "hreflang_pair": null,
+      "implementation_status": "live_static",
+      "note": "Verify TM language."
+    },
+    {
+      "url": "/hanmahat-tikra",
+      "primary_keyword": "הנמכת תקרה",
+      "secondary_keywords": [
+        "הנמכת תקרה בגבס",
+        "תקרה מונמכת",
+        "תקרת גבס מונמכת"
+      ],
+      "language": "he",
+      "page_type": "cluster-attack",
+      "hreflang_pair": null,
+      "implementation_status": "live_static",
+      "note": "Priority gypsum-cluster foothold. Transactional price intent split to /hanmahat-tikra-mehir and /hashvaa/tikrat-geves-mehir."
+    },
+    {
+      "url": "/hashvaa/tikra-metuha-o-geves",
+      "primary_keyword": "תקרה מתוחה או גבס",
+      "secondary_keywords": [
+        "תקרה מתוחה מול גבס",
+        "תקרה נמתחת או תקרת גבס",
+        "הבדל בין תקרה מתוחה לגבס",
+        "הבדל בין תקרה נמתחת לגבס"
+      ],
+      "language": "he",
+      "page_type": "comparison",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/hadarim/salon",
+      "primary_keyword": "תקרה מתוחה בסלון",
+      "secondary_keywords": [
+        "תקרה נמתחת בסלון",
+        "תקרה מתוחה סלון",
+        "עיצוב תקרת סלון"
+      ],
+      "language": "he",
+      "page_type": "room",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/hadarim/heder-sheina",
+      "primary_keyword": "תקרה מתוחה לחדר שינה",
+      "secondary_keywords": [
+        "תקרה נמתחת לחדר שינה",
+        "תקרה מתוחה חדר שינה"
+      ],
+      "language": "he",
+      "page_type": "room",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/hadarim/mitbah",
+      "primary_keyword": "תקרה מתוחה למטבח",
+      "secondary_keywords": [
+        "תקרה נמתחת למטבח",
+        "תקרה מתוחה מטבח"
+      ],
+      "language": "he",
+      "page_type": "room",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/hadarim/ambatia",
+      "primary_keyword": "תקרה מתוחה לאמבטיה",
+      "secondary_keywords": [
+        "תקרה נמתחת לאמבטיה",
+        "תקרה מתוחה חדר רחצה",
+        "תקרה מתוחה עמידה בלחות"
+      ],
+      "language": "he",
+      "page_type": "room",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/hadarim/misrad",
+      "primary_keyword": "תקרה מתוחה למשרד",
+      "secondary_keywords": [
+        "תקרה נמתחת למשרד",
+        "תקרה אקוסטית למשרד"
+      ],
+      "language": "he",
+      "page_type": "room-b2b",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/hadarim/mikve",
+      "primary_keyword": "תקרה מתוחה למקווה",
+      "secondary_keywords": [
+        "תקרה נמתחת למקווה",
+        "תקרה לחדר טהרה"
+      ],
+      "language": "he",
+      "page_type": "room-b2b-niche",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/teura/",
+      "primary_keyword": "תאורה לתקרה מתוחה",
+      "secondary_keywords": [
+        "תאורה לתקרה נמתחת",
+        "גופי תאורה לתקרה מתוחה",
+        "לדים לתקרה מתוחה",
+        "תאורה שקועה בתקרה מתוחה"
+      ],
+      "language": "he",
+      "page_type": "hub-informational",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/proyektim",
+      "primary_keyword": "פרויקטים תקרות מתוחות",
+      "secondary_keywords": [
+        "גלריית תקרות מתוחות",
+        "דוגמאות תקרות מתוחות"
+      ],
+      "language": "he",
+      "page_type": "portfolio",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/madrich",
+      "primary_keyword": "מדריך תקרות מתוחות",
+      "secondary_keywords": [
+        "איך בוחרים תקרה מתוחה",
+        "יתרונות תקרה מתוחה",
+        "חסרונות תקרה מתוחה"
+      ],
+      "language": "he",
+      "page_type": "guide",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/odot",
+      "primary_keyword": "אודות SkyView",
+      "secondary_keywords": [
+        "חברת SkyView תקרות"
+      ],
+      "language": "he",
+      "page_type": "about",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/aharayut-yatzranim",
+      "primary_keyword": "אחריות תקרה מתוחה",
+      "secondary_keywords": [
+        "אחריות תקרה נמתחת",
+        "יצרני תקרות מתוחות",
+        "MSD תקרות",
+        "RENOLIT תקרות",
+        "TEQTUM תקרות"
+      ],
+      "language": "he",
+      "page_type": "trust",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/architects-designers",
+      "primary_keyword": "תקרות מתוחות לאדריכלים",
+      "secondary_keywords": [
+        "תקרות מתוחות למעצבי פנים",
+        "שיתוף פעולה אדריכלים תקרות"
+      ],
+      "language": "he",
+      "page_type": "b2b-specifier",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/asakim",
+      "primary_keyword": "תקרות מתוחות לעסקים",
+      "secondary_keywords": [
+        "תקרות מתוחות מסחריות"
+      ],
+      "language": "he",
+      "page_type": "b2b-hub",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/azorim",
+      "primary_keyword": "תקרות מתוחות לפי אזור",
+      "secondary_keywords": [
+        "תקרות מתוחות באזור",
+        "תקרות מתוחות באזור המרכז"
+      ],
+      "language": "he",
+      "page_type": "regional-hub",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/hadmaya-rishonit-hinam/",
+      "primary_keyword": "הדמיה לתקרה מתוחה",
+      "secondary_keywords": [
+        "הדמיה לתקרה נמתחת",
+        "הדמיה חינם תקרה",
+        "הצעת מחיר חינם תקרה מתוחה"
+      ],
+      "language": "he",
+      "page_type": "lead-magnet",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/ru/",
+      "primary_keyword": "натяжные потолки",
+      "secondary_keywords": [
+        "натяжные потолки в Израиле",
+        "натяжной потолок",
+        "SkyView натяжные потолки"
+      ],
+      "language": "ru",
+      "page_type": "home",
+      "hreflang_pair": "/",
+      "implementation_status": "worker_embedded"
+    },
+    {
+      "url": "/ru/cena/",
+      "primary_keyword": "цена натяжного потолка",
+      "secondary_keywords": [
+        "натяжные потолки цена",
+        "сколько стоит натяжной потолок",
+        "прайс натяжные потолки Израиль"
+      ],
+      "language": "ru",
+      "page_type": "pricing",
+      "hreflang_pair": "/mehiron/",
+      "implementation_status": "worker_embedded"
+    },
+    {
+      "url": "https://calculator.skyview.co.il/",
+      "primary_keyword": "מחשבון תקרה מתוחה",
+      "secondary_keywords": [
+        "מחשבון תקרה נמתחת",
+        "חישוב מחיר תקרה מתוחה"
+      ],
+      "language": "he",
+      "page_type": "tool-subdomain",
+      "hreflang_pair": null,
+      "implementation_status": "external"
+    },
+    {
+      "url": "/sugim",
+      "primary_keyword": "גימורים לתקרה מתוחה",
+      "secondary_keywords": [
+        "סוגי תקרה מתוחה",
+        "סוגי תקרות מתוחות"
+      ],
+      "language": "he",
+      "page_type": "product-variant-hub",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/sugim/mat",
+      "primary_keyword": "תקרה מתוחה מט",
+      "secondary_keywords": [
+        "תקרה מט"
+      ],
+      "language": "he",
+      "page_type": "product-variant",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/sugim/gimur-geves",
+      "primary_keyword": "גימור גבס בתקרה מתוחה",
+      "secondary_keywords": [
+        "תקרה מתוחה במראה גבס"
+      ],
+      "language": "he",
+      "page_type": "product-variant",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/sugim/pasei-merahvim",
+      "primary_keyword": "פסים מרחפים בתקרה מתוחה",
+      "secondary_keywords": [
+        "תקרה מתוחה עם פסים מרחפים"
+      ],
+      "language": "he",
+      "page_type": "product-variant",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/tikun",
+      "primary_keyword": "תיקון תקרה מתוחה",
+      "secondary_keywords": [
+        "שירות תקרה מתוחה"
+      ],
+      "language": "he",
+      "page_type": "service",
+      "hreflang_pair": null,
+      "implementation_status": "live_static"
+    },
+    {
+      "url": "/hanmahat-tikra-mehir",
+      "primary_keyword": "הנמכת תקרה מחיר",
+      "secondary_keywords": [
+        "כמה עולה הנמכת תקרה",
+        "עלות הנמכת תקרה",
+        "מחיר הנמכת תקרה למטר"
+      ],
+      "language": "he",
+      "page_type": "cluster-attack-pricing",
+      "hreflang_pair": null,
+      "implementation_status": "live_static",
+      "note": "First gypsum/lowering transactional page from the strategy."
+    },
+    {
+      "url": "/hashvaa/tikrat-geves-mehir",
+      "primary_keyword": "תקרת גבס מחיר",
+      "secondary_keywords": [
+        "כמה עולה תקרת גבס",
+        "מחיר הנמכת תקרה בגבס",
+        "הנמכת גבס מחיר",
+        "גבס מול תקרה מתוחה מחיר",
+        "תקרת גבס מול תקרה מתוחה מחיר",
+        "תקרה מתוחה לעומת גבס עלות"
+      ],
+      "language": "he",
+      "page_type": "comparison-pricing",
+      "hreflang_pair": null,
+      "implementation_status": "live_static",
+      "note": "Second gypsum-cluster attack page; owns gypsum price comparison intent."
+    }
+  ],
+  "cannibalization_flags": [
+    {
+      "issue": "/ vs /tikrot-metuhot",
+      "shared_intent": "Head-term stretch ceiling landing",
+      "resolution_required": false,
+      "recommended_action": "Resolved in this map: / owns 'תקרה מתוחה'; /tikrot-metuhot owns 'סוגי תקרות מתוחות'. Keep /tikrot-metuhot structured as a types hub and link down to /sugim/* when those pages are restored."
+    },
+    {
+      "issue": "/hadarim/misrad vs /sugim/akustit vs /asakim",
+      "shared_intent": "Office / B2B acoustic ceiling",
+      "resolution_required": false,
+      "recommended_action": "Maintain split: /hadarim/misrad = room intent, /sugim/akustit = finish intent, /asakim = B2B hub."
+    },
+    {
+      "issue": "/sugim/* URLs in sitemap but no static files",
+      "shared_intent": "Finish/type pages",
+      "resolution_required": false,
+      "recommended_action": "Resolved: /sugim hub and listed /sugim/* pages are restored as live static pages."
+    },
+    {
+      "issue": "/architects-designers in sitemap but no static file",
+      "shared_intent": "B2B specifier page",
+      "resolution_required": false,
+      "recommended_action": "Resolved: /architects-designers restored as a live static B2B specifier page."
+    }
+  ],
+  "gaps_no_page_yet": [
+    {
+      "keyword": "תקרה מתוחה שחורה",
+      "intent": "commercial",
+      "recommended_url": "/sugim/shehora",
+      "rationale": "Color-intent niche with low-competition long-tail."
+    },
+    {
+      "keyword": "תקרה מתוחה לבנה",
+      "intent": "commercial",
+      "recommended_url": "merge into /sugim/saten FAQ",
+      "rationale": "Covered implicitly by satin/matte finish content; add Q&A after /sugim pages are restored."
+    },
+    {
+      "keyword": "תקרות מתוחות באר שבע",
+      "intent": "commercial",
+      "recommended_url": "/azorim/beer-sheva",
+      "rationale": "City-level geo page not present in this workspace."
+    },
+    {
+      "keyword": "תקרות מתוחות השרון",
+      "intent": "commercial",
+      "recommended_url": "/azorim/sharon",
+      "rationale": "Regional geo page not present in this workspace."
+    },
+    {
+      "keyword": "תחזוקה תקרה מתוחה",
+      "intent": "informational",
+      "recommended_url": "/madrich/nikui",
+      "rationale": "Use existing cleaning page, then strengthen with maintenance language."
+    },
+    {
+      "keyword": "установка натяжных потолков",
+      "intent": "informational",
+      "recommended_url": "/ru/ustanovka/",
+      "rationale": "RU installation page; mirror existing HE /madrich/hatkana."
+    },
+    {
+      "keyword": "гарантия на натяжной потолок",
+      "intent": "informational",
+      "recommended_url": "/ru/garantiya/",
+      "rationale": "RU warranty page; mirror HE /aharayut-yatzranim."
+    },
+    {
+      "keyword": "натяжные потолки отзывы",
+      "intent": "commercial",
+      "recommended_url": "/ru/otzyvy/",
+      "rationale": "RU reviews page; host review content without overloading /ru/."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+# SkyView SEO Implementation Tracker
+
+Prepared: 2026-04-21
+
+This tracker converts the organic growth strategy into repo-specific execution state.
+It intentionally reflects the current workspace, not only the strategic target state.
+
+## Resolved Decisions
+
+- Hebrew head term: `תקרה מתוחה`
+- Secondary Hebrew variants: `תקרה נמתחת`, `תקרות נמתחות`
+- Homepage owns the head term.
+- `/tikrot-metuhot` is differentiated as a types/overview hub with primary keyword `סוגי תקרות מתוחות`.
+- `reviewCount=15` is retained because 15 review cards are now visible on the homepage.
+
+## Completed In This Pass
+
+- Added normalized keyword map: `seo/keyword-map.rebuilt.json`
+- Excluded `seo/` from static asset upload via `.assetsignore`
+- Updated homepage title, description, OG, and Twitter snippets
+- Updated `/mehiron/` descriptions while keeping the existing title
+- Updated `/tikrot-metuhot` title, description, OG, Twitter, and H1 for type-hub differentiation
+- Updated snippets for:
+  - `/hanmahat-tikra`
+  - `/hashvaa/tikra-metuha-o-geves`
+  - `/hadarim/salon`
+  - `/hadarim/ambatia`
+  - `/aharayut-yatzranim`
+  - `/ru/`
+  - `/ru/cena/`
+- Expanded homepage visible testimonials from 4 to 15 to match schema
+- Added Organization/entity schema enrichment on homepage and `/odot`:
+  - stable `@id`
+  - `sameAs`
+  - contact point and service languages
+  - manufacturer brand relationships
+  - offer catalog
+- Added 4-card testimonial rails above the final CTA on `/mehiron/` and `/hashvaa/tikra-metuha-o-geves`
+- Aligned `/tikrot-metuhot` BreadcrumbList and Service schema with its new `סוגי תקרות מתוחות` type-hub role
+- Expanded homepage FAQ from 5 to 9 visible questions and kept FAQPage schema aligned
+- Removed public footer version tags from static pages and embedded Worker HTML while keeping internal Worker health version untouched
+- Audited legacy Hebrew redirects and aligned `/תקרה-צפה-מרחפת` + `/ru/תקרה-צפה-מרחפת` to `/sugim/tikra-tzafa` in both `worker.js` and `_redirects`
+- Restored 11 missing static pages:
+  - `/sugim`
+  - `/sugim/mavrika`
+  - `/sugim/mat`
+  - `/sugim/saten`
+  - `/sugim/hadpas`
+  - `/sugim/akustit`
+  - `/sugim/gimur-geves`
+  - `/sugim/pasei-merahvim`
+  - `/sugim/tikra-tzafa`
+  - `/architects-designers`
+  - `/tikun`
+- Added `seo/generate-missing-static-pages.cjs` so those restored pages can be regenerated consistently
+- Removed `/tikra-metuha-180` from `sitemap.xml` and added a 301 to `/mehiron` in both `worker.js` and `_redirects`
+- Re-validated that all `sitemap.xml` URLs now resolve to static pages, except `/ru/` and `/ru/cena/` which are intentionally Worker-embedded
+- Published the first gypsum-cluster transactional page: `/hanmahat-tikra-mehir`
+- Moved `הנמכת תקרה מחיר` ownership from `/hanmahat-tikra` to `/hanmahat-tikra-mehir` in the keyword map
+- Added inbound internal links to `/hanmahat-tikra-mehir` from `/`, `/mehiron/`, `/hanmahat-tikra`, and `/hashvaa/tikra-metuha-o-geves`
+- Published the second gypsum-cluster attack page: `/hashvaa/tikrat-geves-mehir`
+- Assigned `תקרת גבס מחיר` and related price-comparison terms to `/hashvaa/tikrat-geves-mehir`
+- Cleaned corrupted placeholder keywords from the keyword map and split transactional gypsum intent cleanly:
+  - `/hanmahat-tikra` = informational lowering hub
+  - `/hanmahat-tikra-mehir` = lowering price intent
+  - `/hashvaa/tikrat-geves-mehir` = gypsum price comparison intent
+- Added inbound internal links to `/hashvaa/tikrat-geves-mehir` from `/mehiron/`, `/hanmahat-tikra`, `/hanmahat-tikra/gevs`, `/hanmahat-tikra-mehir`, and `/hashvaa/tikra-metuha-o-geves`
+- Verified JSON-LD parsing across all static HTML pages: 90 files, 219 JSON-LD blocks
+- Verified `sitemap.xml` coverage: 91 URLs, no missing static pages
+- Verified keyword map integrity: 126 keywords, 36 pages, no duplicate keywords/pages, no orphan keyword URLs, and no corrupted placeholder terms
+- Verified `worker.js` parses with `node --check`
+- Deployed to Cloudflare Workers with `wrangler deploy --keep-vars`
+  - Worker version: `e9b2887a-35c9-4259-9c46-06cf8a542dbf`
+  - Uploaded 92 new/modified static assets
+- Verified live production URLs after deploy:
+  - `/hashvaa/tikrat-geves-mehir` returns 200 with expected title and H1
+  - `/hanmahat-tikra-mehir` returns 200 with expected title and H1
+  - `sitemap.xml` includes both new gypsum-cluster pages
+  - `/tikra-metuha-180` returns 301 to `/mehiron`
+  - `/תקרה-צפה-מרחפת` returns 301 to `/sugim/tikra-tzafa`
+
+## Current Blockers Found In Repo
+
+No deploy-blocking missing-static sitemap URLs remain after this pass.
+
+Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
+
+- The restored `/sugim/*`, `/architects-designers`, and `/tikun` pages are intentionally lean rescue pages. They should be expanded with richer imagery, project examples, and page-specific copy before being treated as final commercial pages.
+- `/tikra-metuha-180` is now treated as a legacy price URL and 301s to `/mehiron`; keep it out of `sitemap.xml`.
+
+## Next 14-Day Priorities
+
+1. Expand the restored `/sugim/*` rescue pages into full commercial pages with examples and stronger proof.
+2. Add individual Review schema only after confirming the visible reviews are real/verifiable source reviews.
+3. Run post-deploy GSC checks for homepage head-term split: `תקרה מתוחה` vs `תקרה נמתחת`.
+4. Build `/maamarim/kisui-tikra-rativut/` for problem-driven leak/dampness demand.
+
+## First Growth Build
+
+Highest-ROI new pages from the strategy:
+
+1. `/maamarim/kisui-tikra-rativut/`
+2. `/ru/sravnenie-geves/`
+3. `/sugim/*` page expansions
+
+Each new commercial page should follow the existing pricing/comparison page standard:
+
+- One clear primary keyword
+- Visible price anchor
+- Service + Offer + FAQPage + BreadcrumbList schema where appropriate
+- At least 3 internal inbound links within 7 days
+- Final CTA with phone, WhatsApp, and form path
+
+## Measurement
+
+Track each deployed batch in GSC for 14-30 days:
+
+- Target query
+- Target URL
+- Baseline impressions
+- Baseline average position
+- Baseline CTR
+- Lead/WhatsApp conversion proxy
+- Change date
+- Review date
+
+Avoid shipping more than one major intent change to the same URL inside a 30-day measurement window.

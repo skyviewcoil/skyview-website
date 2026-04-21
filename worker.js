@@ -57,10 +57,10 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Натяжные потолки | SkyView — быстрая установка по всему Израилю</title>
-  <meta name="description" content="Дизайнерские натяжные потолки — глянец, световые, с принтом. Установка за день, без грязи, с гарантией. Получите предложение от SkyView.">
-  <meta property="og:title" content="Натяжные потолки | SkyView">
-  <meta property="og:description" content="Дизайнерские натяжные потолки — установка за день, без грязи, с гарантией.">
+  <title>Натяжные потолки в Израиле - цены от 229₪ | SkyView</title>
+  <meta name="description" content="Натяжные потолки напрямую от производителя, без комиссий посредников. Прозрачные цены, гарантия до 15 лет, монтаж по всей стране. Бесплатный замер за 24 часа.">
+  <meta property="og:title" content="Натяжные потолки в Израиле - цены от 229₪ | SkyView">
+  <meta property="og:description" content="Натяжные потолки напрямую от производителя, без комиссий посредников. Прозрачные цены, гарантия до 15 лет, монтаж по всей стране. Бесплатный замер за 24 часа.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://www.skyview.co.il/assets/images/hero/glossy-salon-premium.jpg">
   <meta property="og:url" content="https://www.skyview.co.il/ru/">
@@ -758,8 +758,8 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
       </div>
     </section>
 
-    
-    
+
+
     <!-- ===== BEFORE / AFTER — SLIDER COMPARISON ===== -->
     <section class="section section--alt">
       <div class="container">
@@ -825,7 +825,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
           <h2>Отзывы клиентов</h2>
         </div>
         <div class="grid grid--2" style="max-width:800px;margin:0 auto;">
-          
+
           <div style="padding:var(--space-xl);background:var(--color-bg-alt);border-radius:var(--radius-lg);">
             <p style="color:var(--color-text);font-size:var(--font-size-md);line-height:1.7;margin-bottom:var(--space-md);">"Процесс установки был быстрым и профессиональным, результат просто поразительный."</p>
             <div style="display:flex;align-items:center;gap:var(--space-sm);">
@@ -997,7 +997,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
           <a href="/azorim/merkaz" style="color:rgba(255,255,255,0.4);">Центр</a> ·
           <a href="/azorim/darom" style="color:rgba(255,255,255,0.4);">Юг</a>
         </span>
-        <span style="color:rgba(255,255,255,0.12);font-size:0.65rem;">v75</span>
+
       </div>
     </div>
   </footer>
@@ -1018,8 +1018,8 @@ const RU_CENA_HTML = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Сколько стоит натяжной потолок — от ₪229/м² | SkyView</title>
-  <meta name="description" content="Сколько стоит натяжной потолок? От ₪229/м² включая монтаж. Что влияет на цену — покрытие, освещение, площадь. Быстрый расчёт + точное предложение.">
+  <title>Цена натяжного потолка - прайс-лист 2026 от 229₪ | SkyView</title>
+  <meta name="description" content="Полный прайс-лист: MSD от 229₪, TEQTUM от 279₪, RENOLIT от 339₪. Включая монтаж и гарантию производителя до 15 лет. Расчёт стоимости для вашей комнаты онлайн.">
   <link rel="canonical" href="https://www.skyview.co.il/ru/cena/">
   <link rel="stylesheet" href="../../css/style.css">
   <style>
@@ -1028,8 +1028,8 @@ const RU_CENA_HTML = `<!DOCTYPE html>
   </style>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит натяжной потолок за м²?", "acceptedAnswer": {"@type": "Answer", "text": "Цена натяжного потолка за м²: MSD — ₪229 (гарантия 10 лет), TEQTUM — ₪279 (12 лет), RENOLIT — ₪339 (15 лет). Включая производство, доставку и монтаж."}}, {"@type": "Question", "name": "Что включено, а что нет?", "acceptedAnswer": {"@type": "Answer", "text": "Цена за м² включает производство, доставку и монтаж. LED-линии, споты, магнитные рельсы, световые потолки, принты и спецотверстия — отдельно."}}, {"@type": "Question", "name": "Сколько стоят дополнения по освещению?", "acceptedAnswer": {"@type": "Answer", "text": "LED-линии от ₪389/м, споты ₪100/шт, магнитный рельс ₪750/м, световой потолок ₪1,000/м². Точная цена зависит от планирования."}}, {"@type": "Question", "name": "Есть ли скидка на несколько комнат?", "acceptedAnswer": {"@type": "Answer", "text": "Да, для проектов на всю квартиру или несколько комнат предоставляется скидка. Оставьте контакты для индивидуального предложения."}}]}</script>
 
-  <meta property="og:title" content="Сколько стоит натяжной потолок — от ₪229/м² | SkyView">
-  <meta property="og:description" content="Прайс натяжных потолков по уровню материала. Освещение рассчитывается отдельно. Быстрый калькулятор.">
+  <meta property="og:title" content="Цена натяжного потолка - прайс-лист 2026 от 229₪ | SkyView">
+  <meta property="og:description" content="Полный прайс-лист: MSD от 229₪, TEQTUM от 279₪, RENOLIT от 339₪. Включая монтаж и гарантию производителя до 15 лет. Расчёт стоимости для вашей комнаты онлайн.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.skyview.co.il/ru/cena/">
   <meta property="og:locale" content="ru_IL">
@@ -1228,7 +1228,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
     <a href="/">Главная</a><span class="breadcrumb__sep">/</span>
     <span class="breadcrumb__current">Цены</span>
   </nav>
-        
+
         <h1>Сколько стоит натяжной потолок — цена за м² и общая стоимость</h1>
         <p>Цена натяжного потолка начинается от ₪229/м², включая производство, доставку и монтаж. Итоговая стоимость зависит от покрытия, освещения и площади. Используйте калькулятор для быстрой оценки — точное предложение после замера.</p>
 </div>
@@ -1472,7 +1472,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
     </section>
 
     <!-- CTA -->
-    
+
     <section class="section">
       <div class="container container--narrow">
 
@@ -1562,7 +1562,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
           <a href="/azorim/merkaz" style="color:rgba(255,255,255,0.4);">Центр</a> ·
           <a href="/azorim/darom" style="color:rgba(255,255,255,0.4);">Юг</a>
         </span>
-        <span style="color:rgba(255,255,255,0.12);font-size:0.65rem;">v75</span>
+
       </div>
     </div>
   </footer>
@@ -1599,6 +1599,7 @@ const REDIRECTS = {
   '/מחירקרניזגבס': '/hanmahat-tikra/gevs',
   '/תקרה-נמתחת-תלת-מימד': '/sugim',
   '/натяжные-потолки-визраиле-цена': '/mehiron',
+  '/tikra-metuha-180': '/mehiron',
 
   // Legacy Latin slugs
   '/sugei-hanmahot-tikra': '/sugim',
@@ -1690,7 +1691,7 @@ const REDIRECTS = {
   '/ru/натяжные-потолки-визраиле-цена': '/mehiron',
   '/ru/מחיר-תקרה-מתוחה': '/mehiron',
   '/ru/תמונות-השראה-2021': '/proyektim',
-  '/ru/תקרה-צפה-מרחפת': '/sugim/pasei-merahvim',
+  '/ru/תקרה-צפה-מרחפת': '/sugim/tikra-tzafa',
   '/ru/סוגי-תקרות-קיימים': '/sugim',
   '/ru/תקרה-מתוחה-מוארת': '/teura/tikra-mueret',
   '/ru/תקרה-מתוחה-פסים-מרחפים': '/sugim/pasei-merahvim',

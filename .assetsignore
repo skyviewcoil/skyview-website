@@ -27,6 +27,7 @@ wrangler.jsonc
 
 # Documentation drafts (not for production)
 *.md
+seo/
 DESIGN-CRITIQUE-v95.md
 EXECUTION-PROMPT-v95.md
 
