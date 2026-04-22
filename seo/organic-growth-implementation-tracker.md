@@ -287,6 +287,30 @@ It intentionally reflects the current workspace, not only the strategic target s
   - `/sugim/tikra-tzafa` contains expected expanded content and `v2026.04.22.6`
   - `sitemap.xml` lists `/sugim/tikra-tzafa` with `lastmod=2026-04-22`
   - `/.git` returns 404 after `.assetsignore` hardening
+- Expanded `/sugim/pasei-merahvim` from a lean rescue page into a full commercial floating-strips page
+- Strengthened `/sugim/pasei-merahvim` with:
+  - price anchor from 229 ILS per m2
+  - LED/profile planning guidance, including drivers, dimmers, access, and control zones
+  - room-use guidance for salons, kitchens, corridors, offices, and businesses
+  - comparison against recessed LED strips and gypsum cove lighting
+  - mistake-prevention guidance for line count, light temperature, driver access, and lighting hierarchy
+  - expanded FAQ schema and internal links to lighting, floating-ceiling, room, pricing, and simulation pages
+- Updated keyword ownership for `/sugim/pasei-merahvim`:
+  - primary: `פסים מרחפים בתקרה מתוחה`
+  - added variants such as `פסים מרחפים בתקרה`, `פסי לד מרחפים`, `פס תאורה מרחף`, `תאורה ליניארית בתקרה מתוחה`, `קווי אור בתקרה מתוחה`, and `פסים מרחפים לסלון`
+- Added visible page-version marker and keyword-map `content_version` for `/sugim/pasei-merahvim`: `v2026.04.22.7`
+- Updated `sitemap.xml` lastmod for `/sugim/pasei-merahvim` to `2026-04-22`
+- Verified local floating-strips build:
+  - 95 static HTML files
+  - 233 JSON-LD blocks
+  - 96 sitemap URLs with no missing static pages
+  - 203 keywords across 41 mapped pages
+- Deployed floating-strips expansion to Cloudflare Workers from a clean worktree
+  - Worker version: `da9175ab-7173-46b0-8282-c189a075b582`
+- Verified live production URLs after floating-strips deploy:
+  - `/sugim/pasei-merahvim` contains expected expanded content and `v2026.04.22.7`
+  - `sitemap.xml` lists `/sugim/pasei-merahvim` with `lastmod=2026-04-22`
+  - `/.git` still returns 404
 
 ## Page Version Tracking Rule
 
@@ -305,7 +329,7 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 
-- Most restored `/sugim/*`, `/architects-designers`, and `/tikun` pages are intentionally lean rescue pages. `/sugim/mat`, `/sugim/mavrika`, `/sugim/saten`, `/sugim/hadpas`, `/sugim/akustit`, and `/sugim/tikra-tzafa` have now been expanded; the remaining restored pages should be expanded with richer imagery, project examples, and page-specific copy before being treated as final commercial pages.
+- Most restored `/sugim/*`, `/architects-designers`, and `/tikun` pages are intentionally lean rescue pages. `/sugim/mat`, `/sugim/mavrika`, `/sugim/saten`, `/sugim/hadpas`, `/sugim/akustit`, `/sugim/tikra-tzafa`, and `/sugim/pasei-merahvim` have now been expanded; the remaining restored pages should be expanded with richer imagery, project examples, and page-specific copy before being treated as final commercial pages.
 - `/tikra-metuha-180` is now treated as a legacy price URL and 301s to `/mehiron`; keep it out of `sitemap.xml`.
 
 ## Next 14-Day Priorities
@@ -313,7 +337,7 @@ Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 1. Expand the remaining restored `/sugim/*` rescue pages into full commercial pages with examples and stronger proof.
 2. Add individual Review schema only after confirming the visible reviews are real/verifiable source reviews.
 3. Run post-deploy GSC checks for homepage head-term split: `תקרה מתוחה` vs `תקרה נמתחת`.
-4. Expand `/sugim/pasei-merahvim` or `/sugim/gimur-geves` into the next full commercial finish page.
+4. Expand `/sugim/gimur-geves` into the next full commercial finish page.
 
 ## First Growth Build
 

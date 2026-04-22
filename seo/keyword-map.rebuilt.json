@@ -1197,7 +1197,7 @@
       "intent": "informational",
       "priority": "primary",
       "monthly_volume_estimate": null,
-      "ranking_notes": "Lighting/type hybrid page restored."
+      "ranking_notes": "Lighting/type hybrid page. Expanded 2026-04-22 into full commercial page for floating strips and linear light lines."
     },
     {
       "keyword": "תקרה מתוחה עם פסים מרחפים",
@@ -1207,6 +1207,60 @@
       "priority": "secondary",
       "monthly_volume_estimate": null,
       "ranking_notes": ""
+    },
+    {
+      "keyword": "פסים מרחפים בתקרה",
+      "language": "he",
+      "canonical_url": "/sugim/pasei-merahvim",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Generic floating strips variant; keep broader floating-ceiling intent on /sugim/tikra-tzafa."
+    },
+    {
+      "keyword": "פסי לד מרחפים",
+      "language": "he",
+      "canonical_url": "/sugim/pasei-merahvim",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "LED-specific floating strips query."
+    },
+    {
+      "keyword": "פס תאורה מרחף",
+      "language": "he",
+      "canonical_url": "/sugim/pasei-merahvim",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Singular product-style query."
+    },
+    {
+      "keyword": "תאורה ליניארית בתקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/sugim/pasei-merahvim",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Linear lighting intent inside stretch-ceiling context."
+    },
+    {
+      "keyword": "קווי אור בתקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/sugim/pasei-merahvim",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Design-led light-line query."
+    },
+    {
+      "keyword": "פסים מרחפים לסלון",
+      "language": "he",
+      "canonical_url": "/sugim/pasei-merahvim",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Room-use variant; links to /hadarim/salon."
     },
     {
       "keyword": "תיקון תקרה מתוחה",
@@ -2275,12 +2329,20 @@
       "url": "/sugim/pasei-merahvim",
       "primary_keyword": "פסים מרחפים בתקרה מתוחה",
       "secondary_keywords": [
-        "תקרה מתוחה עם פסים מרחפים"
+        "תקרה מתוחה עם פסים מרחפים",
+        "פסים מרחפים בתקרה",
+        "פסי לד מרחפים",
+        "פס תאורה מרחף",
+        "תאורה ליניארית בתקרה מתוחה",
+        "קווי אור בתקרה מתוחה",
+        "פסים מרחפים לסלון"
       ],
       "language": "he",
       "page_type": "product-variant",
       "hreflang_pair": null,
-      "implementation_status": "live_static"
+      "implementation_status": "expanded_static",
+      "content_version": "v2026.04.22.7",
+      "note": "Expanded 2026-04-22 with full floating-strips commercial content, LED/profile planning, room-use guidance, comparison to recessed LED and gypsum cove lighting, pricing, FAQ, internal links, and visible page version tracking."
     },
     {
       "url": "/tikun",
