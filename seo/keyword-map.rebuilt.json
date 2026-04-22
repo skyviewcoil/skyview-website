@@ -288,7 +288,7 @@
       "intent": "informational",
       "priority": "primary",
       "monthly_volume_estimate": null,
-      "ranking_notes": "Floating ceiling. Static page restored in this pass."
+      "ranking_notes": "Floating ceiling. Expanded 2026-04-22 into full commercial finish page."
     },
     {
       "keyword": "תקרה מרחפת",
@@ -307,6 +307,51 @@
       "priority": "secondary",
       "monthly_volume_estimate": null,
       "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה צפה מחיר",
+      "language": "he",
+      "canonical_url": "/sugim/tikra-tzafa",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Price subsection on floating ceiling page. Keep detailed price comparison on /mehiron."
+    },
+    {
+      "keyword": "תקרה צפה לסלון",
+      "language": "he",
+      "canonical_url": "/sugim/tikra-tzafa",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Room-specific floating-ceiling variant; links to /hadarim/salon."
+    },
+    {
+      "keyword": "תקרה צפה עם תאורה",
+      "language": "he",
+      "canonical_url": "/sugim/tikra-tzafa",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Lighting-led floating ceiling query."
+    },
+    {
+      "keyword": "תאורה היקפית תקרה צפה",
+      "language": "he",
+      "canonical_url": "/sugim/tikra-tzafa",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Keep broad lighting hub on /teura; this page owns floating-ceiling context."
+    },
+    {
+      "keyword": "תקרה מרחפת עם לד",
+      "language": "he",
+      "canonical_url": "/sugim/tikra-tzafa",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "LED-specific long-tail variant for floating ceilings."
     },
     {
       "keyword": "בריסול תקרה",
@@ -1886,12 +1931,19 @@
       "primary_keyword": "תקרה צפה",
       "secondary_keywords": [
         "תקרה מרחפת",
-        "תקרה מתוחה מרחפת"
+        "תקרה מתוחה מרחפת",
+        "תקרה צפה מחיר",
+        "תקרה צפה לסלון",
+        "תקרה צפה עם תאורה",
+        "תאורה היקפית תקרה צפה",
+        "תקרה מרחפת עם לד"
       ],
       "language": "he",
       "page_type": "product-variant",
       "hreflang_pair": null,
-      "implementation_status": "live_static"
+      "implementation_status": "expanded_static",
+      "content_version": "v2026.04.22.6",
+      "note": "Expanded 2026-04-22 with full floating-ceiling commercial content, lighting guidance, gypsum comparison, room-fit guidance, pricing, FAQ, internal links, and visible page version tracking."
     },
     {
       "url": "/brisol",

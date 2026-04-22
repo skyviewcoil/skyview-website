@@ -8,6 +8,7 @@
 zi5CW2Wf
 
 # Source-control / tooling
+.git
 .git/
 .gitignore
 .assetsignore

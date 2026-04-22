@@ -262,6 +262,31 @@ It intentionally reflects the current workspace, not only the strategic target s
   - `/sugim/saten` contains `v2026.04.22.3`
   - `/sugim/hadpas` contains `v2026.04.22.4`
   - `/sugim/akustit` contains `v2026.04.22.5`
+- Expanded `/sugim/tikra-tzafa` from a lean rescue page into a full commercial floating-ceiling page
+- Strengthened `/sugim/tikra-tzafa` with:
+  - price anchor from 229 ILS per m2
+  - floating stretch ceiling vs floating gypsum comparison table
+  - planning guidance for height, profiles, electrical drivers, access, and lighting
+  - room-fit guidance for salons, bedrooms, corridors, lobbies, businesses, and offices
+  - lighting guidance for perimeter lighting, recessed LED lines, spotlights, and floating strips
+  - expanded FAQ schema and internal links to lighting, room, comparison, pricing, and simulation pages
+- Updated keyword ownership for `/sugim/tikra-tzafa`:
+  - primary: `תקרה צפה`
+  - added floating-ceiling variants such as `תקרה צפה מחיר`, `תקרה צפה לסלון`, `תקרה צפה עם תאורה`, `תאורה היקפית תקרה צפה`, and `תקרה מרחפת עם לד`
+- Added visible page-version marker and keyword-map `content_version` for `/sugim/tikra-tzafa`: `v2026.04.22.6`
+- Updated `sitemap.xml` lastmod for `/sugim/tikra-tzafa` to `2026-04-22`
+- Hardened `.assetsignore` to exclude both `.git` files and `.git/` directories from Cloudflare static assets
+- Verified local floating-page build:
+  - 95 static HTML files
+  - 233 JSON-LD blocks
+  - 96 sitemap URLs with no missing static pages
+  - 197 keywords across 41 mapped pages
+- Deployed floating-page expansion to Cloudflare Workers from a clean worktree
+  - Worker version: `f6807895-2fbd-4836-852f-8caec5d2bbc5`
+- Verified live production URLs after floating-page deploy:
+  - `/sugim/tikra-tzafa` contains expected expanded content and `v2026.04.22.6`
+  - `sitemap.xml` lists `/sugim/tikra-tzafa` with `lastmod=2026-04-22`
+  - `/.git` returns 404 after `.assetsignore` hardening
 
 ## Page Version Tracking Rule
 
@@ -280,15 +305,15 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 
-- Most restored `/sugim/*`, `/architects-designers`, and `/tikun` pages are intentionally lean rescue pages. `/sugim/mat`, `/sugim/mavrika`, `/sugim/saten`, `/sugim/hadpas`, and `/sugim/akustit` have now been expanded; the remaining restored pages should be expanded with richer imagery, project examples, and page-specific copy before being treated as final commercial pages.
+- Most restored `/sugim/*`, `/architects-designers`, and `/tikun` pages are intentionally lean rescue pages. `/sugim/mat`, `/sugim/mavrika`, `/sugim/saten`, `/sugim/hadpas`, `/sugim/akustit`, and `/sugim/tikra-tzafa` have now been expanded; the remaining restored pages should be expanded with richer imagery, project examples, and page-specific copy before being treated as final commercial pages.
 - `/tikra-metuha-180` is now treated as a legacy price URL and 301s to `/mehiron`; keep it out of `sitemap.xml`.
 
 ## Next 14-Day Priorities
 
-1. Expand the restored `/sugim/*` rescue pages into full commercial pages with examples and stronger proof.
+1. Expand the remaining restored `/sugim/*` rescue pages into full commercial pages with examples and stronger proof.
 2. Add individual Review schema only after confirming the visible reviews are real/verifiable source reviews.
 3. Run post-deploy GSC checks for homepage head-term split: `תקרה מתוחה` vs `תקרה נמתחת`.
-4. Expand the restored `/sugim/tikra-tzafa` rescue page into a full commercial page.
+4. Expand `/sugim/pasei-merahvim` or `/sugim/gimur-geves` into the next full commercial finish page.
 
 ## First Growth Build
 
