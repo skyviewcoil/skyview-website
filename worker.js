@@ -6,13 +6,33 @@ j=d.createElement(s);j.async=true;j.src='/bddp/';
 f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer');</script>`;
 const GTM_BODY_SNIPPET = `<noscript><iframe src="/bddp/ns.html?id=GTM-5F9MRJZR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
+const CLARITY_PROJECT_ID = 'we6fhsmtc1';
+const CLARITY_HEAD_SNIPPET = `<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","we6fhsmtc1");</script>`;
+const SITE_RUNTIME_VERSION = 'v2026.04.22.9';
+const SITE_RUNTIME_VERSION_SNIPPET = `<span>גרסת אתר: ${SITE_RUNTIME_VERSION}</span>`;
+
+function injectSiteVersion(html) {
+  if (!html || html.includes(SITE_RUNTIME_VERSION)) return html;
+
+  if (/<div class="footer__bottom">[\s\S]*?<\/div>/i.test(html)) {
+    return html.replace(/(<div class="footer__bottom">[\s\S]*?)(\s*<\/div>)/i, `$1\n        ${SITE_RUNTIME_VERSION_SNIPPET}$2`);
+  }
+
+  return html.replace(/<\/body>/i, `${SITE_RUNTIME_VERSION_SNIPPET}</body>`);
+}
 
 function injectAnalytics(html) {
-  if (!html || html.includes(GTM_CONTAINER_ID)) return html;
+  if (!html) return html;
 
-  let output = html.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${GTM_HEAD_SNIPPET}`);
-  output = output.replace(/<body(\s[^>]*)?>/i, (match) => `${match}${GTM_BODY_SNIPPET}`);
-  return output;
+  let output = html;
+  if (!output.includes(GTM_CONTAINER_ID)) {
+    output = output.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${GTM_HEAD_SNIPPET}`);
+    output = output.replace(/<body(\s[^>]*)?>/i, (match) => `${match}${GTM_BODY_SNIPPET}`);
+  }
+  if (!output.includes(CLARITY_PROJECT_ID) && !output.includes('www.clarity.ms/tag')) {
+    output = output.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${CLARITY_HEAD_SNIPPET}`);
+  }
+  return injectSiteVersion(output);
 }
 
 function htmlResponse(html, init = {}) {

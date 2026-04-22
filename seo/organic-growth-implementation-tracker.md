@@ -335,6 +335,22 @@ It intentionally reflects the current workspace, not only the strategic target s
   - `/sugim/gimur-geves` contains expected expanded content and `v2026.04.22.8`
   - `sitemap.xml` lists `/sugim/gimur-geves` with `lastmod=2026-04-22`
   - `/.git` still returns 404
+- Prepared separate Worker runtime analytics update:
+  - Added Microsoft Clarity injection with project ID `we6fhsmtc1`
+  - Preserved GTM injection and made GTM / Clarity injection independent so one existing snippet does not block the other
+  - Added visible site-wide runtime footer marker injected by `worker.js`: `גרסת אתר: v2026.04.22.9`
+  - Mirrored the runtime version into `seo/keyword-map.rebuilt.json` as `_meta.site_runtime_version`
+- Verified local runtime update:
+  - `node --check worker.js` passed
+  - `git diff --check` passed
+  - keyword map integrity passed with 209 keywords across 41 mapped pages
+- Deployed runtime analytics update to Cloudflare Workers:
+  - Wrangler version: `4.83.0`
+  - Worker version: `41b481ad-1594-4173-a175-293624552132`
+- Verified live production after runtime deploy:
+  - `/`, `/sugim/gimur-geves`, and `/mehiron` each contain one Clarity script, the Clarity project ID `we6fhsmtc1`, GTM, and one `v2026.04.22.9` runtime marker
+  - `/mehiron/` 301s to `/mehiron` and the canonical target returns 200
+  - `/.git` still returns 404
 
 ## Page Version Tracking Rule
 
@@ -346,6 +362,16 @@ When a page version changes, update both:
 
 - the visible footer marker in the page HTML
 - the matching `content_version` in `seo/keyword-map.rebuilt.json`
+
+For site-wide Worker/runtime updates, `worker.js` injects a visible footer marker:
+
+`גרסת אתר: vYYYY.MM.DD.N`
+
+When the runtime version changes, update:
+
+- `SITE_RUNTIME_VERSION` in `worker.js`
+- `_meta.site_runtime_version` in `seo/keyword-map.rebuilt.json`
+- this implementation tracker
 
 ## Current Blockers Found In Repo
 
