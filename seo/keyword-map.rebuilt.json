@@ -225,16 +225,16 @@
       "intent": "informational",
       "priority": "primary",
       "monthly_volume_estimate": null,
-      "ranking_notes": "Satin finish. Static page restored in this pass."
+      "ranking_notes": "Satin finish page expanded into a full commercial landing page with room-fit, moisture, lighting, white-ceiling, pricing, and finish-comparison guidance."
     },
     {
       "keyword": "תקרה מתוחה סאטן",
       "language": "he",
       "canonical_url": "/sugim/saten",
-      "intent": "informational",
+      "intent": "commercial",
       "priority": "secondary",
       "monthly_volume_estimate": null,
-      "ranking_notes": ""
+      "ranking_notes": "Commercial phrase for satin stretch ceiling finish."
     },
     {
       "keyword": "תקרה מתוחה בהדפסה",
@@ -1522,6 +1522,78 @@
       "priority": "secondary",
       "monthly_volume_estimate": null,
       "ranking_notes": "Descriptive long-tail query for reflective ceiling effect."
+    },
+    {
+      "keyword": "תקרה נמתחת סאטן",
+      "language": "he",
+      "canonical_url": "/sugim/saten",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Nimtahet wording variant for satin finish."
+    },
+    {
+      "keyword": "תקרה סאטן לאמבטיה",
+      "language": "he",
+      "canonical_url": "/sugim/saten",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Bathroom/moisture query; page links to /hadarim/ambatia."
+    },
+    {
+      "keyword": "תקרה סאטן לחדר שינה",
+      "language": "he",
+      "canonical_url": "/sugim/saten",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Bedroom query; page links to /hadarim/heder-sheina."
+    },
+    {
+      "keyword": "תקרה סאטן לסלון",
+      "language": "he",
+      "canonical_url": "/sugim/saten",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Living-room query; page links to /hadarim/salon."
+    },
+    {
+      "keyword": "תקרה סאטן עם תאורה",
+      "language": "he",
+      "canonical_url": "/sugim/saten",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Lighting-led query; page links to recessed spotlights and LED pages."
+    },
+    {
+      "keyword": "תקרה סאטן מחיר",
+      "language": "he",
+      "canonical_url": "/sugim/saten",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Pricing variant handled inside the satin finish page and routed to /mehiron."
+    },
+    {
+      "keyword": "תקרה נמתחת לבנה",
+      "language": "he",
+      "canonical_url": "/sugim/saten",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "White stretch ceiling gap is covered in the satin FAQ and white-satin section until a dedicated color page exists."
+    },
+    {
+      "keyword": "תקרה לבנה סאטן",
+      "language": "he",
+      "canonical_url": "/sugim/saten",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "White satin long-tail variant."
     }
   ],
   "pages": [
@@ -1594,12 +1666,21 @@
       "url": "/sugim/saten",
       "primary_keyword": "תקרה סאטן",
       "secondary_keywords": [
-        "תקרה מתוחה סאטן"
+        "תקרה מתוחה סאטן",
+        "תקרה נמתחת סאטן",
+        "תקרה סאטן לאמבטיה",
+        "תקרה סאטן לחדר שינה",
+        "תקרה סאטן לסלון",
+        "תקרה סאטן עם תאורה",
+        "תקרה סאטן מחיר",
+        "תקרה נמתחת לבנה",
+        "תקרה לבנה סאטן"
       ],
       "language": "he",
       "page_type": "product-variant",
       "hreflang_pair": null,
-      "implementation_status": "live_static"
+      "implementation_status": "expanded_static",
+      "note": "Expanded 2026-04-22 with full satin-finish commercial content, pricing, lighting guidance, white-ceiling guidance, moisture/room-fit guidance, FAQ, and internal links."
     },
     {
       "url": "/sugim/hadpas",
