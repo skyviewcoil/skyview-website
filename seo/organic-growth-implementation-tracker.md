@@ -351,6 +351,34 @@ It intentionally reflects the current workspace, not only the strategic target s
   - `/`, `/sugim/gimur-geves`, and `/mehiron` each contain one Clarity script, the Clarity project ID `we6fhsmtc1`, GTM, and one `v2026.04.22.9` runtime marker
   - `/mehiron/` 301s to `/mehiron` and the canonical target returns 200
   - `/.git` still returns 404
+- Normalized the restored page templates after owner design review:
+  - converted the affected pages from text-only `page-hero` blocks to image-backed `page-hero--image` blocks
+  - replaced the simplified rescue header with the canonical inner-page header/navigation used by `/asakim`
+  - added a dark hero-continuation band after the hero so pages do not jump directly from hero to a white section
+  - removed the first duplicated standalone hero image from the first content section where it had been pushed below the hero
+  - updated `seo/generate-missing-static-pages.cjs` so future regenerated rescue pages keep the same header, hero, and continuation pattern
+- Applied the owner-requested page version to all normalized pages:
+  - `v2026.04.22.10`
+  - visible footer marker in each page
+  - matching `content_version` entries in `seo/keyword-map.rebuilt.json`
+- Added design-consistency metadata to `seo/keyword-map.rebuilt.json`:
+  - `_meta.design_consistency_version = v2026.04.22.10`
+  - `_meta.design_consistency_note` describing the canonical header, image hero, and continuation-band correction
+- Added CSS crop protection for generated `*-ai.webp` images in card, gallery, finish, room, and homepage editorial image containers so lower-corner generator marks are cropped out at render time.
+- Verified local design consistency after the owner review:
+  - 18 normalized pages contain the canonical mobile toggle, dropdown navigation, image hero, hero-continuation band, and page version `v2026.04.22.10`
+  - all 18 pages with before/after sliders passed browser loading checks; every slider has the before overlay, handle, loaded image dimensions, and no CSS rotation rule
+  - JSON-LD parsing passed across 233 static blocks
+  - keyword map integrity passed with 209 keywords across 41 mapped pages
+- Deployed the design-normalization update to Cloudflare Workers:
+  - Wrangler version: `4.83.0`
+  - Worker version: `fa091992-b0a6-4c00-a91f-6e894914cdcc`
+  - Uploaded 19 new/modified static assets
+- Verified live production after design-normalization deploy:
+  - `/sugim/gimur-geves`, `/sugim`, and `/ru/sravnenie-geves` contain image heroes, hero-continuation bands, canonical header toggles, and page version `v2026.04.22.10`
+  - `/asakim` retains the canonical header used as the reference page
+  - `/hadarim/ambatia` retains its before/after slider section and canonical header
+  - `/css/style.css` contains the expanded `*-ai.webp` crop rules for room cards and homepage editorial image tiles
 
 ## Page Version Tracking Rule
 
