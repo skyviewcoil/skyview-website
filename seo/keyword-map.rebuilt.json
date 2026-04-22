@@ -966,6 +966,69 @@
       "ranking_notes": ""
     },
     {
+      "keyword": "натяжные потолки или гипсокартон",
+      "language": "ru",
+      "canonical_url": "/ru/sravnenie-geves",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "RU comparison head term: stretch ceiling vs drywall/gypsum board."
+    },
+    {
+      "keyword": "натяжной потолок или гипс",
+      "language": "ru",
+      "canonical_url": "/ru/sravnenie-geves",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Short-form RU comparison query."
+    },
+    {
+      "keyword": "натяжные потолки vs гипсокартон",
+      "language": "ru",
+      "canonical_url": "/ru/sravnenie-geves",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "VS-form RU query."
+    },
+    {
+      "keyword": "что лучше натяжной потолок или гипсокартон",
+      "language": "ru",
+      "canonical_url": "/ru/sravnenie-geves",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Question-form comparison query."
+    },
+    {
+      "keyword": "гипсокартонный потолок цена Израиль",
+      "language": "ru",
+      "canonical_url": "/ru/sravnenie-geves",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Drywall price in Israel crossover query."
+    },
+    {
+      "keyword": "потолок из гипсокартона или натяжной",
+      "language": "ru",
+      "canonical_url": "/ru/sravnenie-geves",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Reverse-order comparison query."
+    },
+    {
+      "keyword": "сравнение натяжного потолка и гипсокартона",
+      "language": "ru",
+      "canonical_url": "/ru/sravnenie-geves",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Generic comparison wording."
+    },
+    {
       "keyword": "מחשבון תקרה מתוחה",
       "language": "he",
       "canonical_url": "https://calculator.skyview.co.il/",
@@ -1496,7 +1559,7 @@
       ],
       "language": "he",
       "page_type": "comparison",
-      "hreflang_pair": null,
+      "hreflang_pair": "/ru/sravnenie-geves",
       "implementation_status": "live_static"
     },
     {
@@ -1692,7 +1755,8 @@
       "secondary_keywords": [
         "натяжные потолки в Израиле",
         "натяжной потолок",
-        "SkyView натяжные потолки"
+        "SkyView натяжные потолки",
+        "натяжные потолки или гипсокартон"
       ],
       "language": "ru",
       "page_type": "home",
@@ -1711,6 +1775,23 @@
       "page_type": "pricing",
       "hreflang_pair": "/mehiron/",
       "implementation_status": "worker_embedded"
+    },
+    {
+      "url": "/ru/sravnenie-geves",
+      "primary_keyword": "натяжные потолки или гипсокартон",
+      "secondary_keywords": [
+        "натяжной потолок или гипс",
+        "натяжные потолки vs гипсокартон",
+        "что лучше натяжной потолок или гипсокартон",
+        "гипсокартонный потолок цена Израиль",
+        "потолок из гипсокартона или натяжной",
+        "сравнение натяжного потолка и гипсокартона"
+      ],
+      "language": "ru",
+      "page_type": "comparison",
+      "hreflang_pair": "/hashvaa/tikra-metuha-o-geves",
+      "implementation_status": "live_static",
+      "note": "First RU comparison page. Mirrors the HE gypsum comparison intent and routes users to /ru/cena/ and contact."
     },
     {
       "url": "https://calculator.skyview.co.il/",

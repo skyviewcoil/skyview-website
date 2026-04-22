@@ -120,6 +120,22 @@ It intentionally reflects the current workspace, not only the strategic target s
 - Verified live production URLs after low-ceiling article deploy:
   - `/maamarim/dira-tikra-nemuha` returns 200 with expected title, H1, Article schema, and FAQ schema
   - `sitemap.xml` includes `/maamarim/dira-tikra-nemuha`
+- Published the first RU comparison page: `/ru/sravnenie-geves`
+- Assigned `натяжные потолки или гипсокартон` and related RU comparison terms to `/ru/sravnenie-geves`
+- Added hreflang pairing between `/hashvaa/tikra-metuha-o-geves` and `/ru/sravnenie-geves`
+- Added inbound internal links to `/ru/sravnenie-geves` from embedded `/ru/` and `/ru/cena/` Worker pages
+- Verified local RU comparison build:
+  - 95 static HTML files
+  - 233 JSON-LD blocks
+  - 96 sitemap URLs with no missing static pages
+  - 155 keywords across 41 mapped pages
+- Deployed RU comparison update to Cloudflare Workers
+  - Worker version: `1e27f01c-a947-4fc5-ad50-8b3446ec2a04`
+  - Uploaded 3 new/modified static assets
+- Verified live production URLs after RU comparison deploy:
+  - `/ru/sravnenie-geves` returns 200 with expected title, H1, Article schema, and FAQ schema
+  - `sitemap.xml` includes `/ru/sravnenie-geves`
+  - embedded `/ru/` and `/ru/cena/` pages link to `/ru/sravnenie-geves`
 
 ## Current Blockers Found In Repo
 
@@ -135,7 +151,7 @@ Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 1. Expand the restored `/sugim/*` rescue pages into full commercial pages with examples and stronger proof.
 2. Add individual Review schema only after confirming the visible reviews are real/verifiable source reviews.
 3. Run post-deploy GSC checks for homepage head-term split: `תקרה מתוחה` vs `תקרה נמתחת`.
-4. Build the first RU comparison page: `/ru/sravnenie-geves/`.
+4. Expand the restored `/sugim/mat` or `/sugim/mavrika` rescue page into a full commercial page.
 
 ## First Growth Build
 

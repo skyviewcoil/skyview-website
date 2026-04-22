@@ -187,7 +187,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
               <a href="/hanmahat-tikra" role="menuitem">Опускание потолка</a>
             </div>
             <div class="nav-dropdown__divider"></div>
-            <a href="/hashvaa/tikra-metuha-o-geves" class="nav-dropdown__list" role="menuitem" style="display:flex;align-items:center;gap:8px;padding:9px 16px;font-size:0.8125rem;color:var(--text-soft);border-radius:8px;text-decoration:none;transition:color .15s ease,background .15s ease;" onmouseover="this.style.color='var(--text)';this.style.background='var(--bg-soft)'" onmouseout="this.style.color='var(--text-soft)';this.style.background='transparent'">Натяжной vs гипс — сравнение</a>
+            <a href="/ru/sravnenie-geves" class="nav-dropdown__list" role="menuitem" style="display:flex;align-items:center;gap:8px;padding:9px 16px;font-size:0.8125rem;color:var(--text-soft);border-radius:8px;text-decoration:none;transition:color .15s ease,background .15s ease;" onmouseover="this.style.color='var(--text)';this.style.background='var(--bg-soft)'" onmouseout="this.style.color='var(--text-soft)';this.style.background='transparent'">Натяжной vs гипс — сравнение</a>
           </div>
         </div>
 
@@ -298,7 +298,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
           <a href="/sugim/hadpas">Принт / небо</a>
           <a href="/sugim/akustit">Акустика</a>
           <a href="/brisol">Бризоль</a>
-          <a href="/hashvaa/tikra-metuha-o-geves">Натяжной vs гипс</a>
+          <a href="/ru/sravnenie-geves">Натяжной vs гипс</a>
           <a href="/hanmahat-tikra">Опускание потолка</a>
         </div>
       </div>
@@ -665,7 +665,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
           </table>
         </div>
         <div style="text-align:center;margin-top:var(--space-xl);">
-          <a href="/hashvaa/tikra-metuha-o-geves" class="btn btn--outline">Полное сравнение</a>
+          <a href="/ru/sravnenie-geves" class="btn btn--outline">Полное сравнение</a>
         </div>
       </div>
     </section>
@@ -897,7 +897,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
             </button>
             <div class="faq-answer">
               <div class="faq-answer__inner">
-                Натяжной потолок монтируется за день без грязи, водостоек и поставляется с долгой гарантией. Гипсокартон требует нескольких дней, пыли и шпаклёвки, менее устойчив к влаге. По цене — натяжной потолок обычно выгоднее. <a href="/hashvaa/tikra-metuha-o-geves">Полное сравнение</a>.
+                Натяжной потолок монтируется за день без грязи, водостоек и поставляется с долгой гарантией. Гипсокартон требует нескольких дней, пыли и шпаклёвки, менее устойчив к влаге. По цене — натяжной потолок обычно выгоднее. <a href="/ru/sravnenie-geves">Полное сравнение</a>.
               </div>
             </div>
           </div>
@@ -957,7 +957,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
             <li><a href="/teura">Освещение</a></li>
             <li><a href="/ru/cena/">Цены</a></li>
             <li><a href="/brisol">Бризоль</a></li>
-            <li><a href="/hashvaa/tikra-metuha-o-geves">Натяжной или гипс</a></li>
+            <li><a href="/ru/sravnenie-geves">Натяжной или гипс</a></li>
           </ul>
         </div>
 
@@ -1083,7 +1083,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
               <a href="/hanmahat-tikra" role="menuitem">Опускание потолка</a>
             </div>
             <div class="nav-dropdown__divider"></div>
-            <a href="/hashvaa/tikra-metuha-o-geves" style="display:flex;align-items:center;gap:8px;padding:9px 16px;font-size:0.8125rem;color:var(--text-soft);border-radius:8px;text-decoration:none;" role="menuitem">Натяжной vs гипс</a>
+            <a href="/ru/sravnenie-geves" style="display:flex;align-items:center;gap:8px;padding:9px 16px;font-size:0.8125rem;color:var(--text-soft);border-radius:8px;text-decoration:none;" role="menuitem">Натяжной vs гипс</a>
           </div>
         </div>
         <div class="nav-dropdown">
@@ -1166,7 +1166,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
           <a href="/sugim/hadpas">Принт / небо</a>
           <a href="/sugim/akustit">Акустика</a>
           <a href="/brisol">Бризоль</a>
-          <a href="/hashvaa/tikra-metuha-o-geves">Натяжной vs гипс</a>
+          <a href="/ru/sravnenie-geves">Натяжной vs гипс</a>
           <a href="/hanmahat-tikra">Опускание потолка</a>
         </div>
       </div>
@@ -1444,7 +1444,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
           <p><strong>Не включено:</strong> светильники и драйверы (если не оговорено иное), электромонтажные работы лицензированного электрика, демонтаж существующего потолка при необходимости, ремонт штукатурки или гипса до монтажа.</p>
 
           <h2>Натяжной потолок vs гипсокартон — сравнение стоимости</h2>
-          <p>Стоимость <a href="/hanmahat-tikra/gevs">гипсокартонного потолка</a> обычно ₪300–600/м², включая конструкцию, шпаклёвку, шлифовку и краску. Натяжной — от ₪229/м². Гипс требует перекраски каждые 5–10 лет, может трескаться и чувствителен к влаге. Натяжной потолок обслуживания не требует. <a href="/hashvaa/tikra-metuha-o-geves">Полное сравнение</a>.</p>
+          <p>Стоимость <a href="/hanmahat-tikra/gevs">гипсокартонного потолка</a> обычно ₪300–600/м², включая конструкцию, шпаклёвку, шлифовку и краску. Натяжной — от ₪229/м². Гипс требует перекраски каждые 5–10 лет, может трескаться и чувствителен к влаге. Натяжной потолок обслуживания не требует. <a href="/ru/sravnenie-geves">Полное сравнение</a>.</p>
 
           <h2>Цена по комнатам — диапазоны оценок</h2>
           <p>Гостиная (15–25 м²): от ₪3 400 базовое, от ₪4 200 продвинутое. Спальня (10–15 м²): от ₪2 290 базовое. Ванная (4–8 м²): может применяться минимальная цена. Кухня (8–15 м²): от ₪1 830 базовое. Цены — только потолок, без освещения.</p>
@@ -1478,7 +1478,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
 
       <div class="internal-links-block">
         <h3>Полезные страницы</h3>
-        <ul><li><a href="/tikrot-metuhot">Натяжные потолки</a></li><li><a href="/sugim">Виды потолков</a></li><li><a href="/teura">Решения освещения</a></li><li><a href="/hanmahat-tikra">Опускание потолка</a></li><li><a href="/hanmahat-tikra/gevs">Опускание гипсокартонного потолка — цена и процесс</a></li><li><a href="/hashvaa/tikra-metuha-o-geves">Сравнение с гипсом</a></li><li><a href="/sugim/pasei-merahvim">Плавающие полосы</a></li><li><a href="/madrich/ma-mashpia-al-mehir">Что влияет на цену</a></li><li><a href="/madrich/homrim">Материалы</a></li></ul>
+        <ul><li><a href="/tikrot-metuhot">Натяжные потолки</a></li><li><a href="/sugim">Виды потолков</a></li><li><a href="/teura">Решения освещения</a></li><li><a href="/hanmahat-tikra">Опускание потолка</a></li><li><a href="/hanmahat-tikra/gevs">Опускание гипсокартонного потолка — цена и процесс</a></li><li><a href="/ru/sravnenie-geves">Сравнение с гипсом</a></li><li><a href="/sugim/pasei-merahvim">Плавающие полосы</a></li><li><a href="/madrich/ma-mashpia-al-mehir">Что влияет на цену</a></li><li><a href="/madrich/homrim">Материалы</a></li></ul>
       </div>
       </div>
     </section>
@@ -1522,7 +1522,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
             <li><a href="/teura">Освещение</a></li>
             <li><a href="/ru/cena/">Цены</a></li>
             <li><a href="/brisol">Бризоль</a></li>
-            <li><a href="/hashvaa/tikra-metuha-o-geves">Натяжной или гипс</a></li>
+            <li><a href="/ru/sravnenie-geves">Натяжной или гипс</a></li>
           </ul>
         </div>
 
