@@ -200,6 +200,28 @@ It intentionally reflects the current workspace, not only the strategic target s
 - Verified live production URLs after satin-page deploy:
   - `/sugim/saten` returns 200 with expected title, H1, Service schema, FAQ schema, and expanded commercial content
   - `sitemap.xml` lists `/sugim/saten` with `lastmod=2026-04-22`
+- Expanded `/sugim/hadpas` from a lean rescue page into a full commercial finish page
+- Strengthened `/sugim/hadpas` with:
+  - custom print positioning for sky, image, nature, logo, and business branding use cases
+  - home and business use-case guidance for kids rooms, salons, bathrooms, mikve, clinics, lobbies, and shops
+  - file-quality guidance for resolution, crop ratio, color, and logo assets
+  - illuminated-print guidance with a link to `/teura/tikra-mueret-im-hadpas`
+  - pricing guidance that separates base stretch-ceiling price from print, file prep, and lighting complexity
+  - expanded FAQ schema and internal links to lighting, sky ceiling, simulation, project, kids-room, and business pages
+- Updated keyword ownership for `/sugim/hadpas`:
+  - primary: `תקרה מתוחה בהדפסה`
+  - added printed-ceiling variants such as `תקרה בהדפסה אישית`, `תקרת שמיים`, `תקרה עם הדפס שמיים`, `תקרה מודפסת לחדר ילדים`, `תקרה מודפסת לעסק`, `תקרה עם לוגו`, `תקרה מודפסת מחיר`, and `הדפסה על תקרה מתוחה`
+- Verified local printed-page expansion build:
+  - 95 static HTML files
+  - 233 JSON-LD blocks
+  - 96 sitemap URLs with no missing static pages
+  - 183 keywords across 41 mapped pages
+- Deployed printed-page expansion to Cloudflare Workers
+  - Worker version: `99f32401-b418-4dc9-8594-c1d9dc3c4de2`
+  - Uploaded 2 new/modified static assets
+- Verified live production URLs after printed-page deploy:
+  - `/sugim/hadpas` returns 200 with expected title, H1, Service schema, FAQ schema, and expanded commercial content
+  - `sitemap.xml` lists `/sugim/hadpas` with `lastmod=2026-04-22`
 
 ## Current Blockers Found In Repo
 
@@ -207,7 +229,7 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 
-- Most restored `/sugim/*`, `/architects-designers`, and `/tikun` pages are intentionally lean rescue pages. `/sugim/mat`, `/sugim/mavrika`, and `/sugim/saten` have now been expanded; the remaining restored pages should be expanded with richer imagery, project examples, and page-specific copy before being treated as final commercial pages.
+- Most restored `/sugim/*`, `/architects-designers`, and `/tikun` pages are intentionally lean rescue pages. `/sugim/mat`, `/sugim/mavrika`, `/sugim/saten`, and `/sugim/hadpas` have now been expanded; the remaining restored pages should be expanded with richer imagery, project examples, and page-specific copy before being treated as final commercial pages.
 - `/tikra-metuha-180` is now treated as a legacy price URL and 301s to `/mehiron`; keep it out of `sitemap.xml`.
 
 ## Next 14-Day Priorities
@@ -215,7 +237,7 @@ Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 1. Expand the restored `/sugim/*` rescue pages into full commercial pages with examples and stronger proof.
 2. Add individual Review schema only after confirming the visible reviews are real/verifiable source reviews.
 3. Run post-deploy GSC checks for homepage head-term split: `תקרה מתוחה` vs `תקרה נמתחת`.
-4. Expand the restored `/sugim/hadpas` rescue page into a full commercial page.
+4. Expand the restored `/sugim/akustit` rescue page into a full commercial page.
 
 ## First Growth Build
 

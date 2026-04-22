@@ -243,7 +243,7 @@
       "intent": "informational",
       "priority": "primary",
       "monthly_volume_estimate": null,
-      "ranking_notes": "Printed ceiling. Static page restored in this pass."
+      "ranking_notes": "Printed stretch ceiling page expanded into a full commercial landing page with file-quality, sky/image/logo, lighting, pricing, and use-case guidance."
     },
     {
       "keyword": "תקרה מודפסת",
@@ -252,7 +252,7 @@
       "intent": "informational",
       "priority": "secondary",
       "monthly_volume_estimate": null,
-      "ranking_notes": ""
+      "ranking_notes": "Generic printed ceiling variant."
     },
     {
       "keyword": "תקרה עם תמונה",
@@ -261,7 +261,7 @@
       "intent": "informational",
       "priority": "secondary",
       "monthly_volume_estimate": null,
-      "ranking_notes": ""
+      "ranking_notes": "Image-on-ceiling variant."
     },
     {
       "keyword": "תקרה אקוסטית",
@@ -1594,6 +1594,78 @@
       "priority": "secondary",
       "monthly_volume_estimate": null,
       "ranking_notes": "White satin long-tail variant."
+    },
+    {
+      "keyword": "תקרה בהדפסה אישית",
+      "language": "he",
+      "canonical_url": "/sugim/hadpas",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Custom-print query covered by file-check and design-process sections."
+    },
+    {
+      "keyword": "תקרת שמיים",
+      "language": "he",
+      "canonical_url": "/sugim/hadpas",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Sky ceiling query; page links to /teura/shamayim for lighting-led intent."
+    },
+    {
+      "keyword": "תקרה עם הדפס שמיים",
+      "language": "he",
+      "canonical_url": "/sugim/hadpas",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Sky-print long-tail variant."
+    },
+    {
+      "keyword": "תקרה מודפסת לחדר ילדים",
+      "language": "he",
+      "canonical_url": "/sugim/hadpas",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Kids-room printed ceiling query; page links to /hadarim/heder-yeladim."
+    },
+    {
+      "keyword": "תקרה מודפסת לעסק",
+      "language": "he",
+      "canonical_url": "/sugim/hadpas",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Business/branding printed ceiling query; page links to /asakim."
+    },
+    {
+      "keyword": "תקרה עם לוגו",
+      "language": "he",
+      "canonical_url": "/sugim/hadpas",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Logo/brand-print query for commercial projects."
+    },
+    {
+      "keyword": "תקרה מודפסת מחיר",
+      "language": "he",
+      "canonical_url": "/sugim/hadpas",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Pricing variant handled inside the printed finish page and routed to /mehiron."
+    },
+    {
+      "keyword": "הדפסה על תקרה מתוחה",
+      "language": "he",
+      "canonical_url": "/sugim/hadpas",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Process-oriented query for printing on stretch ceiling membrane."
     }
   ],
   "pages": [
@@ -1687,12 +1759,21 @@
       "primary_keyword": "תקרה מתוחה בהדפסה",
       "secondary_keywords": [
         "תקרה מודפסת",
-        "תקרה עם תמונה"
+        "תקרה עם תמונה",
+        "תקרה בהדפסה אישית",
+        "תקרת שמיים",
+        "תקרה עם הדפס שמיים",
+        "תקרה מודפסת לחדר ילדים",
+        "תקרה מודפסת לעסק",
+        "תקרה עם לוגו",
+        "תקרה מודפסת מחיר",
+        "הדפסה על תקרה מתוחה"
       ],
       "language": "he",
       "page_type": "product-variant",
       "hreflang_pair": null,
-      "implementation_status": "live_static"
+      "implementation_status": "expanded_static",
+      "note": "Expanded 2026-04-22 with full printed-ceiling commercial content, file-quality guidance, sky/image/logo use cases, illuminated-print guidance, pricing, FAQ, and internal links."
     },
     {
       "url": "/sugim/akustit",
