@@ -1062,7 +1062,7 @@
       "intent": "informational",
       "priority": "primary",
       "monthly_volume_estimate": null,
-      "ranking_notes": "Matte finish page restored."
+      "ranking_notes": "Matte finish page expanded from rescue page into a full commercial page."
     },
     {
       "keyword": "תקרה מט",
@@ -1071,7 +1071,61 @@
       "intent": "informational",
       "priority": "secondary",
       "monthly_volume_estimate": null,
-      "ranking_notes": ""
+      "ranking_notes": "Short matte ceiling variant."
+    },
+    {
+      "keyword": "תקרה מתוחה בגימור מט",
+      "language": "he",
+      "canonical_url": "/sugim/mat",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Finish-specific matte query."
+    },
+    {
+      "keyword": "תקרה מתוחה ללא ברק",
+      "language": "he",
+      "canonical_url": "/sugim/mat",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "No-gloss/non-reflective query."
+    },
+    {
+      "keyword": "תקרה לבנה מט",
+      "language": "he",
+      "canonical_url": "/sugim/mat",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "White matte ceiling long tail."
+    },
+    {
+      "keyword": "תקרה חלקה מט",
+      "language": "he",
+      "canonical_url": "/sugim/mat",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Smooth matte ceiling query."
+    },
+    {
+      "keyword": "תקרה מתוחה מט לחדר שינה",
+      "language": "he",
+      "canonical_url": "/sugim/mat",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Bedroom matte finish query; page links to room page."
+    },
+    {
+      "keyword": "תקרה מט לתקרה נמוכה",
+      "language": "he",
+      "canonical_url": "/sugim/mat",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Low-ceiling matte finish query; page links to low-ceiling article."
     },
     {
       "keyword": "גימור גבס בתקרה מתוחה",
@@ -1821,12 +1875,19 @@
       "url": "/sugim/mat",
       "primary_keyword": "תקרה מתוחה מט",
       "secondary_keywords": [
-        "תקרה מט"
+        "תקרה מט",
+        "תקרה מתוחה בגימור מט",
+        "תקרה מתוחה ללא ברק",
+        "תקרה לבנה מט",
+        "תקרה חלקה מט",
+        "תקרה מתוחה מט לחדר שינה",
+        "תקרה מט לתקרה נמוכה"
       ],
       "language": "he",
       "page_type": "product-variant",
       "hreflang_pair": null,
-      "implementation_status": "live_static"
+      "implementation_status": "expanded_static",
+      "note": "Expanded from rescue page into a full commercial matte-finish page with price, comparison, room fit, lighting guidance, FAQ, and internal links."
     },
     {
       "url": "/sugim/gimur-geves",
