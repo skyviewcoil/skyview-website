@@ -311,6 +311,30 @@ It intentionally reflects the current workspace, not only the strategic target s
   - `/sugim/pasei-merahvim` contains expected expanded content and `v2026.04.22.7`
   - `sitemap.xml` lists `/sugim/pasei-merahvim` with `lastmod=2026-04-22`
   - `/.git` still returns 404
+- Expanded `/sugim/gimur-geves` from a lean rescue page into a full commercial gypsum-look finish page
+- Strengthened `/sugim/gimur-geves` with:
+  - price anchor from 229 ILS per m2
+  - clear distinction between gypsum-look finish, matte finish, and full gypsum comparison intent
+  - smooth white ceiling guidance for bedrooms, low ceilings, offices, clinics, corridors, and apartments
+  - comparison against real gypsum for finish, site time, dust, height, moisture, and maintenance
+  - lighting guidance for spotlights, LED strips, perimeter lighting, and magnetic track planning
+  - expanded FAQ schema and internal links to matte finish, gypsum comparison, lowering page, low-ceiling article, lighting, pricing, and simulation pages
+- Updated keyword ownership for `/sugim/gimur-geves`:
+  - primary: `גימור גבס בתקרה מתוחה`
+  - added variants such as `תקרה מתוחה גימור גבס`, `תקרה מתוחה כמו גבס`, `תקרה מתוחה חלקה`, `תקרה מתוחה במקום גבס`, `תקרה מתוחה ללא שפכטל`, and `תקרה לבנה חלקה`
+- Added visible page-version marker and keyword-map `content_version` for `/sugim/gimur-geves`: `v2026.04.22.8`
+- Updated `sitemap.xml` lastmod for `/sugim/gimur-geves` to `2026-04-22`
+- Verified local gypsum-finish build:
+  - 95 static HTML files
+  - 233 JSON-LD blocks
+  - 96 sitemap URLs with no missing static pages
+  - 209 keywords across 41 mapped pages
+- Deployed gypsum-finish expansion to Cloudflare Workers from a clean worktree
+  - Worker version: `810da7c7-d872-47b7-9134-e6da1cade10d`
+- Verified live production URLs after gypsum-finish deploy:
+  - `/sugim/gimur-geves` contains expected expanded content and `v2026.04.22.8`
+  - `sitemap.xml` lists `/sugim/gimur-geves` with `lastmod=2026-04-22`
+  - `/.git` still returns 404
 
 ## Page Version Tracking Rule
 
@@ -329,7 +353,7 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 
-- Most restored `/sugim/*`, `/architects-designers`, and `/tikun` pages are intentionally lean rescue pages. `/sugim/mat`, `/sugim/mavrika`, `/sugim/saten`, `/sugim/hadpas`, `/sugim/akustit`, `/sugim/tikra-tzafa`, and `/sugim/pasei-merahvim` have now been expanded; the remaining restored pages should be expanded with richer imagery, project examples, and page-specific copy before being treated as final commercial pages.
+- Most restored `/sugim/*`, `/architects-designers`, and `/tikun` pages are intentionally lean rescue pages. `/sugim/mat`, `/sugim/mavrika`, `/sugim/saten`, `/sugim/hadpas`, `/sugim/akustit`, `/sugim/tikra-tzafa`, `/sugim/pasei-merahvim`, and `/sugim/gimur-geves` have now been expanded; the remaining restored pages should be expanded with richer imagery, project examples, and page-specific copy before being treated as final commercial pages.
 - `/tikra-metuha-180` is now treated as a legacy price URL and 301s to `/mehiron`; keep it out of `sitemap.xml`.
 
 ## Next 14-Day Priorities
@@ -337,7 +361,7 @@ Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 1. Expand the remaining restored `/sugim/*` rescue pages into full commercial pages with examples and stronger proof.
 2. Add individual Review schema only after confirming the visible reviews are real/verifiable source reviews.
 3. Run post-deploy GSC checks for homepage head-term split: `תקרה מתוחה` vs `תקרה נמתחת`.
-4. Expand `/sugim/gimur-geves` into the next full commercial finish page.
+4. Move to the next non-finish rescue page: `/architects-designers` or `/tikun`.
 
 ## First Growth Build
 

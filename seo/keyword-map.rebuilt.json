@@ -1179,7 +1179,7 @@
       "intent": "informational",
       "priority": "primary",
       "monthly_volume_estimate": null,
-      "ranking_notes": "Gypum-look finish without making the page compete with gypsum comparison pages."
+      "ranking_notes": "Gypsum-look finish without making the page compete with gypsum comparison pages. Expanded 2026-04-22 into full commercial finish page."
     },
     {
       "keyword": "תקרה מתוחה במראה גבס",
@@ -1189,6 +1189,60 @@
       "priority": "secondary",
       "monthly_volume_estimate": null,
       "ranking_notes": ""
+    },
+    {
+      "keyword": "תקרה מתוחה גימור גבס",
+      "language": "he",
+      "canonical_url": "/sugim/gimur-geves",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Word-order variant of primary."
+    },
+    {
+      "keyword": "תקרה מתוחה כמו גבס",
+      "language": "he",
+      "canonical_url": "/sugim/gimur-geves",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "User phrasing for gypsum-look intent."
+    },
+    {
+      "keyword": "תקרה מתוחה חלקה",
+      "language": "he",
+      "canonical_url": "/sugim/gimur-geves",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Smooth white ceiling finish intent."
+    },
+    {
+      "keyword": "תקרה מתוחה במקום גבס",
+      "language": "he",
+      "canonical_url": "/sugim/gimur-geves",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Finish-alternative query. Full comparison remains on /hashvaa/tikra-metuha-o-geves."
+    },
+    {
+      "keyword": "תקרה מתוחה ללא שפכטל",
+      "language": "he",
+      "canonical_url": "/sugim/gimur-geves",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Clean-install / no-wet-work variant."
+    },
+    {
+      "keyword": "תקרה לבנה חלקה",
+      "language": "he",
+      "canonical_url": "/sugim/gimur-geves",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "White smooth ceiling visual intent."
     },
     {
       "keyword": "פסים מרחפים בתקרה מתוחה",
@@ -2318,12 +2372,20 @@
       "url": "/sugim/gimur-geves",
       "primary_keyword": "גימור גבס בתקרה מתוחה",
       "secondary_keywords": [
-        "תקרה מתוחה במראה גבס"
+        "תקרה מתוחה במראה גבס",
+        "תקרה מתוחה גימור גבס",
+        "תקרה מתוחה כמו גבס",
+        "תקרה מתוחה חלקה",
+        "תקרה מתוחה במקום גבס",
+        "תקרה מתוחה ללא שפכטל",
+        "תקרה לבנה חלקה"
       ],
       "language": "he",
       "page_type": "product-variant",
       "hreflang_pair": null,
-      "implementation_status": "live_static"
+      "implementation_status": "expanded_static",
+      "content_version": "v2026.04.22.8",
+      "note": "Expanded 2026-04-22 with full gypsum-look commercial content, matte/gypsum distinction, smooth white ceiling intent, comparison framing, lighting guidance, pricing, FAQ, internal links, and visible page version tracking."
     },
     {
       "url": "/sugim/pasei-merahvim",
