@@ -20,8 +20,10 @@
     "known_repo_gaps": [
       "/tikra-metuha-180 is treated as a legacy price URL and 301s to /mehiron."
     ],
-    "design_consistency_version": "v2026.04.22.10",
-    "design_consistency_note": "Normalizes page-hero pages to the canonical inner-page header, image hero, and hero continuation band."
+    "design_consistency_version": "v2026.04.22.11",
+    "design_consistency_note": "Normalizes page-hero pages to the canonical inner-page header, image hero, and hero continuation band.",
+    "hero_visual_version": "v2026.04.22.11",
+    "hero_visual_note": "Reworks normalized image heroes to match the lighter rounded-card visual language: visible product image, localized text-side gradient, and light trust/value-prop band."
   },
   "keywords": [
     {
@@ -1970,7 +1972,7 @@
       "page_type": "product-variant",
       "hreflang_pair": null,
       "implementation_status": "expanded_static",
-      "content_version": "v2026.04.22.10",
+      "content_version": "v2026.04.22.11",
       "note": "Expanded 2026-04-22 with full glossy-finish commercial content, pricing, lighting guidance, room-fit guidance, FAQ, and internal links. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker."
     },
     {
@@ -1991,7 +1993,7 @@
       "page_type": "product-variant",
       "hreflang_pair": null,
       "implementation_status": "expanded_static",
-      "content_version": "v2026.04.22.10",
+      "content_version": "v2026.04.22.11",
       "note": "Expanded 2026-04-22 with full satin-finish commercial content, pricing, lighting guidance, white-ceiling guidance, moisture/room-fit guidance, FAQ, and internal links. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker."
     },
     {
@@ -2013,7 +2015,7 @@
       "page_type": "product-variant",
       "hreflang_pair": null,
       "implementation_status": "expanded_static",
-      "content_version": "v2026.04.22.10",
+      "content_version": "v2026.04.22.11",
       "note": "Expanded 2026-04-22 with full printed-ceiling commercial content, file-quality guidance, sky/image/logo use cases, illuminated-print guidance, pricing, FAQ, and internal links. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker."
     },
     {
@@ -2035,7 +2037,7 @@
       "page_type": "product-variant",
       "hreflang_pair": null,
       "implementation_status": "expanded_static",
-      "content_version": "v2026.04.22.10",
+      "content_version": "v2026.04.22.11",
       "note": "Expanded 2026-04-22 with full acoustic-ceiling commercial content, micro-perforation guidance, absorption/use-case guidance, lighting, pricing, FAQ, and internal links. Office room intent remains on /hadarim/misrad. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker."
     },
     {
@@ -2054,7 +2056,7 @@
       "page_type": "product-variant",
       "hreflang_pair": null,
       "implementation_status": "expanded_static",
-      "content_version": "v2026.04.22.10",
+      "content_version": "v2026.04.22.11",
       "note": "Expanded 2026-04-22 with full floating-ceiling commercial content, lighting guidance, gypsum comparison, room-fit guidance, pricing, FAQ, internal links, and visible page version tracking. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker."
     },
     {
@@ -2248,7 +2250,7 @@
       "page_type": "b2b-specifier",
       "hreflang_pair": null,
       "implementation_status": "live_static",
-      "content_version": "v2026.04.22.10",
+      "content_version": "v2026.04.22.11",
       "note": "Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker."
     },
     {
@@ -2330,7 +2332,7 @@
       "hreflang_pair": "/hashvaa/tikra-metuha-o-geves",
       "implementation_status": "live_static",
       "note": "First RU comparison page. Mirrors the HE gypsum comparison intent and routes users to /ru/cena/ and contact. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker.",
-      "content_version": "v2026.04.22.10"
+      "content_version": "v2026.04.22.11"
     },
     {
       "url": "https://calculator.skyview.co.il/",
@@ -2355,7 +2357,7 @@
       "page_type": "product-variant-hub",
       "hreflang_pair": null,
       "implementation_status": "live_static",
-      "content_version": "v2026.04.22.10",
+      "content_version": "v2026.04.22.11",
       "note": "Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker."
     },
     {
@@ -2374,7 +2376,7 @@
       "page_type": "product-variant",
       "hreflang_pair": null,
       "implementation_status": "expanded_static",
-      "content_version": "v2026.04.22.10",
+      "content_version": "v2026.04.22.11",
       "note": "Expanded from rescue page into a full commercial matte-finish page with price, comparison, room fit, lighting guidance, FAQ, and internal links. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker."
     },
     {
@@ -2393,7 +2395,7 @@
       "page_type": "product-variant",
       "hreflang_pair": null,
       "implementation_status": "expanded_static",
-      "content_version": "v2026.04.22.10",
+      "content_version": "v2026.04.22.11",
       "note": "Expanded 2026-04-22 with full gypsum-look commercial content, matte/gypsum distinction, smooth white ceiling intent, comparison framing, lighting guidance, pricing, FAQ, internal links, and visible page version tracking. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker."
     },
     {
@@ -2412,7 +2414,7 @@
       "page_type": "product-variant",
       "hreflang_pair": null,
       "implementation_status": "expanded_static",
-      "content_version": "v2026.04.22.10",
+      "content_version": "v2026.04.22.11",
       "note": "Expanded 2026-04-22 with full floating-strips commercial content, LED/profile planning, room-use guidance, comparison to recessed LED and gypsum cove lighting, pricing, FAQ, internal links, and visible page version tracking. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker."
     },
     {
@@ -2425,7 +2427,7 @@
       "page_type": "service",
       "hreflang_pair": null,
       "implementation_status": "live_static",
-      "content_version": "v2026.04.22.10",
+      "content_version": "v2026.04.22.11",
       "note": "Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker."
     },
     {
@@ -2441,7 +2443,7 @@
       "hreflang_pair": null,
       "implementation_status": "live_static",
       "note": "First gypsum/lowering transactional page from the strategy. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker.",
-      "content_version": "v2026.04.22.10"
+      "content_version": "v2026.04.22.11"
     },
     {
       "url": "/hashvaa/tikrat-geves-mehir",
@@ -2459,7 +2461,7 @@
       "hreflang_pair": null,
       "implementation_status": "live_static",
       "note": "Second gypsum-cluster attack page; owns gypsum price comparison intent. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker.",
-      "content_version": "v2026.04.22.10"
+      "content_version": "v2026.04.22.11"
     },
     {
       "url": "/maamarim",
@@ -2474,7 +2476,7 @@
       "hreflang_pair": null,
       "implementation_status": "live_static",
       "note": "Problem-driven article hub. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker.",
-      "content_version": "v2026.04.22.10"
+      "content_version": "v2026.04.22.11"
     },
     {
       "url": "/maamarim/kisui-tikra-rativut",
@@ -2492,7 +2494,7 @@
       "hreflang_pair": null,
       "implementation_status": "live_static",
       "note": "First problem-driven article from the strategy. Routes to /hadarim/ambatia, /madrich/amidut-mayim, /mehiron and comparison pages. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker.",
-      "content_version": "v2026.04.22.10"
+      "content_version": "v2026.04.22.11"
     },
     {
       "url": "/maamarim/hester-tzinorot",
@@ -2510,7 +2512,7 @@
       "hreflang_pair": null,
       "implementation_status": "live_static",
       "note": "Problem-driven article for hiding exposed pipes, AC ducts, and ceiling infrastructure. Routes to lowering, lighting, price, and comparison pages. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker.",
-      "content_version": "v2026.04.22.10"
+      "content_version": "v2026.04.22.11"
     },
     {
       "url": "/maamarim/dira-tikra-nemuha",
@@ -2528,7 +2530,7 @@
       "hreflang_pair": null,
       "implementation_status": "live_static",
       "note": "Problem-driven article for low-ceiling apartments. Routes to lowering, matte/glossy finishes, lighting, salon and pricing pages. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker.",
-      "content_version": "v2026.04.22.10"
+      "content_version": "v2026.04.22.11"
     }
   ],
   "cannibalization_flags": [

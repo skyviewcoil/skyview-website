@@ -379,6 +379,24 @@ It intentionally reflects the current workspace, not only the strategic target s
   - `/asakim` retains the canonical header used as the reference page
   - `/hadarim/ambatia` retains its before/after slider section and canonical header
   - `/css/style.css` contains the expanded `*-ai.webp` crop rules for room cards and homepage editorial image tiles
+- Revised the normalized image-hero design after owner feedback:
+  - changed `page-hero--image` from a full-width dark overlay hero to the site's rounded-card hero language
+  - removed the global heavy dark overlay and replaced it with a localized gradient on the text side so the product image remains visible
+  - kept the conversion architecture: price CTA, secondary fit-check CTA, and 3-value trust row
+  - changed the trust row from a dark continuation bar to a lighter warm material band that better fits premium interior-design pages
+  - changed default hero image positioning to `center top` so the ceiling/product area is prioritized
+- Applied the visible version marker and keyword-map tracking for the hero visual revision:
+  - page version: `v2026.04.22.11`
+  - `seo/keyword-map.rebuilt.json` content versions updated from `v2026.04.22.10` to `v2026.04.22.11`
+  - `_meta.hero_visual_version = v2026.04.22.11`
+- Deployed the hero visual revision to Cloudflare Workers:
+  - Wrangler version: `4.83.0`
+  - Worker version: `1627d516-bd26-42c8-928e-1a7d54162ed0`
+  - Uploaded 19 new/modified static assets
+- Verified live production after hero visual revision:
+  - `/sugim/mavrika`, `/sugim/gimur-geves`, `/sugim`, and `/ru/sravnenie-geves` return 200 with `v2026.04.22.11`
+  - `/sugim/mavrika` uses the product-specific `glossy-chandelier-salon.jpg` hero image
+  - `/css/style.css` contains the rounded-card `page-hero--image` rules, localized radial text gradient, and light warm value-prop band
 
 ## Page Version Tracking Rule
 
