@@ -92,6 +92,20 @@ It intentionally reflects the current workspace, not only the strategic target s
   - `/maamarim` returns 200 with expected title and H1
   - `/maamarim/kisui-tikra-rativut` returns 200 with expected title and Article schema
   - `sitemap.xml` includes both article URLs
+- Published the second problem-driven article page: `/maamarim/hester-tzinorot`
+- Assigned `הסתרת צנרת בתקרה` and related infrastructure-hiding terms to `/maamarim/hester-tzinorot`
+- Added inbound internal links to `/maamarim/hester-tzinorot` from `/maamarim`, `/hanmahat-tikra`, `/teura/hanmahat-tikra-im-teura`, and `/madrich`
+- Verified local pipe-hiding article build:
+  - 93 static HTML files
+  - 227 JSON-LD blocks
+  - 94 sitemap URLs with no missing static pages
+  - 141 keywords across 39 mapped pages
+- Deployed pipe-hiding article update to Cloudflare Workers
+  - Worker version: `9cd2149c-731a-49b4-a2c5-77e63beffd19`
+  - Uploaded 6 new/modified static assets
+- Verified live production URLs after pipe-hiding article deploy:
+  - `/maamarim/hester-tzinorot` returns 200 with expected title, H1, Article schema, and FAQ schema
+  - `sitemap.xml` includes `/maamarim/hester-tzinorot`
 
 ## Current Blockers Found In Repo
 
@@ -107,15 +121,16 @@ Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 1. Expand the restored `/sugim/*` rescue pages into full commercial pages with examples and stronger proof.
 2. Add individual Review schema only after confirming the visible reviews are real/verifiable source reviews.
 3. Run post-deploy GSC checks for homepage head-term split: `תקרה מתוחה` vs `תקרה נמתחת`.
-4. Build the next problem-driven page: `/maamarim/hester-tzinorot/`.
+4. Build the next problem-driven page: `/maamarim/dira-tikra-nemuha/`.
 
 ## First Growth Build
 
 Highest-ROI new pages from the strategy:
 
 1. `/maamarim/kisui-tikra-rativut/`
-2. `/ru/sravnenie-geves/`
-3. `/sugim/*` page expansions
+2. `/maamarim/hester-tzinorot/`
+3. `/ru/sravnenie-geves/`
+4. `/sugim/*` page expansions
 
 Each new commercial page should follow the existing pricing/comparison page standard:
 

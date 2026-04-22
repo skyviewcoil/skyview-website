@@ -1225,6 +1225,69 @@
       "priority": "secondary",
       "monthly_volume_estimate": null,
       "ranking_notes": "Neighbor-leak urgency query."
+    },
+    {
+      "keyword": "הסתרת צנרת בתקרה",
+      "language": "he",
+      "canonical_url": "/maamarim/hester-tzinorot",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Problem-driven article for pipe and infrastructure hiding demand."
+    },
+    {
+      "keyword": "כיסוי צנרת בתקרה",
+      "language": "he",
+      "canonical_url": "/maamarim/hester-tzinorot",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Covering exposed pipework in ceilings."
+    },
+    {
+      "keyword": "הסתרת צינורות בתקרה",
+      "language": "he",
+      "canonical_url": "/maamarim/hester-tzinorot",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Pipe hiding synonym."
+    },
+    {
+      "keyword": "תקרה להסתרת צנרת",
+      "language": "he",
+      "canonical_url": "/maamarim/hester-tzinorot",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Solution-oriented ceiling query."
+    },
+    {
+      "keyword": "הנמכת תקרה להסתרת צנרת",
+      "language": "he",
+      "canonical_url": "/maamarim/hester-tzinorot",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Lowered-ceiling infrastructure query."
+    },
+    {
+      "keyword": "הסתרת תעלות מזגן בתקרה",
+      "language": "he",
+      "canonical_url": "/maamarim/hester-tzinorot",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "AC duct hiding long tail."
+    },
+    {
+      "keyword": "הסתרת תשתיות בתקרה",
+      "language": "he",
+      "canonical_url": "/maamarim/hester-tzinorot",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Infrastructure hiding long tail."
     }
   ],
   "pages": [
@@ -1689,7 +1752,8 @@
       "url": "/maamarim",
       "primary_keyword": "מאמרים תקרות מתוחות",
       "secondary_keywords": [
-        "תקרה אחרי רטיבות"
+        "תקרה אחרי רטיבות",
+        "הסתרת צנרת בתקרה"
       ],
       "language": "he",
       "page_type": "article-hub",
@@ -1713,6 +1777,23 @@
       "hreflang_pair": null,
       "implementation_status": "live_static",
       "note": "First problem-driven article from the strategy. Routes to /hadarim/ambatia, /madrich/amidut-mayim, /mehiron and comparison pages."
+    },
+    {
+      "url": "/maamarim/hester-tzinorot",
+      "primary_keyword": "הסתרת צנרת בתקרה",
+      "secondary_keywords": [
+        "כיסוי צנרת בתקרה",
+        "הסתרת צינורות בתקרה",
+        "תקרה להסתרת צנרת",
+        "הנמכת תקרה להסתרת צנרת",
+        "הסתרת תעלות מזגן בתקרה",
+        "הסתרת תשתיות בתקרה"
+      ],
+      "language": "he",
+      "page_type": "problem-article",
+      "hreflang_pair": null,
+      "implementation_status": "live_static",
+      "note": "Problem-driven article for hiding exposed pipes, AC ducts, and ceiling infrastructure. Routes to lowering, lighting, price, and comparison pages."
     }
   ],
   "cannibalization_flags": [
