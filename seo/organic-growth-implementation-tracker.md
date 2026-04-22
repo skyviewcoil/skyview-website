@@ -157,6 +157,27 @@ It intentionally reflects the current workspace, not only the strategic target s
 - Verified live production URLs after matte-page deploy:
   - `/sugim/mat` returns 200 with expected title, H1, Service schema, FAQ schema, and expanded commercial content
   - `sitemap.xml` lists `/sugim/mat` with `lastmod=2026-04-22`
+- Expanded `/sugim/mavrika` from a lean rescue page into a full commercial finish page
+- Strengthened `/sugim/mavrika` with:
+  - price anchor from 229 ILS per m2
+  - glossy vs matte/satin comparison table
+  - room-fit guidance for salons, kitchens, lobbies, commercial spaces, and low-ceiling rooms
+  - lighting guidance for LED strips, spotlights, chandeliers, and glare control
+  - expanded FAQ schema and internal links to room, finish, lighting, pricing, and low-ceiling pages
+- Updated keyword ownership for `/sugim/mavrika`:
+  - primary: `תקרה מבריקה`
+  - added glossy-finish variants such as `תקרה מתוחה מבריקה`, `תקרה מבריקה לסלון`, `תקרה מבריקה למטבח`, `תקרה מבריקה עם תאורה`, `תקרה מבריקה מחיר`, and `תקרה עם השתקפות`
+- Verified local glossy-page expansion build:
+  - 95 static HTML files
+  - 233 JSON-LD blocks
+  - 96 sitemap URLs with no missing static pages
+  - 167 keywords across 41 mapped pages
+- Deployed glossy-page expansion to Cloudflare Workers
+  - Worker version: `715e195c-3cee-4f5a-a001-947a644f53f2`
+  - Uploaded 2 new/modified static assets
+- Verified live production URLs after glossy-page deploy:
+  - `/sugim/mavrika` returns 200 with expected title, H1, Service schema, FAQ schema, and expanded commercial content
+  - `sitemap.xml` lists `/sugim/mavrika` with `lastmod=2026-04-22`
 
 ## Current Blockers Found In Repo
 
@@ -164,7 +185,7 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 
-- Most restored `/sugim/*`, `/architects-designers`, and `/tikun` pages are intentionally lean rescue pages. `/sugim/mat` has now been expanded; the remaining restored pages should be expanded with richer imagery, project examples, and page-specific copy before being treated as final commercial pages.
+- Most restored `/sugim/*`, `/architects-designers`, and `/tikun` pages are intentionally lean rescue pages. `/sugim/mat` and `/sugim/mavrika` have now been expanded; the remaining restored pages should be expanded with richer imagery, project examples, and page-specific copy before being treated as final commercial pages.
 - `/tikra-metuha-180` is now treated as a legacy price URL and 301s to `/mehiron`; keep it out of `sitemap.xml`.
 
 ## Next 14-Day Priorities
@@ -172,7 +193,7 @@ Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 1. Expand the restored `/sugim/*` rescue pages into full commercial pages with examples and stronger proof.
 2. Add individual Review schema only after confirming the visible reviews are real/verifiable source reviews.
 3. Run post-deploy GSC checks for homepage head-term split: `תקרה מתוחה` vs `תקרה נמתחת`.
-4. Expand the restored `/sugim/mavrika` rescue page into a full commercial page.
+4. Expand the restored `/sugim/saten` or `/sugim/hadpas` rescue page into a full commercial page.
 
 ## First Growth Build
 

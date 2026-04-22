@@ -207,7 +207,7 @@
       "intent": "informational",
       "priority": "primary",
       "monthly_volume_estimate": null,
-      "ranking_notes": "Gloss finish. Static page restored in this pass."
+      "ranking_notes": "Gloss finish page expanded into a full commercial landing page with lighting, room-fit, pricing, and comparison guidance."
     },
     {
       "keyword": "תקרה מטאלית",
@@ -216,7 +216,7 @@
       "intent": "informational",
       "priority": "secondary",
       "monthly_volume_estimate": null,
-      "ranking_notes": ""
+      "ranking_notes": "Metallic-look / reflective variant; keep as secondary until a dedicated metallic finish page exists."
     },
     {
       "keyword": "תקרה סאטן",
@@ -1468,6 +1468,60 @@
       "priority": "secondary",
       "monthly_volume_estimate": null,
       "ranking_notes": "Low-ceiling design query."
+    },
+    {
+      "keyword": "תקרה מתוחה מבריקה",
+      "language": "he",
+      "canonical_url": "/sugim/mavrika",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Commercial phrase for glossy stretch ceiling finish."
+    },
+    {
+      "keyword": "תקרה מבריקה לסלון",
+      "language": "he",
+      "canonical_url": "/sugim/mavrika",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Room-fit query; page links to /hadarim/salon."
+    },
+    {
+      "keyword": "תקרה מבריקה למטבח",
+      "language": "he",
+      "canonical_url": "/sugim/mavrika",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Room-fit query; page links to /hadarim/mitbah."
+    },
+    {
+      "keyword": "תקרה מבריקה עם תאורה",
+      "language": "he",
+      "canonical_url": "/sugim/mavrika",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Lighting-led query; page links to /teura/pasei-led-shkuim."
+    },
+    {
+      "keyword": "תקרה מבריקה מחיר",
+      "language": "he",
+      "canonical_url": "/sugim/mavrika",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Pricing variant handled inside the glossy finish page and routed to /mehiron."
+    },
+    {
+      "keyword": "תקרה עם השתקפות",
+      "language": "he",
+      "canonical_url": "/sugim/mavrika",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Descriptive long-tail query for reflective ceiling effect."
     }
   ],
   "pages": [
@@ -1522,12 +1576,19 @@
       "url": "/sugim/mavrika",
       "primary_keyword": "תקרה מבריקה",
       "secondary_keywords": [
-        "תקרה מטאלית"
+        "תקרה מטאלית",
+        "תקרה מתוחה מבריקה",
+        "תקרה מבריקה לסלון",
+        "תקרה מבריקה למטבח",
+        "תקרה מבריקה עם תאורה",
+        "תקרה מבריקה מחיר",
+        "תקרה עם השתקפות"
       ],
       "language": "he",
       "page_type": "product-variant",
       "hreflang_pair": null,
-      "implementation_status": "live_static"
+      "implementation_status": "expanded_static",
+      "note": "Expanded 2026-04-22 with full glossy-finish commercial content, pricing, lighting guidance, room-fit guidance, FAQ, and internal links."
     },
     {
       "url": "/sugim/saten",
