@@ -1813,6 +1813,7 @@
       "page_type": "product-variant",
       "hreflang_pair": null,
       "implementation_status": "expanded_static",
+      "content_version": "v2026.04.22.2",
       "note": "Expanded 2026-04-22 with full glossy-finish commercial content, pricing, lighting guidance, room-fit guidance, FAQ, and internal links."
     },
     {
@@ -1833,6 +1834,7 @@
       "page_type": "product-variant",
       "hreflang_pair": null,
       "implementation_status": "expanded_static",
+      "content_version": "v2026.04.22.3",
       "note": "Expanded 2026-04-22 with full satin-finish commercial content, pricing, lighting guidance, white-ceiling guidance, moisture/room-fit guidance, FAQ, and internal links."
     },
     {
@@ -1854,6 +1856,7 @@
       "page_type": "product-variant",
       "hreflang_pair": null,
       "implementation_status": "expanded_static",
+      "content_version": "v2026.04.22.4",
       "note": "Expanded 2026-04-22 with full printed-ceiling commercial content, file-quality guidance, sky/image/logo use cases, illuminated-print guidance, pricing, FAQ, and internal links."
     },
     {
@@ -1875,6 +1878,7 @@
       "page_type": "product-variant",
       "hreflang_pair": null,
       "implementation_status": "expanded_static",
+      "content_version": "v2026.04.22.5",
       "note": "Expanded 2026-04-22 with full acoustic-ceiling commercial content, micro-perforation guidance, absorption/use-case guidance, lighting, pricing, FAQ, and internal links. Office room intent remains on /hadarim/misrad."
     },
     {
@@ -2201,6 +2205,7 @@
       "page_type": "product-variant",
       "hreflang_pair": null,
       "implementation_status": "expanded_static",
+      "content_version": "v2026.04.22.1",
       "note": "Expanded from rescue page into a full commercial matte-finish page with price, comparison, room fit, lighting guidance, FAQ, and internal links."
     },
     {

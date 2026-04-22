@@ -38,7 +38,7 @@ It intentionally reflects the current workspace, not only the strategic target s
 - Added 4-card testimonial rails above the final CTA on `/mehiron/` and `/hashvaa/tikra-metuha-o-geves`
 - Aligned `/tikrot-metuhot` BreadcrumbList and Service schema with its new `סוגי תקרות מתוחות` type-hub role
 - Expanded homepage FAQ from 5 to 9 visible questions and kept FAQPage schema aligned
-- Removed public footer version tags from static pages and embedded Worker HTML while keeping internal Worker health version untouched
+- Removed legacy public footer version tags from static pages and embedded Worker HTML while keeping internal Worker health version untouched
 - Audited legacy Hebrew redirects and aligned `/תקרה-צפה-מרחפת` + `/ru/תקרה-צפה-מרחפת` to `/sugim/tikra-tzafa` in both `worker.js` and `_redirects`
 - Restored 11 missing static pages:
   - `/sugim`
@@ -246,6 +246,33 @@ It intentionally reflects the current workspace, not only the strategic target s
 - Verified live production URLs after acoustic-page deploy:
   - `/sugim/akustit` returns 200 with expected title, H1, Service schema, FAQ schema, and expanded commercial content
   - `sitemap.xml` lists `/sugim/akustit` with `lastmod=2026-04-22`
+- Added owner-requested visible page-version tracking to every finish page updated in this sequence:
+  - `/sugim/mat` = `v2026.04.22.1`
+  - `/sugim/mavrika` = `v2026.04.22.2`
+  - `/sugim/saten` = `v2026.04.22.3`
+  - `/sugim/hadpas` = `v2026.04.22.4`
+  - `/sugim/akustit` = `v2026.04.22.5`
+- Mirrored the same page versions into `seo/keyword-map.rebuilt.json` via `content_version`
+- Deployed page-version tracking update to Cloudflare Workers
+  - Worker version: `c4c77aa5-9c33-48ec-a13c-5f5fa2985990`
+  - Uploaded 5 new/modified static assets
+- Verified live production page-version markers:
+  - `/sugim/mat` contains `v2026.04.22.1`
+  - `/sugim/mavrika` contains `v2026.04.22.2`
+  - `/sugim/saten` contains `v2026.04.22.3`
+  - `/sugim/hadpas` contains `v2026.04.22.4`
+  - `/sugim/akustit` contains `v2026.04.22.5`
+
+## Page Version Tracking Rule
+
+Every updated public HTML page must include a visible footer marker at the end of the page:
+
+`גרסת עמוד: vYYYY.MM.DD.N`
+
+When a page version changes, update both:
+
+- the visible footer marker in the page HTML
+- the matching `content_version` in `seo/keyword-map.rebuilt.json`
 
 ## Current Blockers Found In Repo
 
