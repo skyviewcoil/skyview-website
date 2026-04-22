@@ -222,6 +222,30 @@ It intentionally reflects the current workspace, not only the strategic target s
 - Verified live production URLs after printed-page deploy:
   - `/sugim/hadpas` returns 200 with expected title, H1, Service schema, FAQ schema, and expanded commercial content
   - `sitemap.xml` lists `/sugim/hadpas` with `lastmod=2026-04-22`
+- Expanded `/sugim/akustit` from a lean rescue page into a full commercial acoustic-finish page
+- Strengthened `/sugim/akustit` with:
+  - micro-perforation and absorption-layer explanation
+  - use-case guidance for offices, meeting rooms, clinics, classrooms, studios, restaurants, and lobbies
+  - clear split between finish intent (`/sugim/akustit`), office room intent (`/hadarim/misrad`), and B2B hub intent (`/asakim`)
+  - comparison against acoustic tile ceilings and regular gypsum ceilings
+  - lighting guidance for spotlights, LED strips, and magnetic tracks without reducing acoustic coverage
+  - pricing and limitation guidance, including when acoustic ceiling alone is not enough
+  - expanded FAQ schema and internal links to office, business, lighting, pricing, and comparison pages
+- Updated keyword ownership for `/sugim/akustit`:
+  - primary: `תקרה אקוסטית`
+  - added acoustic-finish variants such as `תקרה מתוחה אקוסטית`, `תקרה נמתחת אקוסטית`, `תקרה אקוסטית מחיר`, `תקרה אקוסטית מעוצבת`, `תקרה אקוסטית לקליניקה`, `תקרה אקוסטית לסטודיו`, `תקרה אקוסטית לכיתה`, `תקרה מחוררת אקוסטית`, `תקרה לספיגת רעש`, and `פתרון אקוסטי לתקרה`
+  - kept `תקרה אקוסטית למשרד` owned by `/hadarim/misrad` to avoid cannibalization
+- Verified local acoustic-page expansion build:
+  - 95 static HTML files
+  - 233 JSON-LD blocks
+  - 96 sitemap URLs with no missing static pages
+  - 192 keywords across 41 mapped pages
+- Deployed acoustic-page expansion to Cloudflare Workers
+  - Worker version: `64f33897-5380-4baf-a896-c46ff24b30ba`
+  - Uploaded 2 new/modified static assets
+- Verified live production URLs after acoustic-page deploy:
+  - `/sugim/akustit` returns 200 with expected title, H1, Service schema, FAQ schema, and expanded commercial content
+  - `sitemap.xml` lists `/sugim/akustit` with `lastmod=2026-04-22`
 
 ## Current Blockers Found In Repo
 
@@ -229,7 +253,7 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 
-- Most restored `/sugim/*`, `/architects-designers`, and `/tikun` pages are intentionally lean rescue pages. `/sugim/mat`, `/sugim/mavrika`, `/sugim/saten`, and `/sugim/hadpas` have now been expanded; the remaining restored pages should be expanded with richer imagery, project examples, and page-specific copy before being treated as final commercial pages.
+- Most restored `/sugim/*`, `/architects-designers`, and `/tikun` pages are intentionally lean rescue pages. `/sugim/mat`, `/sugim/mavrika`, `/sugim/saten`, `/sugim/hadpas`, and `/sugim/akustit` have now been expanded; the remaining restored pages should be expanded with richer imagery, project examples, and page-specific copy before being treated as final commercial pages.
 - `/tikra-metuha-180` is now treated as a legacy price URL and 301s to `/mehiron`; keep it out of `sitemap.xml`.
 
 ## Next 14-Day Priorities
@@ -237,7 +261,7 @@ Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 1. Expand the restored `/sugim/*` rescue pages into full commercial pages with examples and stronger proof.
 2. Add individual Review schema only after confirming the visible reviews are real/verifiable source reviews.
 3. Run post-deploy GSC checks for homepage head-term split: `תקרה מתוחה` vs `תקרה נמתחת`.
-4. Expand the restored `/sugim/akustit` rescue page into a full commercial page.
+4. Expand the restored `/sugim/tikra-tzafa` rescue page into a full commercial page.
 
 ## First Growth Build
 

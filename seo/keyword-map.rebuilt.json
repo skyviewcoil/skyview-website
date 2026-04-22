@@ -270,16 +270,16 @@
       "intent": "informational",
       "priority": "primary",
       "monthly_volume_estimate": null,
-      "ranking_notes": "Acoustic finish. Static page restored in this pass."
+      "ranking_notes": "Acoustic finish page expanded into a full commercial landing page with micro-perforation, absorption, room-fit, lighting, pricing, and limitation guidance."
     },
     {
       "keyword": "תקרה מתוחה אקוסטית",
       "language": "he",
       "canonical_url": "/sugim/akustit",
-      "intent": "informational",
+      "intent": "commercial",
       "priority": "secondary",
       "monthly_volume_estimate": null,
-      "ranking_notes": ""
+      "ranking_notes": "Commercial phrase for acoustic stretch ceiling finish."
     },
     {
       "keyword": "תקרה צפה",
@@ -1666,6 +1666,87 @@
       "priority": "secondary",
       "monthly_volume_estimate": null,
       "ranking_notes": "Process-oriented query for printing on stretch ceiling membrane."
+    },
+    {
+      "keyword": "תקרה נמתחת אקוסטית",
+      "language": "he",
+      "canonical_url": "/sugim/akustit",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Nimtahet wording variant for acoustic stretch ceiling finish."
+    },
+    {
+      "keyword": "תקרה אקוסטית מחיר",
+      "language": "he",
+      "canonical_url": "/sugim/akustit",
+      "intent": "transactional",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Pricing variant handled inside the acoustic finish page and routed to /mehiron."
+    },
+    {
+      "keyword": "תקרה אקוסטית מעוצבת",
+      "language": "he",
+      "canonical_url": "/sugim/akustit",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Design-led acoustic ceiling query."
+    },
+    {
+      "keyword": "תקרה אקוסטית לקליניקה",
+      "language": "he",
+      "canonical_url": "/sugim/akustit",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Clinic acoustic use case; future B2B clinic page may split this if built."
+    },
+    {
+      "keyword": "תקרה אקוסטית לסטודיו",
+      "language": "he",
+      "canonical_url": "/sugim/akustit",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Studio acoustic use case; recommend consultant for complex studio work."
+    },
+    {
+      "keyword": "תקרה אקוסטית לכיתה",
+      "language": "he",
+      "canonical_url": "/sugim/akustit",
+      "intent": "commercial",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Classroom acoustic use case."
+    },
+    {
+      "keyword": "תקרה מחוררת אקוסטית",
+      "language": "he",
+      "canonical_url": "/sugim/akustit",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Micro-perforated acoustic membrane query."
+    },
+    {
+      "keyword": "תקרה לספיגת רעש",
+      "language": "he",
+      "canonical_url": "/sugim/akustit",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Noise absorption / echo reduction query."
+    },
+    {
+      "keyword": "פתרון אקוסטי לתקרה",
+      "language": "he",
+      "canonical_url": "/sugim/akustit",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Problem-solution query for acoustic ceiling treatment."
     }
   ],
   "pages": [
@@ -1779,12 +1860,22 @@
       "url": "/sugim/akustit",
       "primary_keyword": "תקרה אקוסטית",
       "secondary_keywords": [
-        "תקרה מתוחה אקוסטית"
+        "תקרה מתוחה אקוסטית",
+        "תקרה נמתחת אקוסטית",
+        "תקרה אקוסטית מחיר",
+        "תקרה אקוסטית מעוצבת",
+        "תקרה אקוסטית לקליניקה",
+        "תקרה אקוסטית לסטודיו",
+        "תקרה אקוסטית לכיתה",
+        "תקרה מחוררת אקוסטית",
+        "תקרה לספיגת רעש",
+        "פתרון אקוסטי לתקרה"
       ],
       "language": "he",
       "page_type": "product-variant",
       "hreflang_pair": null,
-      "implementation_status": "live_static"
+      "implementation_status": "expanded_static",
+      "note": "Expanded 2026-04-22 with full acoustic-ceiling commercial content, micro-perforation guidance, absorption/use-case guidance, lighting, pricing, FAQ, and internal links. Office room intent remains on /hadarim/misrad."
     },
     {
       "url": "/sugim/tikra-tzafa",
