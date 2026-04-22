@@ -1288,6 +1288,69 @@
       "priority": "secondary",
       "monthly_volume_estimate": null,
       "ranking_notes": "Infrastructure hiding long tail."
+    },
+    {
+      "keyword": "דירה עם תקרה נמוכה",
+      "language": "he",
+      "canonical_url": "/maamarim/dira-tikra-nemuha",
+      "intent": "informational",
+      "priority": "primary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Problem-driven article for low-ceiling apartment demand."
+    },
+    {
+      "keyword": "תקרה נמוכה פתרונות",
+      "language": "he",
+      "canonical_url": "/maamarim/dira-tikra-nemuha",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Solutions query for low ceilings."
+    },
+    {
+      "keyword": "פתרון לתקרה נמוכה",
+      "language": "he",
+      "canonical_url": "/maamarim/dira-tikra-nemuha",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Single-solution wording."
+    },
+    {
+      "keyword": "הנמכת תקרה בדירה נמוכה",
+      "language": "he",
+      "canonical_url": "/maamarim/dira-tikra-nemuha",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Lowering decision query in low apartments."
+    },
+    {
+      "keyword": "איך לגרום לתקרה להיראות גבוהה",
+      "language": "he",
+      "canonical_url": "/maamarim/dira-tikra-nemuha",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Design-intent query about making a ceiling feel higher."
+    },
+    {
+      "keyword": "תקרה מתוחה לתקרה נמוכה",
+      "language": "he",
+      "canonical_url": "/maamarim/dira-tikra-nemuha",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Stretch-ceiling suitability query for low spaces."
+    },
+    {
+      "keyword": "עיצוב תקרה נמוכה",
+      "language": "he",
+      "canonical_url": "/maamarim/dira-tikra-nemuha",
+      "intent": "informational",
+      "priority": "secondary",
+      "monthly_volume_estimate": null,
+      "ranking_notes": "Low-ceiling design query."
     }
   ],
   "pages": [
@@ -1753,7 +1816,8 @@
       "primary_keyword": "מאמרים תקרות מתוחות",
       "secondary_keywords": [
         "תקרה אחרי רטיבות",
-        "הסתרת צנרת בתקרה"
+        "הסתרת צנרת בתקרה",
+        "דירה עם תקרה נמוכה"
       ],
       "language": "he",
       "page_type": "article-hub",
@@ -1794,6 +1858,23 @@
       "hreflang_pair": null,
       "implementation_status": "live_static",
       "note": "Problem-driven article for hiding exposed pipes, AC ducts, and ceiling infrastructure. Routes to lowering, lighting, price, and comparison pages."
+    },
+    {
+      "url": "/maamarim/dira-tikra-nemuha",
+      "primary_keyword": "דירה עם תקרה נמוכה",
+      "secondary_keywords": [
+        "תקרה נמוכה פתרונות",
+        "פתרון לתקרה נמוכה",
+        "הנמכת תקרה בדירה נמוכה",
+        "איך לגרום לתקרה להיראות גבוהה",
+        "תקרה מתוחה לתקרה נמוכה",
+        "עיצוב תקרה נמוכה"
+      ],
+      "language": "he",
+      "page_type": "problem-article",
+      "hreflang_pair": null,
+      "implementation_status": "live_static",
+      "note": "Problem-driven article for low-ceiling apartments. Routes to lowering, matte/glossy finishes, lighting, salon and pricing pages."
     }
   ],
   "cannibalization_flags": [

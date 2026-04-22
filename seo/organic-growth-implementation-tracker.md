@@ -106,6 +106,20 @@ It intentionally reflects the current workspace, not only the strategic target s
 - Verified live production URLs after pipe-hiding article deploy:
   - `/maamarim/hester-tzinorot` returns 200 with expected title, H1, Article schema, and FAQ schema
   - `sitemap.xml` includes `/maamarim/hester-tzinorot`
+- Published the third problem-driven article page: `/maamarim/dira-tikra-nemuha`
+- Assigned `דירה עם תקרה נמוכה` and related low-ceiling solution terms to `/maamarim/dira-tikra-nemuha`
+- Added inbound internal links to `/maamarim/dira-tikra-nemuha` from `/maamarim`, `/hanmahat-tikra`, `/hashvaa/tikra-metuha-o-geves`, `/madrich`, and `/sugim/mat`
+- Verified local low-ceiling article build:
+  - 94 static HTML files
+  - 230 JSON-LD blocks
+  - 95 sitemap URLs with no missing static pages
+  - 148 keywords across 40 mapped pages
+- Deployed low-ceiling article update to Cloudflare Workers
+  - Worker version: `a6d5fbbf-7b0a-434b-b84f-f3d6af175c08`
+  - Uploaded 7 new/modified static assets
+- Verified live production URLs after low-ceiling article deploy:
+  - `/maamarim/dira-tikra-nemuha` returns 200 with expected title, H1, Article schema, and FAQ schema
+  - `sitemap.xml` includes `/maamarim/dira-tikra-nemuha`
 
 ## Current Blockers Found In Repo
 
@@ -121,7 +135,7 @@ Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 1. Expand the restored `/sugim/*` rescue pages into full commercial pages with examples and stronger proof.
 2. Add individual Review schema only after confirming the visible reviews are real/verifiable source reviews.
 3. Run post-deploy GSC checks for homepage head-term split: `תקרה מתוחה` vs `תקרה נמתחת`.
-4. Build the next problem-driven page: `/maamarim/dira-tikra-nemuha/`.
+4. Build the first RU comparison page: `/ru/sravnenie-geves/`.
 
 ## First Growth Build
 
@@ -129,8 +143,9 @@ Highest-ROI new pages from the strategy:
 
 1. `/maamarim/kisui-tikra-rativut/`
 2. `/maamarim/hester-tzinorot/`
-3. `/ru/sravnenie-geves/`
-4. `/sugim/*` page expansions
+3. `/maamarim/dira-tikra-nemuha/`
+4. `/ru/sravnenie-geves/`
+5. `/sugim/*` page expansions
 
 Each new commercial page should follow the existing pricing/comparison page standard:
 
