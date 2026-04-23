@@ -397,6 +397,22 @@ It intentionally reflects the current workspace, not only the strategic target s
   - `/sugim/mavrika`, `/sugim/gimur-geves`, `/sugim`, and `/ru/sravnenie-geves` return 200 with `v2026.04.22.11`
   - `/sugim/mavrika` uses the product-specific `glossy-chandelier-salon.jpg` hero image
   - `/css/style.css` contains the rounded-card `page-hero--image` rules, localized radial text gradient, and light warm value-prop band
+- Prepared a one-page joined-hero trial for `/sugim/mavrika` after owner feedback:
+  - hero image keeps only top rounded corners
+  - the value-prop band attaches directly to the hero with no gap
+  - value-prop band keeps only bottom rounded corners, so both parts read as one hero unit
+  - CSS is scoped through `page-hero--joined` and `hero-continuation--joined`; no other page uses the trial classes yet
+  - visible page version and keyword-map `content_version`: `v2026.04.23.1`
+  - local Playwright check confirmed desktop and mobile gap = 0 between hero and value-prop band
+- Deployed the one-page joined-hero trial:
+  - Wrangler version: `4.83.0`
+  - Worker version: `e1f2d7b0-e301-4420-ad58-b1eece6cac5e`
+  - Uploaded 2 modified static assets: `/sugim/mavrika/index.html` and `/css/style.css`
+- Verified live production for `/sugim/mavrika`:
+  - returns 200
+  - contains `page-hero--joined` and `hero-continuation--joined`
+  - contains visible page version `v2026.04.23.1`
+  - no longer contains the previous page version `v2026.04.22.11`
 
 ## Page Version Tracking Rule
 
