@@ -476,7 +476,7 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 ## Latest Site Version
 
-`גרסת אתר: v2026.04.23.10`
+`גרסת אתר: v2026.04.23.11`
 
 - Applied the joined hero pattern to remaining non-homepage static pages.
 - Included `/tikrot-metuhot` in the same hero standard.
@@ -486,6 +486,7 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 - Normalized before/after sliders to the homepage structure across all pages that use them.
 - Zoomed the requested hero images by 10 percent with ceiling-focused positioning.
 - Updated `/architects-designers` hero to use an image from `/assets/images/sugim`.
+- Added Service schema and small SEO copy fixes to `/hanmahat-tikra`.
 - Kept the homepage out of this visual batch.
 
 Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
