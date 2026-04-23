@@ -474,6 +474,15 @@ When the runtime version changes, update:
 
 No deploy-blocking missing-static sitemap URLs remain after this pass.
 
+## Latest Site Version
+
+`גרסת אתר: v2026.04.23.7`
+
+- Applied the joined hero pattern to remaining non-homepage static pages.
+- Included `/tikrot-metuhot` in the same hero standard.
+- Removed the old black strip below the hero on `/aharayut-yatzranim`.
+- Kept the homepage out of this visual batch.
+
 Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
 
 - Most restored `/sugim/*`, `/architects-designers`, and `/tikun` pages are intentionally lean rescue pages. `/sugim/mat`, `/sugim/mavrika`, `/sugim/saten`, `/sugim/hadpas`, `/sugim/akustit`, `/sugim/tikra-tzafa`, `/sugim/pasei-merahvim`, and `/sugim/gimur-geves` have now been expanded; the remaining restored pages should be expanded with richer imagery, project examples, and page-specific copy before being treated as final commercial pages.
