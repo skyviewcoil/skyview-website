@@ -3287,6 +3287,8 @@ body::after {
 }
 .page-hero--image h1 {
   max-width: 640px;
+  font-size: clamp(1.75rem, 3.5vw, 3.15rem);
+  line-height: 1.18;
   color: var(--white);
   text-shadow: 0 2px 20px rgba(0,0,0,0.18);
 }
