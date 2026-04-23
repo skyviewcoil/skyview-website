@@ -8,7 +8,7 @@ f.parentNode.insertBefore(j,f);
 const GTM_BODY_SNIPPET = `<noscript><iframe src="/bddp/ns.html?id=GTM-5F9MRJZR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 const CLARITY_PROJECT_ID = 'we6fhsmtc1';
 const CLARITY_HEAD_SNIPPET = `<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","we6fhsmtc1");</script>`;
-const SITE_RUNTIME_VERSION = 'v2026.04.23.19';
+const SITE_RUNTIME_VERSION = 'v2026.04.23.20';
 const SITE_RUNTIME_VERSION_SNIPPET = `<span>גרסת אתר: ${SITE_RUNTIME_VERSION}</span>`;
 
 function injectSiteVersion(html) {
@@ -1516,7 +1516,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
       <div class="container">
         <h2 style="text-align:center;">Часто задаваемые вопросы о цене натяжного потолка</h2>
         <div class="faq-list" style="margin:var(--sp-8) auto 0;">
-          <div class="faq-item"><button class="faq-question" aria-expanded="false">Сколько стоит натяжной потолок за м²?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">MSD — ₪229/м². ₪339 — RENOLIT/м². Включая производство, доставку и монтаж. Освещение — отдельно.</div></div></div>
+          <div class="faq-item"><button class="faq-question" aria-expanded="false">Сколько стоит натяжной потолок за м²?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">MSD — ₪229/м², TEQTUM — ₪279/м², RENOLIT — ₪339/м². Включая производство, доставку и монтаж. Освещение — отдельно.</div></div></div>
           <div class="faq-item"><button class="faq-question" aria-expanded="false">Что включено в цену?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">Цена включает изготовление полотна, доставку и монтаж с профилем. Не включено: LED-линии, споты, магнитный рельс, световой потолок, принты, плавающие полосы — всё отдельно по проекту.</div></div></div>
           <div class="faq-item"><button class="faq-question" aria-expanded="false">Сколько стоит натяжной со встроенным освещением?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">Зависит от типа освещения и количества светильников. Один спот — несколько десятков шекелей. <a href="/teura/masila-magnetit-shkuaa">Встроенный магнитный рельс</a> — по длине. <a href="/sugim/pasei-merahvim">Плавающие полосы</a> — по периметру. При полном освещении стоимость сопоставима с потолком. Точное предложение после замера.</div></div></div>
           <div class="faq-item"><button class="faq-question" aria-expanded="false">Сколько стоит натяжной для гостиной?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">Средняя гостиная (15–25 м²) с базовым покрытием — ₪3 400–₪5 800. С продвинутым — ₪4 200–₪7 000. Со встроенным освещением (споты / рельс / плавающие полосы) — дополнительно. Используйте калькулятор выше.</div></div></div>
@@ -1535,7 +1535,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
 
       <div class="internal-links-block">
         <h3>Полезные страницы</h3>
-        <ul><li><a href="/ru/">Натяжные потолки в Израиле</a></li><li><a href="/tikrot-metuhot">Натяжные потолки</a></li><li><a href="/sugim">Виды потолков</a></li><li><a href="/teura">Решения освещения</a></li><li><a href="/hadarim/salon">Потолок для гостиной</a></li><li><a href="/hadarim/ambatia">Потолок для ванной</a></li><li><a href="/hadarim/misrad">Потолок для офиса</a></li><li><a href="/asakim">Решения для бизнеса</a></li><li><a href="/hanmahat-tikra">Опускание потолка</a></li><li><a href="/ru/sravnenie-geves">Сравнение с гипсом</a></li><li><a href="/madrich/ma-mashpia-al-mehir">Что влияет на цену</a></li><li><a href="/madrich/homrim">Материалы</a></li></ul>
+        <ul><li><a href="/ru/">Натяжные потолки в Израиле</a></li><li><a href="/tikrot-metuhot">Натяжные потолки</a></li><li><a href="/sugim">Виды потолков</a></li><li><a href="/teura">Решения освещения</a></li><li><a href="/hadarim/salon">Потолок для гостиной</a></li><li><a href="/hadarim/ambatia">Потолок для ванной</a></li><li><a href="/hadarim/misrad">Потолок для офиса</a></li><li><a href="/asakim">Решения для бизнеса</a></li><li><a href="/azorim">Зоны обслуживания</a></li><li><a href="/hanmahat-tikra">Опускание потолка</a></li><li><a href="/ru/sravnenie-geves">Сравнение с гипсом</a></li><li><a href="/madrich/ma-mashpia-al-mehir">Что влияет на цену</a></li><li><a href="/madrich/homrim">Материалы</a></li></ul>
       </div>
       </div>
     </section>
