@@ -8,7 +8,7 @@ f.parentNode.insertBefore(j,f);
 const GTM_BODY_SNIPPET = `<noscript><iframe src="/bddp/ns.html?id=GTM-5F9MRJZR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 const CLARITY_PROJECT_ID = 'we6fhsmtc1';
 const CLARITY_HEAD_SNIPPET = `<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","we6fhsmtc1");</script>`;
-const SITE_RUNTIME_VERSION = 'v2026.04.23.9';
+const SITE_RUNTIME_VERSION = 'v2026.04.23.10';
 const SITE_RUNTIME_VERSION_SNIPPET = `<span>גרסת אתר: ${SITE_RUNTIME_VERSION}</span>`;
 
 function injectSiteVersion(html) {
@@ -787,51 +787,48 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
           <h2>До и после — реальные установки</h2>
           <p>Перетащите ползунок, чтобы увидеть разницу</p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);max-width:1100px;margin:0 auto;" class="ba-grid">
+        <div class="ba-grid reveal">
 
           <!-- Demo 1: pair5 — salon -->
-          <div class="ba-slider" style="position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;cursor:col-resize;user-select:none;-webkit-user-select:none;">
-            <img src="../assets/images/beforeafter/pair5-after.jpg" alt="После — глянцевый потолок с люстрой" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <div class="ba-slider__before" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;">
-              <img src="../assets/images/beforeafter/pair5-before.jpg" alt="До — открытый потолок с балками" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;min-width:0;">
+          <div class="ba-slider">
+            <img src="../assets/images/beforeafter/pair5-after.jpg" alt="После — глянцевый потолок с люстрой">
+            <div class="ba-slider__before">
+              <img src="../assets/images/beforeafter/pair5-before.jpg" alt="До — открытый потолок с балками">
             </div>
-            <div class="ba-slider__handle" style="position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%);z-index:2;box-shadow:0 0 8px rgba(0,0,0,0.3);">
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
+            <div class="ba-slider__handle"><div class="ba-slider__handle-circle">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </div>
-            <div style="position:absolute;top:var(--sp-3);left:var(--sp-3);background:rgba(0,0,0,0.55);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">До</div>
-            <div style="position:absolute;top:var(--sp-3);right:var(--sp-3);background:var(--color-accent);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">После</div>
+            <span class="ba-slider__label ba-slider__label--before">&#1044;&#1086;</span>
+            <span class="ba-slider__label ba-slider__label--after">&#1055;&#1086;&#1089;&#1083;&#1077;</span>
           </div>
 
           <!-- Demo 2: pair6 — bathroom -->
-          <div class="ba-slider" style="position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;cursor:col-resize;user-select:none;-webkit-user-select:none;">
-            <img src="../assets/images/beforeafter/pair6-after.jpg" alt="После — натяжной потолок в ванной" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <div class="ba-slider__before" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;">
-              <img src="../assets/images/beforeafter/pair6-before.jpg" alt="До — ванная с трубами" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;min-width:0;">
+          <div class="ba-slider">
+            <img src="../assets/images/beforeafter/pair6-after.jpg" alt="После — натяжной потолок в ванной">
+            <div class="ba-slider__before">
+              <img src="../assets/images/beforeafter/pair6-before.jpg" alt="До — ванная с трубами">
             </div>
-            <div class="ba-slider__handle" style="position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%);z-index:2;box-shadow:0 0 8px rgba(0,0,0,0.3);">
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
+            <div class="ba-slider__handle"><div class="ba-slider__handle-circle">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </div>
-            <div style="position:absolute;top:var(--sp-3);left:var(--sp-3);background:rgba(0,0,0,0.55);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">До</div>
-            <div style="position:absolute;top:var(--sp-3);right:var(--sp-3);background:var(--color-accent);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">После</div>
+            <span class="ba-slider__label ba-slider__label--before">&#1044;&#1086;</span>
+            <span class="ba-slider__label ba-slider__label--after">&#1055;&#1086;&#1089;&#1083;&#1077;</span>
           </div>
 
           <!-- Demo 3: pair11 — hall/commercial -->
-          <div class="ba-slider" style="position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;cursor:col-resize;user-select:none;-webkit-user-select:none;">
-            <img src="../assets/images/beforeafter/pair11-after.jpg" alt="После — глянцевый потолок с LED" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <div class="ba-slider__before" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;">
-              <img src="../assets/images/beforeafter/pair11-before.jpg" alt="До — зал со старым потолком" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;min-width:0;">
+          <div class="ba-slider">
+            <img src="../assets/images/beforeafter/pair11-after.jpg" alt="После — глянцевый потолок с LED">
+            <div class="ba-slider__before">
+              <img src="../assets/images/beforeafter/pair11-before.jpg" alt="До — зал со старым потолком">
             </div>
-            <div class="ba-slider__handle" style="position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%);z-index:2;box-shadow:0 0 8px rgba(0,0,0,0.3);">
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
+            <div class="ba-slider__handle"><div class="ba-slider__handle-circle">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </div>
-            <div style="position:absolute;top:var(--sp-3);left:var(--sp-3);background:rgba(0,0,0,0.55);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">До</div>
-            <div style="position:absolute;top:var(--sp-3);right:var(--sp-3);background:var(--color-accent);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">После</div>
+            <span class="ba-slider__label ba-slider__label--before">&#1044;&#1086;</span>
+            <span class="ba-slider__label ba-slider__label--after">&#1055;&#1086;&#1089;&#1083;&#1077;</span>
           </div>
 
         </div>

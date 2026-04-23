@@ -1,7 +1,7 @@
 {
   "_meta": {
     "version": "2026-04-21",
-    "site_runtime_version": "v2026.04.23.9",
+    "site_runtime_version": "v2026.04.23.10",
     "site_runtime_version_note": "Injected by worker.js as a visible footer marker on HTML responses for site-wide runtime updates.",
     "source": "Rebuilt from live site crawl + strategy report, then normalized in repo after head-term decision.",
     "head_term_decision": "Resolved: use 'תקרה מתוחה' as the canonical Hebrew head term. Use 'תקרה נמתחת' and plural forms as secondary variants unless GSC data proves otherwise.",
@@ -35,7 +35,11 @@
     "inner_pages_hero_version": "v2026.04.23.8",
     "inner_pages_hero_note": "Applied the joined hero pattern to all remaining non-homepage static pages, including room, business, lowering, lighting, and /tikrot-metuhot pages. Removed the old black trust strip below the /aharayut-yatzranim hero.",
     "inner_hero_title_size_version": "v2026.04.23.9",
-    "inner_hero_title_size_note": "Reduced image hero H1 size by about 30 percent across inner pages."
+    "inner_hero_title_size_note": "Reduced image hero H1 size by about 30 percent across inner pages.",
+    "before_after_normalization_version": "v2026.04.23.10",
+    "before_after_normalization_note": "Normalized before/after sliders to the homepage class-based structure and fixed before-image width initialization.",
+    "hero_crop_focus_version": "v2026.04.23.10",
+    "hero_crop_focus_note": "Zoomed selected hero images by 10 percent with ceiling-focused positioning; architects hero now uses a sugim image asset."
   },
   "keywords": [
     {

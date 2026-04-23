@@ -600,14 +600,18 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    // Initialize before image width
-    function initWidth() {
-      if (beforeImg) {
-        beforeImg.style.width = slider.offsetWidth + 'px';
+      // Initialize before image width
+      function initWidth() {
+        if (beforeImg) {
+          var width = slider.getBoundingClientRect().width || slider.offsetWidth;
+          beforeImg.style.width = width + 'px';
+        }
       }
-    }
-    initWidth();
-    window.addEventListener('resize', initWidth);
+      initWidth();
+      if (beforeImg && !beforeImg.complete) {
+        beforeImg.addEventListener('load', initWidth, { once: true });
+      }
+      window.addEventListener('resize', initWidth);
 
     var dragging = false;
 
