@@ -1,7 +1,7 @@
 {
   "_meta": {
     "version": "2026-04-21",
-    "site_runtime_version": "v2026.04.23.16",
+    "site_runtime_version": "v2026.04.23.17",
     "site_runtime_version_note": "Injected by worker.js as a visible footer marker on HTML responses for site-wide runtime updates.",
     "source": "Rebuilt from live site crawl + strategy report, then normalized in repo after head-term decision.",
     "head_term_decision": "Resolved: use 'תקרה מתוחה' as the canonical Hebrew head term. Use 'תקרה נמתחת' and plural forms as secondary variants unless GSC data proves otherwise.",
@@ -51,7 +51,9 @@
     "rooms_and_lighting_links_version": "v2026.04.23.14",
     "rooms_and_lighting_links_note": "Strengthened /hadarim/mitbah, /hadarim/heder-sheina, /teura, and key lighting pages with better FAQ, Service/AggregateOffer schema, and tighter internal links between room, lighting, pricing, and comparison pages.",
     "office_mikve_secondary_lighting_version": "v2026.04.23.15",
-    "office_mikve_secondary_lighting_note": "Strengthened /hadarim/misrad, /hadarim/mikve, /teura/teura-hekifit, /teura/teura-tluya, and /teura/hanmahat-tikra-im-teura with cleaner schema, broader FAQ, and more consistent room-lighting-comparison internal links."
+    "office_mikve_secondary_lighting_note": "Strengthened /hadarim/misrad, /hadarim/mikve, /teura/teura-hekifit, /teura/teura-tluya, and /teura/hanmahat-tikra-im-teura with cleaner schema, broader FAQ, and more consistent room-lighting-comparison internal links.",
+    "ru_areas_qa_version": "v2026.04.23.17",
+    "ru_areas_qa_note": "Strengthened /ru/sravnenie-geves, added regional hub service schema on /azorim, tightened internal links on core region pages, and fixed visible copy issues found during RU/B2B QA."
   },
   "keywords": [
     {

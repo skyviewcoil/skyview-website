@@ -476,7 +476,7 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 ## Latest Site Version
 
-`גרסת אתר: v2026.04.23.16`
+`גרסת אתר: v2026.04.23.17`
 
 - Applied the joined hero pattern to remaining non-homepage static pages.
 - Included `/tikrot-metuhot` in the same hero standard.
@@ -497,6 +497,9 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 - Strengthened `/asakim` with broader B2B linking and an added route toward `/architects-designers`.
 - Strengthened `/architects-designers` with richer FAQ, stronger pricing/lighting links, and cleaner `AggregateOffer` data.
 - Strengthened embedded `/ru/` and `/ru/cena/` pages with business-oriented RU FAQ, corrected RU pricing navigation, corrected `hreflang` on `/ru/cena/`, and added `Service` schema to RU pricing.
+- Strengthened `/ru/sravnenie-geves` with `Service` schema, an added office/business FAQ path, and stronger RU-to-B2B internal linking.
+- Strengthened `/azorim` with hub-level `Service` schema and stronger links to pricing, comparison, business, and architect pages.
+- Tightened internal links and cleaned copy issues on core region pages: `/azorim/tel-aviv`, `/azorim/haifa`, `/azorim/yerushalayim`, `/azorim/ashdod`, `/azorim/merkaz`, and `/azorim/darom`.
 - Kept the homepage out of this visual batch.
 
 Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
