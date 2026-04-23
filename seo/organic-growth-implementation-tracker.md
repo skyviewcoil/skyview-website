@@ -451,6 +451,12 @@ It intentionally reflects the current workspace, not only the strategic target s
   - `/sugim`, all 8 `/sugim/*` pages, and `/brisol` contain joined hero classes and `v2026.04.23.4`
   - no visible page-version markers remain
   - `/sugim/akustit` and `/brisol` use hero images from `/assets/images/sugim`
+- Prepared Brisol hero crop fix:
+  - zoomed `/brisol` hero background to `115% auto` to hide the lower-corner generated-image mark
+  - bumped the site runtime version to `v2026.04.23.5`
+- Deployed and verified `/brisol` hero crop fix:
+  - Worker version: `e1e18e37-66f9-4c19-b5e1-92fd2b2a0ff6`
+  - live `/brisol` contains `--page-hero-bg-size:115% auto`, joined hero classes, and `v2026.04.23.5`
 
 ## Site Version Tracking Rule
 
