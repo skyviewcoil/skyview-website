@@ -1,7 +1,7 @@
 {
   "_meta": {
     "version": "2026-04-21",
-    "site_runtime_version": "v2026.04.23.13",
+    "site_runtime_version": "v2026.04.23.14",
     "site_runtime_version_note": "Injected by worker.js as a visible footer marker on HTML responses for site-wide runtime updates.",
     "source": "Rebuilt from live site crawl + strategy report, then normalized in repo after head-term decision.",
     "head_term_decision": "Resolved: use 'תקרה מתוחה' as the canonical Hebrew head term. Use 'תקרה נמתחת' and plural forms as secondary variants unless GSC data proves otherwise.",
@@ -45,7 +45,9 @@
     "hanmahat_tikra_mehir_faq_version": "v2026.04.23.12",
     "hanmahat_tikra_mehir_faq_note": "Expanded FAQ and added clearer internal links on /hanmahat-tikra-mehir without changing the page structure.",
     "gypsum_and_room_pages_version": "v2026.04.23.13",
-    "gypsum_and_room_pages_note": "Expanded FAQ and comparison linking on /hashvaa/tikrat-geves-mehir, and cleaned /hadarim/salon and /hadarim/ambatia copy and schema without changing layout."
+    "gypsum_and_room_pages_note": "Expanded FAQ and comparison linking on /hashvaa/tikrat-geves-mehir, and cleaned /hadarim/salon and /hadarim/ambatia copy and schema without changing layout.",
+    "rooms_and_lighting_links_version": "v2026.04.23.14",
+    "rooms_and_lighting_links_note": "Strengthened /hadarim/mitbah, /hadarim/heder-sheina, /teura, and key lighting pages with better FAQ, Service/AggregateOffer schema, and tighter internal links between room, lighting, pricing, and comparison pages."
   },
   "keywords": [
     {
