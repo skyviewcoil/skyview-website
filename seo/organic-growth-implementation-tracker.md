@@ -476,7 +476,7 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 ## Latest Site Version
 
-`גרסת אתר: v2026.04.23.22`
+`גרסת אתר: v2026.04.23.23`
 
 - Added stronger trust-navigation links on `/odot`, `/aharayut-yatzranim`, and `/proyektim`.
 - Kept the structure unchanged while tightening internal-link paths for trust and project discovery.
