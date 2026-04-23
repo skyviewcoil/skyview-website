@@ -476,12 +476,11 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 ## Latest Site Version
 
-`גרסת אתר: v2026.04.23.21`
+`גרסת אתר: v2026.04.23.22`
 
-- Filled the missing hero subtitle on `/azorim/haifa` and tightened northern-climate copy.
-- Strengthened `/azorim/yerushalayim` wording around mikveh specialization and winter insulation.
-- Added another business FAQ and stronger regional links on `/asakim`.
-- Extended RU business-oriented FAQ copy with a direct service-areas reference.
+- Added stronger trust-navigation links on `/odot`, `/aharayut-yatzranim`, and `/proyektim`.
+- Kept the structure unchanged while tightening internal-link paths for trust and project discovery.
+- Advanced the site-wide runtime marker to the latest deploy version.
 - Expanded `/azorim/ashdod` and `/azorim/darom` with cleaner business/location copy, FAQ, and internal links.
 - Cleaned remaining wording issues found in QA on `/azorim/haifa` and `/azorim/merkaz`.
 - Strengthened `/azorim/tel-aviv` with cleaner copy, better business/internal links, and an extra FAQ item.
