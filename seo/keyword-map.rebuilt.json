@@ -26,7 +26,10 @@
     "hero_visual_note": "Reworks normalized image heroes to match the lighter rounded-card visual language: visible product image, localized text-side gradient, and light trust/value-prop band.",
     "hero_joined_trial_version": "v2026.04.23.1",
     "hero_joined_trial_url": "/sugim/mavrika",
-    "hero_joined_trial_note": "Single-page trial: hero has square bottom, value-prop band attaches directly below with rounded bottom corners."
+    "hero_joined_trial_note": "Single-page trial: hero has square bottom, value-prop band attaches directly below with rounded bottom corners.",
+    "homepage_visible_version": "v2026.04.23.2",
+    "glossy_hero_image_version": "v2026.04.23.2",
+    "glossy_hero_image_note": "Changed /sugim/mavrika joined hero image to the living-room glossy image used on /hadarim."
   },
   "keywords": [
     {
@@ -1927,7 +1930,8 @@
       "language": "he",
       "page_type": "home",
       "hreflang_pair": "/ru/",
-      "implementation_status": "live_static"
+      "implementation_status": "live_static",
+      "content_version": "v2026.04.23.2"
     },
     {
       "url": "/mehiron/",
@@ -1975,7 +1979,7 @@
       "page_type": "product-variant",
       "hreflang_pair": null,
       "implementation_status": "expanded_static",
-      "content_version": "v2026.04.23.1",
+      "content_version": "v2026.04.23.2",
       "note": "Expanded 2026-04-22 with full glossy-finish commercial content, pricing, lighting guidance, room-fit guidance, FAQ, and internal links. Design normalized 2026-04-22: canonical inner header, image hero, hero continuation band, and visible page version marker. Hero joined-unit trial: image and value-prop band are attached as one unit."
     },
     {

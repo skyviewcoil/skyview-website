@@ -413,6 +413,19 @@ It intentionally reflects the current workspace, not only the strategic target s
   - contains `page-hero--joined` and `hero-continuation--joined`
   - contains visible page version `v2026.04.23.1`
   - no longer contains the previous page version `v2026.04.22.11`
+- Updated the one-page trial per owner feedback:
+  - changed `/sugim/mavrika` hero image to the living-room glossy image used on `/hadarim`
+  - added background crop sizing for hero images so lower-corner image marks can be cropped
+  - added visible homepage version marker
+  - updated `/` and `/sugim/mavrika` content versions to `v2026.04.23.2`
+- Deployed the owner-feedback hero image/version update:
+  - Wrangler version: `4.83.0`
+  - Worker version: `78c43b0a-61bf-4edb-a575-cd8fec5a5967`
+  - Uploaded 3 modified static assets: `/sugim/mavrika/index.html`, `/index.html`, and `/css/style.css`
+- Verified live production:
+  - `/` contains visible page version `v2026.04.23.2`
+  - `/sugim/mavrika` contains `v2026.04.23.2`, joined-hero classes, and the `/hadarim` glossy room image
+  - `/css/style.css` contains `--page-hero-bg-size`
 
 ## Page Version Tracking Rule
 
