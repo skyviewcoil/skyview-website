@@ -8,7 +8,7 @@ f.parentNode.insertBefore(j,f);
 const GTM_BODY_SNIPPET = `<noscript><iframe src="/bddp/ns.html?id=GTM-5F9MRJZR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 const CLARITY_PROJECT_ID = 'we6fhsmtc1';
 const CLARITY_HEAD_SNIPPET = `<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","we6fhsmtc1");</script>`;
-const SITE_RUNTIME_VERSION = 'v2026.04.23.23';
+const SITE_RUNTIME_VERSION = 'v2026.04.23.24';
 const SITE_RUNTIME_VERSION_SNIPPET = `<span>גרסת אתר: ${SITE_RUNTIME_VERSION}</span>`;
 
 function injectSiteVersion(html) {
@@ -161,7 +161,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
         "name": "Где посмотреть цены и зоны обслуживания?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Русскоязычные цены собраны на странице /ru/cena/, а список городов и регионов — на странице зон обслуживания. Для офисов и коммерческих проектов можно сразу перейти в раздел для бизнеса."
+          "text": "Русскоязычные цены собраны на странице /ru/cena/, а список городов и регионов — на странице зон обслуживания. Для офисов и коммерческих проектов можно сразу перейти в раздел для бизнеса, а о компании — на страницу о SkyView."
         }
       }
     ]
@@ -1535,7 +1535,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
 
       <div class="internal-links-block">
         <h3>Полезные страницы</h3>
-        <ul><li><a href="/ru/">Натяжные потолки в Израиле</a></li><li><a href="/tikrot-metuhot">Натяжные потолки</a></li><li><a href="/sugim">Виды потолков</a></li><li><a href="/teura">Решения освещения</a></li><li><a href="/hadarim/salon">Потолок для гостиной</a></li><li><a href="/hadarim/ambatia">Потолок для ванной</a></li><li><a href="/hadarim/misrad">Потолок для офиса</a></li><li><a href="/asakim">Решения для бизнеса</a></li><li><a href="/azorim">Зоны обслуживания</a></li><li><a href="/hanmahat-tikra">Опускание потолка</a></li><li><a href="/ru/sravnenie-geves">Сравнение с гипсом</a></li><li><a href="/madrich/ma-mashpia-al-mehir">Что влияет на цену</a></li><li><a href="/madrich/homrim">Материалы</a></li><li><a href="/odot">О компании SkyView</a></li><li><a href="/contact">Связаться</a></li></ul>
+        <ul><li><a href="/ru/">Натяжные потолки в Израиле</a></li><li><a href="/tikrot-metuhot">Натяжные потолки</a></li><li><a href="/sugim">Виды потолков</a></li><li><a href="/teura">Решения освещения</a></li><li><a href="/hadarim/salon">Потолок для гостиной</a></li><li><a href="/hadarim/ambatia">Потолок для ванной</a></li><li><a href="/hadarim/misrad">Потолок для офиса</a></li><li><a href="/asakim">Решения для бизнеса</a></li><li><a href="/azorim">Зоны обслуживания</a></li><li><a href="/hanmahat-tikra">Опускание потолка</a></li><li><a href="/ru/sravnenie-geves">Сравнение с гипсом</a></li><li><a href="/madrich/ma-mashpia-al-mehir">Что влияет на цену</a></li><li><a href="/madrich/homrim">Материалы</a></li><li><a href="/odot">О компании SkyView</a></li><li><a href="/proyektim">Проекты</a></li><li><a href="/contact">Связаться</a></li></ul>
       </div>
       </div>
     </section>
