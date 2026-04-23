@@ -476,7 +476,7 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 ## Latest Site Version
 
-`גרסת אתר: v2026.04.23.14`
+`גרסת אתר: v2026.04.23.15`
 
 - Applied the joined hero pattern to remaining non-homepage static pages.
 - Included `/tikrot-metuhot` in the same hero standard.
@@ -492,6 +492,8 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 - Cleaned weak copy and strengthened schema on `/hadarim/salon` and `/hadarim/ambatia`.
 - Strengthened `/hadarim/mitbah` and `/hadarim/heder-sheina` with `AggregateOffer`, broader FAQ, and tighter price/comparison links.
 - Strengthened `/teura` and key lighting pages with better hub copy and internal links to room, pricing, and comparison pages.
+- Strengthened `/hadarim/misrad` and `/hadarim/mikve` with cleaner schema, broader FAQ/price copy, and tighter links to lighting, pricing, and comparison pages.
+- Strengthened `/teura/teura-hekifit`, `/teura/teura-tluya`, and `/teura/hanmahat-tikra-im-teura` with cleaner schema and stronger cross-links to room pages and comparisons.
 - Kept the homepage out of this visual batch.
 
 Known content-quality follow-ups remain, but they are not 404/sitemap blockers:
