@@ -476,7 +476,7 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 ## Latest Site Version
 
-`גרסת אתר: v2026.04.23.18`
+`גרסת אתר: v2026.04.23.19`
 
 - Applied the joined hero pattern to remaining non-homepage static pages.
 - Included `/tikrot-metuhot` in the same hero standard.
@@ -491,6 +491,9 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 - Added another RU pricing pass on `/ru/cena/` with stronger business FAQ and cross-links.
 - Expanded `/azorim/ashdod` and `/azorim/darom` with cleaner business/location copy, FAQ, and internal links.
 - Cleaned remaining wording issues found in QA on `/azorim/haifa` and `/azorim/merkaz`.
+- Strengthened `/azorim/tel-aviv` with cleaner copy, better business/internal links, and an extra FAQ item.
+- Strengthened `/azorim/yerushalayim` with cleaner copy, a stronger institutions/business angle, and an extra FAQ item.
+- Added another FAQ route on `/ru/`, expanded the Haifa FAQ, and tightened `/asakim` hero, FAQ, and regional B2B links.
 - Expanded FAQ and comparison linking on `/hashvaa/tikrat-geves-mehir`.
 - Cleaned weak copy and strengthened schema on `/hadarim/salon` and `/hadarim/ambatia`.
 - Strengthened `/hadarim/mitbah` and `/hadarim/heder-sheina` with `AggregateOffer`, broader FAQ, and tighter price/comparison links.

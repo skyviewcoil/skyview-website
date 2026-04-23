@@ -8,7 +8,7 @@ f.parentNode.insertBefore(j,f);
 const GTM_BODY_SNIPPET = `<noscript><iframe src="/bddp/ns.html?id=GTM-5F9MRJZR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 const CLARITY_PROJECT_ID = 'we6fhsmtc1';
 const CLARITY_HEAD_SNIPPET = `<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","we6fhsmtc1");</script>`;
-const SITE_RUNTIME_VERSION = 'v2026.04.23.18';
+const SITE_RUNTIME_VERSION = 'v2026.04.23.19';
 const SITE_RUNTIME_VERSION_SNIPPET = `<span>גרסת אתר: ${SITE_RUNTIME_VERSION}</span>`;
 
 function injectSiteVersion(html) {
@@ -154,6 +154,14 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Да. SkyView выполняет проекты для офисов, лобби, магазинов, ресторанов и влажных помещений. Для коммерческих пространств доступны световые потолки, акустические решения и индивидуальный расчёт по проекту."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Где посмотреть цены и зоны обслуживания?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Русскоязычные цены собраны на странице /ru/cena/, а список городов и регионов — на странице зон обслуживания. Для офисов и коммерческих проектов можно сразу перейти в раздел для бизнеса."
         }
       }
     ]
@@ -945,6 +953,17 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
             <div class="faq-answer">
               <div class="faq-answer__inner">
                 Да. Мы делаем потолки для <a href="/hadarim/misrad">офисов</a>, лобби, магазинов, ресторанов и влажных общественных зон. В коммерческих проектах обычно сочетаем световой потолок, LED-линии, акустику и расчёт по плану. <a href="/asakim">Подробнее о бизнес-проектах</a>.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Где посмотреть цены и зоны обслуживания?
+              <span class="faq-question__icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">
+                Русскоязычные цены собраны на странице <a href="/ru/cena/">/ru/cena/</a>, а список городов и регионов — на странице <a href="/azorim">зон обслуживания</a>. Для офисов и коммерческих проектов можно сразу перейти в <a href="/asakim">раздел для бизнеса</a>.
               </div>
             </div>
           </div>
