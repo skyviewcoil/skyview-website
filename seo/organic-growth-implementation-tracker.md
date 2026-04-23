@@ -476,10 +476,11 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 ## Latest Site Version
 
-`גרסת אתר: v2026.04.23.7`
+`גרסת אתר: v2026.04.23.8`
 
 - Applied the joined hero pattern to remaining non-homepage static pages.
 - Included `/tikrot-metuhot` in the same hero standard.
+- Removed remaining old `salon-hero` blocks from room, business, lowering, and lighting pages.
 - Removed the old black strip below the hero on `/aharayut-yatzranim`.
 - Kept the homepage out of this visual batch.
 
