@@ -8,7 +8,7 @@ f.parentNode.insertBefore(j,f);
 const GTM_BODY_SNIPPET = `<noscript><iframe src="/bddp/ns.html?id=GTM-5F9MRJZR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 const CLARITY_PROJECT_ID = 'we6fhsmtc1';
 const CLARITY_HEAD_SNIPPET = `<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","we6fhsmtc1");</script>`;
-const SITE_RUNTIME_VERSION = 'v2026.04.23.24';
+const SITE_RUNTIME_VERSION = 'v2026.04.23.25';
 const SITE_RUNTIME_VERSION_SNIPPET = `<span>גרסת אתר: ${SITE_RUNTIME_VERSION}</span>`;
 
 function injectSiteVersion(html) {
@@ -963,7 +963,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
             </button>
             <div class="faq-answer">
               <div class="faq-answer__inner">
-                Русскоязычные цены собраны на странице <a href="/ru/cena/">/ru/cena/</a>, а список городов и регионов — на странице <a href="/azorim">зон обслуживания</a>. Для офисов и коммерческих проектов можно сразу перейти в <a href="/asakim">раздел для бизнеса</a>.
+                Русскоязычные цены собраны на странице <a href="/ru/cena/">/ru/cena/</a>, а список городов и регионов — на странице <a href="/azorim">зон обслуживания</a>. Для офисов и коммерческих проектов можно сразу перейти в <a href="/asakim">раздел для бизнеса</a>, а реальные установки посмотреть в <a href="/proyektim">проектах</a> и на странице <a href="/odot">о компании</a>.
               </div>
             </div>
           </div>
@@ -1523,7 +1523,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
           <div class="faq-item"><button class="faq-question" aria-expanded="false">Есть ли скидка на несколько комнат?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">Да. Проект на 3+ комнаты получает более выгодную цену за м². Вся квартира — значительная скидка по сравнению с одной комнатой.</div></div></div>
           <div class="faq-item"><button class="faq-question" aria-expanded="false">Как считают цену для офиса или бизнеса?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">Коммерческие проекты считаются по площади, высоте, типу освещения, акустическим требованиям и режиму работы объекта. Для офиса, лобби, магазина или клиники мы готовим отдельное предложение после короткого разговора и замера. <a href="/asakim">Страница для бизнеса</a>.</div></div></div>
           <div class="faq-item"><button class="faq-question" aria-expanded="false">В чём разница между покрытиями?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner"><a href="/sugim/mat">Мат</a> — классический вид, как гипс. <a href="/sugim/saten">Сатин</a> — мягкий элегантный блеск. <a href="/sugim/mavrika">Глянец</a> — полное отражение, роскошный эффект. Все монтируются одинаково — разница только во внешнем виде.</div></div></div>
-          <div class="faq-item"><button class="faq-question" aria-expanded="false">Когда лучше позвонить?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">Площадь свыше 100 м², коммерческие проекты, сложное освещение или нестандартная комната (колонны, неровные стены, нестандартная высота) — лучше короткий звонок. <a href="tel:0528082988">052-808-2988</a>.</div></div></div>
+          <div class="faq-item"><button class="faq-question" aria-expanded="false">Когда лучше позвонить?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">Площадь свыше 100 м², коммерческие проекты, сложное освещение или нестандартная комната (колонны, неровные стены, нестандартная высота) — лучше короткий звонок. Если хотите сначала посмотреть реальные установки и понять уровень работ, откройте <a href="/proyektim">проекты</a>. <a href="tel:0528082988">052-808-2988</a>.</div></div></div>
         </div>
       </div>
     </section>
