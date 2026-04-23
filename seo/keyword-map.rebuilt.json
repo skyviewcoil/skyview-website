@@ -1,7 +1,7 @@
 {
   "_meta": {
     "version": "2026-04-21",
-    "site_runtime_version": "v2026.04.23.3",
+    "site_runtime_version": "v2026.04.23.4",
     "site_runtime_version_note": "Injected by worker.js as a visible footer marker on HTML responses for site-wide runtime updates.",
     "source": "Rebuilt from live site crawl + strategy report, then normalized in repo after head-term decision.",
     "head_term_decision": "Resolved: use 'תקרה מתוחה' as the canonical Hebrew head term. Use 'תקרה נמתחת' and plural forms as secondary variants unless GSC data proves otherwise.",
@@ -29,7 +29,9 @@
     "hero_joined_trial_note": "Single-page trial: hero has square bottom, value-prop band attaches directly below with rounded bottom corners.",
     "visible_version_policy": "Use only the site-wide runtime marker injected by worker.js; do not add per-page visible version markers.",
     "glossy_hero_image_version": "v2026.04.23.3",
-    "glossy_hero_image_note": "Changed /sugim/mavrika joined hero image to the living-room glossy image used on /hadarim and softened hero overlay edges."
+    "glossy_hero_image_note": "Changed /sugim/mavrika joined hero image to the living-room glossy image used on /hadarim and softened hero overlay edges.",
+    "sugim_hero_version": "v2026.04.23.4",
+    "sugim_hero_note": "Applied joined hero + page-specific hero continuation panels to /sugim, /sugim/*, and /brisol. Akustit and Brisol hero images now use assets from /assets/images/sugim."
   },
   "keywords": [
     {

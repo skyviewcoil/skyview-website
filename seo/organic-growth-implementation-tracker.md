@@ -438,6 +438,19 @@ It intentionally reflects the current workspace, not only the strategic target s
   - `/` and `/sugim/mavrika` contain `v2026.04.23.3` and no visible page-version marker
   - `/sugim/mavrika` still contains joined-hero classes
   - `/css/style.css` contains the overlay blur rules
+- Prepared `/sugim` hero rollout:
+  - applied the joined hero structure to `/sugim`, all `/sugim/*` pages, and `/brisol`
+  - replaced the generic hero continuation panels with page-specific panels for each page
+  - changed `/sugim/akustit` and `/brisol` hero images to images from `/assets/images/sugim`
+  - bumped the site runtime version to `v2026.04.23.4`
+- Deployed `/sugim` hero rollout:
+  - Wrangler version: `4.83.0`
+  - Worker version: `21f40e39-149a-406f-9c55-f80f5a311057`
+  - Uploaded 10 modified static assets in the first deploy; second sync deploy had no new asset uploads
+- Verified live production:
+  - `/sugim`, all 8 `/sugim/*` pages, and `/brisol` contain joined hero classes and `v2026.04.23.4`
+  - no visible page-version markers remain
+  - `/sugim/akustit` and `/brisol` use hero images from `/assets/images/sugim`
 
 ## Site Version Tracking Rule
 
