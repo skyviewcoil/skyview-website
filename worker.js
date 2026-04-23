@@ -8,7 +8,7 @@ f.parentNode.insertBefore(j,f);
 const GTM_BODY_SNIPPET = `<noscript><iframe src="/bddp/ns.html?id=GTM-5F9MRJZR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 const CLARITY_PROJECT_ID = 'we6fhsmtc1';
 const CLARITY_HEAD_SNIPPET = `<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","we6fhsmtc1");</script>`;
-const SITE_RUNTIME_VERSION = 'v2026.04.23.15';
+const SITE_RUNTIME_VERSION = 'v2026.04.23.16';
 const SITE_RUNTIME_VERSION_SNIPPET = `<span>גרסת אתר: ${SITE_RUNTIME_VERSION}</span>`;
 
 function injectSiteVersion(html) {
@@ -146,6 +146,14 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Натяжной потолок монтируется за день без грязи, водостоек и поставляется с долгой гарантией. Гипсокартон требует нескольких дней, пыли и шпаклёвки, менее устойчив к влаге."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Есть ли решения для офиса и бизнеса?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да. SkyView выполняет проекты для офисов, лобби, магазинов, ресторанов и влажных помещений. Для коммерческих пространств доступны световые потолки, акустические решения и индивидуальный расчёт по проекту."
         }
       }
     ]
@@ -929,6 +937,17 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
               </div>
             </div>
           </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Есть ли решения для офиса и бизнеса?
+              <span class="faq-question__icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">
+                Да. Мы делаем потолки для <a href="/hadarim/misrad">офисов</a>, лобби, магазинов, ресторанов и влажных общественных зон. В коммерческих проектах обычно сочетаем световой потолок, LED-линии, акустику и расчёт по плану. <a href="/asakim">Подробнее о бизнес-проектах</a>.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1044,6 +1063,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
   html[lang="ru"],html[lang="ru"] body,html[lang="ru"] h1,html[lang="ru"] h2,html[lang="ru"] h3,html[lang="ru"] button,html[lang="ru"] a,html[lang="ru"] .btn,html[lang="ru"] .header__logo-mark,html[lang="ru"] .feature-card__title,html[lang="ru"] .card__title,html[lang="ru"] .price-card__name{font-family:'Manrope',system-ui,sans-serif!important;}
   </style>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит натяжной потолок за м²?", "acceptedAnswer": {"@type": "Answer", "text": "Цена натяжного потолка за м²: MSD — ₪229 (гарантия 10 лет), TEQTUM — ₪279 (12 лет), RENOLIT — ₪339 (15 лет). Включая производство, доставку и монтаж."}}, {"@type": "Question", "name": "Что включено, а что нет?", "acceptedAnswer": {"@type": "Answer", "text": "Цена за м² включает производство, доставку и монтаж. LED-линии, споты, магнитные рельсы, световые потолки, принты и спецотверстия — отдельно."}}, {"@type": "Question", "name": "Сколько стоят дополнения по освещению?", "acceptedAnswer": {"@type": "Answer", "text": "LED-линии от ₪389/м, споты ₪100/шт, магнитный рельс ₪750/м, световой потолок ₪1,000/м². Точная цена зависит от планирования."}}, {"@type": "Question", "name": "Есть ли скидка на несколько комнат?", "acceptedAnswer": {"@type": "Answer", "text": "Да, для проектов на всю квартиру или несколько комнат предоставляется скидка. Оставьте контакты для индивидуального предложения."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Цена натяжного потолка в Израиле","serviceType":"Натяжные потолки и расчёт стоимости","provider":{"@id":"https://www.skyview.co.il/#organization"},"areaServed":{"@type":"Country","name":"Israel"},"offers":{"@type":"AggregateOffer","priceCurrency":"ILS","lowPrice":"229","highPrice":"339","offerCount":"3"},"description":"Русскоязычная страница цен SkyView: стоимость натяжных потолков, освещения и расчёт по площади."}</script>
 
   <meta property="og:title" content="Цена натяжного потолка - прайс-лист 2026 от 229₪ | SkyView">
   <meta property="og:description" content="Полный прайс-лист: MSD от 229₪, TEQTUM от 279₪, RENOLIT от 339₪. Включая монтаж и гарантию производителя до 15 лет. Расчёт стоимости для вашей комнаты онлайн.">
@@ -1058,7 +1078,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://www.skyview.co.il/assets/images/hero/glossy-salon-premium.jpg">
 
-  <link rel="alternate" hreflang="he" href="https://www.skyview.co.il/ru/cena/">
+  <link rel="alternate" hreflang="he" href="https://www.skyview.co.il/mehiron/">
   <link rel="alternate" hreflang="ru" href="https://www.skyview.co.il/ru/cena/">
 </head>
 <body>
@@ -1222,7 +1242,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
           <a href="/madrich">Все руководства</a>
         </div>
       </div>
-      <a href="/mehiron" class="mobile-nav__link">Цены</a>
+      <a href="/ru/cena/" class="mobile-nav__link">Цены</a>
       <a href="/proyektim" class="mobile-nav__link">Проекты</a>
       <a href="/asakim" class="mobile-nav__link">Для бизнеса</a>
       <a href="/azorim" class="mobile-nav__link">Зоны обслуживания</a>
@@ -1495,7 +1515,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
 
       <div class="internal-links-block">
         <h3>Полезные страницы</h3>
-        <ul><li><a href="/tikrot-metuhot">Натяжные потолки</a></li><li><a href="/sugim">Виды потолков</a></li><li><a href="/teura">Решения освещения</a></li><li><a href="/hanmahat-tikra">Опускание потолка</a></li><li><a href="/hanmahat-tikra/gevs">Опускание гипсокартонного потолка — цена и процесс</a></li><li><a href="/ru/sravnenie-geves">Сравнение с гипсом</a></li><li><a href="/sugim/pasei-merahvim">Плавающие полосы</a></li><li><a href="/madrich/ma-mashpia-al-mehir">Что влияет на цену</a></li><li><a href="/madrich/homrim">Материалы</a></li></ul>
+        <ul><li><a href="/ru/">Натяжные потолки в Израиле</a></li><li><a href="/tikrot-metuhot">Натяжные потолки</a></li><li><a href="/sugim">Виды потолков</a></li><li><a href="/teura">Решения освещения</a></li><li><a href="/hadarim/salon">Потолок для гостиной</a></li><li><a href="/hadarim/ambatia">Потолок для ванной</a></li><li><a href="/hadarim/misrad">Потолок для офиса</a></li><li><a href="/hanmahat-tikra">Опускание потолка</a></li><li><a href="/ru/sravnenie-geves">Сравнение с гипсом</a></li><li><a href="/madrich/ma-mashpia-al-mehir">Что влияет на цену</a></li><li><a href="/madrich/homrim">Материалы</a></li></ul>
       </div>
       </div>
     </section>
