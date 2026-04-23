@@ -426,19 +426,22 @@ It intentionally reflects the current workspace, not only the strategic target s
   - `/` contains visible page version `v2026.04.23.2`
   - `/sugim/mavrika` contains `v2026.04.23.2`, joined-hero classes, and the `/hadarim` glossy room image
   - `/css/style.css` contains `--page-hero-bg-size`
+- Corrected version policy per owner feedback:
+  - removed all visible `גרסת עמוד` markers from static HTML
+  - kept only the site-wide Worker marker: `גרסת אתר: v2026.04.23.3`
+  - softened page-hero overlay edges with CSS blur so the gradient does not show hard borders
+- Deployed the corrected site-version and overlay update:
+  - Wrangler version: `4.83.0`
+  - Worker version: `f28659f7-d81b-4888-8041-f73f5c863bcf`
+  - Uploaded 20 modified static assets in the first deploy; second sync deploy had no new asset uploads
+- Verified live production:
+  - `/` and `/sugim/mavrika` contain `v2026.04.23.3` and no visible page-version marker
+  - `/sugim/mavrika` still contains joined-hero classes
+  - `/css/style.css` contains the overlay blur rules
 
-## Page Version Tracking Rule
+## Site Version Tracking Rule
 
-Every updated public HTML page must include a visible footer marker at the end of the page:
-
-`גרסת עמוד: vYYYY.MM.DD.N`
-
-When a page version changes, update both:
-
-- the visible footer marker in the page HTML
-- the matching `content_version` in `seo/keyword-map.rebuilt.json`
-
-For site-wide Worker/runtime updates, `worker.js` injects a visible footer marker:
+Use only the site-wide Worker/runtime marker. Do not add visible per-page version markers.
 
 `גרסת אתר: vYYYY.MM.DD.N`
 
