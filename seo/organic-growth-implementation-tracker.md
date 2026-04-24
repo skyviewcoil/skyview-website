@@ -562,3 +562,8 @@ Avoid shipping more than one major intent change to the same URL inside a 30-day
 - Contact CTAs now point directly to `/contact#lead-form` so users land on the details form instead of the hero.
 - The contact form section receives a stable `lead-form` anchor at runtime.
 - Mobile menu links now close the drawer and navigate on the first tap.
+
+## Runtime v2026.04.24.13
+
+- Mobile hero subtitles are now constrained to two lines on homepage and inner-page heroes.
+- This keeps the visual focus on the ceiling image and prevents long subtitle copy from pushing CTAs too low on mobile.
