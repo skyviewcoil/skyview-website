@@ -403,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Quote request CTA click tracking ---
-  document.querySelectorAll('a.btn--primary[href="/contact"], a.btn--primary[href*="mehiron"]').forEach(function(el) {
+  document.querySelectorAll('a.btn--primary[href="/contact"], a.btn--primary[href="/contact/"], a.header__cta-btn[href="/contact"], a.header__cta-btn[href="/contact/"], a.btn--primary[href*="mehiron"]').forEach(function(el) {
     el.addEventListener('click', function() {
       if (typeof skyviewTrack === 'function') skyviewTrack('quote_request_click', {
         event_category: 'engagement',
