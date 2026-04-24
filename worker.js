@@ -1,6 +1,7 @@
 const GTM_CONTAINER_ID = 'GTM-5F9MRJZR';
 const META_PIXEL_ID = '919952583222085';
 const META_AUTOCONFIG_SNIPPET = `<script>(function(w){if(w.__svMetaAutoConfigBootstrap)return;w.__svMetaAutoConfigBootstrap=true;function disableAutoConfig(){if(typeof w.fbq!=='function')return false;try{w.fbq('set','autoConfig',false,'${META_PIXEL_ID}');w.__svMetaAutoConfigDisabled=true;return true;}catch(e){return false;}}if(disableAutoConfig())return;var attempts=0;var timer=setInterval(function(){attempts++;if(disableAutoConfig()||attempts>80)clearInterval(timer);},250);})(window);</script>`;
+const CONSENT_BOOTSTRAP_SNIPPET = `<script>(function(w){w.dataLayer=w.dataLayer||[];w.gtag=w.gtag||function(){w.dataLayer.push(arguments)};var c='pending';try{c=w.localStorage.getItem('sv_consent_choice')||'pending';}catch(e){}var granted=c==='granted';w.gtag('consent','default',{ad_storage:granted?'granted':'denied',analytics_storage:granted?'granted':'denied',ad_user_data:granted?'granted':'denied',ad_personalization:granted?'granted':'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});})(window);</script>`;
 const GTM_HEAD_SNIPPET = `<script>(function(w,i,g){w[g]=w[g]||[];if(typeof w[g].push=='function')w[g].push(i)})
 (window,'GTM-5F9MRJZR','google_tags_first_party');</script><script>(function(w,d,s,l){w[l]=w[l]||[];(function(){w[l].push(arguments);})('set','developer_id.dYzg1YT',true);
 w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -10,7 +11,7 @@ f.parentNode.insertBefore(j,f);
 const GTM_BODY_SNIPPET = `<noscript><iframe src="/bddp/ns.html?id=GTM-5F9MRJZR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 const CLARITY_PROJECT_ID = 'we6fhsmtc1';
 const CLARITY_HEAD_SNIPPET = `<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","we6fhsmtc1");</script>`;
-const SITE_RUNTIME_VERSION = 'v2026.04.24.2';
+const SITE_RUNTIME_VERSION = 'v2026.04.24.3';
 const SITE_RUNTIME_VERSION_SNIPPET = `<span>גרסת אתר: ${SITE_RUNTIME_VERSION}</span>`;
 
 function injectSiteVersion(html) {
@@ -27,6 +28,9 @@ function injectAnalytics(html) {
   if (!html) return html;
 
   let output = html;
+  if (!output.includes("gtag('consent','default'") && !output.includes('sv_consent_choice')) {
+    output = output.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${CONSENT_BOOTSTRAP_SNIPPET}`);
+  }
   if (!output.includes(META_PIXEL_ID) && !output.includes('autoConfig')) {
     output = output.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${META_AUTOCONFIG_SNIPPET}`);
   }

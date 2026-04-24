@@ -1449,6 +1449,65 @@ p {
 @media (min-width: 640px) { .form-inline { flex-direction: row; } .form-inline .form-input { flex: 1 1 0; min-width: 0; } }
 .form-inline .form-privacy { flex-basis: 100%; width: 100%; margin: var(--sp-2) 0 0; font-size: var(--text-xs); line-height: 1.5; color: var(--color-text-muted); text-align: center; opacity: 0.8; }
 
+.consent-banner {
+  position: fixed;
+  right: 16px;
+  left: 16px;
+  bottom: 16px;
+  z-index: calc(var(--z-sticky) + 2);
+}
+
+.consent-banner__inner {
+  display: flex;
+  gap: var(--sp-4);
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid rgba(31,26,23,0.08);
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(31,26,23,0.14);
+  backdrop-filter: blur(12px);
+}
+
+.consent-banner__text {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.consent-banner__actions {
+  display: flex;
+  gap: var(--sp-3);
+  flex-shrink: 0;
+}
+
+.consent-banner__btn {
+  min-width: 126px;
+}
+
+html[lang="ru"] .consent-banner__inner {
+  direction: ltr;
+}
+
+@media (max-width: 767px) {
+  .consent-banner__inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .consent-banner__actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .consent-banner__btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 
 /* ═══════════════════════════════════════════
    BREADCRUMBS

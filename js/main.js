@@ -38,6 +38,71 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // --- Consent Mode v2 + minimal banner ---
+  (function() {
+    const host = location.hostname;
+    if (host !== 'skyview.co.il' && host !== 'www.skyview.co.il') return;
+
+    const STORAGE_KEY = 'sv_consent_choice';
+    const lang = document.documentElement.lang || 'he';
+
+    const copy = lang === 'ru'
+      ? {
+          text: 'Мы используем аналитику и рекламные cookies, чтобы измерять заявки и улучшать сайт.',
+          accept: 'Разрешить',
+          reject: 'Только необходимое'
+        }
+      : {
+          text: 'אנחנו משתמשים בעוגיות אנליטיקה ופרסום כדי למדוד לידים ולשפר את האתר.',
+          accept: 'אישור',
+          reject: 'חיוני בלבד'
+        };
+
+    function applyConsent(choice) {
+      const granted = choice === 'granted';
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+      window.gtag('consent', 'update', {
+        ad_storage: granted ? 'granted' : 'denied',
+        analytics_storage: granted ? 'granted' : 'denied',
+        ad_user_data: granted ? 'granted' : 'denied',
+        ad_personalization: granted ? 'granted' : 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
+      try { localStorage.setItem(STORAGE_KEY, choice); } catch (e) {}
+    }
+
+    let stored = 'pending';
+    try { stored = localStorage.getItem(STORAGE_KEY) || 'pending'; } catch (e) {}
+    if (stored === 'granted' || stored === 'denied') {
+      applyConsent(stored);
+      return;
+    }
+
+    const banner = document.createElement('div');
+    banner.className = 'consent-banner';
+    banner.innerHTML = `
+      <div class="consent-banner__inner">
+        <p class="consent-banner__text">${copy.text}</p>
+        <div class="consent-banner__actions">
+          <button type="button" class="btn btn--secondary consent-banner__btn" data-consent="denied">${copy.reject}</button>
+          <button type="button" class="btn btn--primary consent-banner__btn" data-consent="granted">${copy.accept}</button>
+        </div>
+      </div>
+    `;
+
+    banner.addEventListener('click', function(e) {
+      const btn = e.target.closest('[data-consent]');
+      if (!btn) return;
+      applyConsent(btn.getAttribute('data-consent'));
+      banner.remove();
+    });
+
+    document.body.appendChild(banner);
+    document.body.classList.add('has-consent-banner');
+  })();
+
   // --- Trust bar + Header Scroll ---
   const trustBar = document.querySelector('.header-trust');
   const header = document.querySelector('.header');
