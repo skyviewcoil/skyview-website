@@ -3949,7 +3949,6 @@ body::after {
   top: 0; right: 0; bottom: 0;
   width: 50%; overflow: hidden;
 }
-.ba-slider { aspect-ratio: 3/2; }
 .ba-slider--portrait { aspect-ratio: 3/4; max-width: 560px; margin-inline: auto; }
 .ba-slider--mixed { aspect-ratio: 4/3; background: var(--bg-soft, #EFE8DE); }
 .ba-slider--mixed > img,

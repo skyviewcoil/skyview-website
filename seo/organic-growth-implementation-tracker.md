@@ -572,3 +572,9 @@ Avoid shipping more than one major intent change to the same URL inside a 30-day
 
 - The visible site runtime version is no longer hidden by the mobile footer rule.
 - Version markers now use `.site-runtime-version` for stable display across desktop and mobile.
+
+## Runtime v2026.04.24.15
+
+- Before/after comparison windows now use one consistent 4:3 ratio across the site.
+- Homepage and projects before/after sections now use matched before/after image pairs instead of mixing gallery images with before photos.
+- The pricing page before/after section now has three comparison windows, aligned with the rest of the site.
