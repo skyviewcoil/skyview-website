@@ -36,6 +36,19 @@
     var pageKey = (location.pathname.replace(/^\/+|\/+$/g, '').replace(/[^\w/-]+/g, '-') || 'home').replace(/\//g, '--');
     return pageKey + '--form-' + index;
   };
+
+  window._svHandoffId = function() {
+    var key = 'sv_handoff_id';
+    try {
+      var existing = sessionStorage.getItem(key);
+      if (existing) return existing;
+      var created = 'svh-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+      sessionStorage.setItem(key, created);
+      return created;
+    } catch (e) {
+      return 'svh-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+    }
+  };
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -409,6 +422,8 @@ document.addEventListener('DOMContentLoaded', () => {
       targetUrl.searchParams.set('utm_campaign', currentParams.get('utm_campaign') || 'calculator_handoff');
       targetUrl.searchParams.set('source_host', location.hostname);
       targetUrl.searchParams.set('source_page', location.pathname);
+      targetUrl.searchParams.set('source_lang', document.documentElement.lang || 'he');
+      targetUrl.searchParams.set('handoff_id', (typeof window._svHandoffId === 'function' ? window._svHandoffId() : 'missing'));
       ['gclid', 'fbclid', 'wbraid', 'gbraid', 'utm_content', 'utm_term'].forEach(function(key) {
         if (currentParams.get(key)) targetUrl.searchParams.set(key, currentParams.get(key));
       });
@@ -420,6 +435,8 @@ document.addEventListener('DOMContentLoaded', () => {
         event_category: 'engagement',
         cta_text: (el.textContent || '').trim(),
         destination_host: 'calculator.skyview.co.il',
+        handoff_id: (typeof window._svHandoffId === 'function' ? window._svHandoffId() : 'missing'),
+        source_lang: document.documentElement.lang || 'he',
         currency: window._svCurrency,
         value: window._svLeadValue,
         event_id: window._svEventId(),
@@ -626,6 +643,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof skyviewTrack === 'function') skyviewTrack('form_submit_start', {
       form_type: data.form_type,
       form_id: data.form_id,
+      handoff_id: (typeof window._svHandoffId === 'function' ? window._svHandoffId() : 'missing'),
       currency: window._svCurrency,
       value: window._svLeadValue,
       lead_value: window._svLeadValue,
@@ -645,6 +663,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event_id: eventId,
         form_type: data.form_type,
         form_id: data.form_id,
+        handoff_id: (typeof window._svHandoffId === 'function' ? window._svHandoffId() : 'missing'),
         page: location.pathname
       });
       setFormState(form, 'success');
@@ -674,6 +693,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event_id: eventId,
             form_type: data.form_type,
             form_id: data.form_id,
+            handoff_id: (typeof window._svHandoffId === 'function' ? window._svHandoffId() : 'missing'),
             page: location.pathname
           });
           setFormState(form, 'success');
