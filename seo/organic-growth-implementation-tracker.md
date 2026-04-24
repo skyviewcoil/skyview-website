@@ -476,13 +476,15 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 ## Latest Site Version
 
-`גרסת אתר: v2026.04.24.6`
+`גרסת אתר: v2026.04.24.7`
 
 - Added stronger trust-navigation links on `/odot`, `/aharayut-yatzranim`, and `/proyektim`.
 - Kept the structure unchanged while tightening internal-link paths for trust and project discovery.
 - Advanced the site-wide runtime marker to the latest deploy version.
 - Expanded `/azorim/ashdod` and `/azorim/darom` with cleaner business/location copy, FAQ, and internal links.
 - Cleaned remaining wording issues found in QA on `/azorim/haifa` and `/azorim/merkaz`.
+- Enriched `quote_request_click` with `currency`, `value`, `lead_value`, and `event_id` so CTA intent events align better with the lead-class event payload shape.
+- Verified across a wide page sample that `phone_click`, `whatsapp_click`, and `quote_request_click` are firing on the main site without touching the external calculator subdomain.
 - Strengthened `/azorim/tel-aviv` with cleaner copy, better business/internal links, and an extra FAQ item.
 - Strengthened `/azorim/yerushalayim` with cleaner copy, a stronger institutions/business angle, and an extra FAQ item.
 - Added another FAQ route on `/ru/`, expanded the Haifa FAQ, and tightened `/asakim` hero, FAQ, and regional B2B links.

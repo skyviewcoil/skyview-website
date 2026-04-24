@@ -408,6 +408,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (typeof skyviewTrack === 'function') skyviewTrack('quote_request_click', {
         event_category: 'engagement',
         cta_text: el.textContent.trim(),
+        currency: window._svCurrency,
+        value: window._svLeadValue,
+        lead_value: window._svLeadValue,
+        event_id: window._svEventId(),
         page: location.pathname
       });
     });
