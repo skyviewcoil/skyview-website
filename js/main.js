@@ -493,10 +493,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // ============================================
   // REQUIRED: Set your Supabase project values below.
   // These are PUBLIC keys — safe to expose in frontend.
-  var SUPABASE_URL = 'https://glmzuqyvybzwvhptpvrr.supabase.co';
-  var SUPABASE_ANON_KEY = 'sb_publishable_Vdxz7xwb4x0R13MAzL7ujg_2CNoRSgO';
-  var LEAD_FUNCTION = 'send-callback-email';
-  var LEAD_ENDPOINT = SUPABASE_URL + '/functions/v1/' + LEAD_FUNCTION;
+  var LEAD_ENDPOINT = '/api/lead-fallback';
 
   var WA_NUMBER = '972528082988';
 
@@ -658,14 +655,14 @@ document.addEventListener('DOMContentLoaded', function() {
       resetForm(form, 5000);
     }
 
-    // --- SUBMISSION PATH ---
-    if (LEAD_ENDPOINT && SUPABASE_URL.indexOf('YOUR_PROJECT') === -1) {
+    // --- Submission path: first-party worker endpoint ---
+    if (LEAD_ENDPOINT) {
       fetch(LEAD_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
-          'apikey': SUPABASE_ANON_KEY
+          'Accept': 'application/json',
+          'X-SkyView-Async': '1'
         },
         body: JSON.stringify(data)
       })

@@ -11,7 +11,7 @@ f.parentNode.insertBefore(j,f);
 const GTM_BODY_SNIPPET = `<noscript><iframe src="/bddp/ns.html?id=GTM-5F9MRJZR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 const CLARITY_PROJECT_ID = 'we6fhsmtc1';
 const CLARITY_HEAD_SNIPPET = `<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","we6fhsmtc1");</script>`;
-const SITE_RUNTIME_VERSION = 'v2026.04.24.9';
+const SITE_RUNTIME_VERSION = 'v2026.04.24.11';
 const SITE_RUNTIME_VERSION_SNIPPET = `<span>גרסת אתר: ${SITE_RUNTIME_VERSION}</span>`;
 
 function injectSiteVersion(html) {
@@ -77,6 +77,85 @@ async function fetchStaticAsset(request, env, path) {
   fallbackUrl.pathname = `${path}/index.html`;
   response = await env.ASSETS.fetch(new Request(fallbackUrl, request));
   return response;
+}
+
+function escapeLeadHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function buildLeadEmailHtml(lead) {
+  const rows = [
+    ['שם', lead.name],
+    ['טלפון', lead.phone],
+    ['מייל', lead.email],
+    ['סוג טופס', lead.form_type],
+    ['עמוד', lead.page],
+    ['מזהה טופס', lead.form_id],
+    ['מזהה אירוע', lead.event_id],
+    ['זמן', new Date(lead.ts || Date.now()).toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })],
+    ['הודעה', lead.message]
+  ]
+    .filter(([, value]) => value)
+    .map(([label, value]) => `<tr><td style="padding:8px 0;font-weight:bold;width:120px;">${escapeLeadHtml(label)}:</td><td style="padding:8px 0;" dir="${label === 'טלפון' || label === 'מייל' || label === 'עמוד' || label === 'מזהה אירוע' ? 'ltr' : 'rtl'}">${escapeLeadHtml(value)}</td></tr>`)
+    .join('');
+
+  return `
+    <div dir="rtl" style="font-family:Arial,Helvetica,sans-serif;max-width:560px;margin:0 auto;padding:24px;background:#faf9f7;border-radius:10px;color:#3A3A38;">
+      <h2 style="margin:0 0 16px;">ליד חדש מאתר SkyView</h2>
+      <hr style="border:none;border-top:2px solid #8B734A;margin:0 0 20px;">
+      <table style="width:100%;border-collapse:collapse;font-size:15px;">${rows}</table>
+      <hr style="border:none;border-top:1px solid #e8e4df;margin:20px 0 12px;">
+      <p style="font-size:12px;color:#777;margin:0;">נשלח אוטומטית מ־skyview.co.il</p>
+    </div>
+  `;
+}
+
+async function deliverLeadByWebhook(lead, env) {
+  if (!env.LEAD_WEBHOOK_URL) return { channel: 'webhook', attempted: false, ok: false };
+  try {
+    const response = await fetch(env.LEAD_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(lead)
+    });
+    return { channel: 'webhook', attempted: true, ok: response.ok, status: response.status };
+  } catch (error) {
+    return { channel: 'webhook', attempted: true, ok: false, error: String(error && error.message || error) };
+  }
+}
+
+async function deliverLeadByResend(lead, env) {
+  if (!env.RESEND_API_KEY) return { channel: 'resend', attempted: false, ok: false };
+
+  const resendDomain = env.RESEND_DOMAIN || 'mail.skyview.co.il';
+  const resendFrom = env.RESEND_FROM || `SkyView Leads <leads@${resendDomain}>`;
+  const notifyEmail = env.NOTIFY_EMAIL || 'skyview.co.il@gmail.com';
+
+  try {
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: resendFrom,
+        to: [notifyEmail],
+        reply_to: lead.email || undefined,
+        subject: `ליד חדש — ${lead.phone || lead.name || 'SkyView'}`,
+        html: buildLeadEmailHtml(lead)
+      })
+    });
+
+    return { channel: 'resend', attempted: true, ok: response.ok, status: response.status, body: response.ok ? '' : await response.text() };
+  } catch (error) {
+    return { channel: 'resend', attempted: true, ok: false, error: String(error && error.message || error) };
+  }
 }
 
 // Russian landing pages — embedded HTML content
@@ -1865,29 +1944,85 @@ export default {
       });
     }
 
-    // Lead-form fallback — receives POSTs from <form action="/api/lead-fallback">
-    // Used when JS fetch() to primary endpoint fails or JS is disabled.
+    // Lead-form endpoint — used by async JS submits and by native <form action="/api/lead-fallback"> fallback.
     if (path === '/api/lead-fallback' && request.method === 'POST') {
+      const isAsync = request.headers.get('x-skyview-async') === '1' || (request.headers.get('accept') || '').includes('application/json');
       try {
-        const formData = await request.formData();
-        const lead = {
-          phone: formData.get('phone') || '',
-          name: formData.get('name') || '',
-          email: formData.get('email') || '',
-          message: formData.get('message') || '',
-          form_type: formData.get('form_type') || 'fallback',
-          page: request.headers.get('referer') || 'unknown',
-          ua: request.headers.get('user-agent') || '',
-          ts: Date.now()
-        };
-        if (env.LEAD_WEBHOOK_URL) {
-          await fetch(env.LEAD_WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(lead)
-          }).catch(() => {});
+        let lead;
+        const contentType = request.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+          const body = await request.json();
+          lead = {
+            phone: body.phone || '',
+            name: body.name || '',
+            email: body.email || '',
+            message: body.message || body.notes || '',
+            form_type: body.form_type || 'fallback',
+            page: body.source || request.headers.get('referer') || 'unknown',
+            form_id: body.form_id || '',
+            event_id: body.event_id || '',
+            ua: request.headers.get('user-agent') || '',
+            ts: Date.now()
+          };
+        } else {
+          const formData = await request.formData();
+          lead = {
+            phone: formData.get('phone') || '',
+            name: formData.get('name') || '',
+            email: formData.get('email') || '',
+            message: formData.get('message') || formData.get('notes') || '',
+            form_type: formData.get('form_type') || 'fallback',
+            page: request.headers.get('referer') || 'unknown',
+            form_id: formData.get('form_id') || '',
+            event_id: formData.get('event_id') || '',
+            ua: request.headers.get('user-agent') || '',
+            ts: Date.now()
+          };
         }
-      } catch (_) { /* swallow — always redirect to /toda */ }
+
+        const deliveries = await Promise.all([
+          deliverLeadByResend(lead, env),
+          deliverLeadByWebhook(lead, env)
+        ]);
+        const attempted = deliveries.some((item) => item.attempted);
+        const delivered = deliveries.some((item) => item.ok);
+
+        if (!attempted) {
+          if (isAsync) {
+            return new Response(JSON.stringify({ error: 'Lead delivery is not configured' }), {
+              status: 500,
+              headers: { 'Content-Type': 'application/json; charset=utf-8' }
+            });
+          }
+          return Response.redirect(new URL('/contact?lead_error=1', url.origin).href, 302);
+        }
+
+        if (!delivered) {
+          console.error('[lead-fallback] Delivery failed', JSON.stringify(deliveries));
+          if (isAsync) {
+            return new Response(JSON.stringify({ error: 'Lead delivery failed' }), {
+              status: 502,
+              headers: { 'Content-Type': 'application/json; charset=utf-8' }
+            });
+          }
+          return Response.redirect(new URL('/contact?lead_error=1', url.origin).href, 302);
+        }
+
+        if (isAsync) {
+          return new Response(JSON.stringify({ success: true }), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json; charset=utf-8' }
+          });
+        }
+      } catch (_) {
+        if (isAsync) {
+          return new Response(JSON.stringify({ error: 'Lead submission failed' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json; charset=utf-8' }
+          });
+        }
+        return Response.redirect(new URL('/contact?lead_error=1', url.origin).href, 302);
+      }
       return Response.redirect(new URL('/toda', url.origin).href, 302);
     }
 

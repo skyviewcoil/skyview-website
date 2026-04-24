@@ -476,10 +476,11 @@ No deploy-blocking missing-static sitemap URLs remain after this pass.
 
 ## Latest Site Version
 
-`גרסת אתר: v2026.04.24.9`
+`גרסת אתר: v2026.04.24.10`
 
 - `quote_request_click` הורחב גם ל-`header__cta-btn` כדי שכפתור הכותרת העליון `קבלו הצעה` לא יישמט מהמעקב.
 - בוטל WhatsApp fallback של טפסי ליד: כשל בשליחת מייל מציג הודעת שגיאה בטופס ולא פותח WhatsApp.
+- טפסי ליד הועברו למסלול first-party דרך `/api/lead-fallback` ב-Worker במקום תלות ב-Supabase Function החיצונית.
 
 - Added stronger trust-navigation links on `/odot`, `/aharayut-yatzranim`, and `/proyektim`.
 - Kept the structure unchanged while tightening internal-link paths for trust and project discovery.
@@ -549,3 +550,9 @@ Track each deployed batch in GSC for 14-30 days:
 - Review date
 
 Avoid shipping more than one major intent change to the same URL inside a 30-day measurement window.
+
+## Runtime v2026.04.24.11
+
+- Lead forms now submit to the first-party Worker endpoint `/api/lead-fallback`.
+- The Worker now supports direct delivery through Resend (`RESEND_API_KEY`) and secondary fallback delivery through `LEAD_WEBHOOK_URL`.
+- If neither delivery channel is configured, forms fail gracefully without opening WhatsApp automatically.
