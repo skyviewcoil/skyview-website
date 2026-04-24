@@ -1,4 +1,6 @@
 const GTM_CONTAINER_ID = 'GTM-5F9MRJZR';
+const META_PIXEL_ID = '919952583222085';
+const META_AUTOCONFIG_SNIPPET = `<script>(function(w){if(w.__svMetaAutoConfigBootstrap)return;w.__svMetaAutoConfigBootstrap=true;function disableAutoConfig(){if(typeof w.fbq!=='function')return false;try{w.fbq('set','autoConfig',false,'${META_PIXEL_ID}');w.__svMetaAutoConfigDisabled=true;return true;}catch(e){return false;}}if(disableAutoConfig())return;var attempts=0;var timer=setInterval(function(){attempts++;if(disableAutoConfig()||attempts>80)clearInterval(timer);},250);})(window);</script>`;
 const GTM_HEAD_SNIPPET = `<script>(function(w,i,g){w[g]=w[g]||[];if(typeof w[g].push=='function')w[g].push(i)})
 (window,'GTM-5F9MRJZR','google_tags_first_party');</script><script>(function(w,d,s,l){w[l]=w[l]||[];(function(){w[l].push(arguments);})('set','developer_id.dYzg1YT',true);
 w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -8,7 +10,7 @@ f.parentNode.insertBefore(j,f);
 const GTM_BODY_SNIPPET = `<noscript><iframe src="/bddp/ns.html?id=GTM-5F9MRJZR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 const CLARITY_PROJECT_ID = 'we6fhsmtc1';
 const CLARITY_HEAD_SNIPPET = `<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","we6fhsmtc1");</script>`;
-const SITE_RUNTIME_VERSION = 'v2026.04.24.1';
+const SITE_RUNTIME_VERSION = 'v2026.04.24.2';
 const SITE_RUNTIME_VERSION_SNIPPET = `<span>גרסת אתר: ${SITE_RUNTIME_VERSION}</span>`;
 
 function injectSiteVersion(html) {
@@ -25,6 +27,9 @@ function injectAnalytics(html) {
   if (!html) return html;
 
   let output = html;
+  if (!output.includes(META_PIXEL_ID) && !output.includes('autoConfig')) {
+    output = output.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${META_AUTOCONFIG_SNIPPET}`);
+  }
   if (!output.includes(GTM_CONTAINER_ID)) {
     output = output.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${GTM_HEAD_SNIPPET}`);
     output = output.replace(/<body(\s[^>]*)?>/i, (match) => `${match}${GTM_BODY_SNIPPET}`);
@@ -85,6 +90,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
   <meta property="og:image" content="https://www.skyview.co.il/assets/images/hero/glossy-salon-premium.jpg">
   <meta property="og:url" content="https://www.skyview.co.il/ru/">
   <meta property="og:locale" content="ru_IL">
+  <meta property="og:locale:alternate" content="he_IL">
   <link rel="canonical" href="https://www.skyview.co.il/ru/">
   <link rel="stylesheet" href="../css/style.css">
   <style>
@@ -175,6 +181,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
 
   <link rel="alternate" hreflang="he" href="https://www.skyview.co.il/">
   <link rel="alternate" hreflang="ru" href="https://www.skyview.co.il/ru/">
+  <link rel="alternate" hreflang="x-default" href="https://www.skyview.co.il/">
 </head>
 <body>
 
@@ -1089,6 +1096,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.skyview.co.il/ru/cena/">
   <meta property="og:locale" content="ru_IL">
+  <meta property="og:locale:alternate" content="he_IL">
   <meta property="og:site_name" content="SkyView — натяжные потолки">
   <meta property="og:image" content="https://www.skyview.co.il/assets/images/projects/project-2.jpg">
 
@@ -1099,6 +1107,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
 
   <link rel="alternate" hreflang="he" href="https://www.skyview.co.il/mehiron/">
   <link rel="alternate" hreflang="ru" href="https://www.skyview.co.il/ru/cena/">
+  <link rel="alternate" hreflang="x-default" href="https://www.skyview.co.il/mehiron/">
 </head>
 <body>
   <!-- Header identical to homepage - in production would be a shared component -->

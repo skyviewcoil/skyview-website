@@ -24,6 +24,16 @@
     payload.event = eventName;
     window.dataLayer.push(payload);
   };
+
+  window._svFormId = function(form) {
+    if (!form) return 'unknown-form';
+    var explicit = form.id || form.getAttribute('data-form-id') || form.name;
+    if (explicit) return explicit;
+    var forms = Array.prototype.slice.call(document.querySelectorAll('form'));
+    var index = Math.max(forms.indexOf(form), 0) + 1;
+    var pageKey = (location.pathname.replace(/^\/+|\/+$/g, '').replace(/[^\w/-]+/g, '-') || 'home').replace(/\//g, '--');
+    return pageKey + '--form-' + index;
+  };
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -315,6 +325,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  document.querySelectorAll('a[href*="calculator.skyview.co.il"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof skyviewTrack === 'function') skyviewTrack('calculator_open', {
+        event_category: 'engagement',
+        cta_text: (el.textContent || '').trim(),
+        destination_host: 'calculator.skyview.co.il',
+        event_id: window._svEventId(),
+        page: location.pathname
+      });
+    });
+  });
+
   // --- Smooth scroll for anchor links ---
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -379,6 +401,7 @@ document.addEventListener('DOMContentLoaded', function() {
       source:    location.pathname,
       page_title: document.title,
       form_type: form.getAttribute('data-form') || 'general',
+      form_id:   (typeof window._svFormId === 'function' ? window._svFormId(form) : 'unknown-form'),
       timestamp: new Date().toISOString()
     };
 
@@ -511,6 +534,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Track submission attempt
     if (typeof skyviewTrack === 'function') skyviewTrack('form_submit_start', {
       form_type: data.form_type,
+      form_id: data.form_id,
       page: location.pathname
     });
 
@@ -521,6 +545,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (typeof skyviewTrack === 'function') skyviewTrack('generate_lead', {
         lead_type: 'whatsapp_fallback',
         event_id: eventId,
+        form_id: data.form_id,
         page: location.pathname
       });
       setFormState(form, 'success');
@@ -545,6 +570,7 @@ document.addEventListener('DOMContentLoaded', function() {
             lead_type: 'email_sent',
             event_id: eventId,
             form_type: data.form_type,
+            form_id: data.form_id,
             page: location.pathname
           });
           setFormState(form, 'success');
