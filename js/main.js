@@ -401,6 +401,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.querySelectorAll('a[href*="calculator.skyview.co.il"]').forEach(function(el) {
+    try {
+      var targetUrl = new URL(el.href, location.origin);
+      var currentParams = new URLSearchParams(location.search);
+      targetUrl.searchParams.set('utm_source', currentParams.get('utm_source') || 'skyview');
+      targetUrl.searchParams.set('utm_medium', currentParams.get('utm_medium') || 'website-referral');
+      targetUrl.searchParams.set('utm_campaign', currentParams.get('utm_campaign') || 'calculator_handoff');
+      targetUrl.searchParams.set('source_host', location.hostname);
+      targetUrl.searchParams.set('source_page', location.pathname);
+      ['gclid', 'fbclid', 'wbraid', 'gbraid', 'utm_content', 'utm_term'].forEach(function(key) {
+        if (currentParams.get(key)) targetUrl.searchParams.set(key, currentParams.get(key));
+      });
+      el.href = targetUrl.toString();
+    } catch (e) {}
+
     el.addEventListener('click', function() {
       if (typeof skyviewTrack === 'function') skyviewTrack('calculator_open', {
         event_category: 'engagement',
