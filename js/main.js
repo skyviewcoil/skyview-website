@@ -11,6 +11,8 @@
   if (host !== 'skyview.co.il' && host !== 'www.skyview.co.il') return;
 
   window.dataLayer = window.dataLayer || [];
+  window._svLeadValue = 1200;
+  window._svCurrency = 'ILS';
 
   // ── event_id generator — used for GTM/CAPI deduplication ─────────────────
   // GTM server-side container reads this from dataLayer and passes it to Meta
@@ -364,6 +366,10 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('click', function() {
       if (typeof skyviewTrack === 'function') skyviewTrack('whatsapp_click', {
         event_category: 'contact',
+        contact_method: 'whatsapp',
+        currency: window._svCurrency,
+        value: window._svLeadValue,
+        lead_value: window._svLeadValue,
         event_id: window._svEventId(),
         page: location.pathname
       });
@@ -373,6 +379,10 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('click', function() {
       if (typeof skyviewTrack === 'function') skyviewTrack('phone_click', {
         event_category: 'contact',
+        contact_method: 'phone',
+        currency: window._svCurrency,
+        value: window._svLeadValue,
+        lead_value: window._svLeadValue,
         event_id: window._svEventId(),
         page: location.pathname
       });
@@ -396,6 +406,8 @@ document.addEventListener('DOMContentLoaded', () => {
         event_category: 'engagement',
         cta_text: (el.textContent || '').trim(),
         destination_host: 'calculator.skyview.co.il',
+        currency: window._svCurrency,
+        value: window._svLeadValue,
         event_id: window._svEventId(),
         page: location.pathname
       });
@@ -600,6 +612,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof skyviewTrack === 'function') skyviewTrack('form_submit_start', {
       form_type: data.form_type,
       form_id: data.form_id,
+      currency: window._svCurrency,
+      value: window._svLeadValue,
+      lead_value: window._svLeadValue,
       page: location.pathname
     });
 
@@ -609,7 +624,12 @@ document.addEventListener('DOMContentLoaded', function() {
       window.open(waUrl, '_blank');
       if (typeof skyviewTrack === 'function') skyviewTrack('generate_lead', {
         lead_type: 'whatsapp_fallback',
+        contact_method: 'whatsapp',
+        currency: window._svCurrency,
+        value: window._svLeadValue,
+        lead_value: window._svLeadValue,
         event_id: eventId,
+        form_type: data.form_type,
         form_id: data.form_id,
         page: location.pathname
       });
@@ -633,6 +653,10 @@ document.addEventListener('DOMContentLoaded', function() {
           // Push to dataLayer — GTM server-side picks this up for CAPI
           if (typeof skyviewTrack === 'function') skyviewTrack('generate_lead', {
             lead_type: 'email_sent',
+            contact_method: 'form',
+            currency: window._svCurrency,
+            value: window._svLeadValue,
+            lead_value: window._svLeadValue,
             event_id: eventId,
             form_type: data.form_type,
             form_id: data.form_id,
