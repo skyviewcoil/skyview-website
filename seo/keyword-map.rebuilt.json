@@ -1,7 +1,7 @@
 {
   "_meta": {
     "version": "2026-04-21",
-    "site_runtime_version": "v2026.04.24.17",
+    "site_runtime_version": "v2026.04.24.18",
     "site_runtime_version_note": "Injected by worker.js as a visible footer marker on HTML responses for site-wide runtime updates.",
     "source": "Rebuilt from live site crawl + strategy report, then normalized in repo after head-term decision.",
     "head_term_decision": "Resolved: use 'תקרה מתוחה' as the canonical Hebrew head term. Use 'תקרה נמתחת' and plural forms as secondary variants unless GSC data proves otherwise.",

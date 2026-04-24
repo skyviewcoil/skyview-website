@@ -590,3 +590,9 @@ Avoid shipping more than one major intent change to the same URL inside a 30-day
 - Replaced the duplicate bathroom before/after pair on `/hadarim/ambatia` with the new bathroom-specific pair.
 - Optimized all before/after images for web delivery without rotating or changing image angle.
 - Reduced the before/after asset folder from about 164MB to about 7MB.
+
+## Runtime v2026.04.24.18
+
+- Replaced the visually weak corridor before/after pair on `/teura/pasei-led-shkuim`.
+- Replaced the same corridor pair on `/teura/teura-hekifit` with a cleaner living-room lighting pair.
+- Kept all image angles unchanged; only page-level pair selection changed.
