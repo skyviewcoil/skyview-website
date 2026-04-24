@@ -567,3 +567,8 @@ Avoid shipping more than one major intent change to the same URL inside a 30-day
 
 - Mobile hero subtitles are now constrained to two lines on homepage and inner-page heroes.
 - This keeps the visual focus on the ceiling image and prevents long subtitle copy from pushing CTAs too low on mobile.
+
+## Runtime v2026.04.24.14
+
+- The visible site runtime version is no longer hidden by the mobile footer rule.
+- Version markers now use `.site-runtime-version` for stable display across desktop and mobile.

@@ -2621,7 +2621,8 @@ html, body { overflow-x: hidden; }
     text-align: center;
     gap: var(--sp-3);
   }
-  .footer__bottom span:last-child { display: none; } /* hide version on mobile */
+  .footer__bottom span:last-child:not(.site-runtime-version) { display: none; }
+  .site-runtime-version { display: inline !important; }
   .footer__col-title { margin-bottom: var(--sp-4); }
   .footer__social { justify-content: flex-start; }
 }
