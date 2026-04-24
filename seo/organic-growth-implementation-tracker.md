@@ -578,3 +578,9 @@ Avoid shipping more than one major intent change to the same URL inside a 30-day
 - Before/after comparison windows now use one consistent 4:3 ratio across the site.
 - Homepage and projects before/after sections now use matched before/after image pairs instead of mixing gallery images with before photos.
 - The pricing page before/after section now has three comparison windows, aligned with the rest of the site.
+
+## Runtime v2026.04.24.16
+
+- Replaced the before/after image asset set with the new B-A folder images only.
+- Removed legacy `pair*` before/after assets from the live asset folder.
+- Updated magnetic-track and illuminated-ceiling references to use exact new image pairs without rotating images.
