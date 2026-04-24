@@ -556,3 +556,9 @@ Avoid shipping more than one major intent change to the same URL inside a 30-day
 - Lead forms now submit to the first-party Worker endpoint `/api/lead-fallback`.
 - The Worker now supports direct delivery through Resend (`RESEND_API_KEY`) and secondary fallback delivery through `LEAD_WEBHOOK_URL`.
 - If neither delivery channel is configured, forms fail gracefully without opening WhatsApp automatically.
+
+## Runtime v2026.04.24.12
+
+- Contact CTAs now point directly to `/contact#lead-form` so users land on the details form instead of the hero.
+- The contact form section receives a stable `lead-form` anchor at runtime.
+- Mobile menu links now close the drawer and navigate on the first tap.

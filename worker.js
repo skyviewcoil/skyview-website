@@ -11,7 +11,7 @@ f.parentNode.insertBefore(j,f);
 const GTM_BODY_SNIPPET = `<noscript><iframe src="/bddp/ns.html?id=GTM-5F9MRJZR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 const CLARITY_PROJECT_ID = 'we6fhsmtc1';
 const CLARITY_HEAD_SNIPPET = `<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","we6fhsmtc1");</script>`;
-const SITE_RUNTIME_VERSION = 'v2026.04.24.11';
+const SITE_RUNTIME_VERSION = 'v2026.04.24.12';
 const SITE_RUNTIME_VERSION_SNIPPET = `<span>גרסת אתר: ${SITE_RUNTIME_VERSION}</span>`;
 
 function injectSiteVersion(html) {
@@ -28,6 +28,8 @@ function injectAnalytics(html) {
   if (!html) return html;
 
   let output = html;
+  output = normalizeContactLinks(output);
+  output = ensureContactLeadAnchor(output);
   if (!output.includes("gtag('consent','default'") && !output.includes('sv_consent_choice')) {
     output = output.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${CONSENT_BOOTSTRAP_SNIPPET}`);
   }
@@ -42,6 +44,20 @@ function injectAnalytics(html) {
     output = output.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${CLARITY_HEAD_SNIPPET}`);
   }
   return injectSiteVersion(output);
+}
+
+function normalizeContactLinks(html) {
+  return html
+    .replace(/href="\/contact\/?"/g, 'href="/contact#lead-form"')
+    .replace(/href='\/contact\/?'/g, "href='/contact#lead-form'");
+}
+
+function ensureContactLeadAnchor(html) {
+  if (!html.includes('class="contact-grid"') || html.includes('id="lead-form"')) return html;
+  return html.replace(
+    /<section class="section">\s*<div class="container">\s*<div class="contact-grid"/,
+    '<section class="section" id="lead-form" tabindex="-1"><div class="container"><div class="contact-grid"'
+  );
 }
 
 function htmlResponse(html, init = {}) {

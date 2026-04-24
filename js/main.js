@@ -230,7 +230,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (sub) sub.classList.toggle('open', !isOpen);
     });
   });
-  if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+  if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', function(e) {
+    closeMobileMenu();
+    var href = link.getAttribute('href') || '';
+    if (!href || href.indexOf('tel:') === 0 || href.indexOf('https://wa.me') === 0) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+    e.preventDefault();
+    setTimeout(function() { window.location.assign(link.href); }, 40);
+  }));
 
   // --- Active nav state ---
   const path = window.location.pathname.replace(/\/$/, '') || '/';
@@ -403,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Quote request CTA click tracking ---
-  document.querySelectorAll('a.btn--primary[href="/contact"], a.btn--primary[href="/contact/"], a.header__cta-btn[href="/contact"], a.header__cta-btn[href="/contact/"], a.btn--primary[href*="mehiron"]').forEach(function(el) {
+  document.querySelectorAll('a.btn--primary[href^="/contact"], a.header__cta-btn[href^="/contact"], a.btn--primary[href*="mehiron"]').forEach(function(el) {
     el.addEventListener('click', function() {
       if (typeof skyviewTrack === 'function') skyviewTrack('quote_request_click', {
         event_category: 'engagement',
