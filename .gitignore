@@ -24,6 +24,7 @@ package-lock.json
 # Build artifacts
 *.tar.gz
 *.zip
+outputs/
 
 # Cloudflare
 .wrangler/

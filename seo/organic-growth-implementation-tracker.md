@@ -584,3 +584,9 @@ Avoid shipping more than one major intent change to the same URL inside a 30-day
 - Replaced the before/after image asset set with the new B-A folder images only.
 - Removed legacy `pair*` before/after assets from the live asset folder.
 - Updated magnetic-track and illuminated-ceiling references to use exact new image pairs without rotating images.
+
+## Runtime v2026.04.24.17
+
+- Replaced the duplicate bathroom before/after pair on `/hadarim/ambatia` with the new bathroom-specific pair.
+- Optimized all before/after images for web delivery without rotating or changing image angle.
+- Reduced the before/after asset folder from about 164MB to about 7MB.
