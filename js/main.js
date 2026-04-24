@@ -603,20 +603,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, delay || 5000);
   }
 
-  // --- Build WhatsApp URL from lead data ---
-  function buildWaUrl(data) {
-    var msg = 'שלום, אשמח לקבל הצעת מחיר לתקרה מתוחה.';
-    if (data.phone) msg += '\nטלפון: ' + data.phone;
-    if (data.email) msg += '\nמייל: ' + data.email;
-    if (data.notes) msg += '\nהערות: ' + data.notes;
-    if (data.source) msg += '\nמקור: ' + data.source;
-    if (data.calculator) {
-      msg += '\nהערכה: ' + data.calculator.estimate + ' (' + data.calculator.package + ')';
-      if (data.calculator.minimum_applied) msg += '\n(מחיר מינימום הוזמנה)';
-    }
-    return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
-  }
-
   // --- Submit lead ---
   function submitLead(form) {
     var data = collectLead(form);
@@ -654,13 +640,11 @@ document.addEventListener('DOMContentLoaded', function() {
       page: location.pathname
     });
 
-    // --- Deliver via WhatsApp (fallback) ---
-    function deliverWhatsApp() {
-      var waUrl = buildWaUrl(data);
-      window.open(waUrl, '_blank');
-      if (typeof skyviewTrack === 'function') skyviewTrack('generate_lead', {
-        lead_type: 'whatsapp_fallback',
-        contact_method: 'whatsapp',
+    function handleSubmitError(reason) {
+      console.warn('Lead submission failed:', reason);
+      if (typeof skyviewTrack === 'function') skyviewTrack('lead_submit_error', {
+        error_reason: reason || 'unknown',
+        contact_method: 'form',
         currency: window._svCurrency,
         value: window._svLeadValue,
         lead_value: window._svLeadValue,
@@ -670,8 +654,8 @@ document.addEventListener('DOMContentLoaded', function() {
         handoff_id: (typeof window._svHandoffId === 'function' ? window._svHandoffId() : 'missing'),
         page: location.pathname
       });
-      setFormState(form, 'success');
-      resetForm(form, 6000);
+      setFormState(form, 'validation', 'אירעה תקלה בשליחה. נסו שוב בעוד כמה דקות או התקשרו אלינו.');
+      resetForm(form, 5000);
     }
 
     // --- SUBMISSION PATH ---
@@ -705,16 +689,16 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           return res.json().then(function(err) {
             console.error('Lead API error:', err);
-            deliverWhatsApp();
+            handleSubmitError('api_error');
           });
         }
       })
       .catch(function(err) {
         console.warn('Lead API unreachable:', err.message);
-        deliverWhatsApp();
+        handleSubmitError('network_error');
       });
     } else {
-      deliverWhatsApp();
+      handleSubmitError('endpoint_missing');
     }
 
     return false;
