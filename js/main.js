@@ -11,6 +11,8 @@
   if (host !== 'skyview.co.il' && host !== 'www.skyview.co.il') return;
 
   window.dataLayer = window.dataLayer || [];
+  window._svLeadValue = 1200;
+  window._svCurrency = 'ILS';
 
   // ── event_id generator — used for GTM/CAPI deduplication ─────────────────
   // GTM server-side container reads this from dataLayer and passes it to Meta
@@ -24,9 +26,97 @@
     payload.event = eventName;
     window.dataLayer.push(payload);
   };
+
+  window._svFormId = function(form) {
+    if (!form) return 'unknown-form';
+    var explicit = form.id || form.getAttribute('data-form-id') || form.name;
+    if (explicit) return explicit;
+    var forms = Array.prototype.slice.call(document.querySelectorAll('form'));
+    var index = Math.max(forms.indexOf(form), 0) + 1;
+    var pageKey = (location.pathname.replace(/^\/+|\/+$/g, '').replace(/[^\w/-]+/g, '-') || 'home').replace(/\//g, '--');
+    return pageKey + '--form-' + index;
+  };
+
+  window._svHandoffId = function() {
+    var key = 'sv_handoff_id';
+    try {
+      var existing = sessionStorage.getItem(key);
+      if (existing) return existing;
+      var created = 'svh-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+      sessionStorage.setItem(key, created);
+      return created;
+    } catch (e) {
+      return 'svh-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+    }
+  };
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  // --- Consent Mode v2 + minimal banner ---
+  (function() {
+    const host = location.hostname;
+    if (host !== 'skyview.co.il' && host !== 'www.skyview.co.il') return;
+
+    const STORAGE_KEY = 'sv_consent_choice';
+    const lang = document.documentElement.lang || 'he';
+
+    const copy = lang === 'ru'
+      ? {
+          text: 'Мы используем аналитику и рекламные cookies, чтобы измерять заявки и улучшать сайт.',
+          accept: 'Разрешить',
+          reject: 'Только необходимое'
+        }
+      : {
+          text: 'אנחנו משתמשים בעוגיות אנליטיקה ופרסום כדי למדוד לידים ולשפר את האתר.',
+          accept: 'אישור',
+          reject: 'חיוני בלבד'
+        };
+
+    function applyConsent(choice) {
+      const granted = choice === 'granted';
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+      window.gtag('consent', 'update', {
+        ad_storage: granted ? 'granted' : 'denied',
+        analytics_storage: granted ? 'granted' : 'denied',
+        ad_user_data: granted ? 'granted' : 'denied',
+        ad_personalization: granted ? 'granted' : 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
+      try { localStorage.setItem(STORAGE_KEY, choice); } catch (e) {}
+    }
+
+    let stored = 'pending';
+    try { stored = localStorage.getItem(STORAGE_KEY) || 'pending'; } catch (e) {}
+    if (stored === 'granted' || stored === 'denied') {
+      applyConsent(stored);
+      return;
+    }
+
+    const banner = document.createElement('div');
+    banner.className = 'consent-banner';
+    banner.innerHTML = `
+      <div class="consent-banner__inner">
+        <p class="consent-banner__text">${copy.text}</p>
+        <div class="consent-banner__actions">
+          <button type="button" class="btn btn--secondary consent-banner__btn" data-consent="denied">${copy.reject}</button>
+          <button type="button" class="btn btn--primary consent-banner__btn" data-consent="granted">${copy.accept}</button>
+        </div>
+      </div>
+    `;
+
+    banner.addEventListener('click', function(e) {
+      const btn = e.target.closest('[data-consent]');
+      if (!btn) return;
+      applyConsent(btn.getAttribute('data-consent'));
+      banner.remove();
+    });
+
+    document.body.appendChild(banner);
+    document.body.classList.add('has-consent-banner');
+  })();
 
   // --- Trust bar + Header Scroll ---
   const trustBar = document.querySelector('.header-trust');
@@ -140,7 +230,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (sub) sub.classList.toggle('open', !isOpen);
     });
   });
-  if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+  if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', function(e) {
+    closeMobileMenu();
+    var href = link.getAttribute('href') || '';
+    if (!href || href.indexOf('tel:') === 0 || href.indexOf('https://wa.me') === 0) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+    e.preventDefault();
+    setTimeout(function() { window.location.assign(link.href); }, 40);
+  }));
 
   // --- Active nav state ---
   const path = window.location.pathname.replace(/\/$/, '') || '/';
@@ -289,6 +386,10 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('click', function() {
       if (typeof skyviewTrack === 'function') skyviewTrack('whatsapp_click', {
         event_category: 'contact',
+        contact_method: 'whatsapp',
+        currency: window._svCurrency,
+        value: window._svLeadValue,
+        lead_value: window._svLeadValue,
         event_id: window._svEventId(),
         page: location.pathname
       });
@@ -298,6 +399,10 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('click', function() {
       if (typeof skyviewTrack === 'function') skyviewTrack('phone_click', {
         event_category: 'contact',
+        contact_method: 'phone',
+        currency: window._svCurrency,
+        value: window._svLeadValue,
+        lead_value: window._svLeadValue,
         event_id: window._svEventId(),
         page: location.pathname
       });
@@ -305,11 +410,47 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Quote request CTA click tracking ---
-  document.querySelectorAll('a.btn--primary[href="/contact"], a.btn--primary[href*="mehiron"]').forEach(function(el) {
+  document.querySelectorAll('a.btn--primary[href^="/contact"], a.header__cta-btn[href^="/contact"], a.btn--primary[href*="mehiron"]').forEach(function(el) {
     el.addEventListener('click', function() {
       if (typeof skyviewTrack === 'function') skyviewTrack('quote_request_click', {
         event_category: 'engagement',
         cta_text: el.textContent.trim(),
+        currency: window._svCurrency,
+        value: window._svLeadValue,
+        lead_value: window._svLeadValue,
+        event_id: window._svEventId(),
+        page: location.pathname
+      });
+    });
+  });
+
+  document.querySelectorAll('a[href*="calculator.skyview.co.il"]').forEach(function(el) {
+    try {
+      var targetUrl = new URL(el.href, location.origin);
+      var currentParams = new URLSearchParams(location.search);
+      targetUrl.searchParams.set('utm_source', currentParams.get('utm_source') || 'skyview');
+      targetUrl.searchParams.set('utm_medium', currentParams.get('utm_medium') || 'website-referral');
+      targetUrl.searchParams.set('utm_campaign', currentParams.get('utm_campaign') || 'calculator_handoff');
+      targetUrl.searchParams.set('source_host', location.hostname);
+      targetUrl.searchParams.set('source_page', location.pathname);
+      targetUrl.searchParams.set('source_lang', document.documentElement.lang || 'he');
+      targetUrl.searchParams.set('handoff_id', (typeof window._svHandoffId === 'function' ? window._svHandoffId() : 'missing'));
+      ['gclid', 'fbclid', 'wbraid', 'gbraid', 'utm_content', 'utm_term'].forEach(function(key) {
+        if (currentParams.get(key)) targetUrl.searchParams.set(key, currentParams.get(key));
+      });
+      el.href = targetUrl.toString();
+    } catch (e) {}
+
+    el.addEventListener('click', function() {
+      if (typeof skyviewTrack === 'function') skyviewTrack('calculator_open', {
+        event_category: 'engagement',
+        cta_text: (el.textContent || '').trim(),
+        destination_host: 'calculator.skyview.co.il',
+        handoff_id: (typeof window._svHandoffId === 'function' ? window._svHandoffId() : 'missing'),
+        source_lang: document.documentElement.lang || 'he',
+        currency: window._svCurrency,
+        value: window._svLeadValue,
+        event_id: window._svEventId(),
         page: location.pathname
       });
     });
@@ -359,10 +500,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // ============================================
   // REQUIRED: Set your Supabase project values below.
   // These are PUBLIC keys — safe to expose in frontend.
-  var SUPABASE_URL = 'https://glmzuqyvybzwvhptpvrr.supabase.co';
-  var SUPABASE_ANON_KEY = 'sb_publishable_Vdxz7xwb4x0R13MAzL7ujg_2CNoRSgO';
-  var LEAD_FUNCTION = 'send-callback-email';
-  var LEAD_ENDPOINT = SUPABASE_URL + '/functions/v1/' + LEAD_FUNCTION;
+  var LEAD_ENDPOINT = '/api/lead-fallback';
 
   var WA_NUMBER = '972528082988';
 
@@ -379,6 +517,7 @@ document.addEventListener('DOMContentLoaded', function() {
       source:    location.pathname,
       page_title: document.title,
       form_type: form.getAttribute('data-form') || 'general',
+      form_id:   (typeof window._svFormId === 'function' ? window._svFormId(form) : 'unknown-form'),
       timestamp: new Date().toISOString()
     };
 
@@ -468,20 +607,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, delay || 5000);
   }
 
-  // --- Build WhatsApp URL from lead data ---
-  function buildWaUrl(data) {
-    var msg = 'שלום, אשמח לקבל הצעת מחיר לתקרה מתוחה.';
-    if (data.phone) msg += '\nטלפון: ' + data.phone;
-    if (data.email) msg += '\nמייל: ' + data.email;
-    if (data.notes) msg += '\nהערות: ' + data.notes;
-    if (data.source) msg += '\nמקור: ' + data.source;
-    if (data.calculator) {
-      msg += '\nהערכה: ' + data.calculator.estimate + ' (' + data.calculator.package + ')';
-      if (data.calculator.minimum_applied) msg += '\n(מחיר מינימום הוזמנה)';
-    }
-    return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
-  }
-
   // --- Submit lead ---
   function submitLead(form) {
     var data = collectLead(form);
@@ -511,30 +636,40 @@ document.addEventListener('DOMContentLoaded', function() {
     // Track submission attempt
     if (typeof skyviewTrack === 'function') skyviewTrack('form_submit_start', {
       form_type: data.form_type,
+      form_id: data.form_id,
+      handoff_id: (typeof window._svHandoffId === 'function' ? window._svHandoffId() : 'missing'),
+      currency: window._svCurrency,
+      value: window._svLeadValue,
+      lead_value: window._svLeadValue,
       page: location.pathname
     });
 
-    // --- Deliver via WhatsApp (fallback) ---
-    function deliverWhatsApp() {
-      var waUrl = buildWaUrl(data);
-      window.open(waUrl, '_blank');
-      if (typeof skyviewTrack === 'function') skyviewTrack('generate_lead', {
-        lead_type: 'whatsapp_fallback',
+    function handleSubmitError(reason) {
+      console.warn('Lead submission failed:', reason);
+      if (typeof skyviewTrack === 'function') skyviewTrack('lead_submit_error', {
+        error_reason: reason || 'unknown',
+        contact_method: 'form',
+        currency: window._svCurrency,
+        value: window._svLeadValue,
+        lead_value: window._svLeadValue,
         event_id: eventId,
+        form_type: data.form_type,
+        form_id: data.form_id,
+        handoff_id: (typeof window._svHandoffId === 'function' ? window._svHandoffId() : 'missing'),
         page: location.pathname
       });
-      setFormState(form, 'success');
-      resetForm(form, 6000);
+      setFormState(form, 'validation', 'אירעה תקלה בשליחה. נסו שוב בעוד כמה דקות או התקשרו אלינו.');
+      resetForm(form, 5000);
     }
 
-    // --- SUBMISSION PATH ---
-    if (LEAD_ENDPOINT && SUPABASE_URL.indexOf('YOUR_PROJECT') === -1) {
+    // --- Submission path: first-party worker endpoint ---
+    if (LEAD_ENDPOINT) {
       fetch(LEAD_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
-          'apikey': SUPABASE_ANON_KEY
+          'Accept': 'application/json',
+          'X-SkyView-Async': '1'
         },
         body: JSON.stringify(data)
       })
@@ -543,8 +678,14 @@ document.addEventListener('DOMContentLoaded', function() {
           // Push to dataLayer — GTM server-side picks this up for CAPI
           if (typeof skyviewTrack === 'function') skyviewTrack('generate_lead', {
             lead_type: 'email_sent',
+            contact_method: 'form',
+            currency: window._svCurrency,
+            value: window._svLeadValue,
+            lead_value: window._svLeadValue,
             event_id: eventId,
             form_type: data.form_type,
+            form_id: data.form_id,
+            handoff_id: (typeof window._svHandoffId === 'function' ? window._svHandoffId() : 'missing'),
             page: location.pathname
           });
           setFormState(form, 'success');
@@ -552,16 +693,16 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           return res.json().then(function(err) {
             console.error('Lead API error:', err);
-            deliverWhatsApp();
+            handleSubmitError('api_error');
           });
         }
       })
       .catch(function(err) {
         console.warn('Lead API unreachable:', err.message);
-        deliverWhatsApp();
+        handleSubmitError('network_error');
       });
     } else {
-      deliverWhatsApp();
+      handleSubmitError('endpoint_missing');
     }
 
     return false;
@@ -600,14 +741,18 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    // Initialize before image width
-    function initWidth() {
-      if (beforeImg) {
-        beforeImg.style.width = slider.offsetWidth + 'px';
+      // Initialize before image width
+      function initWidth() {
+        if (beforeImg) {
+          var width = slider.getBoundingClientRect().width || slider.offsetWidth;
+          beforeImg.style.width = width + 'px';
+        }
       }
-    }
-    initWidth();
-    window.addEventListener('resize', initWidth);
+      initWidth();
+      if (beforeImg && !beforeImg.complete) {
+        beforeImg.addEventListener('load', initWidth, { once: true });
+      }
+      window.addEventListener('resize', initWidth);
 
     var dragging = false;
 

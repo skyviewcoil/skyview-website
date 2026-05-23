@@ -25,7 +25,7 @@
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"דף הבית","item":"https://www.skyview.co.il/"},{"@type":"ListItem","position":2,"name":"לפי חדר","item":"https://www.skyview.co.il/hadarim"},{"@type":"ListItem","position":3,"name":"מקווה","item":"https://www.skyview.co.il/hadarim/mikve"}]}</script>
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"תקרה מתוחה למקווה","description":"תקרה מתוחה למקווה — עמידות מלאה ברטיבות ואדי מים, ללא עובש, ניקוי פשוט. גימורים מבריקים, תאורה היקפית ותקרת שמיים.","provider":{"@type":"HomeAndConstructionBusiness","name":"SkyView – תקרות מעוצבות","url":"https://www.skyview.co.il","telephone":"+972528082988"},"areaServed":{"@type":"Country","name":"Israel"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"תקרה מתוחה למקווה","description":"תקרה מתוחה למקווה — עמידות מלאה ברטיבות ואדי מים, ללא עובש, ניקוי פשוט. גימורים מבריקים, תאורה היקפית ותקרת שמיים.","provider":{"@id":"https://www.skyview.co.il/#organization"},"areaServed":{"@type":"Country","name":"Israel"},"offers":{"@type":"AggregateOffer","priceCurrency":"ILS","lowPrice":"5000","highPrice":"22000","offerCount":"3"}}</script>
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"האם תקרה מתוחה מתאימה לסביבה עם אדים כבדים?","acceptedAnswer":{"@type":"Answer","text":"כן. יריעת PVC אטומה לחלוטין לאדי מים ואינה סופגת לחות. בסביבת מקווה עם אדים כבדים וטמפרטורות גבוהות, התקרה שומרת על צורתה, צבעה ויציבותה לאורך שנים."}},{"@type":"Question","name":"איך מנקים תקרה מתוחה במקווה?","acceptedAnswer":{"@type":"Answer","text":"ניגוב עם מטלית רכה לחה מספיק. אין צורך בחומרי ניקוי חזקים. משטח PVC לא צובר כתמים, לא מפתח עובש, ולא דורש טיפול מיוחד — אפילו בתנאי לחות קיצוניים."}},{"@type":"Question","name":"כמה זמן לוקחת ההתקנה במקווה פעיל?","acceptedAnswer":{"@type":"Answer","text":"התקנה חדר ממוצע — 4 עד 8 שעות. מקווה בגודל בינוני עם תאורה היקפית — יום עבודה אחד. ניתן לתאם עבודה בשעות שהמקווה סגור כדי לא להפריע לפעילות."}},{"@type":"Question","name":"מה קורה אם יש דליפה מהתקרה שמעל?","acceptedAnswer":{"@type":"Answer","text":"יריעת PVC מחזיקה מים — יכולה לעצור עד כ-100 ליטר מבלי לקרוע. הטכנאי מגיע, מנקז את המים, ומחזיר את היריעה לצורתה. אין צורך בהחלפת התקרה."}},{"@type":"Question","name":"האם אפשר לשלב תאורה שקועה עמידה למים?","acceptedAnswer":{"@type":"Answer","text":"כן. ספוטים שקועים בתקרה מתוחה מותאמים לסביבה לחה — כולל חדרים עם הגנת IP מתאימה. תאורה היקפית נסתרת ותקרה מוארת שקופה הן גם אפשרויות נפוצות למקוואות."}},{"@type":"Question","name":"מה תוחלת החיים של תקרה מתוחה בסביבה רטובה?","acceptedAnswer":{"@type":"Answer","text":"10 שנים ומעלה, עם אחריות יצרן עד 15 שנה על מערכות נבחרות. לחות אינה פוגעת ביריעת PVC — היא לא מתפוררת, לא מצהיבה, ולא מאבדת עמידות עם הזמן."}}]}</script>
 
@@ -221,26 +221,29 @@
   </nav>
 
   <main>
-    <section class="salon-hero" style="position:relative;border-radius:var(--r-lg);overflow:hidden;margin:var(--sp-6) auto 0;max-width:var(--max-w);">
-      <img
-        src="../../assets/images/skyview-room-mikveh-stretch-ceiling-moisture-resistant.webp"
-        alt="תקרה מתוחה למקווה — גימור עמיד לחות ומים, התקנה של SkyView"
-        loading="eager"
-        fetchpriority="high"
-        style="width:100%;display:block;min-height:420px;max-height:560px;object-fit:cover;"
-      >
-      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(26,26,24,0.72) 0%, rgba(26,26,24,0.25) 50%, transparent 100%);"></div>
-      <div style="position:absolute;top:var(--sp-6);right:var(--sp-8);left:var(--sp-8);z-index:2;">
+    <section class="page-hero page-hero--image page-hero--joined" style="--page-hero-image:url('/assets/images/skyview-room-mikveh-stretch-ceiling-moisture-resistant.webp');--page-hero-position:center center;">
+      <div class="container">
         <nav class="breadcrumb" aria-label="מיקום באתר" style="color:rgba(255,255,255,0.7);">
           <a href="/" style="color:rgba(255,255,255,0.7);">דף הבית</a><span class="breadcrumb__sep" style="color:rgba(255,255,255,0.4);">/</span>
           <a href="/hadarim" style="color:rgba(255,255,255,0.7);">לפי חדר</a><span class="breadcrumb__sep" style="color:rgba(255,255,255,0.4);">/</span>
           <span class="breadcrumb__current">מקווה</span>
         </nav>
+        <h1>תקרה מתוחה למקווה — עמידה לחות, ניקוי קל ותאורה משולבת</h1>
+        <p>מקווה הוא אחת הסביבות הקשות ביותר לתקרה — לחות מתמדת, אדי מים, וטמפרטורות גבוהות. תקרה מתוחה PVC היא הפתרון הנפוץ ביותר: אטומה לחלוטין, ללא עובש, עם אפשרויות עיצוב ותאורה מלאות.</p>
+        <div class="hero__actions" style="margin-top:var(--sp-7);">
+          <a href="/contact" class="btn btn--primary">&#1511;&#1489;&#1500;&#1493; &#1492;&#1510;&#1506;&#1514; &#1502;&#1495;&#1497;&#1512;</a>
+          <a href="/mehiron" class="btn btn--outline">&#1512;&#1488;&#1493; &#1502;&#1495;&#1497;&#1512;&#1493;&#1503;</a>
+        </div>
       </div>
-      <div style="position:absolute;bottom:0;right:0;left:0;padding:var(--sp-12) var(--sp-8) var(--sp-10);z-index:2;">
-        <h1 style="color:#fff;font-size:clamp(1.6rem,4vw,2.4rem);margin:0 0 var(--sp-3);max-width:600px;">תקרה מתוחה למקווה — עמידה לחות, ניקוי קל ותאורה משולבת</h1>
-        <p style="color:rgba(255,255,255,0.85);font-size:clamp(0.9rem,1.5vw,1.05rem);max-width:520px;margin:0 0 var(--sp-6);line-height:1.6;">מקווה הוא אחת הסביבות הקשות ביותר לתקרה — לחות מתמדת, אדי מים, וטמפרטורות גבוהות. תקרה מתוחה PVC היא הפתרון הנפוץ ביותר: אטומה לחלוטין, ללא עובש, עם אפשרויות עיצוב ותאורה מלאות.</p>
-        <a href="/contact" class="btn btn--primary btn--lg">הצעת מחיר למקווה</a>
+    </section>
+
+    <section class="hero-continuation hero-continuation--joined" aria-label="&#1506;&#1497;&#1511;&#1512;&#1497; &#1492;&#1506;&#1502;&#1493;&#1491;">
+      <div class="container">
+        <div class="hero-continuation__grid">
+          <div class="hero-continuation__item"><strong>&#1502;&#1493;&#1514;&#1488;&#1501; &#1500;&#1495;&#1491;&#1512;</strong><span>&#1490;&#1493;&#1489;&#1492;, &#1514;&#1488;&#1493;&#1512;&#1492;, &#1500;&#1495;&#1493;&#1514; &#1493;&#1513;&#1497;&#1502;&#1493;&#1513; &#1497;&#1493;&#1502;&#1497;&#1493;&#1502;&#1497; &#1504;&#1500;&#1511;&#1495;&#1497;&#1501; &#1489;&#1495;&#1513;&#1489;&#1493;&#1503;.</span></div>
+          <div class="hero-continuation__item"><strong>&#1514;&#1488;&#1493;&#1512;&#1492; &#1502;&#1513;&#1493;&#1500;&#1489;&#1514;</strong><span>&#1508;&#1505;&#1497; LED, &#1505;&#1508;&#1493;&#1496;&#1497;&#1501;, &#1502;&#1505;&#1497;&#1500;&#1493;&#1514; &#1493;&#1514;&#1488;&#1493;&#1512;&#1492; &#1492;&#1497;&#1511;&#1508;&#1497;&#1514; &#1500;&#1508;&#1497; &#1492;&#1514;&#1499;&#1504;&#1493;&#1503;.</span></div>
+          <div class="hero-continuation__item"><strong>&#1492;&#1514;&#1511;&#1504;&#1492; &#1504;&#1511;&#1497;&#1497;&#1492;</strong><span>&#1506;&#1489;&#1493;&#1491;&#1492; &#1502;&#1492;&#1497;&#1512;&#1492; &#1489;&#1500;&#1497; &#1500;&#1499;&#1500;&#1493;&#1498;, &#1510;&#1489;&#1506; &#1488;&#1493; &#1513;&#1497;&#1508;&#1493;&#1509; &#1502;&#1502;&#1493;&#1513;&#1498;.</span></div>
+        </div>
       </div>
     </section>
 
@@ -287,6 +290,7 @@
           <li><a href="/teura/teura-hekifit">תאורה היקפית</a></li>
           <li><a href="/teura/tikra-mueret">תקרה מוארת</a></li>
           <li><a href="/sugim/hadpas">תקרה מודפסת שמיים</a></li>
+          <li><a href="/hashvaa/tikra-metuha-o-geves">השוואה מול גבס</a></li>
           <li><a href="/mehiron">מחשבון מחירים</a></li>
         </ul>
       </div>
@@ -332,48 +336,45 @@
           <h2>לפני ואחרי — תקרות מתוחות למקווה</h2>
           <p>גררו את הפס כדי לראות את ההבדל</p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);max-width:1100px;margin:0 auto;" class="ba-grid">
+        <div class="ba-grid reveal">
 
-          <div class="ba-slider" style="position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;cursor:col-resize;user-select:none;-webkit-user-select:none;">
-            <img src="../../assets/images/beforeafter/skyview-mikveh-sky-ceiling-after-01.webp" alt="אחרי — תקרת שמיים במקווה" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;" loading="lazy">
-            <div class="ba-slider__before" style="position:absolute;top:0;right:0;bottom:0;width:50%;overflow:hidden;">
-              <img src="../../assets/images/beforeafter/skyview-mikveh-sky-ceiling-before-01.webp" alt="לפני — מקווה לפני ההתקנה" style="position:absolute;top:0;right:0;width:100%;height:100%;object-fit:cover;object-position:center center;min-width:0;" loading="lazy">
+          <div class="ba-slider">
+            <img src="../../assets/images/beforeafter/skyview-mikveh-sky-ceiling-after-01.webp" alt="אחרי — תקרת שמיים במקווה" loading="lazy">
+            <div class="ba-slider__before">
+              <img src="../../assets/images/beforeafter/skyview-mikveh-sky-ceiling-before-01.webp" alt="לפני — מקווה לפני ההתקנה" loading="lazy">
             </div>
-            <div class="ba-slider__handle" style="position:absolute;top:0;bottom:0;right:50%;width:3px;background:#fff;transform:translateX(50%);z-index:2;box-shadow:0 0 8px rgba(0,0,0,0.3);">
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
+            <div class="ba-slider__handle"><div class="ba-slider__handle-circle">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </div>
-            <div style="position:absolute;top:var(--sp-3);right:var(--sp-3);background:rgba(0,0,0,0.55);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">לפני</div>
-            <div style="position:absolute;top:var(--sp-3);left:var(--sp-3);background:var(--color-accent);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">אחרי</div>
+            <span class="ba-slider__label ba-slider__label--before">&#1500;&#1508;&#1504;&#1497;</span>
+            <span class="ba-slider__label ba-slider__label--after">&#1488;&#1495;&#1512;&#1497;</span>
           </div>
 
-          <div class="ba-slider ba-slider--mixed" style="position:relative;border-radius:var(--r-lg);overflow:hidden;cursor:col-resize;user-select:none;-webkit-user-select:none;">
-            <img src="../../assets/images/beforeafter/skyview-mikveh-printed-luminous-stretch-ceiling-after-02.webp" alt="אחרי — תקרה מוארת עם הדפס במקווה" style="width:100%;height:100%;object-fit:contain;object-position:center center;display:block;" loading="lazy">
-            <div class="ba-slider__before" style="position:absolute;top:0;right:0;bottom:0;width:50%;overflow:hidden;">
-              <img src="../../assets/images/beforeafter/skyview-mikveh-printed-luminous-stretch-ceiling-before-02.webp" alt="לפני — מקווה לפני ההתקנה" style="position:absolute;top:0;right:0;width:100%;height:100%;object-fit:contain;object-position:center center;min-width:0;" loading="lazy">
+          <div class="ba-slider">
+            <img src="../../assets/images/beforeafter/skyview-mikveh-printed-luminous-stretch-ceiling-after-02.webp" alt="אחרי — תקרה מוארת עם הדפס במקווה" loading="lazy">
+            <div class="ba-slider__before">
+              <img src="../../assets/images/beforeafter/skyview-mikveh-printed-luminous-stretch-ceiling-before-02.webp" alt="לפני — מקווה לפני ההתקנה" loading="lazy">
             </div>
-            <div class="ba-slider__handle" style="position:absolute;top:0;bottom:0;right:50%;width:3px;background:#fff;transform:translateX(50%);z-index:2;box-shadow:0 0 8px rgba(0,0,0,0.3);">
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
+            <div class="ba-slider__handle"><div class="ba-slider__handle-circle">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </div>
-            <div style="position:absolute;top:var(--sp-3);right:var(--sp-3);background:rgba(0,0,0,0.55);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">לפני</div>
-            <div style="position:absolute;top:var(--sp-3);left:var(--sp-3);background:var(--color-accent);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">אחרי</div>
+            <span class="ba-slider__label ba-slider__label--before">&#1500;&#1508;&#1504;&#1497;</span>
+            <span class="ba-slider__label ba-slider__label--after">&#1488;&#1495;&#1512;&#1497;</span>
           </div>
 
-          <div class="ba-slider ba-slider--portrait" style="position:relative;border-radius:var(--r-lg);overflow:hidden;cursor:col-resize;user-select:none;-webkit-user-select:none;">
-            <img src="../../assets/images/beforeafter/skyview-mikveh-moisture-resistant-stretch-ceiling-after-03.webp" alt="אחרי — תקרה עמידה ברטיבות במקווה" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;" loading="lazy">
-            <div class="ba-slider__before" style="position:absolute;top:0;right:0;bottom:0;width:50%;overflow:hidden;">
-              <img src="../../assets/images/beforeafter/skyview-mikveh-moisture-resistant-stretch-ceiling-before-03.webp" alt="לפני — מקווה לפני ההתקנה" style="position:absolute;top:0;right:0;width:100%;height:100%;object-fit:cover;object-position:center center;min-width:0;" loading="lazy">
+          <div class="ba-slider">
+            <img src="../../assets/images/beforeafter/skyview-mikveh-moisture-resistant-stretch-ceiling-after-03.webp" alt="אחרי — תקרה עמידה ברטיבות במקווה" loading="lazy">
+            <div class="ba-slider__before">
+              <img src="../../assets/images/beforeafter/skyview-mikveh-moisture-resistant-stretch-ceiling-before-03.webp" alt="לפני — מקווה לפני ההתקנה" loading="lazy">
             </div>
-            <div class="ba-slider__handle" style="position:absolute;top:0;bottom:0;right:50%;width:3px;background:#fff;transform:translateX(50%);z-index:2;box-shadow:0 0 8px rgba(0,0,0,0.3);">
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
+            <div class="ba-slider__handle"><div class="ba-slider__handle-circle">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </div>
-            <div style="position:absolute;top:var(--sp-3);right:var(--sp-3);background:rgba(0,0,0,0.55);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">לפני</div>
-            <div style="position:absolute;top:var(--sp-3);left:var(--sp-3);background:var(--color-accent);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">אחרי</div>
+            <span class="ba-slider__label ba-slider__label--before">&#1500;&#1508;&#1504;&#1497;</span>
+            <span class="ba-slider__label ba-slider__label--after">&#1488;&#1495;&#1512;&#1497;</span>
           </div>
         </div>
       </div>
@@ -470,7 +471,7 @@
           <a href="/azorim/merkaz" style="color:rgba(255,255,255,0.4);">מרכז</a> ·
           <a href="/azorim/darom" style="color:rgba(255,255,255,0.4);">דרום</a>
         </span>
-        <span style="color:rgba(255,255,255,0.12);font-size:0.65rem;">v103</span>
+
       </div>
     </div>
   </footer>

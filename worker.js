@@ -1,4 +1,7 @@
 const GTM_CONTAINER_ID = 'GTM-5F9MRJZR';
+const META_PIXEL_ID = '919952583222085';
+const META_AUTOCONFIG_SNIPPET = `<script>(function(w){if(w.__svMetaAutoConfigBootstrap)return;w.__svMetaAutoConfigBootstrap=true;function disableAutoConfig(){if(typeof w.fbq!=='function')return false;try{w.fbq('set','autoConfig',false,'${META_PIXEL_ID}');w.__svMetaAutoConfigDisabled=true;return true;}catch(e){return false;}}if(disableAutoConfig())return;var attempts=0;var timer=setInterval(function(){attempts++;if(disableAutoConfig()||attempts>80)clearInterval(timer);},250);})(window);</script>`;
+const CONSENT_BOOTSTRAP_SNIPPET = `<script>(function(w){w.dataLayer=w.dataLayer||[];w.gtag=w.gtag||function(){w.dataLayer.push(arguments)};var c='pending';try{c=w.localStorage.getItem('sv_consent_choice')||'pending';}catch(e){}var granted=c==='granted';w.gtag('consent','default',{ad_storage:granted?'granted':'denied',analytics_storage:granted?'granted':'denied',ad_user_data:granted?'granted':'denied',ad_personalization:granted?'granted':'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});})(window);</script>`;
 const GTM_HEAD_SNIPPET = `<script>(function(w,i,g){w[g]=w[g]||[];if(typeof w[g].push=='function')w[g].push(i)})
 (window,'GTM-5F9MRJZR','google_tags_first_party');</script><script>(function(w,d,s,l){w[l]=w[l]||[];(function(){w[l].push(arguments);})('set','developer_id.dYzg1YT',true);
 w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -6,13 +9,55 @@ j=d.createElement(s);j.async=true;j.src='/bddp/';
 f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer');</script>`;
 const GTM_BODY_SNIPPET = `<noscript><iframe src="/bddp/ns.html?id=GTM-5F9MRJZR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
+const CLARITY_PROJECT_ID = 'we6fhsmtc1';
+const CLARITY_HEAD_SNIPPET = `<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","we6fhsmtc1");</script>`;
+const SITE_RUNTIME_VERSION = 'v2026.04.24.18';
+const SITE_RUNTIME_VERSION_SNIPPET = `<span class="site-runtime-version">גרסת אתר: ${SITE_RUNTIME_VERSION}</span>`;
+
+function injectSiteVersion(html) {
+  if (!html || html.includes(SITE_RUNTIME_VERSION)) return html;
+
+  if (/<div class="footer__bottom">[\s\S]*?<\/div>/i.test(html)) {
+    return html.replace(/(<div class="footer__bottom">[\s\S]*?)(\s*<\/div>)/i, `$1\n        ${SITE_RUNTIME_VERSION_SNIPPET}$2`);
+  }
+
+  return html.replace(/<\/body>/i, `${SITE_RUNTIME_VERSION_SNIPPET}</body>`);
+}
 
 function injectAnalytics(html) {
-  if (!html || html.includes(GTM_CONTAINER_ID)) return html;
+  if (!html) return html;
 
-  let output = html.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${GTM_HEAD_SNIPPET}`);
-  output = output.replace(/<body(\s[^>]*)?>/i, (match) => `${match}${GTM_BODY_SNIPPET}`);
-  return output;
+  let output = html;
+  output = normalizeContactLinks(output);
+  output = ensureContactLeadAnchor(output);
+  if (!output.includes("gtag('consent','default'") && !output.includes('sv_consent_choice')) {
+    output = output.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${CONSENT_BOOTSTRAP_SNIPPET}`);
+  }
+  if (!output.includes(META_PIXEL_ID) && !output.includes('autoConfig')) {
+    output = output.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${META_AUTOCONFIG_SNIPPET}`);
+  }
+  if (!output.includes(GTM_CONTAINER_ID)) {
+    output = output.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${GTM_HEAD_SNIPPET}`);
+    output = output.replace(/<body(\s[^>]*)?>/i, (match) => `${match}${GTM_BODY_SNIPPET}`);
+  }
+  if (!output.includes(CLARITY_PROJECT_ID) && !output.includes('www.clarity.ms/tag')) {
+    output = output.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${CLARITY_HEAD_SNIPPET}`);
+  }
+  return injectSiteVersion(output);
+}
+
+function normalizeContactLinks(html) {
+  return html
+    .replace(/href="\/contact\/?"/g, 'href="/contact#lead-form"')
+    .replace(/href='\/contact\/?'/g, "href='/contact#lead-form'");
+}
+
+function ensureContactLeadAnchor(html) {
+  if (!html.includes('class="contact-grid"') || html.includes('id="lead-form"')) return html;
+  return html.replace(
+    /<section class="section">\s*<div class="container">\s*<div class="contact-grid"/,
+    '<section class="section" id="lead-form" tabindex="-1"><div class="container"><div class="contact-grid"'
+  );
 }
 
 function htmlResponse(html, init = {}) {
@@ -50,6 +95,85 @@ async function fetchStaticAsset(request, env, path) {
   return response;
 }
 
+function escapeLeadHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function buildLeadEmailHtml(lead) {
+  const rows = [
+    ['שם', lead.name],
+    ['טלפון', lead.phone],
+    ['מייל', lead.email],
+    ['סוג טופס', lead.form_type],
+    ['עמוד', lead.page],
+    ['מזהה טופס', lead.form_id],
+    ['מזהה אירוע', lead.event_id],
+    ['זמן', new Date(lead.ts || Date.now()).toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })],
+    ['הודעה', lead.message]
+  ]
+    .filter(([, value]) => value)
+    .map(([label, value]) => `<tr><td style="padding:8px 0;font-weight:bold;width:120px;">${escapeLeadHtml(label)}:</td><td style="padding:8px 0;" dir="${label === 'טלפון' || label === 'מייל' || label === 'עמוד' || label === 'מזהה אירוע' ? 'ltr' : 'rtl'}">${escapeLeadHtml(value)}</td></tr>`)
+    .join('');
+
+  return `
+    <div dir="rtl" style="font-family:Arial,Helvetica,sans-serif;max-width:560px;margin:0 auto;padding:24px;background:#faf9f7;border-radius:10px;color:#3A3A38;">
+      <h2 style="margin:0 0 16px;">ליד חדש מאתר SkyView</h2>
+      <hr style="border:none;border-top:2px solid #8B734A;margin:0 0 20px;">
+      <table style="width:100%;border-collapse:collapse;font-size:15px;">${rows}</table>
+      <hr style="border:none;border-top:1px solid #e8e4df;margin:20px 0 12px;">
+      <p style="font-size:12px;color:#777;margin:0;">נשלח אוטומטית מ־skyview.co.il</p>
+    </div>
+  `;
+}
+
+async function deliverLeadByWebhook(lead, env) {
+  if (!env.LEAD_WEBHOOK_URL) return { channel: 'webhook', attempted: false, ok: false };
+  try {
+    const response = await fetch(env.LEAD_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(lead)
+    });
+    return { channel: 'webhook', attempted: true, ok: response.ok, status: response.status };
+  } catch (error) {
+    return { channel: 'webhook', attempted: true, ok: false, error: String(error && error.message || error) };
+  }
+}
+
+async function deliverLeadByResend(lead, env) {
+  if (!env.RESEND_API_KEY) return { channel: 'resend', attempted: false, ok: false };
+
+  const resendDomain = env.RESEND_DOMAIN || 'mail.skyview.co.il';
+  const resendFrom = env.RESEND_FROM || `SkyView Leads <leads@${resendDomain}>`;
+  const notifyEmail = env.NOTIFY_EMAIL || 'skyview.co.il@gmail.com';
+
+  try {
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: resendFrom,
+        to: [notifyEmail],
+        reply_to: lead.email || undefined,
+        subject: `ליד חדש — ${lead.phone || lead.name || 'SkyView'}`,
+        html: buildLeadEmailHtml(lead)
+      })
+    });
+
+    return { channel: 'resend', attempted: true, ok: response.ok, status: response.status, body: response.ok ? '' : await response.text() };
+  } catch (error) {
+    return { channel: 'resend', attempted: true, ok: false, error: String(error && error.message || error) };
+  }
+}
+
 // Russian landing pages — embedded HTML content
 // Served directly by worker to bypass Cloudflare Workers Assets lookup issues
 const RU_INDEX_HTML = `<!DOCTYPE html>
@@ -57,14 +181,15 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Натяжные потолки | SkyView — быстрая установка по всему Израилю</title>
-  <meta name="description" content="Дизайнерские натяжные потолки — глянец, световые, с принтом. Установка за день, без грязи, с гарантией. Получите предложение от SkyView.">
-  <meta property="og:title" content="Натяжные потолки | SkyView">
-  <meta property="og:description" content="Дизайнерские натяжные потолки — установка за день, без грязи, с гарантией.">
+  <title>Натяжные потолки в Израиле - цены от 229₪ | SkyView</title>
+  <meta name="description" content="Натяжные потолки напрямую от производителя, без комиссий посредников. Прозрачные цены, гарантия до 15 лет, монтаж по всей стране. Бесплатный замер за 24 часа.">
+  <meta property="og:title" content="Натяжные потолки в Израиле - цены от 229₪ | SkyView">
+  <meta property="og:description" content="Натяжные потолки напрямую от производителя, без комиссий посредников. Прозрачные цены, гарантия до 15 лет, монтаж по всей стране. Бесплатный замер за 24 часа.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://www.skyview.co.il/assets/images/hero/glossy-salon-premium.jpg">
   <meta property="og:url" content="https://www.skyview.co.il/ru/">
   <meta property="og:locale" content="ru_IL">
+  <meta property="og:locale:alternate" content="he_IL">
   <link rel="canonical" href="https://www.skyview.co.il/ru/">
   <link rel="stylesheet" href="../css/style.css">
   <style>
@@ -127,6 +252,22 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
           "@type": "Answer",
           "text": "Натяжной потолок монтируется за день без грязи, водостоек и поставляется с долгой гарантией. Гипсокартон требует нескольких дней, пыли и шпаклёвки, менее устойчив к влаге."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Есть ли решения для офиса и бизнеса?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да. SkyView выполняет проекты для офисов, лобби, магазинов, ресторанов и влажных помещений. Для коммерческих пространств доступны световые потолки, акустические решения и индивидуальный расчёт по проекту."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Где посмотреть цены и зоны обслуживания?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Русскоязычные цены собраны на странице /ru/cena/, а список городов и регионов — на странице зон обслуживания. Для офисов и коммерческих проектов можно сразу перейти в раздел для бизнеса, а о компании — на страницу о SkyView."
+        }
       }
     ]
   }
@@ -139,6 +280,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
 
   <link rel="alternate" hreflang="he" href="https://www.skyview.co.il/">
   <link rel="alternate" hreflang="ru" href="https://www.skyview.co.il/ru/">
+  <link rel="alternate" hreflang="x-default" href="https://www.skyview.co.il/">
 </head>
 <body>
 
@@ -187,7 +329,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
               <a href="/hanmahat-tikra" role="menuitem">Опускание потолка</a>
             </div>
             <div class="nav-dropdown__divider"></div>
-            <a href="/hashvaa/tikra-metuha-o-geves" class="nav-dropdown__list" role="menuitem" style="display:flex;align-items:center;gap:8px;padding:9px 16px;font-size:0.8125rem;color:var(--text-soft);border-radius:8px;text-decoration:none;transition:color .15s ease,background .15s ease;" onmouseover="this.style.color='var(--text)';this.style.background='var(--bg-soft)'" onmouseout="this.style.color='var(--text-soft)';this.style.background='transparent'">Натяжной vs гипс — сравнение</a>
+            <a href="/ru/sravnenie-geves" class="nav-dropdown__list" role="menuitem" style="display:flex;align-items:center;gap:8px;padding:9px 16px;font-size:0.8125rem;color:var(--text-soft);border-radius:8px;text-decoration:none;transition:color .15s ease,background .15s ease;" onmouseover="this.style.color='var(--text)';this.style.background='var(--bg-soft)'" onmouseout="this.style.color='var(--text-soft)';this.style.background='transparent'">Натяжной vs гипс — сравнение</a>
           </div>
         </div>
 
@@ -298,7 +440,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
           <a href="/sugim/hadpas">Принт / небо</a>
           <a href="/sugim/akustit">Акустика</a>
           <a href="/brisol">Бризоль</a>
-          <a href="/hashvaa/tikra-metuha-o-geves">Натяжной vs гипс</a>
+          <a href="/ru/sravnenie-geves">Натяжной vs гипс</a>
           <a href="/hanmahat-tikra">Опускание потолка</a>
         </div>
       </div>
@@ -665,7 +807,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
           </table>
         </div>
         <div style="text-align:center;margin-top:var(--space-xl);">
-          <a href="/hashvaa/tikra-metuha-o-geves" class="btn btn--outline">Полное сравнение</a>
+          <a href="/ru/sravnenie-geves" class="btn btn--outline">Полное сравнение</a>
         </div>
       </div>
     </section>
@@ -758,8 +900,8 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
       </div>
     </section>
 
-    
-    
+
+
     <!-- ===== BEFORE / AFTER — SLIDER COMPARISON ===== -->
     <section class="section section--alt">
       <div class="container">
@@ -767,51 +909,48 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
           <h2>До и после — реальные установки</h2>
           <p>Перетащите ползунок, чтобы увидеть разницу</p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);max-width:1100px;margin:0 auto;" class="ba-grid">
+        <div class="ba-grid reveal">
 
           <!-- Demo 1: pair5 — salon -->
-          <div class="ba-slider" style="position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;cursor:col-resize;user-select:none;-webkit-user-select:none;">
-            <img src="../assets/images/beforeafter/pair5-after.jpg" alt="После — глянцевый потолок с люстрой" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <div class="ba-slider__before" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;">
-              <img src="../assets/images/beforeafter/pair5-before.jpg" alt="До — открытый потолок с балками" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;min-width:0;">
+          <div class="ba-slider">
+            <img src="../assets/images/beforeafter/pair5-after.jpg" alt="После — глянцевый потолок с люстрой">
+            <div class="ba-slider__before">
+              <img src="../assets/images/beforeafter/pair5-before.jpg" alt="До — открытый потолок с балками">
             </div>
-            <div class="ba-slider__handle" style="position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%);z-index:2;box-shadow:0 0 8px rgba(0,0,0,0.3);">
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
+            <div class="ba-slider__handle"><div class="ba-slider__handle-circle">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </div>
-            <div style="position:absolute;top:var(--sp-3);left:var(--sp-3);background:rgba(0,0,0,0.55);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">До</div>
-            <div style="position:absolute;top:var(--sp-3);right:var(--sp-3);background:var(--color-accent);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">После</div>
+            <span class="ba-slider__label ba-slider__label--before">&#1044;&#1086;</span>
+            <span class="ba-slider__label ba-slider__label--after">&#1055;&#1086;&#1089;&#1083;&#1077;</span>
           </div>
 
           <!-- Demo 2: pair6 — bathroom -->
-          <div class="ba-slider" style="position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;cursor:col-resize;user-select:none;-webkit-user-select:none;">
-            <img src="../assets/images/beforeafter/pair6-after.jpg" alt="После — натяжной потолок в ванной" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <div class="ba-slider__before" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;">
-              <img src="../assets/images/beforeafter/pair6-before.jpg" alt="До — ванная с трубами" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;min-width:0;">
+          <div class="ba-slider">
+            <img src="../assets/images/beforeafter/pair6-after.jpg" alt="После — натяжной потолок в ванной">
+            <div class="ba-slider__before">
+              <img src="../assets/images/beforeafter/pair6-before.jpg" alt="До — ванная с трубами">
             </div>
-            <div class="ba-slider__handle" style="position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%);z-index:2;box-shadow:0 0 8px rgba(0,0,0,0.3);">
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
+            <div class="ba-slider__handle"><div class="ba-slider__handle-circle">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </div>
-            <div style="position:absolute;top:var(--sp-3);left:var(--sp-3);background:rgba(0,0,0,0.55);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">До</div>
-            <div style="position:absolute;top:var(--sp-3);right:var(--sp-3);background:var(--color-accent);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">После</div>
+            <span class="ba-slider__label ba-slider__label--before">&#1044;&#1086;</span>
+            <span class="ba-slider__label ba-slider__label--after">&#1055;&#1086;&#1089;&#1083;&#1077;</span>
           </div>
 
           <!-- Demo 3: pair11 — hall/commercial -->
-          <div class="ba-slider" style="position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;cursor:col-resize;user-select:none;-webkit-user-select:none;">
-            <img src="../assets/images/beforeafter/pair11-after.jpg" alt="После — глянцевый потолок с LED" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <div class="ba-slider__before" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;">
-              <img src="../assets/images/beforeafter/pair11-before.jpg" alt="До — зал со старым потолком" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;min-width:0;">
+          <div class="ba-slider">
+            <img src="../assets/images/beforeafter/pair11-after.jpg" alt="После — глянцевый потолок с LED">
+            <div class="ba-slider__before">
+              <img src="../assets/images/beforeafter/pair11-before.jpg" alt="До — зал со старым потолком">
             </div>
-            <div class="ba-slider__handle" style="position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%);z-index:2;box-shadow:0 0 8px rgba(0,0,0,0.3);">
-              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;">
+            <div class="ba-slider__handle"><div class="ba-slider__handle-circle">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L2 8L5 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/><path d="M11 3L14 8L11 13" stroke="#333" stroke-width="1.5" stroke-linecap="round"/></svg>
               </div>
             </div>
-            <div style="position:absolute;top:var(--sp-3);left:var(--sp-3);background:rgba(0,0,0,0.55);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">До</div>
-            <div style="position:absolute;top:var(--sp-3);right:var(--sp-3);background:var(--color-accent);color:#fff;padding:2px 10px;border-radius:4px;font-size:0.7rem;font-weight:600;z-index:3;">После</div>
+            <span class="ba-slider__label ba-slider__label--before">&#1044;&#1086;</span>
+            <span class="ba-slider__label ba-slider__label--after">&#1055;&#1086;&#1089;&#1083;&#1077;</span>
           </div>
 
         </div>
@@ -825,7 +964,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
           <h2>Отзывы клиентов</h2>
         </div>
         <div class="grid grid--2" style="max-width:800px;margin:0 auto;">
-          
+
           <div style="padding:var(--space-xl);background:var(--color-bg-alt);border-radius:var(--radius-lg);">
             <p style="color:var(--color-text);font-size:var(--font-size-md);line-height:1.7;margin-bottom:var(--space-md);">"Процесс установки был быстрым и профессиональным, результат просто поразительный."</p>
             <div style="display:flex;align-items:center;gap:var(--space-sm);">
@@ -897,7 +1036,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
             </button>
             <div class="faq-answer">
               <div class="faq-answer__inner">
-                Натяжной потолок монтируется за день без грязи, водостоек и поставляется с долгой гарантией. Гипсокартон требует нескольких дней, пыли и шпаклёвки, менее устойчив к влаге. По цене — натяжной потолок обычно выгоднее. <a href="/hashvaa/tikra-metuha-o-geves">Полное сравнение</a>.
+                Натяжной потолок монтируется за день без грязи, водостоек и поставляется с долгой гарантией. Гипсокартон требует нескольких дней, пыли и шпаклёвки, менее устойчив к влаге. По цене — натяжной потолок обычно выгоднее. <a href="/ru/sravnenie-geves">Полное сравнение</a>.
               </div>
             </div>
           </div>
@@ -909,6 +1048,28 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
             <div class="faq-answer">
               <div class="faq-answer__inner">
                 Работаем по всему Израилю — центр, Тель-Авив, Иерусалим, Хайфа и север, Ашдод, Ашкелон, Беэр-Шева и юг. <a href="/azorim">Зоны обслуживания</a>.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Есть ли решения для офиса и бизнеса?
+              <span class="faq-question__icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">
+                Да. Мы делаем потолки для <a href="/hadarim/misrad">офисов</a>, лобби, магазинов, ресторанов и влажных общественных зон. В коммерческих проектах обычно сочетаем световой потолок, LED-линии, акустику и расчёт по плану. <a href="/asakim">Подробнее о бизнес-проектах</a> и <a href="/azorim">зонах обслуживания</a>.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Где посмотреть цены и зоны обслуживания?
+              <span class="faq-question__icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">
+                Русскоязычные цены собраны на странице <a href="/ru/cena/">/ru/cena/</a>, а список городов и регионов — на странице <a href="/azorim">зон обслуживания</a>. Для офисов и коммерческих проектов можно сразу перейти в <a href="/asakim">раздел для бизнеса</a>, а реальные установки посмотреть в <a href="/proyektim">проектах</a> и на странице <a href="/odot">о компании</a>.
               </div>
             </div>
           </div>
@@ -957,7 +1118,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
             <li><a href="/teura">Освещение</a></li>
             <li><a href="/ru/cena/">Цены</a></li>
             <li><a href="/brisol">Бризоль</a></li>
-            <li><a href="/hashvaa/tikra-metuha-o-geves">Натяжной или гипс</a></li>
+            <li><a href="/ru/sravnenie-geves">Натяжной или гипс</a></li>
           </ul>
         </div>
 
@@ -997,7 +1158,7 @@ const RU_INDEX_HTML = `<!DOCTYPE html>
           <a href="/azorim/merkaz" style="color:rgba(255,255,255,0.4);">Центр</a> ·
           <a href="/azorim/darom" style="color:rgba(255,255,255,0.4);">Юг</a>
         </span>
-        <span style="color:rgba(255,255,255,0.12);font-size:0.65rem;">v75</span>
+
       </div>
     </div>
   </footer>
@@ -1018,8 +1179,8 @@ const RU_CENA_HTML = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Сколько стоит натяжной потолок — от ₪229/м² | SkyView</title>
-  <meta name="description" content="Сколько стоит натяжной потолок? От ₪229/м² включая монтаж. Что влияет на цену — покрытие, освещение, площадь. Быстрый расчёт + точное предложение.">
+  <title>Цена натяжного потолка - прайс-лист 2026 от 229₪ | SkyView</title>
+  <meta name="description" content="Полный прайс-лист: MSD от 229₪, TEQTUM от 279₪, RENOLIT от 339₪. Включая монтаж и гарантию производителя до 15 лет. Расчёт стоимости для вашей комнаты онлайн.">
   <link rel="canonical" href="https://www.skyview.co.il/ru/cena/">
   <link rel="stylesheet" href="../../css/style.css">
   <style>
@@ -1027,12 +1188,14 @@ const RU_CENA_HTML = `<!DOCTYPE html>
   html[lang="ru"],html[lang="ru"] body,html[lang="ru"] h1,html[lang="ru"] h2,html[lang="ru"] h3,html[lang="ru"] button,html[lang="ru"] a,html[lang="ru"] .btn,html[lang="ru"] .header__logo-mark,html[lang="ru"] .feature-card__title,html[lang="ru"] .card__title,html[lang="ru"] .price-card__name{font-family:'Manrope',system-ui,sans-serif!important;}
   </style>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько стоит натяжной потолок за м²?", "acceptedAnswer": {"@type": "Answer", "text": "Цена натяжного потолка за м²: MSD — ₪229 (гарантия 10 лет), TEQTUM — ₪279 (12 лет), RENOLIT — ₪339 (15 лет). Включая производство, доставку и монтаж."}}, {"@type": "Question", "name": "Что включено, а что нет?", "acceptedAnswer": {"@type": "Answer", "text": "Цена за м² включает производство, доставку и монтаж. LED-линии, споты, магнитные рельсы, световые потолки, принты и спецотверстия — отдельно."}}, {"@type": "Question", "name": "Сколько стоят дополнения по освещению?", "acceptedAnswer": {"@type": "Answer", "text": "LED-линии от ₪389/м, споты ₪100/шт, магнитный рельс ₪750/м, световой потолок ₪1,000/м². Точная цена зависит от планирования."}}, {"@type": "Question", "name": "Есть ли скидка на несколько комнат?", "acceptedAnswer": {"@type": "Answer", "text": "Да, для проектов на всю квартиру или несколько комнат предоставляется скидка. Оставьте контакты для индивидуального предложения."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Цена натяжного потолка в Израиле","serviceType":"Натяжные потолки и расчёт стоимости","provider":{"@id":"https://www.skyview.co.il/#organization"},"areaServed":{"@type":"Country","name":"Israel"},"offers":{"@type":"AggregateOffer","priceCurrency":"ILS","lowPrice":"229","highPrice":"339","offerCount":"3"},"description":"Русскоязычная страница цен SkyView: стоимость натяжных потолков, освещения и расчёт по площади."}</script>
 
-  <meta property="og:title" content="Сколько стоит натяжной потолок — от ₪229/м² | SkyView">
-  <meta property="og:description" content="Прайс натяжных потолков по уровню материала. Освещение рассчитывается отдельно. Быстрый калькулятор.">
+  <meta property="og:title" content="Цена натяжного потолка - прайс-лист 2026 от 229₪ | SkyView">
+  <meta property="og:description" content="Полный прайс-лист: MSD от 229₪, TEQTUM от 279₪, RENOLIT от 339₪. Включая монтаж и гарантию производителя до 15 лет. Расчёт стоимости для вашей комнаты онлайн.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.skyview.co.il/ru/cena/">
   <meta property="og:locale" content="ru_IL">
+  <meta property="og:locale:alternate" content="he_IL">
   <meta property="og:site_name" content="SkyView — натяжные потолки">
   <meta property="og:image" content="https://www.skyview.co.il/assets/images/projects/project-2.jpg">
 
@@ -1041,8 +1204,9 @@ const RU_CENA_HTML = `<!DOCTYPE html>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://www.skyview.co.il/assets/images/hero/glossy-salon-premium.jpg">
 
-  <link rel="alternate" hreflang="he" href="https://www.skyview.co.il/ru/cena/">
+  <link rel="alternate" hreflang="he" href="https://www.skyview.co.il/mehiron/">
   <link rel="alternate" hreflang="ru" href="https://www.skyview.co.il/ru/cena/">
+  <link rel="alternate" hreflang="x-default" href="https://www.skyview.co.il/mehiron/">
 </head>
 <body>
   <!-- Header identical to homepage - in production would be a shared component -->
@@ -1083,7 +1247,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
               <a href="/hanmahat-tikra" role="menuitem">Опускание потолка</a>
             </div>
             <div class="nav-dropdown__divider"></div>
-            <a href="/hashvaa/tikra-metuha-o-geves" style="display:flex;align-items:center;gap:8px;padding:9px 16px;font-size:0.8125rem;color:var(--text-soft);border-radius:8px;text-decoration:none;" role="menuitem">Натяжной vs гипс</a>
+            <a href="/ru/sravnenie-geves" style="display:flex;align-items:center;gap:8px;padding:9px 16px;font-size:0.8125rem;color:var(--text-soft);border-radius:8px;text-decoration:none;" role="menuitem">Натяжной vs гипс</a>
           </div>
         </div>
         <div class="nav-dropdown">
@@ -1166,7 +1330,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
           <a href="/sugim/hadpas">Принт / небо</a>
           <a href="/sugim/akustit">Акустика</a>
           <a href="/brisol">Бризоль</a>
-          <a href="/hashvaa/tikra-metuha-o-geves">Натяжной vs гипс</a>
+          <a href="/ru/sravnenie-geves">Натяжной vs гипс</a>
           <a href="/hanmahat-tikra">Опускание потолка</a>
         </div>
       </div>
@@ -1205,7 +1369,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
           <a href="/madrich">Все руководства</a>
         </div>
       </div>
-      <a href="/mehiron" class="mobile-nav__link">Цены</a>
+      <a href="/ru/cena/" class="mobile-nav__link">Цены</a>
       <a href="/proyektim" class="mobile-nav__link">Проекты</a>
       <a href="/asakim" class="mobile-nav__link">Для бизнеса</a>
       <a href="/azorim" class="mobile-nav__link">Зоны обслуживания</a>
@@ -1228,7 +1392,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
     <a href="/">Главная</a><span class="breadcrumb__sep">/</span>
     <span class="breadcrumb__current">Цены</span>
   </nav>
-        
+
         <h1>Сколько стоит натяжной потолок — цена за м² и общая стоимость</h1>
         <p>Цена натяжного потолка начинается от ₪229/м², включая производство, доставку и монтаж. Итоговая стоимость зависит от покрытия, освещения и площади. Используйте калькулятор для быстрой оценки — точное предложение после замера.</p>
 </div>
@@ -1444,7 +1608,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
           <p><strong>Не включено:</strong> светильники и драйверы (если не оговорено иное), электромонтажные работы лицензированного электрика, демонтаж существующего потолка при необходимости, ремонт штукатурки или гипса до монтажа.</p>
 
           <h2>Натяжной потолок vs гипсокартон — сравнение стоимости</h2>
-          <p>Стоимость <a href="/hanmahat-tikra/gevs">гипсокартонного потолка</a> обычно ₪300–600/м², включая конструкцию, шпаклёвку, шлифовку и краску. Натяжной — от ₪229/м². Гипс требует перекраски каждые 5–10 лет, может трескаться и чувствителен к влаге. Натяжной потолок обслуживания не требует. <a href="/hashvaa/tikra-metuha-o-geves">Полное сравнение</a>.</p>
+          <p>Стоимость <a href="/hanmahat-tikra/gevs">гипсокартонного потолка</a> обычно ₪300–600/м², включая конструкцию, шпаклёвку, шлифовку и краску. Натяжной — от ₪229/м². Гипс требует перекраски каждые 5–10 лет, может трескаться и чувствителен к влаге. Натяжной потолок обслуживания не требует. <a href="/ru/sravnenie-geves">Полное сравнение</a>.</p>
 
           <h2>Цена по комнатам — диапазоны оценок</h2>
           <p>Гостиная (15–25 м²): от ₪3 400 базовое, от ₪4 200 продвинутое. Спальня (10–15 м²): от ₪2 290 базовое. Ванная (4–8 м²): может применяться минимальная цена. Кухня (8–15 м²): от ₪1 830 базовое. Цены — только потолок, без освещения.</p>
@@ -1460,25 +1624,26 @@ const RU_CENA_HTML = `<!DOCTYPE html>
       <div class="container">
         <h2 style="text-align:center;">Часто задаваемые вопросы о цене натяжного потолка</h2>
         <div class="faq-list" style="margin:var(--sp-8) auto 0;">
-          <div class="faq-item"><button class="faq-question" aria-expanded="false">Сколько стоит натяжной потолок за м²?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">MSD — ₪229/м². ₪339 — RENOLIT/м². Включая производство, доставку и монтаж. Освещение — отдельно.</div></div></div>
+          <div class="faq-item"><button class="faq-question" aria-expanded="false">Сколько стоит натяжной потолок за м²?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">MSD — ₪229/м², TEQTUM — ₪279/м², RENOLIT — ₪339/м². Включая производство, доставку и монтаж. Освещение — отдельно.</div></div></div>
           <div class="faq-item"><button class="faq-question" aria-expanded="false">Что включено в цену?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">Цена включает изготовление полотна, доставку и монтаж с профилем. Не включено: LED-линии, споты, магнитный рельс, световой потолок, принты, плавающие полосы — всё отдельно по проекту.</div></div></div>
           <div class="faq-item"><button class="faq-question" aria-expanded="false">Сколько стоит натяжной со встроенным освещением?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">Зависит от типа освещения и количества светильников. Один спот — несколько десятков шекелей. <a href="/teura/masila-magnetit-shkuaa">Встроенный магнитный рельс</a> — по длине. <a href="/sugim/pasei-merahvim">Плавающие полосы</a> — по периметру. При полном освещении стоимость сопоставима с потолком. Точное предложение после замера.</div></div></div>
           <div class="faq-item"><button class="faq-question" aria-expanded="false">Сколько стоит натяжной для гостиной?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">Средняя гостиная (15–25 м²) с базовым покрытием — ₪3 400–₪5 800. С продвинутым — ₪4 200–₪7 000. Со встроенным освещением (споты / рельс / плавающие полосы) — дополнительно. Используйте калькулятор выше.</div></div></div>
           <div class="faq-item"><button class="faq-question" aria-expanded="false">Есть ли скидка на несколько комнат?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">Да. Проект на 3+ комнаты получает более выгодную цену за м². Вся квартира — значительная скидка по сравнению с одной комнатой.</div></div></div>
+          <div class="faq-item"><button class="faq-question" aria-expanded="false">Как считают цену для офиса или бизнеса?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">Коммерческие проекты считаются по площади, высоте, типу освещения, акустическим требованиям и режиму работы объекта. Для офиса, лобби, магазина или клиники мы готовим отдельное предложение после короткого разговора и замера. <a href="/asakim">Страница для бизнеса</a>.</div></div></div>
           <div class="faq-item"><button class="faq-question" aria-expanded="false">В чём разница между покрытиями?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner"><a href="/sugim/mat">Мат</a> — классический вид, как гипс. <a href="/sugim/saten">Сатин</a> — мягкий элегантный блеск. <a href="/sugim/mavrika">Глянец</a> — полное отражение, роскошный эффект. Все монтируются одинаково — разница только во внешнем виде.</div></div></div>
-          <div class="faq-item"><button class="faq-question" aria-expanded="false">Когда лучше позвонить?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">Площадь свыше 100 м², коммерческие проекты, сложное освещение или нестандартная комната (колонны, неровные стены, нестандартная высота) — лучше короткий звонок. <a href="tel:0528082988">052-808-2988</a>.</div></div></div>
+          <div class="faq-item"><button class="faq-question" aria-expanded="false">Когда лучше позвонить?<span class="faq-question__icon">+</span></button><div class="faq-answer"><div class="faq-answer__inner">Площадь свыше 100 м², коммерческие проекты, сложное освещение или нестандартная комната (колонны, неровные стены, нестандартная высота) — лучше короткий звонок. Если хотите сначала посмотреть реальные установки и понять уровень работ, откройте <a href="/proyektim">проекты</a>. <a href="tel:0528082988">052-808-2988</a>.</div></div></div>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    
+
     <section class="section">
       <div class="container container--narrow">
 
       <div class="internal-links-block">
         <h3>Полезные страницы</h3>
-        <ul><li><a href="/tikrot-metuhot">Натяжные потолки</a></li><li><a href="/sugim">Виды потолков</a></li><li><a href="/teura">Решения освещения</a></li><li><a href="/hanmahat-tikra">Опускание потолка</a></li><li><a href="/hanmahat-tikra/gevs">Опускание гипсокартонного потолка — цена и процесс</a></li><li><a href="/hashvaa/tikra-metuha-o-geves">Сравнение с гипсом</a></li><li><a href="/sugim/pasei-merahvim">Плавающие полосы</a></li><li><a href="/madrich/ma-mashpia-al-mehir">Что влияет на цену</a></li><li><a href="/madrich/homrim">Материалы</a></li></ul>
+        <ul><li><a href="/ru/">Натяжные потолки в Израиле</a></li><li><a href="/tikrot-metuhot">Натяжные потолки</a></li><li><a href="/sugim">Виды потолков</a></li><li><a href="/teura">Решения освещения</a></li><li><a href="/hadarim/salon">Потолок для гостиной</a></li><li><a href="/hadarim/ambatia">Потолок для ванной</a></li><li><a href="/hadarim/misrad">Потолок для офиса</a></li><li><a href="/asakim">Решения для бизнеса</a></li><li><a href="/azorim">Зоны обслуживания</a></li><li><a href="/hanmahat-tikra">Опускание потолка</a></li><li><a href="/ru/sravnenie-geves">Сравнение с гипсом</a></li><li><a href="/madrich/ma-mashpia-al-mehir">Что влияет на цену</a></li><li><a href="/madrich/homrim">Материалы</a></li><li><a href="/odot">О компании SkyView</a></li><li><a href="/proyektim">Проекты</a></li><li><a href="/contact">Связаться</a></li></ul>
       </div>
       </div>
     </section>
@@ -1522,7 +1687,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
             <li><a href="/teura">Освещение</a></li>
             <li><a href="/ru/cena/">Цены</a></li>
             <li><a href="/brisol">Бризоль</a></li>
-            <li><a href="/hashvaa/tikra-metuha-o-geves">Натяжной или гипс</a></li>
+            <li><a href="/ru/sravnenie-geves">Натяжной или гипс</a></li>
           </ul>
         </div>
 
@@ -1562,7 +1727,7 @@ const RU_CENA_HTML = `<!DOCTYPE html>
           <a href="/azorim/merkaz" style="color:rgba(255,255,255,0.4);">Центр</a> ·
           <a href="/azorim/darom" style="color:rgba(255,255,255,0.4);">Юг</a>
         </span>
-        <span style="color:rgba(255,255,255,0.12);font-size:0.65rem;">v75</span>
+
       </div>
     </div>
   </footer>
@@ -1599,6 +1764,7 @@ const REDIRECTS = {
   '/מחירקרניזגבס': '/hanmahat-tikra/gevs',
   '/תקרה-נמתחת-תלת-מימד': '/sugim',
   '/натяжные-потолки-визраиле-цена': '/mehiron',
+  '/tikra-metuha-180': '/mehiron',
 
   // Legacy Latin slugs
   '/sugei-hanmahot-tikra': '/sugim',
@@ -1690,7 +1856,7 @@ const REDIRECTS = {
   '/ru/натяжные-потолки-визраиле-цена': '/mehiron',
   '/ru/מחיר-תקרה-מתוחה': '/mehiron',
   '/ru/תמונות-השראה-2021': '/proyektim',
-  '/ru/תקרה-צפה-מרחפת': '/sugim/pasei-merahvim',
+  '/ru/תקרה-צפה-מרחפת': '/sugim/tikra-tzafa',
   '/ru/סוגי-תקרות-קיימים': '/sugim',
   '/ru/תקרה-מתוחה-מוארת': '/teura/tikra-mueret',
   '/ru/תקרה-מתוחה-פסים-מרחפים': '/sugim/pasei-merahvim',
@@ -1794,29 +1960,85 @@ export default {
       });
     }
 
-    // Lead-form fallback — receives POSTs from <form action="/api/lead-fallback">
-    // Used when JS fetch() to primary endpoint fails or JS is disabled.
+    // Lead-form endpoint — used by async JS submits and by native <form action="/api/lead-fallback"> fallback.
     if (path === '/api/lead-fallback' && request.method === 'POST') {
+      const isAsync = request.headers.get('x-skyview-async') === '1' || (request.headers.get('accept') || '').includes('application/json');
       try {
-        const formData = await request.formData();
-        const lead = {
-          phone: formData.get('phone') || '',
-          name: formData.get('name') || '',
-          email: formData.get('email') || '',
-          message: formData.get('message') || '',
-          form_type: formData.get('form_type') || 'fallback',
-          page: request.headers.get('referer') || 'unknown',
-          ua: request.headers.get('user-agent') || '',
-          ts: Date.now()
-        };
-        if (env.LEAD_WEBHOOK_URL) {
-          await fetch(env.LEAD_WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(lead)
-          }).catch(() => {});
+        let lead;
+        const contentType = request.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+          const body = await request.json();
+          lead = {
+            phone: body.phone || '',
+            name: body.name || '',
+            email: body.email || '',
+            message: body.message || body.notes || '',
+            form_type: body.form_type || 'fallback',
+            page: body.source || request.headers.get('referer') || 'unknown',
+            form_id: body.form_id || '',
+            event_id: body.event_id || '',
+            ua: request.headers.get('user-agent') || '',
+            ts: Date.now()
+          };
+        } else {
+          const formData = await request.formData();
+          lead = {
+            phone: formData.get('phone') || '',
+            name: formData.get('name') || '',
+            email: formData.get('email') || '',
+            message: formData.get('message') || formData.get('notes') || '',
+            form_type: formData.get('form_type') || 'fallback',
+            page: request.headers.get('referer') || 'unknown',
+            form_id: formData.get('form_id') || '',
+            event_id: formData.get('event_id') || '',
+            ua: request.headers.get('user-agent') || '',
+            ts: Date.now()
+          };
         }
-      } catch (_) { /* swallow — always redirect to /toda */ }
+
+        const deliveries = await Promise.all([
+          deliverLeadByResend(lead, env),
+          deliverLeadByWebhook(lead, env)
+        ]);
+        const attempted = deliveries.some((item) => item.attempted);
+        const delivered = deliveries.some((item) => item.ok);
+
+        if (!attempted) {
+          if (isAsync) {
+            return new Response(JSON.stringify({ error: 'Lead delivery is not configured' }), {
+              status: 500,
+              headers: { 'Content-Type': 'application/json; charset=utf-8' }
+            });
+          }
+          return Response.redirect(new URL('/contact?lead_error=1', url.origin).href, 302);
+        }
+
+        if (!delivered) {
+          console.error('[lead-fallback] Delivery failed', JSON.stringify(deliveries));
+          if (isAsync) {
+            return new Response(JSON.stringify({ error: 'Lead delivery failed' }), {
+              status: 502,
+              headers: { 'Content-Type': 'application/json; charset=utf-8' }
+            });
+          }
+          return Response.redirect(new URL('/contact?lead_error=1', url.origin).href, 302);
+        }
+
+        if (isAsync) {
+          return new Response(JSON.stringify({ success: true }), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json; charset=utf-8' }
+          });
+        }
+      } catch (_) {
+        if (isAsync) {
+          return new Response(JSON.stringify({ error: 'Lead submission failed' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json; charset=utf-8' }
+          });
+        }
+        return Response.redirect(new URL('/contact?lead_error=1', url.origin).href, 302);
+      }
       return Response.redirect(new URL('/toda', url.origin).href, 302);
     }
 
